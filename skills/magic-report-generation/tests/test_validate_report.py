@@ -11,7 +11,7 @@ import tempfile
 import pytest
 
 SCRIPT_PATH = os.path.join(
-    os.path.dirname(__file__), "..", "..", "skills", "magic-report-generation", "scripts", "validate_report.py"
+    os.path.dirname(__file__), "..", "scripts", "validate_report.py"
 )
 
 

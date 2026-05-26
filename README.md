@@ -143,13 +143,19 @@ magic-agent-skills/
 │   ├── magic-data-*/           # 12 data science skills
 │   │   ├── SKILL.md            # Knowledge document + frontmatter
 │   │   ├── scripts/            # Reference Python implementations
-│   │   └── references/         # Additional reference material
+│   │   ├── references/         # Additional reference material
+│   │   └── tests/              # Per-skill unit tests (co-located)
 │   ├── linguistic-*/           # 18 linguistics skills
 │   │   ├── SKILL.md            # Knowledge document + frontmatter
 │   │   ├── scripts/            # Reference implementations (where applicable)
 │   │   ├── references/         # Linguistic references
-│   │   └── evals/              # Skill-specific evaluation data
+│   │   ├── evals/              # Skill-specific evaluation data
+│   │   └── tests/              # Per-skill tests (where applicable)
 │   └── _linguistic_shared/     # Shared Python utilities (not a skill)
+├── tests/                      # Cross-cutting validation tests
+│   ├── unit/                   # Structure, triggers, consistency checks
+│   ├── integration/            # Multi-skill workflow tests
+│   └── e2e/                    # End-to-end pipeline scenarios
 ├── commands/
 │   ├── magic/                  # 13 data slash commands
 │   └── linguistic/             # 10 linguistic slash commands
@@ -160,7 +166,6 @@ magic-agent-skills/
 ├── .claude-plugin/
 │   └── marketplace.json        # Claude plugin manifest
 ├── skills.sh.json              # skills.sh registry grouping
-├── MAGIC.md                    # Namespace and skill suite overview
 └── RELEASING.md                # Versioning and release policy
 ```
 

@@ -12,7 +12,7 @@ import tempfile
 import pytest
 
 SCRIPT_PATH = os.path.join(
-    os.path.dirname(__file__), "..", "..", "skills", "magic-data-loading", "scripts", "text_parser.py"
+    os.path.dirname(__file__), "..", "scripts", "text_parser.py"
 )
 
 

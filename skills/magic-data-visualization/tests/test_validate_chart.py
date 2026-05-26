@@ -12,7 +12,7 @@ import pandas as pd
 import pytest
 
 SCRIPT_PATH = os.path.join(
-    os.path.dirname(__file__), "..", "..", "skills", "magic-data-visualization", "scripts", "validate_chart.py"
+    os.path.dirname(__file__), "..", "scripts", "validate_chart.py"
 )
 
 

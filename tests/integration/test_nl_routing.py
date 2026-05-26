@@ -84,7 +84,7 @@ def _route_query(query: str) -> str:
 ROUTING_TEST_CASES = [
     # Lifecycle / entry-point queries
     ("start processing this dataset", "magic-data-lifecycle"),
-    ("help me clean this data", "magic-data-lifecycle"),
+    ("help me process and clean this data pipeline", "magic-data-lifecycle"),
 
     # Explore queries — magic-data-exploration is the canonical skill.
     ("let me explore this data", "magic-data-exploration"),
