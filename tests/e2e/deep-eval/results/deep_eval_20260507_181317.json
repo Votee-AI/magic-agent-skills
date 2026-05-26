@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-05-07 18:13:17",
+  "total": 1,
+  "passed": 1,
+  "failed": 0,
+  "errors": 0,
+  "results": [
+    {
+      "scenario_id": "D1-06",
+      "name": "Agent autonomy (Kaggle)",
+      "status": "PASS",
+      "duration_sec": 48.74,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 8,
+      "assertions_total": 8,
+      "details": {
+        "identifies_loading": {
+          "passed": true,
+          "detail": "matched: ['load']"
+        },
+        "identifies_profiling": {
+          "passed": true,
+          "detail": "matched: ['profile', 'quality', 'distribution', 'null']"
+        },
+        "identifies_cleaning": {
+          "passed": true,
+          "detail": "matched: ['clean', 'strip', 'duplicate']"
+        },
+        "identifies_transform": {
+          "passed": true,
+          "detail": "matched: ['transform', 'jsonl', 'reshape', 'prompt-completion', 'fine-tun']"
+        },
+        "identifies_validation": {
+          "passed": true,
+          "detail": "matched: ['validate', 'verify', 'check', 'schema']"
+        },
+        "correct_ordering": {
+          "passed": true,
+          "detail": "matched: ['load', 'profile']"
+        },
+        "mentions_checkpoint": {
+          "passed": true,
+          "detail": "matched: ['checkpoint']"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=48.7s"
+        }
+      },
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "scenario": "self_healing",
+  "checks": [
+    {"pattern": "*.csv", "description": "Successfully loaded data exists after self-healing"},
+    {"pattern": "ckpt_*", "description": "At least one checkpoint created"}
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://skills.sh/schema/skills.sh.json",
+  "groupings": [
+    {
+      "title": "Data Science",
+      "description": "12 skills for data loading, profiling, cleaning, transformation, visualization, and synthesis",
+      "skills": [
+        "magic-data-cleaning",
+        "magic-data-exploration",
+        "magic-data-lifecycle",
+        "magic-data-loading",
+        "magic-data-profiling",
+        "magic-data-synthesis",
+        "magic-data-transformation",
+        "magic-data-validation",
+        "magic-data-visualization",
+        "magic-report-generation",
+        "magic-statistical-analysis",
+        "magic-workspace-init"
+      ]
+    },
+    {
+      "title": "Linguistics",
+      "description": "18 skills for low-resource language NLP with AI coding assistants",
+      "skills": [
+        "linguistic-annotate",
+        "linguistic-bitext",
+        "linguistic-codeswitch",
+        "linguistic-corpus",
+        "linguistic-discourse",
+        "linguistic-ethics",
+        "linguistic-eval",
+        "linguistic-historical",
+        "linguistic-lexicon",
+        "linguistic-morph",
+        "linguistic-orchestrator",
+        "linguistic-scope",
+        "linguistic-scripts",
+        "linguistic-semantics",
+        "linguistic-speech",
+        "linguistic-syntax",
+        "linguistic-tokenize",
+        "linguistic-transfer"
+      ]
+    }
+  ]
+}

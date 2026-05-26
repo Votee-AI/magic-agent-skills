@@ -1,0 +1,14 @@
+{
+  "rows": 9500,
+  "columns": 3,
+  "null_pct": {
+    "id": 0.0,
+    "prompt": 0.0,
+    "answer": 0.0
+  },
+  "text_lengths": {
+    "id": 8,
+    "prompt": 301,
+    "answer": 8
+  }
+}

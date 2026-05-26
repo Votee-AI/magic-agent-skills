@@ -1,0 +1,44 @@
+# MAGIC Agent Skills — Python Dependencies
+#
+# Quick setup:
+#   uv venv .venv && source .venv/bin/activate
+#   uv pip install -r requirements.txt
+#
+# Or with pip:
+#   python3 -m venv .venv && source .venv/bin/activate
+#   pip install -r requirements.txt
+
+# ── Required (all skills) ─────────────────────────────────────────
+pandas>=2.0
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7
+seaborn>=0.12
+chardet>=5.0         # magic-data-loading (encoding detection)
+openpyxl>=3.1        # magic-data-loading (Excel file support)
+pyarrow>=14.0        # magic-data-loading (Parquet file support)
+pyyaml>=6.0          # config parsing
+
+# ── Recommended (specific skills) ─────────────────────────────────
+plotly>=5.0          # magic-data-visualization (interactive charts)
+pandera>=0.18        # magic-data-validation (schema validation)
+jinja2>=3.1          # magic-report-generation (report templating)
+tabulate>=0.9        # magic-report-generation (table formatting)
+
+# ── Optional (synthesis + testing) ────────────────────────────────
+data-designer        # magic-data-synthesis (LLM-based generation via DataDesigner)
+tiktoken>=0.7        # magic-data-synthesis (token counting for cost estimation)
+rapidfuzz>=3.0,<4.0  # magic-data-cleaning/validation (fuzzy column name suggestions)
+psutil>=5.9          # deep eval runner (memory monitoring)
+
+# ── Database integration ──────────────────────────────────────────
+sqlalchemy>=2.0      # database connectivity (PostgreSQL, MySQL, SQLite)
+# pymongo>=4.0       # MongoDB connectivity (deferred)
+
+# ── Recommended database drivers (install for your dialect) ───────
+# psycopg2-binary    # PostgreSQL driver (install when using PostgreSQL)
+# pymysql            # MySQL driver (install when using MySQL)
+
+# ── HuggingFace Hub integration ───────────────────────────────────
+huggingface_hub>=1.0   # HuggingFace Hub (inspect, download, upload datasets)
+httpx>=0.27            # Datasets Server REST API (used by inspect_hf_dataset.py)

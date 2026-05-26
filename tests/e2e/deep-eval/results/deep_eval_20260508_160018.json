@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-05-08 16:00:18",
+  "total": 1,
+  "passed": 1,
+  "failed": 0,
+  "errors": 0,
+  "results": [
+    {
+      "scenario_id": "D5-03",
+      "name": "Health check pattern",
+      "status": "PASS",
+      "duration_sec": 0.03,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 8,
+      "assertions_total": 8,
+      "details": {
+        "lmstudio_health": {
+          "passed": true,
+          "detail": "LM Studio not running (expected in some envs)"
+        },
+        "dead_endpoint_detected": {
+          "passed": true,
+          "detail": "correctly detected dead endpoint"
+        },
+        "diagnose_model_unloaded": {
+          "passed": true,
+          "detail": "'Failed to load model' \u2192 model_unloaded"
+        },
+        "diagnose_endpoint_down": {
+          "passed": true,
+          "detail": "'Connection refused' \u2192 endpoint_down"
+        },
+        "diagnose_rate_limited": {
+          "passed": true,
+          "detail": "'429 Too Many Requests' \u2192 rate_limited"
+        },
+        "diagnose_auth_error": {
+          "passed": true,
+          "detail": "'401 Unauthorized' \u2192 auth_error"
+        },
+        "diagnose_oom_killed": {
+          "passed": true,
+          "detail": "'Killed' \u2192 oom_killed"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.0s"
+        }
+      },
+      "error": null
+    }
+  ]
+}

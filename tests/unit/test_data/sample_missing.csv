@@ -1,0 +1,1001 @@
+id,name,age,income,city,score,date,is_active
+1,William Taylor,,103441.79,,37.78,2023-04-13,False
+2,William Hernandez,40.0,,San Antonio,6.2,2024-03-11,False
+3,Joseph Harris,,93852.03,,33.93,2023-09-28,False
+4,Donna López,,106190.95,,50.59,2023-04-17,True
+5,Sandra Young,74.0,,,16.19,2023-03-13,False
+6,Robert Wilson,36.0,134303.16,San Jose,65.81,2024-12-01,True
+7,David Rodriguez,63.0,107825.41,Jacksonville,99.77,2023-01-21,False
+8,Kimberly Lopez,68.0,91105.22,,45.17,2024-09-06,False
+9,Paul López,20.0,127869.21,,35.47,2023-05-02,True
+10,James Thompson,59.0,98799.05,San Diego,40.07,2024-04-11,False
+11,Mark Davis,36.0,57848.75,,11.51,2023-08-03,True
+12,David Pérez,26.0,46922.34,Austin,88.33,2023-11-27,False
+13,Susan Walker,45.0,39802.61,Jacksonville,41.48,2024-04-03,True
+14,Paul Lee,37.0,136929.18,,38.73,2023-03-29,False
+15,Andrew Jones,62.0,112317.61,,65.97,2024-01-08,True
+16,Charles Wilson,24.0,141859.2,,44.2,2023-04-10,True
+17,Betty Brown,31.0,98427.93,San Diego,64.82,2024-10-25,False
+18,Matthew Sanchez,80.0,,,6.14,2023-05-11,False
+19,Sarah Davis,26.0,27763.14,,81.37,2024-10-23,True
+20,Joshua Wilson,76.0,107313.5,,94.05,2023-11-05,False
+21,Ashley Rodríguez,77.0,,,64.88,2023-12-10,True
+22,Steven White,72.0,148727.16,,95.46,2024-05-06,False
+23,Joseph Müller,74.0,51090.64,Los Angeles,15.14,2024-02-18,True
+24,Matthew Taylor,77.0,88995.86,,47.74,2024-01-21,False
+25,Steven Johnson,36.0,104624.45,Philadelphia,60.18,2023-07-11,True
+26,Susan Garcia,64.0,103796.85,,58.17,2023-10-04,False
+27,Jennifer Williams,69.0,92968.16,,40.15,2023-06-10,True
+28,Michael Davis,31.0,121000.64,Dallas,33.81,2024-04-04,True
+29,María Anderson,73.0,46647.56,,12.68,2023-11-10,False
+30,Sébastien Robinson,55.0,,,39.17,2023-01-22,False
+31,Steven Walker,70.0,100565.49,Jacksonville,16.27,2023-09-10,True
+32,Joshua Ramirez,78.0,136489.76,Indianapolis,73.44,2024-07-14,True
+33,Emily Robinson,53.0,130135.28,,20.88,2024-04-19,True
+34,Donna Müller,57.0,,,5.86,2023-02-28,True
+35,Andrew Ramirez,34.0,55910.85,,55.24,2024-05-25,False
+36,Steven Brown,47.0,147614.93,,59.52,2024-11-12,True
+37,Nancy Johnson,26.0,88544.47,,87.19,2024-04-20,True
+38,Barbara Jones,50.0,137834.73,Indianapolis,57.7,2024-11-30,True
+39,Barbara Müller,73.0,41304.53,,34.55,2023-07-09,False
+40,Donna Gonzalez,69.0,,,80.3,2024-11-17,True
+41,Donald González,42.0,125281.82,San Jose,54.03,2024-07-16,False
+42,Pierre Harris,31.0,143161.38,,7.93,2024-07-20,False
+43,Joseph Robinson,28.0,63854.22,,56.59,2023-09-01,False
+44,Linda Jones,70.0,114247.55,Philadelphia,90.8,2024-05-19,False
+45,Mark Brown,,90045.69,,39.63,2023-05-11,False
+46,Elizabeth Johnson,58.0,27881.76,Dallas,29.63,2024-04-29,False
+47,Anthony Young,76.0,109699.97,San Jose,14.35,2024-10-08,False
+48,Emily González,31.0,109712.55,Houston,15.14,2023-01-21,True
+49,Betty Ramirez,47.0,140978.88,San Diego,43.28,2023-06-16,True
+50,Robert Martin,58.0,84650.62,,59.57,2023-10-01,False
+51,David Martinez,21.0,49932.62,Chicago,8.06,2024-01-23,True
+52,Michelle Rodríguez,76.0,25793.3,Chicago,93.96,2024-08-23,True
+53,Jennifer Davis,21.0,74033.48,,75.51,2023-11-12,False
+54,Daniel Clark,45.0,59249.17,,58.66,2023-01-14,True
+55,Jean Lopez,25.0,118941.48,Chicago,82.84,2023-08-30,False
+56,Betty Gonzalez,19.0,66054.81,San Jose,8.02,2023-12-12,True
+57,Michelle Moore,58.0,143379.26,Austin,47.68,2024-07-18,False
+58,Matthew Müller,78.0,145100.33,,63.01,2023-12-06,False
+59,Sébastien Lopez,63.0,100718.12,Indianapolis,82.87,2023-04-02,True
+60,José González,39.0,140725.84,Chicago,78.35,2024-01-02,True
+61,Stéphanie Brown,,118911.06,Jacksonville,27.71,2024-03-30,False
+62,Robert Pérez,73.0,91091.75,,94.09,2024-03-03,False
+63,Linda Lewis,80.0,43440.03,Phoenix,12.43,2024-05-23,False
+64,Donald Rodriguez,80.0,79617.73,Jacksonville,87.51,2023-02-04,True
+65,Mark Wilson,72.0,92913.68,San Jose,97.09,2023-07-25,True
+66,Michelle Thompson,33.0,132315.01,,17.72,2023-03-22,True
+67,David White,46.0,82573.34,Los Angeles,72.21,2024-07-15,True
+68,James Pérez,,136697.71,San Antonio,4.03,2024-01-23,False
+69,Christopher Clark,66.0,107665.37,Indianapolis,40.54,2023-01-02,False
+70,Jean González,65.0,37809.88,Los Angeles,51.63,2024-01-25,False
+71,Daniel Smith,47.0,149347.58,,58.06,2024-07-19,False
+72,Michelle Anderson,29.0,88540.25,Jacksonville,93.59,2023-04-16,True
+73,Christopher Rodriguez,52.0,70941.58,San Antonio,67.23,2024-04-21,False
+74,William Martinez,28.0,105684.79,Houston,48.13,2024-12-03,False
+75,Betty López,63.0,34156.13,,80.97,2024-02-06,True
+76,Matthew Clark,67.0,102750.02,San Antonio,95.05,2024-12-30,True
+77,David Rodríguez,38.0,84770.68,,2.21,2024-07-09,False
+78,Mary Miller,80.0,72867.63,,98.25,2023-06-11,True
+79,Sarah Ramirez,38.0,143892.6,,8.61,2023-07-21,False
+80,Kimberly Ramirez,22.0,87930.16,Los Angeles,81.44,2023-09-27,True
+81,Thomas Harris,65.0,48485.27,Columbus,28.03,2023-09-28,True
+82,Matthew Miller,37.0,79665.25,Chicago,13.22,2024-03-31,False
+83,Jennifer Harris,54.0,139520.36,,43.99,2024-04-06,True
+84,Steven Robinson,20.0,42892.41,,64.4,2024-12-27,False
+85,François Thompson,61.0,47814.42,,38.1,2023-09-09,True
+86,Betty Lewis,50.0,21693.84,,5.46,2024-12-02,True
+87,Christopher Miller,70.0,21844.71,,59.95,2023-10-23,True
+88,Thomas Martin,,127820.91,Houston,90.24,2024-12-25,True
+89,André Martin,26.0,115175.94,Philadelphia,38.32,2024-12-20,True
+90,Nancy Lewis,78.0,66155.34,Phoenix,21.63,2023-12-04,False
+91,Michelle Miller,26.0,110780.45,Columbus,44.26,2023-02-22,True
+92,James Dupont,21.0,71376.77,,4.84,2023-08-05,False
+93,Richard Walker,52.0,143876.58,,82.05,2023-07-07,True
+94,Daniel Jackson,34.0,145716.85,,82.63,2024-01-15,False
+95,Ashley Walker,51.0,,,58.8,2024-05-07,True
+96,Mark Robinson,41.0,131048.85,,35.31,2023-02-10,False
+97,Sandra Thomas,49.0,120501.58,Indianapolis,79.98,2023-06-06,False
+98,Michelle Jackson,18.0,,,55.47,2023-01-15,True
+99,Sarah Smith,25.0,50165.18,San Jose,82.59,2023-03-06,True
+100,Susan Johnson,62.0,79570.5,Columbus,63.15,2024-06-04,True
+101,Margaret Walker,40.0,121575.35,,78.44,2023-12-10,False
+102,Donna Brown,64.0,144821.81,,59.86,2023-05-09,False
+103,James Davis,57.0,119265.28,,41.41,2024-10-09,True
+104,Mark Williams,29.0,131176.91,,95.79,2024-04-16,True
+105,Ashley Martinez,71.0,98398.36,,54.11,2023-03-04,False
+106,Barbara Jackson,29.0,128603.02,,60.51,2023-05-19,False
+107,Jean García,63.0,,,22.05,2024-05-13,True
+108,Steven White,64.0,69008.12,,62.57,2024-08-15,False
+109,Margaret Dupont,32.0,91758.74,Phoenix,57.16,2024-01-27,True
+110,Michael Robinson,58.0,124617.91,,18.48,2024-11-05,True
+111,Linda Smith,36.0,25987.38,New York,5.96,2024-02-23,True
+112,John Harris,43.0,125050.31,Austin,60.44,2023-10-16,False
+113,Daniel Davis,69.0,43125.46,Jacksonville,76.37,2024-01-14,False
+114,Sébastien Pérez,46.0,86908.87,Indianapolis,52.34,2024-05-04,False
+115,John Müller,39.0,125075.81,San Antonio,22.68,2023-08-19,False
+116,Margaret Davis,57.0,52996.74,,66.65,2023-02-10,True
+117,Kimberly López,38.0,51954.97,Austin,8.01,2023-01-28,False
+118,Ashley Harris,68.0,72359.37,,44.18,2023-05-15,True
+119,Susan Dupont,55.0,136303.56,,16.34,2023-07-20,True
+120,Jean Thomas,37.0,20057.56,Jacksonville,18.45,2023-02-02,True
+121,Patricia Pérez,74.0,,Chicago,20.23,2023-02-17,False
+122,Christopher Wilson,46.0,39994.91,Philadelphia,38.67,2024-05-17,True
+123,Donald Moore,68.0,148711.23,San Diego,5.12,2024-02-11,True
+124,Michael Martinez,21.0,,San Antonio,39.78,2024-07-27,False
+125,Michael Müller,72.0,84307.77,,51.17,2024-12-28,True
+126,Daniel Lee,24.0,86653.63,San Diego,48.33,2023-04-09,False
+127,Charles Jackson,45.0,82601.41,,38.28,2024-11-14,False
+128,Emily Robinson,45.0,102607.67,,83.91,2024-12-26,False
+129,Sarah Johnson,21.0,31793.82,Dallas,14.53,2024-06-30,True
+130,James Jones,39.0,24240.33,,50.57,2024-09-04,False
+131,Karen Hernandez,29.0,27501.38,,6.2,2024-04-06,False
+132,María Johnson,62.0,77767.5,San Diego,7.12,2024-10-04,False
+133,John White,20.0,55821.23,,57.39,2023-01-05,False
+134,Elizabeth Martin,39.0,100865.14,Austin,56.6,2023-08-06,True
+135,Robert Pérez,61.0,149017.5,,87.8,2024-05-17,False
+136,Donna Walker,19.0,70222.01,,55.79,2024-02-02,True
+137,William García,41.0,94599.36,,95.98,2024-01-28,False
+138,José López,51.0,74028.51,,4.87,2023-07-26,True
+139,Nancy Harris,44.0,130145.32,Phoenix,9.8,2023-01-15,False
+140,Thomas Martinez,72.0,137290.73,,4.41,2024-07-07,True
+141,Sandra White,58.0,134056.23,Phoenix,18.53,2024-04-05,False
+142,Ashley Taylor,18.0,146668.39,San Diego,54.13,2024-11-21,True
+143,Thomas Wilson,25.0,23577.49,,64.56,2024-07-28,True
+144,William Johnson,40.0,129176.1,Fort Worth,4.56,2023-08-29,True
+145,Pierre Sanchez,,117730.38,Philadelphia,94.6,2024-07-17,False
+146,Joshua Rodriguez,23.0,49730.27,Fort Worth,84.22,2023-04-06,True
+147,Nancy Brown,39.0,144321.61,Phoenix,29.66,2024-04-29,True
+148,Betty Robinson,42.0,39263.13,Dallas,7.72,2024-02-11,True
+149,Pierre García,35.0,108341.49,Austin,16.99,2023-08-19,True
+150,Daniel Pérez,34.0,49235.73,,12.69,2024-10-16,False
+151,David Garcia,78.0,,,12.33,2023-06-20,True
+152,Sarah Lee,29.0,113490.79,,51.86,2024-06-24,True
+153,María González,23.0,93232.2,,24.58,2023-02-05,True
+154,André Rodríguez,43.0,75575.24,,35.81,2024-06-08,False
+155,Kimberly Taylor,44.0,62424.0,,98.95,2023-06-09,True
+156,Andrew Sanchez,25.0,129155.76,Austin,68.43,2024-11-29,True
+157,Donna Lopez,36.0,38695.87,Jacksonville,94.9,2023-08-31,True
+158,Daniel Thompson,77.0,75913.37,Jacksonville,14.26,2023-03-27,True
+159,Christopher Ramirez,59.0,137488.48,,38.21,2024-07-31,False
+160,Donald Garcia,18.0,,San Antonio,55.47,2024-11-12,True
+161,Anthony García,74.0,72122.43,,7.68,2024-07-10,True
+162,Elizabeth Miller,46.0,119204.09,,0.42,2024-07-27,False
+163,Barbara Taylor,62.0,127010.91,,67.04,2024-10-07,False
+164,Betty Lee,66.0,135555.37,San Diego,64.18,2023-01-28,False
+165,Margaret Johnson,52.0,90785.75,Indianapolis,41.08,2024-09-11,True
+166,François Smith,57.0,46579.92,Fort Worth,48.96,2024-07-09,False
+167,Emily Clark,31.0,53190.18,Fort Worth,41.54,2023-12-06,True
+168,Mark Lee,52.0,58440.31,,2.4,2023-11-27,False
+169,David Hernandez,65.0,97194.32,Jacksonville,33.54,2024-10-01,True
+170,Emily López,,24265.25,San Jose,17.71,2024-05-20,False
+171,Kimberly Harris,37.0,102685.52,Columbus,9.84,2023-12-14,True
+172,Nancy Jones,73.0,67366.05,,95.67,2024-04-17,False
+173,Steven González,66.0,58381.43,,59.94,2023-08-19,True
+174,Sébastien Martin,30.0,134334.55,,72.87,2023-07-09,True
+175,Charles López,78.0,79800.31,,31.54,2023-08-13,True
+176,François Taylor,55.0,32356.9,Phoenix,39.31,2024-01-20,True
+177,Pierre García,66.0,127477.08,,23.69,2024-01-12,True
+178,William Clark,63.0,26193.36,Indianapolis,9.7,2023-10-10,True
+179,Mary Rodriguez,66.0,114477.4,,17.9,2024-09-24,True
+180,William Taylor,79.0,120607.81,,79.75,2024-09-19,True
+181,James Sanchez,25.0,65838.34,Indianapolis,67.75,2023-09-16,False
+182,François Sanchez,60.0,127222.42,,54.69,2023-12-25,True
+183,Joshua López,37.0,87035.72,Dallas,47.51,2024-12-10,True
+184,John Pérez,77.0,80228.17,Jacksonville,92.24,2024-03-31,False
+185,José Walker,,25902.43,,7.27,2024-02-15,True
+186,Donna García,43.0,57703.8,San Antonio,28.06,2024-10-10,False
+187,Elizabeth Jackson,56.0,141031.3,Philadelphia,34.99,2023-11-14,True
+188,Andrew Taylor,38.0,70937.12,,78.24,2024-11-07,False
+189,Barbara Lopez,70.0,91071.07,Phoenix,99.25,2023-08-13,False
+190,Jessica Harris,66.0,89162.82,,24.07,2023-08-22,True
+191,Charles Davis,79.0,96756.04,,87.43,2024-11-14,False
+192,Donald Lee,59.0,27973.02,,83.06,2024-10-25,True
+193,Thomas White,60.0,67082.91,,22.47,2024-01-09,True
+194,Andrew Thomas,71.0,114006.68,,39.93,2024-11-02,True
+195,Jennifer Davis,79.0,,San Jose,40.97,2024-08-30,True
+196,Matthew Moore,58.0,46465.19,,97.82,2024-04-16,False
+197,Matthew Lopez,26.0,,San Jose,18.09,2023-08-21,True
+198,Joseph Clark,41.0,76872.65,Phoenix,79.92,2024-11-22,False
+199,André Clark,54.0,134755.47,Indianapolis,33.42,2023-04-23,False
+200,Sébastien Dupont,66.0,26747.12,,73.09,2024-05-11,True
+201,Barbara Thomas,58.0,44845.43,,42.0,2024-03-17,True
+202,Michael Taylor,34.0,60310.99,,57.84,2024-07-17,True
+203,Daniel Clark,41.0,115124.22,Chicago,83.26,2023-09-25,True
+204,Christopher Thompson,38.0,103282.63,Fort Worth,80.42,2024-05-24,False
+205,Michael Wilson,68.0,74072.71,San Diego,86.64,2024-01-21,True
+206,Joseph Miller,76.0,118678.96,,5.96,2024-01-22,False
+207,William Davis,56.0,99252.03,Indianapolis,69.21,2023-04-23,True
+208,Daniel Robinson,72.0,136485.3,New York,14.0,2024-09-04,True
+209,Sarah Young,58.0,126343.48,,41.58,2024-09-16,True
+210,Sandra López,56.0,52865.77,,54.86,2023-03-22,True
+211,Sarah Taylor,30.0,55287.02,San Jose,40.27,2024-11-29,False
+212,Susan Young,28.0,36296.34,,51.96,2023-04-23,False
+213,Lisa López,63.0,63805.41,New York,99.65,2023-01-02,True
+214,José García,36.0,149940.71,Philadelphia,13.52,2024-10-03,False
+215,John Pérez,28.0,72747.65,,67.55,2023-08-08,False
+216,François Clark,30.0,48663.5,Columbus,39.6,2024-07-19,True
+217,Daniel Anderson,80.0,119122.77,Fort Worth,13.3,2023-08-13,True
+218,Patricia Robinson,63.0,,,15.87,2024-01-20,False
+219,Nancy Sanchez,62.0,39448.19,Chicago,94.93,2024-02-07,False
+220,Richard Moore,18.0,69489.66,,87.96,2024-09-29,False
+221,Steven Thomas,57.0,,Columbus,90.7,2023-05-10,False
+222,Pierre Johnson,61.0,,,99.15,2023-02-22,True
+223,Paul García,36.0,22687.28,,20.83,2024-11-14,True
+224,Sandra Gonzalez,29.0,54972.55,,35.54,2024-12-30,False
+225,Richard Moore,25.0,87287.52,,66.92,2024-11-02,True
+226,Ashley Dupont,25.0,54950.08,Philadelphia,48.38,2024-12-10,False
+227,Paul Robinson,78.0,,Fort Worth,41.84,2024-02-20,False
+228,Mark Thomas,70.0,82642.77,,35.78,2023-09-04,True
+229,José Martinez,62.0,67022.33,Fort Worth,59.38,2024-03-14,False
+230,Sandra Sanchez,29.0,143397.12,New York,57.56,2023-07-22,False
+231,Joshua Martin,78.0,102180.73,,16.15,2023-07-03,True
+232,Robert Smith,65.0,36892.38,Phoenix,47.17,2023-05-03,True
+233,Sandra Williams,50.0,92811.92,San Diego,55.35,2024-02-05,False
+234,Pierre Wilson,62.0,121495.14,,57.03,2023-10-21,False
+235,Sandra Brown,43.0,112103.66,Jacksonville,21.01,2023-10-07,True
+236,Sarah Pérez,56.0,42371.6,,74.23,2024-09-01,False
+237,Matthew Smith,45.0,146414.6,Phoenix,2.52,2023-07-17,False
+238,Jean Anderson,75.0,78345.77,Philadelphia,35.48,2024-05-25,True
+239,William Anderson,22.0,40673.25,San Jose,78.02,2023-05-24,True
+240,Lisa Brown,25.0,43425.45,New York,56.39,2024-08-31,True
+241,Elizabeth Pérez,42.0,32770.55,San Antonio,26.12,2023-07-20,True
+242,Andrew Garcia,44.0,124457.35,Dallas,69.5,2023-05-04,True
+243,Joshua Harris,63.0,35863.96,,56.74,2023-07-06,True
+244,David Gonzalez,40.0,36266.28,San Jose,79.62,2023-11-22,False
+245,Kimberly Sanchez,47.0,130561.31,,73.5,2024-04-08,False
+246,Michael Brown,62.0,64798.53,,61.01,2023-12-15,True
+247,Linda Martin,64.0,24011.53,San Jose,48.82,2024-10-21,True
+248,Mark Martinez,40.0,,Houston,13.32,2024-02-07,False
+249,François García,66.0,38482.16,,26.13,2023-12-12,False
+250,Betty Williams,64.0,47741.14,,41.91,2024-05-25,False
+251,Jennifer Jones,37.0,106469.01,,59.93,2023-05-27,True
+252,Robert White,35.0,40452.42,,51.37,2023-05-28,True
+253,William López,35.0,35453.67,Los Angeles,28.82,2024-12-11,False
+254,Karen López,19.0,,,0.65,2024-05-03,True
+255,Sarah Taylor,21.0,107237.19,,49.62,2024-10-01,True
+256,Lisa Williams,47.0,76592.15,,28.56,2024-07-04,True
+257,Ashley López,50.0,,Columbus,73.46,2023-12-04,False
+258,Donna Gonzalez,80.0,,,2.39,2024-10-02,False
+259,Sébastien Sanchez,53.0,,,58.48,2024-04-17,True
+260,William Brown,35.0,85867.44,San Antonio,94.15,2023-05-31,True
+261,Susan Pérez,54.0,70340.85,Jacksonville,17.44,2024-02-19,True
+262,Kimberly Hernandez,36.0,137854.39,,47.16,2023-10-25,True
+263,André Williams,64.0,22088.04,,9.14,2024-09-02,True
+264,Margaret Robinson,45.0,121682.26,,62.57,2023-09-20,False
+265,William Williams,57.0,36169.77,Indianapolis,55.05,2023-05-24,True
+266,Matthew García,37.0,123681.16,,40.74,2023-12-12,True
+267,Elizabeth Rodriguez,66.0,100068.55,Indianapolis,52.14,2024-09-15,True
+268,Joseph Sanchez,50.0,129626.15,Jacksonville,89.66,2024-07-25,False
+269,Robert Hernandez,29.0,32676.86,,19.63,2023-01-02,False
+270,Kimberly Harris,75.0,92667.48,,2.26,2023-10-31,True
+271,Joseph Rodríguez,68.0,85141.42,Chicago,86.17,2023-09-11,False
+272,Linda Jones,32.0,111805.11,,57.71,2024-10-13,False
+273,Stéphanie Clark,58.0,89457.77,Houston,89.07,2024-03-28,False
+274,Sarah Garcia,56.0,90295.49,Houston,59.69,2023-02-06,False
+275,Andrew Gonzalez,19.0,75847.47,Chicago,81.02,2023-06-09,False
+276,Margaret Jones,80.0,60148.48,,42.97,2023-01-09,False
+277,Richard Taylor,46.0,82694.37,Jacksonville,74.99,2023-08-21,True
+278,Michelle Dupont,58.0,35404.01,,91.3,2023-04-09,False
+279,Mark Williams,27.0,144996.73,,57.21,2024-10-20,False
+280,Michelle García,19.0,112873.4,Fort Worth,18.08,2023-07-27,True
+281,Michelle Ramirez,68.0,143820.73,,26.88,2023-05-11,True
+282,Richard Müller,28.0,49474.56,New York,19.86,2024-02-08,True
+283,Jennifer Harris,30.0,134314.33,,24.69,2023-06-01,True
+284,Charles Thomas,27.0,125142.7,,30.64,2023-02-23,False
+285,Michelle Lewis,,108029.81,Los Angeles,55.51,2023-04-30,False
+286,Steven Gonzalez,35.0,101253.79,New York,58.8,2024-11-03,False
+287,François Sanchez,68.0,61151.46,Chicago,42.65,2024-09-19,False
+288,María González,71.0,126133.4,Houston,61.54,2024-08-09,True
+289,Anthony Rodríguez,26.0,85197.01,,8.16,2024-09-16,False
+290,Michael Jones,74.0,29215.9,,8.78,2024-02-24,False
+291,François Young,56.0,60672.21,San Jose,17.18,2024-02-26,True
+292,Daniel Martinez,45.0,141588.62,Columbus,51.81,2023-04-14,False
+293,Ashley Walker,20.0,130588.43,Phoenix,21.4,2023-09-11,False
+294,Joshua Young,37.0,147647.74,Indianapolis,28.33,2023-08-15,False
+295,Sarah González,23.0,101639.14,,40.03,2023-04-22,False
+296,Mary Wilson,44.0,52176.31,Columbus,81.19,2024-05-24,True
+297,Richard Robinson,70.0,41165.96,,1.39,2024-04-17,True
+298,Elizabeth Johnson,19.0,44298.88,,64.94,2023-04-09,True
+299,Ashley Gonzalez,46.0,22573.44,Austin,66.89,2023-06-02,True
+300,Jean Ramirez,55.0,,Jacksonville,79.87,2023-12-04,True
+301,André Taylor,20.0,,,93.28,2024-12-06,False
+302,Michelle Young,33.0,73515.21,,2.01,2023-06-12,False
+303,Kimberly Harris,47.0,141549.28,,15.38,2024-12-20,True
+304,Pierre López,57.0,75970.23,,88.62,2024-11-11,True
+305,Stéphanie Garcia,19.0,134137.98,,45.85,2023-06-10,True
+306,Charles Walker,34.0,98715.62,Fort Worth,56.46,2024-08-02,False
+307,Michael Martinez,58.0,52127.1,Los Angeles,66.3,2024-02-02,True
+308,André Dupont,79.0,66261.12,,67.91,2023-10-04,False
+309,Kimberly Lewis,29.0,,Chicago,93.17,2024-05-18,False
+310,Joseph Walker,52.0,63350.14,,99.69,2024-01-27,False
+311,Andrew Robinson,60.0,108080.32,San Diego,72.02,2023-05-15,False
+312,Nancy Brown,18.0,29374.44,San Diego,28.72,2023-07-14,True
+313,Karen Dupont,72.0,46702.18,,87.98,2024-02-05,False
+314,Emily Brown,62.0,69587.34,,4.92,2024-10-01,False
+315,Anthony Taylor,32.0,147666.44,,23.11,2023-02-02,True
+316,Elizabeth Thompson,43.0,122032.04,Dallas,89.74,2024-11-18,False
+317,Thomas Martinez,54.0,115353.28,,25.62,2024-04-04,False
+318,James Thompson,38.0,35104.82,,22.07,2024-04-14,False
+319,Betty Moore,79.0,121529.47,,13.81,2024-01-10,True
+320,Susan Robinson,66.0,122084.95,,85.91,2023-01-22,False
+321,Elizabeth González,80.0,98143.35,,50.01,2024-10-31,False
+322,Paul Lopez,48.0,148747.03,San Diego,67.49,2023-02-07,True
+323,Michael Robinson,42.0,62283.01,Jacksonville,23.91,2023-08-18,True
+324,David Müller,40.0,142365.42,,75.8,2023-12-31,False
+325,Jennifer Anderson,41.0,138915.04,San Antonio,76.0,2024-07-16,False
+326,Ashley Hernandez,74.0,21492.49,,31.26,2024-03-13,True
+327,Daniel Clark,55.0,78515.15,Fort Worth,41.07,2023-10-10,False
+328,Kimberly García,45.0,147023.55,Dallas,20.97,2023-01-27,True
+329,Mark Brown,38.0,33405.78,Chicago,97.66,2023-08-14,False
+330,Thomas López,71.0,91212.01,Columbus,64.56,2023-10-04,True
+331,Richard Anderson,60.0,147264.48,San Jose,93.45,2024-08-31,False
+332,Mark Robinson,35.0,,,30.34,2023-10-11,True
+333,David Dupont,53.0,44675.99,Los Angeles,78.19,2024-04-25,True
+334,Mary Wilson,52.0,95683.82,Los Angeles,76.59,2024-03-28,True
+335,Karen Thompson,62.0,46577.27,,69.17,2024-10-20,True
+336,David Ramirez,72.0,87561.55,Phoenix,96.56,2024-05-30,True
+337,John Taylor,26.0,29625.49,Fort Worth,39.36,2024-06-30,False
+338,José Lewis,70.0,98712.75,San Antonio,13.07,2023-07-11,False
+339,Mark Lee,55.0,87182.69,Jacksonville,67.17,2023-02-18,True
+340,Sébastien Thomas,75.0,116220.98,,72.93,2024-05-26,False
+341,Andrew Martin,47.0,101991.06,Austin,57.51,2023-01-17,False
+342,Jennifer Jackson,77.0,91448.81,Columbus,20.68,2023-06-21,False
+343,Robert Williams,61.0,109671.25,,50.45,2023-08-08,False
+344,James Rodríguez,51.0,38712.45,,31.22,2023-06-07,False
+345,Joseph García,49.0,97396.76,,42.75,2024-04-21,False
+346,Paul Sanchez,20.0,42374.38,,64.52,2023-02-15,True
+347,Lisa Lopez,20.0,140317.89,,74.52,2024-01-08,False
+348,Sarah Anderson,45.0,,,23.22,2024-06-01,False
+349,José Thomas,61.0,75948.72,San Jose,40.53,2023-04-09,False
+350,Anthony Davis,32.0,110453.67,,26.92,2023-02-06,True
+351,Jean Sanchez,58.0,79542.89,,19.86,2023-10-07,False
+352,Thomas Robinson,80.0,31972.38,,78.34,2023-12-15,False
+353,Linda Anderson,40.0,91939.27,,90.93,2024-05-11,False
+354,Anthony Miller,57.0,103412.15,,37.02,2023-10-29,True
+355,John Robinson,28.0,111493.0,,75.13,2023-06-30,False
+356,José Harris,65.0,68523.78,Philadelphia,89.7,2024-08-29,True
+357,John Martin,49.0,,San Jose,84.61,2023-04-09,False
+358,Jean Anderson,75.0,78589.24,,18.28,2024-11-30,True
+359,Matthew Walker,76.0,107367.29,Indianapolis,95.63,2023-04-26,True
+360,Susan Miller,74.0,,,37.67,2023-07-10,True
+361,Thomas Martin,71.0,88348.31,,33.92,2023-09-10,False
+362,Emily Rodriguez,53.0,52438.17,,6.24,2023-06-10,True
+363,Donna Thompson,77.0,20262.41,,48.62,2023-09-13,True
+364,Mary Harris,50.0,42630.62,San Jose,10.9,2023-11-19,True
+365,Linda Hernandez,,35218.59,Houston,24.85,2023-05-08,True
+366,Richard Taylor,56.0,78381.02,Philadelphia,31.69,2023-01-18,False
+367,Linda Lee,51.0,99593.56,,80.88,2024-07-19,False
+368,Sarah Walker,73.0,47701.05,,87.55,2024-07-23,False
+369,Sarah Young,45.0,142077.42,,30.25,2023-11-19,False
+370,Donna Dupont,54.0,20868.68,,85.87,2024-11-16,True
+371,David Sanchez,24.0,120399.13,,85.72,2024-09-17,False
+372,Steven Rodríguez,21.0,101276.62,,76.47,2023-10-15,True
+373,André Davis,54.0,68562.12,,14.67,2024-10-24,False
+374,David Thompson,73.0,26563.56,New York,69.03,2024-09-30,False
+375,Lisa Taylor,18.0,101573.25,Houston,94.5,2023-06-04,False
+376,Elizabeth Dupont,18.0,70129.76,Indianapolis,68.25,2024-05-04,True
+377,Joseph Thomas,64.0,141714.73,,33.16,2024-01-21,False
+378,Nancy Lewis,37.0,90458.71,,50.06,2023-04-14,False
+379,Karen Müller,36.0,142154.7,Dallas,64.57,2024-01-28,False
+380,Barbara Dupont,46.0,48662.88,Chicago,51.06,2023-09-03,True
+381,Steven Johnson,27.0,114344.37,,12.0,2023-06-25,False
+382,Steven Müller,77.0,100242.37,Philadelphia,31.21,2023-02-08,False
+383,André Gonzalez,35.0,116123.07,San Diego,80.24,2024-04-21,True
+384,Sandra Müller,45.0,47906.82,Philadelphia,86.14,2024-11-12,True
+385,Richard Clark,52.0,106449.29,Chicago,13.73,2024-06-21,False
+386,Nancy Johnson,60.0,84745.25,,95.24,2024-02-12,False
+387,Donna Clark,64.0,116567.25,New York,32.88,2024-06-08,False
+388,Jean Anderson,48.0,62515.8,Houston,66.23,2024-05-20,True
+389,Kimberly Hernandez,44.0,,,75.18,2023-02-05,True
+390,John Garcia,79.0,30959.17,,81.19,2024-11-15,True
+391,William Garcia,28.0,,Austin,94.57,2023-01-20,False
+392,William Young,66.0,131971.55,,31.29,2023-11-17,True
+393,Ashley Lopez,66.0,126242.8,,85.85,2024-05-26,False
+394,Linda Davis,55.0,86654.43,,13.17,2024-02-04,True
+395,Margaret Martin,22.0,76990.05,Chicago,70.5,2024-10-15,True
+396,Sébastien Miller,25.0,149514.1,Dallas,74.2,2024-04-15,True
+397,David Martin,51.0,49792.35,Jacksonville,67.77,2023-05-23,False
+398,Jessica Brown,65.0,91093.88,,25.23,2023-04-02,False
+399,Jennifer Thompson,69.0,107187.82,,87.3,2023-12-20,False
+400,Betty Williams,73.0,111112.79,,16.89,2024-12-27,False
+401,André Wilson,29.0,46523.21,,5.36,2023-02-20,True
+402,David Moore,55.0,105019.23,,71.75,2024-10-26,False
+403,Elizabeth White,18.0,,,47.55,2024-11-28,True
+404,Elizabeth Gonzalez,48.0,26502.41,,84.91,2024-07-28,False
+405,Matthew Jackson,21.0,138497.77,,38.34,2023-07-09,False
+406,Jean González,66.0,23835.53,Dallas,16.83,2023-05-05,True
+407,Pierre Davis,62.0,66276.23,,83.64,2023-05-30,True
+408,Mark Dupont,67.0,22055.72,,54.89,2023-11-10,False
+409,José Moore,22.0,30028.87,Chicago,18.92,2024-07-23,False
+410,Jennifer Moore,47.0,138451.88,Fort Worth,72.04,2023-12-08,True
+411,Charles Thompson,73.0,66131.91,,51.11,2023-11-01,True
+412,Andrew Dupont,41.0,75220.3,Phoenix,60.43,2024-11-22,True
+413,André Williams,76.0,47994.77,Indianapolis,46.09,2024-11-12,True
+414,Margaret Martinez,20.0,97622.45,,82.87,2023-02-23,True
+415,Paul Robinson,28.0,97324.42,San Antonio,82.96,2024-03-19,False
+416,Joseph Müller,62.0,68386.05,,70.94,2024-09-04,False
+417,Michael Lopez,21.0,,Dallas,10.54,2023-09-21,False
+418,Sandra Lee,43.0,,,83.89,2023-02-22,False
+419,Donald Harris,44.0,69826.95,,67.1,2024-07-25,True
+420,Karen Pérez,63.0,84155.13,Fort Worth,69.7,2024-09-11,True
+421,Patricia Lewis,71.0,56829.62,San Diego,36.3,2023-01-05,True
+422,José Martin,60.0,122280.04,,87.93,2023-04-13,False
+423,Lisa Dupont,44.0,71668.26,Dallas,72.54,2023-07-15,True
+424,André González,59.0,86769.44,,11.26,2023-12-16,True
+425,Kimberly González,68.0,52936.43,,40.78,2023-02-16,False
+426,Mary Anderson,67.0,148395.75,,88.64,2024-10-17,False
+427,Kimberly González,23.0,57894.45,Dallas,4.72,2023-09-26,False
+428,Jennifer Lopez,76.0,120196.53,Columbus,96.14,2024-01-05,True
+429,John Moore,78.0,75574.43,,67.92,2024-09-27,True
+430,Michelle Lee,32.0,46808.26,,63.14,2023-04-16,False
+431,Joseph Müller,70.0,123963.44,San Antonio,27.06,2024-10-31,False
+432,Paul Clark,47.0,63368.88,,24.88,2024-10-20,True
+433,Linda González,59.0,,Dallas,94.21,2024-10-18,False
+434,Stéphanie Walker,54.0,138983.43,Dallas,29.83,2023-04-30,True
+435,Daniel Wilson,75.0,131777.1,,77.55,2024-08-26,False
+436,Susan Johnson,78.0,,,39.31,2023-02-27,False
+437,Andrew Jones,54.0,122358.53,,13.93,2023-12-12,False
+438,Donna Wilson,59.0,73474.13,,1.07,2024-04-18,True
+439,Joshua Sanchez,77.0,133583.98,,54.43,2023-04-27,True
+440,Karen Johnson,54.0,102934.05,,97.58,2023-05-07,False
+441,Joshua Garcia,52.0,128373.61,,36.91,2024-01-28,True
+442,Thomas Sanchez,40.0,84926.13,Austin,35.72,2024-10-02,False
+443,Margaret Johnson,23.0,89553.32,,34.41,2023-02-27,False
+444,Paul Pérez,21.0,38770.39,Phoenix,52.05,2024-09-25,True
+445,Robert Smith,35.0,121918.36,,44.07,2024-05-27,True
+446,Michelle Lopez,77.0,74520.65,,87.99,2023-04-06,True
+447,Emily White,26.0,85010.42,,50.55,2024-09-29,True
+448,Sébastien Young,66.0,122062.7,,50.78,2023-04-28,False
+449,David Martinez,46.0,97849.9,New York,13.84,2024-07-13,True
+450,John Wilson,30.0,46142.83,,98.27,2024-08-23,True
+451,Jessica Martinez,76.0,96730.25,Los Angeles,25.0,2024-05-02,False
+452,Mark Martinez,64.0,72992.27,Jacksonville,7.34,2023-08-25,False
+453,Elizabeth Walker,79.0,81038.32,,66.31,2023-09-29,False
+454,André Smith,69.0,23680.47,,59.54,2023-07-08,False
+455,Robert Martin,34.0,47303.82,,41.51,2024-12-04,True
+456,Linda Lopez,62.0,56534.95,Philadelphia,42.22,2024-03-22,True
+457,James Martin,49.0,112684.8,,78.51,2024-08-03,False
+458,Margaret Pérez,65.0,21494.02,Austin,19.57,2023-09-04,False
+459,Sébastien Pérez,39.0,73141.04,New York,82.03,2023-03-17,True
+460,Elizabeth Pérez,21.0,140123.49,,64.87,2023-06-03,True
+461,José Lewis,22.0,34544.48,Los Angeles,41.9,2024-10-17,True
+462,Sébastien Anderson,54.0,87135.17,Chicago,45.8,2024-03-10,True
+463,Jennifer Martin,58.0,122247.91,Phoenix,25.66,2023-03-27,True
+464,Susan Johnson,66.0,142529.07,Austin,75.21,2024-11-27,False
+465,William Pérez,30.0,117080.96,,51.29,2023-10-12,False
+466,Karen Clark,51.0,113673.52,,32.09,2023-08-08,False
+467,Mark Smith,62.0,127443.45,Dallas,59.61,2023-03-10,False
+468,Paul Garcia,39.0,78006.16,,99.57,2023-02-16,True
+469,Andrew Jones,70.0,124759.79,,43.53,2023-04-04,False
+470,Steven Wilson,76.0,21035.37,Indianapolis,92.07,2024-03-28,True
+471,Elizabeth Martin,40.0,140192.94,Indianapolis,34.5,2023-07-23,True
+472,Lisa García,68.0,77629.85,San Jose,5.47,2023-08-06,True
+473,Matthew Robinson,,91939.42,Jacksonville,20.42,2024-04-18,True
+474,Joshua Young,59.0,53134.69,Jacksonville,41.87,2024-03-07,True
+475,Sébastien White,51.0,116529.01,,21.96,2023-12-07,True
+476,José Rodríguez,49.0,29962.65,Houston,0.02,2024-07-04,True
+477,Karen White,62.0,133442.65,,91.5,2024-09-03,False
+478,Pierre Thomas,68.0,127655.19,,84.39,2023-10-16,True
+479,María Davis,75.0,48087.82,Los Angeles,74.23,2023-09-11,False
+480,Christopher Smith,66.0,125212.17,,16.78,2023-12-23,False
+481,Linda Robinson,38.0,122226.51,,12.04,2023-01-23,True
+482,Ashley Rodríguez,63.0,102188.16,Austin,6.76,2024-06-05,True
+483,Robert Thompson,80.0,68557.62,,72.4,2023-04-10,False
+484,Sébastien García,61.0,55294.84,,92.88,2023-06-29,False
+485,James Clark,38.0,50131.87,,43.05,2023-08-11,False
+486,François Martinez,,61419.17,San Diego,11.91,2024-10-20,False
+487,Sandra Moore,28.0,137462.6,,51.24,2024-03-17,True
+488,Thomas Clark,56.0,30093.3,,34.88,2024-08-30,True
+489,Linda Lopez,21.0,127753.27,,37.48,2023-11-21,True
+490,Anthony Davis,68.0,65355.71,San Antonio,62.13,2024-05-30,False
+491,Matthew Brown,18.0,87807.92,,71.87,2023-01-16,True
+492,Steven Smith,45.0,123283.13,Indianapolis,11.06,2023-12-02,False
+493,Charles Young,80.0,134968.95,San Diego,3.56,2023-09-15,True
+494,Jessica Wilson,41.0,64821.58,Jacksonville,99.43,2024-05-11,False
+495,Stéphanie Jones,78.0,80039.65,,23.27,2023-06-09,True
+496,André Clark,52.0,73887.09,,5.38,2024-04-19,True
+497,Margaret Johnson,30.0,21722.63,Columbus,18.99,2024-10-25,False
+498,Jennifer Rodriguez,64.0,58472.58,Austin,3.9,2024-11-20,False
+499,Steven Sanchez,51.0,79694.6,,39.18,2024-11-05,False
+500,Stéphanie Gonzalez,28.0,73442.17,,80.24,2024-01-15,False
+501,William Gonzalez,53.0,113850.8,Fort Worth,34.12,2024-06-28,False
+502,Donald Hernandez,68.0,70024.47,New York,44.42,2024-11-21,True
+503,Patricia García,78.0,83618.94,San Diego,67.56,2024-03-02,False
+504,Donna Brown,34.0,75849.12,Houston,50.89,2024-09-04,True
+505,Donna Jackson,52.0,116281.4,,86.14,2023-09-25,True
+506,Jennifer García,77.0,132186.41,San Diego,86.6,2024-07-30,True
+507,Sarah Gonzalez,35.0,89145.58,,0.99,2024-02-21,True
+508,André White,57.0,122626.19,,77.8,2023-06-17,True
+509,Charles Hernandez,39.0,58582.27,,46.07,2023-02-12,False
+510,James Harris,74.0,90378.05,,98.88,2024-07-09,False
+511,Michael Sanchez,41.0,64879.89,,48.32,2023-10-12,True
+512,Christopher Anderson,,73846.12,,98.69,2024-02-01,True
+513,James Lopez,36.0,115213.8,Indianapolis,75.46,2023-01-12,False
+514,Michael Anderson,54.0,134616.12,,24.86,2024-08-29,False
+515,Christopher Jackson,56.0,35794.4,,53.84,2023-10-29,True
+516,Mark Sanchez,38.0,102503.1,Columbus,99.21,2023-09-10,False
+517,Steven Dupont,25.0,95678.69,,85.75,2024-05-13,False
+518,Paul Rodríguez,45.0,35393.96,,9.74,2023-02-04,False
+519,Betty Hernandez,22.0,47546.26,,70.64,2024-12-27,True
+520,Paul Davis,34.0,60430.32,San Antonio,34.56,2023-03-31,False
+521,Jean Wilson,54.0,41701.04,,0.7,2024-08-27,True
+522,Barbara Johnson,53.0,51684.83,,40.35,2024-08-24,True
+523,Jean Rodriguez,71.0,54788.1,Jacksonville,23.48,2024-02-22,True
+524,John Lee,36.0,63637.6,,81.89,2023-04-25,True
+525,Betty Davis,80.0,117420.76,,33.73,2024-09-08,True
+526,Stéphanie Johnson,44.0,94348.59,,82.75,2023-07-15,False
+527,Jennifer Lewis,70.0,148212.07,,0.06,2024-05-15,True
+528,Mark Clark,51.0,73915.66,,30.78,2024-09-17,True
+529,Matthew Lopez,28.0,118002.46,,24.12,2024-05-07,True
+530,Robert García,71.0,133290.89,,23.36,2023-03-16,False
+531,Stéphanie Pérez,62.0,108267.2,,6.82,2024-02-17,False
+532,Joseph González,64.0,73542.42,,18.71,2024-01-11,False
+533,Joseph White,29.0,117967.3,Chicago,55.55,2024-02-24,False
+534,Jennifer Lee,71.0,46476.73,,29.14,2024-12-29,False
+535,Daniel Thomas,38.0,62581.78,,41.74,2023-10-04,False
+536,Sébastien Anderson,71.0,91069.08,Phoenix,37.69,2024-11-06,False
+537,Matthew González,28.0,94803.22,,87.59,2024-01-29,True
+538,David Anderson,56.0,22878.39,Austin,90.53,2024-04-01,True
+539,Patricia Lee,45.0,142864.84,San Antonio,49.3,2023-07-11,False
+540,Richard Thompson,22.0,110561.55,,33.02,2024-11-19,True
+541,Charles García,34.0,84441.49,Fort Worth,10.68,2023-04-09,True
+542,Susan Brown,73.0,141306.54,,95.34,2024-07-01,False
+543,Stéphanie Ramirez,37.0,77082.42,Dallas,6.02,2023-04-06,True
+544,Mark Lewis,58.0,147456.62,,29.77,2024-10-25,True
+545,Paul Davis,63.0,86597.02,,29.81,2024-10-24,False
+546,Jessica González,75.0,34857.15,,32.04,2023-07-09,True
+547,Sandra Moore,29.0,119424.13,Los Angeles,16.43,2023-02-06,False
+548,Mary Gonzalez,23.0,108256.7,,78.32,2024-01-04,False
+549,Patricia Clark,34.0,120488.27,Los Angeles,12.25,2024-11-25,True
+550,Matthew Walker,68.0,143687.46,Phoenix,63.49,2024-06-08,True
+551,David Miller,36.0,120943.61,,12.38,2023-10-06,True
+552,Donald Martinez,43.0,99473.76,,7.05,2023-08-05,False
+553,Joshua Gonzalez,65.0,131450.16,,90.94,2023-09-30,False
+554,Donald Miller,61.0,107522.04,,19.01,2023-03-03,False
+555,María González,61.0,73055.48,Chicago,82.13,2024-08-18,True
+556,Karen Brown,69.0,135130.57,,54.46,2024-12-29,True
+557,Michael Smith,49.0,48847.06,Los Angeles,7.79,2023-12-08,False
+558,José Gonzalez,23.0,112903.37,Fort Worth,95.54,2024-02-01,True
+559,Nancy Lee,80.0,134603.25,,24.7,2024-11-29,True
+560,Nancy Lewis,72.0,115071.15,Columbus,85.96,2023-01-19,False
+561,William Clark,75.0,110645.8,Philadelphia,16.88,2023-06-26,False
+562,William Anderson,53.0,117842.98,Fort Worth,85.39,2024-09-03,True
+563,Barbara Harris,55.0,80457.18,,1.32,2024-01-31,False
+564,María Davis,28.0,133642.19,,51.18,2024-03-20,True
+565,Lisa Thomas,50.0,46446.74,,76.94,2023-08-21,False
+566,Betty Ramirez,79.0,36560.23,Houston,93.48,2023-03-17,False
+567,Andrew Brown,41.0,57116.14,,90.92,2023-09-22,False
+568,Lisa Jackson,40.0,89105.06,Houston,81.96,2024-03-30,True
+569,Emily Martinez,32.0,86373.03,Dallas,88.82,2024-12-18,True
+570,Matthew Moore,44.0,126677.84,San Antonio,19.92,2024-01-19,False
+571,Charles González,28.0,72593.93,Chicago,28.42,2024-07-17,False
+572,Barbara Müller,,,,28.9,2024-05-20,False
+573,Robert López,68.0,21737.8,Philadelphia,37.71,2024-01-02,True
+574,José García,67.0,73266.1,Philadelphia,39.33,2023-05-24,False
+575,Steven Lee,34.0,104210.65,,54.46,2023-03-10,False
+576,Thomas Thompson,68.0,22016.08,,15.99,2023-04-09,False
+577,Stéphanie Pérez,70.0,56514.66,Indianapolis,69.12,2024-01-31,False
+578,Joseph López,31.0,47034.33,,16.76,2023-01-25,True
+579,Margaret Miller,44.0,25458.11,Houston,31.03,2024-04-13,True
+580,Ashley Hernandez,35.0,82303.81,Dallas,50.33,2024-04-28,False
+581,Barbara Rodriguez,45.0,43624.03,Houston,79.64,2024-07-18,True
+582,Susan Gonzalez,,116600.6,,73.95,2023-05-31,True
+583,Matthew Johnson,64.0,130230.62,,64.55,2023-05-24,True
+584,Paul Miller,80.0,90926.07,,15.58,2024-07-22,False
+585,Christopher Moore,64.0,147621.95,,54.7,2023-02-08,True
+586,John Hernandez,21.0,78562.21,San Antonio,8.74,2023-04-19,True
+587,Joshua Harris,24.0,86737.87,,37.74,2024-11-23,True
+588,Jean Jackson,62.0,148598.31,Austin,41.35,2023-02-11,False
+589,Patricia Clark,52.0,50101.3,Phoenix,3.98,2023-07-05,False
+590,Donna Dupont,65.0,142530.97,Philadelphia,27.4,2024-02-02,True
+591,Joshua González,80.0,,San Jose,95.56,2023-08-11,True
+592,Michelle Pérez,26.0,78030.3,,95.36,2024-09-25,False
+593,Steven González,25.0,29100.46,Fort Worth,35.23,2023-05-13,False
+594,John Rodriguez,69.0,114800.52,,4.31,2023-06-12,True
+595,Linda Müller,62.0,99093.16,,17.91,2023-08-03,True
+596,Jennifer Brown,34.0,111862.45,,39.22,2023-08-23,False
+597,Richard Johnson,34.0,,San Jose,94.78,2024-10-19,False
+598,Robert Ramirez,66.0,68032.65,,14.12,2024-08-10,True
+599,Ashley Lee,50.0,25891.51,San Jose,76.35,2023-01-09,False
+600,Linda Rodríguez,49.0,65492.84,Indianapolis,10.87,2023-03-15,True
+601,Linda Williams,25.0,140807.49,San Antonio,98.13,2024-05-06,True
+602,José Williams,36.0,69299.45,Houston,38.16,2023-09-10,True
+603,Nancy Garcia,80.0,128077.8,,77.52,2023-08-18,False
+604,Mary White,55.0,129502.32,,34.26,2024-06-02,True
+605,José Johnson,20.0,68521.35,,62.77,2023-06-23,True
+606,Donna Taylor,76.0,102158.53,Indianapolis,19.2,2024-10-14,False
+607,Paul García,22.0,,Chicago,14.6,2023-06-17,False
+608,Daniel Walker,30.0,33478.22,,93.81,2023-06-19,True
+609,Linda Thompson,64.0,26325.5,Phoenix,91.76,2024-01-28,True
+610,José González,63.0,95531.96,Fort Worth,88.75,2024-09-25,False
+611,Robert Gonzalez,78.0,,,62.54,2023-07-13,False
+612,Mark Young,48.0,91244.21,,80.83,2024-05-31,False
+613,Sébastien Thomas,72.0,87739.51,,6.9,2023-01-29,True
+614,María Walker,33.0,65526.39,Phoenix,33.48,2023-06-14,True
+615,Jessica Lopez,67.0,108071.54,Los Angeles,31.37,2024-02-26,True
+616,Thomas Thomas,49.0,118605.24,Austin,63.56,2023-12-05,False
+617,Elizabeth Davis,39.0,21901.67,,35.6,2024-10-09,True
+618,Karen Williams,46.0,46941.5,San Jose,14.85,2024-05-10,False
+619,Jessica Walker,39.0,112720.66,Los Angeles,59.65,2023-12-31,True
+620,Pierre White,60.0,70260.62,,81.44,2023-12-08,False
+621,Margaret Jones,20.0,106122.91,,38.21,2024-05-14,True
+622,Karen Smith,71.0,65105.15,San Diego,13.23,2024-10-18,True
+623,Sandra Lee,27.0,,New York,19.67,2024-05-25,False
+624,Karen Garcia,59.0,,,23.75,2023-11-23,False
+625,Nancy Moore,79.0,53570.03,San Antonio,29.99,2023-08-05,True
+626,Linda Dupont,38.0,98703.53,Phoenix,64.28,2023-10-28,False
+627,Steven Thomas,33.0,76311.2,,60.09,2023-05-12,False
+628,Elizabeth Rodríguez,29.0,120659.35,,69.61,2023-03-11,True
+629,Kimberly Wilson,19.0,130836.04,,36.25,2023-09-09,False
+630,Emily Müller,,90414.03,New York,82.4,2024-02-19,True
+631,Daniel Johnson,41.0,118574.75,Austin,20.41,2024-03-20,True
+632,André Lee,52.0,59897.59,,46.9,2023-07-01,False
+633,Mary Ramirez,73.0,73946.26,,80.09,2023-06-16,False
+634,William Smith,47.0,112661.1,Houston,18.02,2023-04-01,True
+635,David Williams,74.0,70207.56,San Antonio,10.99,2024-12-14,True
+636,Daniel Clark,47.0,96505.64,,88.37,2024-06-14,True
+637,Patricia Moore,64.0,44098.46,Indianapolis,34.29,2023-02-08,True
+638,Jennifer López,52.0,97970.27,Los Angeles,68.39,2023-05-06,True
+639,Nancy Anderson,36.0,131996.78,,2.53,2024-03-26,True
+640,Nancy Pérez,67.0,132923.15,Indianapolis,69.0,2023-06-22,False
+641,María Lopez,25.0,114164.77,New York,31.61,2024-10-14,False
+642,Sébastien Rodríguez,43.0,116947.94,,5.57,2023-08-08,False
+643,Sarah López,66.0,92530.57,Austin,60.98,2024-09-29,True
+644,Sandra Harris,57.0,,Jacksonville,24.08,2023-02-27,False
+645,María Walker,24.0,37374.58,,38.68,2024-10-21,True
+646,Susan Garcia,47.0,77701.69,,8.06,2024-04-20,True
+647,John Thomas,24.0,78600.92,Jacksonville,14.72,2024-03-31,False
+648,Michael Wilson,20.0,144604.72,,29.8,2023-12-27,True
+649,William Anderson,18.0,76041.29,San Jose,8.98,2023-01-01,True
+650,Christopher López,53.0,91414.54,San Antonio,91.08,2024-01-22,True
+651,Mary Ramirez,42.0,89322.68,,0.6,2023-12-14,True
+652,Mary López,54.0,102779.02,San Jose,48.39,2023-07-09,True
+653,Sarah Wilson,18.0,117270.27,San Diego,12.32,2024-05-19,True
+654,Karen Moore,32.0,49255.44,,30.77,2023-07-10,False
+655,Barbara Sanchez,54.0,88734.17,,92.61,2024-05-22,True
+656,Mary Sanchez,30.0,127369.3,,16.17,2024-01-04,True
+657,Steven González,57.0,80204.91,San Jose,96.58,2024-02-13,True
+658,Donald Wilson,25.0,56199.48,,20.58,2023-04-27,True
+659,James Thomas,22.0,105112.18,San Diego,74.16,2023-05-14,False
+660,Jean Williams,,127089.76,,54.67,2023-02-27,False
+661,Paul Garcia,26.0,28208.24,,88.45,2024-07-09,True
+662,Matthew Gonzalez,80.0,120982.76,Austin,55.4,2024-11-15,True
+663,Kimberly Davis,18.0,126814.23,,53.46,2024-11-02,True
+664,Christopher García,53.0,79997.98,,19.55,2023-06-22,False
+665,Patricia Sanchez,52.0,147829.74,,16.62,2023-05-29,False
+666,Joseph Brown,19.0,122272.08,Chicago,91.65,2023-03-21,False
+667,Pierre Lopez,80.0,120576.13,San Jose,32.78,2023-08-01,False
+668,Ashley Dupont,57.0,117219.01,Austin,37.21,2023-07-22,True
+669,Margaret Gonzalez,40.0,39579.05,New York,75.98,2023-08-17,False
+670,Donald Wilson,26.0,48240.02,,33.88,2024-11-06,False
+671,Karen Moore,51.0,80318.72,Los Angeles,95.21,2023-08-15,True
+672,Mark Garcia,63.0,54320.57,New York,73.79,2024-10-20,True
+673,Ashley Robinson,31.0,,,59.74,2024-06-15,False
+674,François Johnson,21.0,135500.33,,88.09,2024-03-16,False
+675,Daniel Jackson,47.0,,,4.96,2024-02-06,False
+676,Donald Jones,48.0,101905.18,Columbus,25.71,2023-02-16,False
+677,Charles García,55.0,131555.65,Houston,46.5,2023-08-21,True
+678,Barbara Sanchez,28.0,121890.41,,22.7,2023-11-01,True
+679,Mary Hernandez,52.0,75768.04,Jacksonville,74.39,2024-06-09,False
+680,Donald Anderson,25.0,46138.47,Dallas,91.92,2023-05-23,False
+681,William White,20.0,86846.14,Fort Worth,42.38,2024-02-19,False
+682,Charles Rodriguez,31.0,115709.75,,34.21,2024-05-27,False
+683,Paul Lee,77.0,76734.55,,96.16,2024-01-08,False
+684,William Lewis,30.0,106680.35,,44.49,2024-07-19,True
+685,Jean Miller,62.0,32262.57,San Diego,48.9,2023-09-16,True
+686,Jessica Thomas,49.0,117240.62,,35.16,2024-10-17,True
+687,Steven Brown,51.0,125652.77,Fort Worth,90.95,2024-04-15,False
+688,Patricia Taylor,62.0,111888.92,,56.9,2023-01-12,False
+689,Andrew Robinson,78.0,145744.27,Dallas,76.22,2023-11-26,True
+690,Emily Rodríguez,36.0,127464.77,Philadelphia,81.18,2023-12-24,True
+691,Joshua Pérez,76.0,137402.18,,34.18,2024-02-12,False
+692,Paul Miller,55.0,141364.24,Indianapolis,43.37,2024-10-29,True
+693,Anthony Lewis,33.0,,,84.85,2024-01-08,False
+694,Nancy Wilson,19.0,107653.65,Philadelphia,36.33,2023-01-08,False
+695,Michael Pérez,57.0,20743.42,,79.39,2023-05-02,True
+696,Nancy Jones,34.0,80557.35,Philadelphia,94.1,2023-12-14,True
+697,Mary Ramirez,72.0,94251.1,,62.32,2024-11-06,True
+698,Christopher Rodríguez,51.0,59523.94,Houston,74.16,2023-03-31,False
+699,Joseph Lee,59.0,61353.58,Los Angeles,80.51,2024-10-09,False
+700,Barbara White,77.0,144950.72,,84.5,2024-11-28,True
+701,Joshua Jones,33.0,,,39.51,2023-11-12,False
+702,James Gonzalez,55.0,130393.27,,5.13,2023-06-27,False
+703,Christopher Clark,77.0,72781.53,Los Angeles,40.19,2024-06-23,False
+704,Pierre Lee,19.0,21780.81,San Jose,67.38,2023-02-10,True
+705,Sarah Pérez,,30428.89,,45.04,2024-12-04,False
+706,Pierre Dupont,43.0,60585.53,,74.9,2024-05-16,True
+707,Emily Taylor,30.0,22046.58,,35.7,2023-05-25,True
+708,Paul Hernandez,73.0,22229.47,San Diego,63.47,2023-07-20,False
+709,Christopher Clark,64.0,139158.43,,18.64,2024-12-24,True
+710,Patricia García,48.0,111800.61,Jacksonville,74.94,2024-04-05,False
+711,Stéphanie Moore,77.0,60164.28,San Jose,54.57,2024-07-11,True
+712,Michelle López,51.0,37243.8,Dallas,20.41,2024-06-30,True
+713,André Robinson,56.0,86512.64,San Jose,29.19,2023-09-10,False
+714,Mark Rodríguez,20.0,20695.0,Dallas,74.86,2024-01-25,True
+715,María Lee,,141993.79,,48.26,2024-08-16,True
+716,María Gonzalez,40.0,73925.97,,21.6,2023-09-13,True
+717,André Taylor,31.0,72303.54,,96.73,2024-12-09,False
+718,William Smith,73.0,70777.17,Jacksonville,71.51,2024-03-25,False
+719,Mary Robinson,79.0,29012.68,,95.71,2023-01-10,True
+720,Steven Martinez,72.0,102981.89,,42.71,2023-08-30,True
+721,Michelle Lee,44.0,115290.47,,47.51,2023-09-08,True
+722,Margaret Hernandez,71.0,107896.3,,89.8,2023-01-05,False
+723,Kimberly Davis,46.0,37996.61,Houston,52.5,2023-04-29,False
+724,Nancy Davis,56.0,95249.22,,70.73,2024-01-09,True
+725,Joseph Taylor,70.0,94032.98,Philadelphia,25.22,2023-03-06,False
+726,Daniel Harris,56.0,132893.4,Austin,44.67,2023-05-26,False
+727,Pierre Jackson,18.0,69286.6,,12.34,2023-08-12,False
+728,Robert Dupont,34.0,68293.17,Indianapolis,20.6,2023-08-27,False
+729,José Smith,58.0,100408.52,,0.09,2023-06-26,True
+730,Daniel Pérez,47.0,102299.44,Columbus,3.93,2023-10-09,False
+731,Linda Gonzalez,70.0,81007.08,Los Angeles,97.73,2023-03-04,False
+732,Linda White,30.0,77597.72,,24.24,2023-08-05,True
+733,François Smith,38.0,84239.2,,66.33,2024-11-19,True
+734,Pierre Harris,36.0,,Jacksonville,83.91,2024-04-05,False
+735,Paul Harris,70.0,79951.7,Phoenix,55.07,2024-09-01,False
+736,Thomas Jones,36.0,,,15.31,2023-04-15,True
+737,Karen Lee,74.0,85520.49,,72.81,2023-04-09,True
+738,Michelle Young,42.0,143396.09,Fort Worth,60.03,2024-05-25,True
+739,Jean González,39.0,128268.15,,73.13,2024-01-20,False
+740,David Anderson,48.0,67116.07,San Diego,76.97,2024-02-09,False
+741,Charles Miller,34.0,132273.38,Phoenix,97.54,2024-06-01,True
+742,Margaret Jones,72.0,34308.23,San Jose,57.36,2024-04-20,False
+743,Robert Walker,40.0,,Columbus,34.16,2024-12-09,True
+744,Ashley Davis,49.0,102113.66,,64.85,2024-10-06,False
+745,Barbara Rodríguez,79.0,27070.8,,6.84,2024-03-12,True
+746,Sébastien Dupont,27.0,103753.37,Los Angeles,89.74,2023-01-23,True
+747,Stéphanie Lewis,27.0,146652.2,San Diego,11.94,2024-07-18,False
+748,Thomas Young,53.0,,,32.78,2024-11-07,False
+749,Linda Sanchez,25.0,92109.4,,81.57,2024-12-14,False
+750,William Johnson,71.0,117213.27,San Jose,59.73,2024-04-02,False
+751,Joseph Williams,69.0,125333.62,,39.36,2023-03-24,False
+752,Emily Brown,37.0,73797.57,Philadelphia,47.34,2023-05-25,False
+753,Susan Sanchez,49.0,46541.65,,85.45,2023-03-26,True
+754,Barbara Lee,67.0,25504.5,,34.0,2023-03-19,False
+755,Emily Lopez,31.0,95364.4,Houston,86.96,2024-04-01,True
+756,Anthony Johnson,67.0,78878.44,Fort Worth,8.81,2023-01-01,True
+757,Richard Dupont,45.0,143336.77,,77.68,2023-02-20,False
+758,Donald Thomas,63.0,27878.64,Philadelphia,84.75,2024-11-15,True
+759,Ashley Dupont,69.0,109101.39,Columbus,18.18,2024-12-17,True
+760,Kimberly Hernandez,70.0,23245.61,,43.03,2024-03-21,False
+761,Barbara Anderson,41.0,42286.44,Fort Worth,16.55,2024-03-24,False
+762,Thomas Moore,32.0,,Houston,70.66,2024-05-02,False
+763,William Sanchez,39.0,79133.42,San Diego,53.53,2023-02-03,True
+764,Michelle Wilson,47.0,109141.07,,63.53,2023-12-14,False
+765,Matthew Thompson,80.0,138327.69,,19.65,2023-04-05,False
+766,Sandra Martin,21.0,,,21.17,2023-03-13,False
+767,Christopher Dupont,30.0,143959.56,Houston,4.15,2024-07-04,False
+768,Jean Lee,76.0,134610.03,Houston,32.21,2023-06-03,True
+769,Paul Dupont,40.0,95984.97,Los Angeles,55.97,2023-09-07,False
+770,Sandra Lopez,25.0,128392.95,Philadelphia,85.79,2024-11-04,True
+771,André Moore,35.0,103535.09,,66.69,2024-03-13,False
+772,Christopher Gonzalez,29.0,30212.52,San Antonio,43.54,2023-04-28,True
+773,Christopher Davis,72.0,,Fort Worth,95.31,2023-11-02,True
+774,Jean Miller,48.0,32338.1,,71.92,2023-09-25,True
+775,Daniel Dupont,31.0,97230.76,,93.02,2023-02-23,False
+776,David Thompson,51.0,111343.23,,52.76,2023-08-24,True
+777,Nancy Sanchez,35.0,28648.59,Houston,25.89,2024-01-24,False
+778,Nancy Lewis,73.0,50003.31,Phoenix,5.28,2024-02-05,False
+779,Mark Gonzalez,51.0,139037.39,San Diego,72.61,2024-09-15,False
+780,Sarah Johnson,80.0,100120.88,,12.13,2023-10-30,False
+781,Mark Lee,28.0,52017.18,,30.28,2023-07-26,False
+782,Joseph Ramirez,58.0,109788.37,San Antonio,53.25,2023-08-17,True
+783,Donald Anderson,29.0,,,56.44,2024-07-31,False
+784,Daniel Harris,66.0,85204.84,,60.06,2023-03-16,True
+785,José Gonzalez,32.0,146904.31,Philadelphia,16.63,2024-03-10,True
+786,Nancy Pérez,74.0,108848.99,Jacksonville,37.97,2023-04-13,True
+787,Steven Williams,48.0,68807.34,New York,61.72,2024-02-26,True
+788,Charles White,66.0,124009.55,,96.98,2024-12-04,True
+789,Mark Walker,75.0,134995.83,San Antonio,72.76,2023-11-02,True
+790,Joshua Sanchez,46.0,36278.67,Columbus,92.26,2023-04-08,True
+791,Andrew Davis,43.0,46071.89,,76.22,2023-12-01,False
+792,María Thomas,35.0,48109.51,San Antonio,59.17,2024-03-10,True
+793,Linda Smith,49.0,109857.54,,19.2,2024-03-22,False
+794,José Jones,39.0,98395.14,Indianapolis,66.67,2023-11-04,True
+795,John Smith,55.0,100468.9,Jacksonville,62.34,2023-09-06,True
+796,Patricia López,34.0,142300.53,New York,60.25,2023-06-15,True
+797,Ashley García,40.0,120868.5,,48.98,2024-04-25,True
+798,François Sanchez,41.0,36631.8,Philadelphia,52.87,2023-12-01,False
+799,Barbara Lee,67.0,65175.92,Indianapolis,33.44,2024-06-25,False
+800,Jean Ramirez,25.0,76601.17,,51.93,2023-04-16,False
+801,Anthony Johnson,,,Los Angeles,19.76,2024-07-16,True
+802,André Gonzalez,23.0,,Phoenix,80.52,2023-03-22,True
+803,William González,22.0,135946.1,,18.58,2023-05-13,True
+804,Nancy Clark,61.0,59786.69,Austin,8.5,2023-05-18,False
+805,Elizabeth Taylor,74.0,91744.03,Houston,43.62,2023-07-03,True
+806,Susan Wilson,46.0,122623.22,,65.83,2024-02-05,False
+807,Kimberly Martin,45.0,74108.35,,43.77,2023-11-26,False
+808,David Thomas,28.0,41855.36,,27.68,2024-05-22,True
+809,Donald Garcia,74.0,81743.63,Columbus,55.82,2023-03-10,True
+810,Charles Pérez,18.0,27178.93,,34.7,2024-06-29,False
+811,Patricia Brown,60.0,142509.85,,93.29,2023-02-22,False
+812,Karen Martinez,36.0,29726.76,,92.26,2024-03-25,False
+813,Lisa López,26.0,76999.37,Phoenix,50.24,2023-07-24,True
+814,Betty Pérez,44.0,88884.56,Indianapolis,32.79,2023-05-06,True
+815,Donna Lee,51.0,148089.5,,73.71,2023-02-12,True
+816,Michelle Lee,61.0,41582.84,,3.67,2023-04-21,True
+817,Barbara Rodríguez,21.0,34876.1,,47.48,2024-10-24,True
+818,Jean Brown,53.0,21131.8,,33.63,2023-07-02,True
+819,Pierre Martin,35.0,,Columbus,92.05,2023-04-05,False
+820,Thomas Miller,32.0,46945.49,Philadelphia,1.2,2024-01-09,False
+821,Patricia Robinson,68.0,101975.52,Columbus,55.28,2024-06-03,False
+822,Susan Williams,30.0,48561.88,,74.07,2023-12-26,True
+823,Lisa Pérez,,22667.71,,48.5,2024-11-26,False
+824,Jessica Brown,66.0,,,8.54,2023-10-08,True
+825,Lisa García,23.0,67527.44,Austin,97.25,2023-07-14,True
+826,Sandra Moore,65.0,,Houston,51.8,2023-07-14,False
+827,Charles Young,73.0,59322.27,Chicago,61.42,2024-10-28,True
+828,Charles Jackson,29.0,146798.53,,23.66,2023-04-03,False
+829,Nancy Harris,68.0,42115.0,,48.35,2024-11-02,False
+830,Pierre Lopez,54.0,136770.95,Fort Worth,42.91,2023-03-02,True
+831,Sandra Rodríguez,34.0,120984.43,,7.49,2024-09-25,False
+832,Donald González,75.0,29942.39,Indianapolis,10.62,2023-02-20,False
+833,Charles González,40.0,148274.78,,83.75,2024-02-07,False
+834,Sandra Müller,43.0,55277.58,Indianapolis,23.98,2023-01-05,False
+835,Sarah Lewis,46.0,32815.78,,19.5,2024-04-10,True
+836,Sébastien Hernandez,50.0,127810.85,Los Angeles,50.49,2024-08-26,False
+837,Pierre Müller,77.0,111867.82,,76.87,2024-11-12,False
+838,Thomas Garcia,44.0,100238.44,,6.19,2024-06-17,False
+839,Patricia Martin,42.0,40277.51,Jacksonville,57.68,2024-02-09,True
+840,Stéphanie Ramirez,73.0,,,11.92,2024-05-27,False
+841,Joseph Garcia,72.0,121472.28,,3.65,2024-10-06,True
+842,Sébastien Wilson,27.0,59471.11,,5.27,2023-08-21,False
+843,David Rodriguez,64.0,60519.68,,83.42,2024-06-07,False
+844,Betty Thomas,40.0,20408.32,,11.8,2023-12-12,False
+845,Robert Martinez,38.0,,,4.52,2023-02-15,True
+846,John Gonzalez,38.0,,,43.79,2024-06-29,True
+847,François Walker,60.0,77427.04,San Antonio,84.4,2023-03-19,True
+848,Pierre Garcia,30.0,147950.48,Austin,26.24,2024-12-30,True
+849,Thomas Jackson,54.0,71442.04,,42.17,2023-03-14,True
+850,María López,50.0,112974.24,,3.99,2023-09-06,True
+851,Jean Clark,41.0,56649.48,,44.91,2023-02-16,False
+852,Robert Robinson,61.0,67295.25,,57.76,2023-05-01,True
+853,Andrew Martin,28.0,44794.38,,57.09,2023-08-02,False
+854,Christopher Martinez,34.0,65118.11,,33.24,2023-08-27,True
+855,Robert González,21.0,91140.88,Philadelphia,31.55,2023-02-25,True
+856,Jennifer Clark,64.0,148930.47,San Jose,10.66,2023-12-16,True
+857,Patricia López,42.0,106346.22,,36.68,2023-04-17,False
+858,James Harris,47.0,45901.97,,9.95,2023-02-17,True
+859,Emily Garcia,26.0,25844.99,Columbus,76.66,2024-07-26,True
+860,André Young,38.0,36426.34,Chicago,96.63,2023-12-03,False
+861,Karen Harris,37.0,,New York,97.01,2023-01-26,False
+862,Matthew González,36.0,119470.84,Indianapolis,86.51,2023-09-14,False
+863,Christopher Walker,36.0,142254.5,,60.08,2023-01-08,False
+864,Lisa Walker,29.0,22057.01,Phoenix,70.09,2024-09-16,True
+865,Nancy Lewis,54.0,87958.82,,28.52,2023-09-10,False
+866,Michael López,59.0,,New York,63.08,2024-11-22,True
+867,Margaret Wilson,34.0,105287.15,New York,45.56,2024-12-19,True
+868,Barbara Thomas,54.0,92745.25,Los Angeles,48.2,2023-10-30,False
+869,Jessica Young,,109315.09,Fort Worth,75.78,2024-09-30,True
+870,María Sanchez,65.0,105550.74,Houston,28.19,2023-02-25,False
+871,Richard Garcia,56.0,35211.52,Philadelphia,31.8,2024-12-26,True
+872,José Rodriguez,45.0,123963.33,,92.46,2024-06-09,False
+873,Pierre González,58.0,36020.23,,5.62,2024-04-18,False
+874,François Martin,52.0,110808.98,,48.56,2023-01-28,False
+875,Sarah Lee,64.0,74098.9,,91.28,2023-03-19,False
+876,Patricia Müller,65.0,86800.6,,61.04,2023-08-04,False
+877,Anthony Miller,35.0,137428.74,Jacksonville,54.64,2024-01-21,False
+878,Jennifer Anderson,31.0,135684.88,,24.97,2023-12-31,True
+879,Sarah Dupont,,126321.32,Phoenix,34.33,2024-10-27,True
+880,David Martin,61.0,86319.29,Austin,85.2,2024-06-09,True
+881,Lisa Anderson,58.0,115711.18,Jacksonville,55.92,2024-11-29,False
+882,Stéphanie Miller,77.0,86676.62,,51.47,2023-11-08,True
+883,Christopher Clark,24.0,133048.79,Houston,9.96,2023-01-07,False
+884,José Wilson,58.0,72360.86,,1.6,2023-01-03,True
+885,Andrew Lee,30.0,146130.59,,96.37,2024-09-14,True
+886,Sarah Jones,,141201.96,Dallas,37.7,2023-12-29,False
+887,John White,54.0,116408.34,San Antonio,60.32,2024-05-22,True
+888,Betty Pérez,30.0,,,7.97,2023-10-01,True
+889,Lisa Jackson,53.0,37114.97,,68.31,2024-05-20,True
+890,Matthew Lee,48.0,131111.45,,93.26,2023-01-15,False
+891,Elizabeth Müller,,,,57.57,2023-07-11,True
+892,Patricia Miller,33.0,131053.9,,12.61,2024-09-22,False
+893,Nancy Müller,26.0,83799.45,,58.17,2024-04-29,True
+894,Thomas Harris,26.0,72852.38,Fort Worth,76.63,2023-01-28,True
+895,Kimberly Lewis,55.0,137414.8,Austin,40.64,2024-12-14,True
+896,François Thompson,28.0,98500.63,Fort Worth,87.98,2023-02-08,True
+897,Thomas García,71.0,94959.82,Fort Worth,64.87,2023-09-30,False
+898,Jennifer Garcia,73.0,92639.57,,89.92,2023-08-19,True
+899,Kimberly Smith,39.0,68252.04,Dallas,62.35,2023-03-27,False
+900,Barbara Lee,50.0,122133.6,,13.13,2024-04-18,False
+901,Robert Johnson,53.0,52863.8,Jacksonville,30.97,2023-05-06,True
+902,Nancy Johnson,62.0,,Houston,20.18,2024-06-20,True
+903,Barbara García,40.0,136218.08,Indianapolis,90.88,2023-05-25,False
+904,Jessica Thompson,62.0,63872.44,Phoenix,76.04,2024-06-08,False
+905,Elizabeth Harris,62.0,,,67.64,2023-07-31,True
+906,Sébastien Rodríguez,51.0,94519.02,,30.1,2023-01-25,True
+907,Barbara López,26.0,63894.41,,18.4,2024-08-02,True
+908,Ashley Miller,41.0,148507.81,,75.65,2024-01-29,True
+909,Christopher Martin,25.0,23280.85,,47.42,2023-03-08,True
+910,Betty Brown,24.0,52843.98,Houston,22.58,2023-08-21,False
+911,Jean Thompson,,87609.63,San Diego,61.66,2023-04-19,True
+912,Joseph Lee,35.0,87853.89,San Jose,4.03,2023-05-26,True
+913,Joseph Thompson,20.0,96561.3,San Jose,32.62,2023-04-21,False
+914,Margaret Wilson,45.0,117717.9,,46.86,2023-08-16,True
+915,Anthony Lewis,23.0,101052.12,,14.8,2023-04-21,True
+916,Betty Johnson,61.0,98036.59,San Antonio,98.47,2024-04-14,False
+917,Matthew Williams,61.0,,,20.91,2023-02-03,True
+918,Linda Müller,38.0,68948.94,,13.04,2024-09-14,False
+919,María López,45.0,50167.25,,20.35,2024-01-04,True
+920,Jennifer White,57.0,54498.11,Dallas,76.91,2024-08-17,True
+921,Matthew Jackson,71.0,92063.87,,42.55,2024-07-07,True
+922,Robert Hernandez,71.0,45935.69,,56.54,2024-02-29,False
+923,Elizabeth Martinez,18.0,58213.38,,2.1,2024-09-04,False
+924,Linda Harris,53.0,50821.01,,3.44,2024-06-01,False
+925,Margaret González,38.0,143305.38,Chicago,44.58,2024-11-22,False
+926,Andrew Lee,77.0,142806.55,Jacksonville,81.67,2023-10-09,True
+927,Linda Rodriguez,60.0,99292.4,Indianapolis,88.52,2023-11-16,False
+928,Sébastien Anderson,52.0,140187.92,Indianapolis,8.67,2024-03-18,False
+929,Stéphanie Moore,30.0,122155.64,,53.84,2023-11-11,False
+930,María Martin,74.0,96693.22,,91.32,2024-01-12,True
+931,Jennifer Lopez,66.0,20836.58,Austin,38.8,2023-10-16,True
+932,Mary Miller,71.0,120427.12,San Jose,82.96,2024-03-12,False
+933,Jessica Williams,71.0,111323.48,,13.37,2024-10-23,False
+934,Pierre Williams,27.0,,Austin,93.54,2023-10-04,True
+935,Anthony Rodríguez,70.0,118855.16,,75.14,2024-12-10,False
+936,Steven Lewis,61.0,86679.88,Philadelphia,94.13,2024-08-04,False
+937,James Davis,64.0,111530.83,,67.66,2024-05-17,False
+938,Andrew Dupont,70.0,141572.37,Austin,36.34,2024-09-15,False
+939,Stéphanie Pérez,27.0,68854.65,,93.82,2024-05-30,True
+940,Patricia Walker,63.0,112055.84,Philadelphia,27.56,2023-12-16,True
+941,Jennifer Jackson,30.0,81839.42,,33.22,2024-03-21,True
+942,Ashley Rodriguez,54.0,107671.95,,70.08,2023-12-16,False
+943,Elizabeth Hernandez,55.0,119176.13,,76.53,2024-08-29,False
+944,Jean Thomas,41.0,25908.83,New York,92.94,2024-10-25,True
+945,James Lee,19.0,104058.06,San Jose,20.48,2023-05-17,True
+946,Sandra Gonzalez,39.0,,Jacksonville,79.8,2023-08-31,True
+947,Kimberly Brown,34.0,107104.23,New York,73.85,2024-06-26,False
+948,Margaret Rodríguez,53.0,80882.92,,6.38,2023-02-09,True
+949,Donald Ramirez,31.0,120561.86,San Diego,38.72,2023-08-17,False
+950,Robert Sanchez,27.0,36042.11,San Diego,28.28,2024-07-01,False
+951,John Müller,52.0,101421.91,,30.45,2023-08-11,True
+952,Patricia Sanchez,42.0,56201.19,Houston,98.29,2023-01-06,True
+953,Karen García,20.0,130887.66,Philadelphia,64.28,2023-11-18,False
+954,Betty Jones,64.0,140689.86,,71.77,2024-04-12,True
+955,Paul Lewis,55.0,149531.78,San Diego,97.66,2023-03-16,True
+956,Mark Rodriguez,34.0,123480.96,,37.72,2023-01-04,False
+957,Donna Garcia,29.0,117985.43,,80.18,2024-10-07,False
+958,Charles Hernandez,71.0,48015.1,,43.45,2023-04-28,False
+959,Mary Rodriguez,69.0,63680.92,,86.95,2024-08-28,False
+960,Christopher Harris,41.0,80538.73,,18.07,2024-05-18,False
+961,Kimberly Thompson,46.0,120539.54,,94.77,2024-07-27,True
+962,John Lopez,60.0,138945.56,Jacksonville,21.88,2024-03-16,False
+963,Margaret Walker,42.0,44588.08,,32.62,2023-07-13,False
+964,Betty Lee,,139907.77,Philadelphia,75.62,2024-12-15,False
+965,Margaret Clark,75.0,110431.2,Columbus,39.38,2024-01-27,True
+966,Steven Lee,77.0,99400.19,Jacksonville,60.82,2023-01-26,False
+967,Paul García,43.0,45979.37,,44.46,2024-03-10,False
+968,André Moore,55.0,,,74.24,2023-06-22,False
+969,David White,18.0,93900.44,,22.83,2023-10-27,True
+970,Stéphanie Thompson,37.0,104697.04,Phoenix,5.85,2024-10-06,False
+971,Thomas Jones,72.0,,Columbus,29.99,2023-11-22,False
+972,José Hernandez,45.0,92339.31,,47.43,2024-02-14,False
+973,Sandra Anderson,33.0,131344.14,,16.8,2023-04-28,True
+974,Anthony López,64.0,128558.57,,35.48,2024-12-24,True
+975,Steven Martin,34.0,140556.17,,40.0,2023-08-13,True
+976,Jessica García,57.0,67565.16,Dallas,5.74,2024-06-15,True
+977,Mary López,45.0,61346.44,,58.33,2023-04-23,False
+978,Michelle Lewis,75.0,117425.38,,88.43,2023-05-20,False
+979,Sébastien Garcia,29.0,76044.61,Philadelphia,15.17,2024-07-12,True
+980,William Martin,44.0,31381.33,Dallas,59.78,2023-01-01,True
+981,James Davis,71.0,56764.15,Houston,66.47,2023-03-31,False
+982,Daniel Williams,70.0,,,41.93,2024-10-15,False
+983,Patricia Sanchez,59.0,58027.14,,70.11,2023-11-16,True
+984,Sébastien Rodríguez,76.0,63186.72,Austin,41.07,2024-07-03,True
+985,Joseph Lee,64.0,58190.87,,50.46,2023-05-19,True
+986,Paul Wilson,47.0,25394.89,,0.74,2024-05-25,True
+987,Emily Lopez,58.0,102822.31,Columbus,69.17,2023-09-16,False
+988,Thomas Rodriguez,51.0,97648.01,,66.13,2024-11-03,True
+989,Paul Gonzalez,54.0,104939.85,Austin,3.84,2024-11-20,True
+990,Joseph Moore,23.0,,Jacksonville,36.83,2023-01-10,False
+991,Steven Garcia,24.0,58435.09,Philadelphia,97.9,2023-09-18,False
+992,Anthony White,49.0,100550.07,Dallas,42.07,2024-10-11,False
+993,Anthony García,49.0,97951.58,San Antonio,50.19,2023-06-21,False
+994,Jean Rodríguez,70.0,85822.94,,90.99,2023-01-13,False
+995,Susan González,42.0,65553.72,,71.73,2023-06-17,True
+996,Linda López,50.0,138681.03,Los Angeles,58.21,2024-10-03,True
+997,Charles Walker,,64170.13,,79.78,2024-08-18,True
+998,Susan Martin,75.0,79230.49,,86.44,2023-11-17,False
+999,Matthew Harris,24.0,108154.8,Indianapolis,45.69,2023-11-15,True
+1000,Susan Clark,69.0,90592.79,,47.51,2024-09-04,False

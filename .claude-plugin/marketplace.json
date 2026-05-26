@@ -1,0 +1,57 @@
+{
+  "name": "magic-agent-skills",
+  "owner": {
+    "name": "Votee AI",
+    "email": "tech@votee.com"
+  },
+  "metadata": {
+    "description": "30 AI agent skills for data science and computational linguistics",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "data-science-skills",
+      "description": "12 data science skills for AI coding assistants",
+      "source": "./",
+      "skills": [
+        "./skills/magic-data-cleaning",
+        "./skills/magic-data-exploration",
+        "./skills/magic-data-lifecycle",
+        "./skills/magic-data-loading",
+        "./skills/magic-data-profiling",
+        "./skills/magic-data-synthesis",
+        "./skills/magic-data-transformation",
+        "./skills/magic-data-validation",
+        "./skills/magic-data-visualization",
+        "./skills/magic-report-generation",
+        "./skills/magic-statistical-analysis",
+        "./skills/magic-workspace-init"
+      ]
+    },
+    {
+      "name": "linguistic-skills",
+      "description": "18 computational linguistics skills for low-resource language NLP",
+      "source": "./",
+      "skills": [
+        "./skills/linguistic-annotate",
+        "./skills/linguistic-bitext",
+        "./skills/linguistic-codeswitch",
+        "./skills/linguistic-corpus",
+        "./skills/linguistic-discourse",
+        "./skills/linguistic-ethics",
+        "./skills/linguistic-eval",
+        "./skills/linguistic-historical",
+        "./skills/linguistic-lexicon",
+        "./skills/linguistic-morph",
+        "./skills/linguistic-orchestrator",
+        "./skills/linguistic-scope",
+        "./skills/linguistic-scripts",
+        "./skills/linguistic-semantics",
+        "./skills/linguistic-speech",
+        "./skills/linguistic-syntax",
+        "./skills/linguistic-tokenize",
+        "./skills/linguistic-transfer"
+      ]
+    }
+  ]
+}

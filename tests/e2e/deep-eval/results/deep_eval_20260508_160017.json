@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-05-08 16:00:17",
+  "total": 1,
+  "passed": 1,
+  "failed": 0,
+  "errors": 0,
+  "results": [
+    {
+      "scenario_id": "D5-00",
+      "name": "DD template validation",
+      "status": "PASS",
+      "duration_sec": 6.0,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 3,
+      "assertions_total": 3,
+      "details": {
+        "templates_found": {
+          "passed": true,
+          "detail": "count=7"
+        },
+        "all_validate": {
+          "passed": true,
+          "detail": "pass=7, fail=0"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=6.0s"
+        }
+      },
+      "error": null
+    }
+  ]
+}

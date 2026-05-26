@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-05-08 16:00:11",
+  "total": 1,
+  "passed": 1,
+  "failed": 0,
+  "errors": 0,
+  "results": [
+    {
+      "scenario_id": "D1-06",
+      "name": "Agent autonomy (Kaggle)",
+      "status": "PASS",
+      "duration_sec": 69.92,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 8,
+      "assertions_total": 8,
+      "details": {
+        "identifies_loading": {
+          "passed": true,
+          "detail": "matched: ['load', 'read_csv', 'ingest']"
+        },
+        "identifies_profiling": {
+          "passed": true,
+          "detail": "matched: ['profile', 'quality', 'distribution', 'null']"
+        },
+        "identifies_cleaning": {
+          "passed": true,
+          "detail": "matched: ['clean', 'strip', 'missing', 'duplicate']"
+        },
+        "identifies_transform": {
+          "passed": true,
+          "detail": "matched: ['transform', 'jsonl', 'prompt-completion', 'fine-tun']"
+        },
+        "identifies_validation": {
+          "passed": true,
+          "detail": "matched: ['validate', 'check', 'schema']"
+        },
+        "correct_ordering": {
+          "passed": true,
+          "detail": "matched: ['load', 'profile']"
+        },
+        "mentions_checkpoint": {
+          "passed": true,
+          "detail": "matched: ['checkpoint', 'intermediate']"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=69.9s"
+        }
+      },
+      "error": null
+    }
+  ]
+}

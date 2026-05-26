@@ -1,0 +1,165 @@
+{
+  "timestamp": "2026-05-12 13:47:34",
+  "total": 5,
+  "passed": 5,
+  "failed": 0,
+  "errors": 0,
+  "results": [
+    {
+      "scenario_id": "D3-01",
+      "name": "Chunked loading 500K",
+      "status": "PASS",
+      "duration_sec": 0.64,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 6,
+      "assertions_total": 6,
+      "details": {
+        "all_chunks_loaded": {
+          "passed": true,
+          "detail": "chunks=10"
+        },
+        "total_rows": {
+          "passed": true,
+          "detail": "total=505000"
+        },
+        "no_gaps": {
+          "passed": true,
+          "detail": "id_coverage=100.00%"
+        },
+        "merged_total": {
+          "passed": true,
+          "detail": "merged=505000"
+        },
+        "schema_consistent": {
+          "passed": true,
+          "detail": "all chunks same columns"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.6s (limit 60s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D3-02",
+      "name": "Incremental profiling",
+      "status": "PASS",
+      "duration_sec": 1.31,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 4,
+      "assertions_total": 4,
+      "details": {
+        "means_match": {
+          "passed": true,
+          "detail": "max_diff=0.0000%"
+        },
+        "nulls_match": {
+          "passed": true,
+          "detail": "chunk nulls == full nulls"
+        },
+        "row_count": {
+          "passed": true,
+          "detail": "incremental=505000, full=505000"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=1.3s (limit 120s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D3-03",
+      "name": "Streaming transform",
+      "status": "PASS",
+      "duration_sec": 1.13,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 5,
+      "assertions_total": 5,
+      "details": {
+        "all_have_revenue": {
+          "passed": 1,
+          "detail": "non_null=505000"
+        },
+        "all_have_high_value": {
+          "passed": true,
+          "detail": "column exists"
+        },
+        "rows_preserved": {
+          "passed": true,
+          "detail": "merged=505000, original=505000"
+        },
+        "high_value_reasonable": {
+          "passed": 1,
+          "detail": "high_value_pct=10.00%"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=1.1s (limit 60s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D3-04",
+      "name": "Chunked cleaning",
+      "status": "PASS",
+      "duration_sec": 2.14,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 5,
+      "assertions_total": 5,
+      "details": {
+        "global_stats_computed": {
+          "passed": true,
+          "detail": "cols=6"
+        },
+        "no_numeric_nulls": {
+          "passed": 1,
+          "detail": "remaining=0"
+        },
+        "rows_preserved": {
+          "passed": true,
+          "detail": "total=505000"
+        },
+        "global_mean_used": {
+          "passed": 1,
+          "detail": "imputed_mean=48.50, global=48.50"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=2.1s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D3-06",
+      "name": "Memory bounded streaming",
+      "status": "PASS",
+      "duration_sec": 0.71,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 4,
+      "assertions_total": 4,
+      "details": {
+        "total_rows": {
+          "passed": true,
+          "detail": "total=505000"
+        },
+        "mem_bounded": {
+          "passed": true,
+          "detail": "delta=0.8MB, chunk=6.1MB, full=62.8MB"
+        },
+        "not_full_dataset": {
+          "passed": true,
+          "detail": "delta=0.8MB < full=62.8MB"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.7s"
+        }
+      },
+      "error": null
+    }
+  ]
+}

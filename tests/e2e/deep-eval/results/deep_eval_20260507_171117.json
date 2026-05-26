@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-05-07 17:11:17",
+  "total": 1,
+  "passed": 0,
+  "failed": 1,
+  "errors": 0,
+  "results": [
+    {
+      "scenario_id": "D5-01",
+      "name": "DD preview (local)",
+      "status": "FAIL",
+      "duration_sec": 0.84,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 2,
+      "assertions_total": 4,
+      "details": {
+        "lmstudio_running": {
+          "passed": true,
+          "detail": "LM Studio reachable"
+        },
+        "dd_exit_code": {
+          "passed": false,
+          "detail": "rc=2, stderr=Usage: data-designer preview [OPTIONS] CONFIG_SOURCE\nTry 'data-designer preview --help' for help.\n\u256d\u2500 Error \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\n\u2502 No such option: --o"
+        },
+        "stdout_output": {
+          "passed": false,
+          "detail": "stdout_len=0"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.8s (limit 180s)"
+        }
+      },
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "skill_name": "cross-skill-e2e",
+  "snapshot_date": "2026-05-06",
+  "baseline_model": "claude-sonnet-4-6",
+  "description": "End-to-end scenarios that span multiple MAGIC skills. These test the agent's ability to read multiple SKILL.md files, route tasks correctly, and orchestrate multi-step pipelines.",
+  "evals": [
+    {
+      "id": 1,
+      "name": "vague-messy-data-discovery",
+      "prompt": "I have a CSV file at data/input/survey_responses.csv. It's pretty messy — lots of missing values, some weird placeholder text, and I'm not sure what's in there. Can you help me understand what I have and clean it up?",
+      "expected_output": "Agent should: (1) route to loading first to ingest the file; (2) route to profiling to understand quality and structure; (3) present findings and propose a cleaning plan; (4) route to cleaning for fixable issues; (5) distinguish cleaning tasks from synthesis tasks (e.g., placeholder text may need LLM generation, not regex); (6) validate after cleaning",
+      "skills_involved": ["magic-data-loading", "magic-data-profiling", "magic-data-cleaning", "magic-data-validation"],
+      "files": [],
+      "assertions": [
+        {"type": "must_contain_one", "values": ["load", "read", "ingest"]},
+        {"type": "must_contain_one", "values": ["profile", "quality score", "quality"]},
+        {"type": "must_contain_one", "values": ["clean", "fix", "impute"]},
+        {"type": "must_contain_one", "values": ["validate", "verify", "check"]},
+        {"type": "must_not_contain", "values": ["skip profiling", "clean without checking"]}
+      ]
+    },
+    {
+      "id": 2,
+      "name": "full-pipeline-structured-dataset",
+      "prompt": "I'm building a structured dataset from raw text. I have a raw text file at data/input/raw_entries.jsonl with 500 entries. Each entry has a 'text' field containing semi-structured records. I need to:\n1. Parse the text into structured columns (text, category, label, description)\n2. Profile the quality\n3. Fill any missing descriptions using LLM\n4. Generate example summaries for entries that have 'X' as placeholder\n5. Produce a final validated dataset\n\nHelp me do this end to end.",
+      "expected_output": "Agent should: (1) load JSONL with text parsing; (2) profile to identify missing/sentinel values; (3) use synthesis for missing descriptions (LLM-appropriate); (4) use synthesis with context-aware prompt for example summaries; (5) validate final output; (6) checkpoint between major steps; (7) present cost estimates before synthesis",
+      "skills_involved": ["magic-data-loading", "magic-data-profiling", "magic-data-synthesis", "magic-data-validation"],
+      "files": [],
+      "assertions": [
+        {"type": "must_contain_one", "values": ["JSONL", "jsonl", "parse", "text_parser"]},
+        {"type": "must_contain_one", "values": ["profile", "quality"]},
+        {"type": "must_contain_one", "values": ["DataDesigner", "data-designer", "synthesis"]},
+        {"type": "must_contain_one", "values": ["sentinel", "\"X\"", "placeholder"]},
+        {"type": "must_contain_one", "values": ["validate", "checkpoint"]},
+        {"type": "must_not_contain", "values": ["skip validation", "no preview"]}
+      ]
+    },
+    {
+      "id": 3,
+      "name": "environment-setup-to-first-task",
+      "prompt": "I just installed the MAGIC skills. I have Python but I'm not sure if I have all the packages. I want to set up my environment and then load a CSV file at ~/Downloads/sales_data.csv to see what's in it. Walk me through the setup and first analysis.",
+      "expected_output": "Agent should: (1) verify Python environment and list missing packages; (2) offer to install required packages (pandas, numpy, etc.); (3) create workspace directory structure; (4) load the CSV file; (5) run profiling to show data overview; (6) present findings to user",
+      "skills_involved": ["magic-workspace-init", "magic-data-loading", "magic-data-profiling"],
+      "files": [],
+      "assertions": [
+        {"type": "must_contain_one", "values": ["pip install", "install", "package"]},
+        {"type": "must_contain_one", "values": ["workspace", "directory", "mkdir"]},
+        {"type": "must_contain_one", "values": ["load", "read_csv", "read"]},
+        {"type": "must_contain_one", "values": ["profile", "quality", "overview"]},
+        {"type": "must_not_contain", "values": ["skip setup", "assume installed"]}
+      ]
+    },
+    {
+      "id": 4,
+      "name": "analysis-to-report-pipeline",
+      "prompt": "I have a cleaned dataset at workspace/data/checkpoints/ckpt_03_cleaned.csv with customer survey data (satisfaction_score, age_group, region, product_category, nps_score, comments). I need to:\n- Find interesting patterns and correlations\n- Run statistical tests on satisfaction differences across regions\n- Create visualizations for the key findings\n- Produce a summary report for my manager\n\nDo the full analysis and reporting.",
+      "expected_output": "Agent should: (1) explore patterns with correlation and segment analysis; (2) run statistical tests (ANOVA/Kruskal-Wallis for multi-group region comparison); (3) check normality before choosing parametric vs non-parametric test; (4) create appropriate charts (bar for comparisons, scatter for correlations); (5) avoid anti-patterns (pie charts, dual axis); (6) generate structured report with caveats and uncertainty language",
+      "skills_involved": ["magic-data-exploration", "magic-statistical-analysis", "magic-data-visualization", "magic-report-generation"],
+      "files": [],
+      "assertions": [
+        {"type": "must_contain_one", "values": ["correlation", "pattern", "segment"]},
+        {"type": "must_contain_one", "values": ["ANOVA", "Kruskal-Wallis", "hypothesis test", "statistical test"]},
+        {"type": "must_contain_one", "values": ["normality", "Shapiro", "distribution"]},
+        {"type": "must_contain_one", "values": ["chart", "plot", "visualization"]},
+        {"type": "must_contain_one", "values": ["report", "summary", "finding"]},
+        {"type": "must_contain_one", "values": ["caveat", "uncertainty", "limitation"]},
+        {"type": "must_not_contain", "values": ["pie chart", "dual axis", "3D"]}
+      ]
+    },
+    {
+      "id": 5,
+      "name": "failure-recovery-missing-datadesigner",
+      "prompt": "I need to generate English descriptions for 50 items in workspace/data/input/items.csv. The file has columns: text, category, label. The description column is entirely empty. Generate descriptions using LLM.",
+      "expected_output": "Agent should: (1) identify this as a synthesis task requiring DataDesigner; (2) check if DataDesigner is installed; (3) if not installed, guide user to install it (pip install data-designer); (4) if no LLM API key configured, guide user to set GOOGLE_API_KEY or similar; (5) NOT crash or give up — provide clear recovery path; (6) NOT attempt regex or hardcoded descriptions for this task",
+      "skills_involved": ["magic-data-synthesis", "magic-workspace-init"],
+      "files": [],
+      "assertions": [
+        {"type": "must_contain_one", "values": ["DataDesigner", "data-designer"]},
+        {"type": "must_contain_one", "values": ["pip install", "install", "not installed"]},
+        {"type": "must_contain_one", "values": ["API key", "GOOGLE_API_KEY", "environment variable"]},
+        {"type": "must_not_contain", "values": ["regex", "hardcode", "skip generation", "cannot help"]}
+      ]
+    },
+    {
+      "id": 11,
+      "name": "database-to-report-pipeline",
+      "prompt": "I have a PostgreSQL database with sales data. The connection is in DATABASE_URL. I need to:\n1. Connect and explore the schema\n2. Extract the 'transactions' and 'products' tables (about 50K rows total)\n3. Profile the data quality\n4. Clean any issues found\n5. Generate a summary report with key metrics\n\nDo this end to end.",
+      "expected_output": "Agent should: (1) connect via env var with read-only; (2) inspect schema before extracting; (3) use filtered/limited extraction, not SELECT *; (4) save checkpoint after extraction; (5) profile quality; (6) clean based on findings; (7) generate report with methodology and caveats",
+      "skills_involved": ["magic-data-loading", "magic-data-profiling", "magic-data-cleaning", "magic-report-generation"],
+      "files": [],
+      "assertions": [
+        {"type": "must_contain_one", "values": ["DATABASE_URL", "env var", "environment variable"]},
+        {"type": "must_contain_one", "values": ["read-only", "read_only", "inspect", "schema"]},
+        {"type": "must_contain_one", "values": ["checkpoint", "save", "parquet"]},
+        {"type": "must_contain_one", "values": ["profile", "quality"]},
+        {"type": "must_contain_one", "values": ["clean", "fix", "impute"]},
+        {"type": "must_contain_one", "values": ["report", "summary", "finding"]},
+        {"type": "must_not_contain", "values": ["hardcode password", "skip profiling", "SELECT * FROM"]}
+      ]
+    }
+  ]
+}

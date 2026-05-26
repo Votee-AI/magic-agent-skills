@@ -1,0 +1,66 @@
+{
+  "skill": "linguistic-orchestrator",
+  "snapshot_date": "2026-04-23",
+  "rubric": "softaworks/agent-toolkit/skills/skill-judge",
+  "tier": "A-",
+  "description": "Routing-decision evals for the entry-point orchestrator. Covers ambiguous triage, multi-skill sequential routing, in-domain-no-match decomposition fallback (Q12 from 0010), cross-suite handoff to magic-data, and phase-transition routing.",
+  "evals": [
+    {
+      "id": "ambiguous-triage-yoruba-bootstrap",
+      "prompt": "I have a Yoruba dataset and don't know what to do with it. Help me get started.",
+      "expected_phase": "Scope",
+      "assertions": {
+        "must_contain": ["linguistic-scope", "resource class"],
+        "must_contain_one": ["Joshi", "vitality", "EGIDS", "typology"],
+        "must_not_contain": ["just start training", "skip ethics"],
+        "max_length_words": 250
+      },
+      "rationale": "An ambiguous starting query must trigger Scope-phase routing first (resource-class triage before any acquisition or training). Failure mode: agent jumps straight to corpus or transfer without understanding language vitality/typology."
+    },
+    {
+      "id": "multi-skill-sequential-routing-tokenize-ethics",
+      "prompt": "Audit my Yoruba SentencePiece tokenizer for ethics issues — I'm worried about scraping religious texts without consent.",
+      "assertions": {
+        "must_contain": ["linguistic-tokenize", "linguistic-ethics"],
+        "must_contain_one": ["fertility", "BPE", "byte fallback"],
+        "must_contain_then_must_contain": [["linguistic-tokenize", "linguistic-ethics"]],
+        "must_not_contain": ["tokenize alone is enough", "no need for ethics"],
+        "max_length_words": 300
+      },
+      "rationale": "Multi-skill query with explicit signals for both tokenize (SentencePiece, fertility) and ethics (consent, religious text). Routes must include BOTH in order. Failure mode: routing to one and dropping the other."
+    },
+    {
+      "id": "in-domain-no-match-decomposition-dialect-classifier",
+      "prompt": "Help me build a dialect classifier for Hausa varieties — I want to detect whether a tweet is in Standard Hausa or one of the regional dialects.",
+      "assertions": {
+        "must_contain": ["linguistic-scope", "linguistic-corpus", "linguistic-ethics"],
+        "must_contain_one": ["partial match", "no single skill", "decompose", "decomposing"],
+        "must_not_contain": ["I cannot help with this", "this is outside scope"],
+        "max_length_words": 350
+      },
+      "rationale": "Q12 fallback test (0010): in-linguistic-domain query (dialect, Hausa, classifier) but NO single skill covers dialect classification end-to-end. Orchestrator MUST decompose + route to ≥2 nearest skills (scope for variety enumeration, corpus for dialect-balanced data, ethics for variety politics) AND state 'partial match' caveat. Classifier training is out-of-suite — handed back to magic-data-pipelines."
+    },
+    {
+      "id": "cross-suite-handoff-magic-data",
+      "prompt": "I have a CSV of Yoruba sentences with junk encoding. Clean it up and then prep it for tokenizer training.",
+      "assertions": {
+        "must_contain": ["magic-data", "linguistic-tokenize"],
+        "must_contain_one": ["magic-data-cleaning", "encoding", "CSV"],
+        "must_not_contain": ["only linguistic suite", "we don't handle CSV"],
+        "max_length_words": 250
+      },
+      "rationale": "Cross-suite query (CSV cleanup is data-engineering, tokenizer prep is linguistic). Orchestrator must route to magic-data-cleaning FIRST then hand off to linguistic-tokenize. Failure mode: trying to do CSV cleanup inside the linguistic suite, or refusing the cross-suite step."
+    },
+    {
+      "id": "phase-transition-corpus-to-bitext",
+      "prompt": "I finished collecting monolingual Yoruba corpus (about 2GB cleaned). What's the next phase and which skill?",
+      "assertions": {
+        "must_contain": ["Acquire", "linguistic-bitext"],
+        "must_contain_one": ["bitext", "parallel", "Phase 2"],
+        "must_not_contain": ["jump to evaluation", "skip parallel data"],
+        "max_length_words": 200
+      },
+      "rationale": "Phase-transition query (Acquire phase, monolingual → parallel). Orchestrator must recognize the Acquire phase, route to linguistic-bitext (parallel data acquisition) as the next step. Failure mode: skipping ahead to evaluation or transfer without parallel data acquisition."
+    }
+  ]
+}

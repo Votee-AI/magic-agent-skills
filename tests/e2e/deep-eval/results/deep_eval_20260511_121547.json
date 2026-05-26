@@ -1,0 +1,1285 @@
+{
+  "timestamp": "2026-05-11 12:15:47",
+  "total": 36,
+  "passed": 31,
+  "failed": 1,
+  "errors": 3,
+  "results": [
+    {
+      "scenario_id": "D1-01",
+      "name": "Load Kaggle data",
+      "status": "FAIL",
+      "duration_sec": 0.02,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 6,
+      "assertions_total": 7,
+      "details": {
+        "loaded": {
+          "passed": true,
+          "detail": "rows=9500"
+        },
+        "columns": {
+          "passed": true,
+          "detail": "cols=['id', 'prompt', 'answer']"
+        },
+        "schema_detected": {
+          "passed": true,
+          "detail": "id=True, prompt=True, answer=True"
+        },
+        "prompt_is_text": {
+          "passed": false,
+          "detail": "dtype=str"
+        },
+        "null_check": {
+          "passed": true,
+          "detail": "nulls={'id': 0, 'prompt': 0, 'answer': 0}"
+        },
+        "text_stats": {
+          "passed": 1,
+          "detail": "mean_len=302, min=177, max=510"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.0s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D1-02",
+      "name": "Profile Kaggle data",
+      "status": "PASS",
+      "duration_sec": 0.03,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 8,
+      "assertions_total": 8,
+      "details": {
+        "type_detection": {
+          "passed": true,
+          "detail": "types={'id': 'text', 'prompt': 'text', 'answer': 'text'}"
+        },
+        "null_analysis": {
+          "passed": true,
+          "detail": "null_pct={'id': 0.0, 'prompt': 0.0, 'answer': 0.0}"
+        },
+        "prompt_length_dist": {
+          "passed": 1,
+          "detail": "mean=302, std=104, median=281"
+        },
+        "duplicate_check": {
+          "passed": true,
+          "detail": "duplicates=0"
+        },
+        "id_uniqueness": {
+          "passed": true,
+          "detail": "unique=9500, total=9500"
+        },
+        "answer_profiled": {
+          "passed": 1,
+          "detail": "mean_len=8"
+        },
+        "completeness": {
+          "passed": 1,
+          "detail": "completeness=100.0%"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.0s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D1-03",
+      "name": "Clean Kaggle data",
+      "status": "PASS",
+      "duration_sec": 0.03,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 6,
+      "assertions_total": 6,
+      "details": {
+        "whitespace_cleaned": {
+          "passed": true,
+          "detail": "text columns stripped"
+        },
+        "nulls_handled": {
+          "passed": 1,
+          "detail": "before=0, after=0"
+        },
+        "dedup": {
+          "passed": true,
+          "detail": "removed=0, remaining=9500"
+        },
+        "rows_preserved": {
+          "passed": 1,
+          "detail": "before=9500, after=9500, dups_removed=0"
+        },
+        "no_empty_prompts": {
+          "passed": 1,
+          "detail": "empty=0"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.0s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D1-04",
+      "name": "Transform Kaggle data",
+      "status": "PASS",
+      "duration_sec": 0.19,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 6,
+      "assertions_total": 6,
+      "details": {
+        "records_created": {
+          "passed": true,
+          "detail": "records=9500"
+        },
+        "jsonl_written": {
+          "passed": true,
+          "detail": "size=3823460"
+        },
+        "all_valid_json": {
+          "passed": true,
+          "detail": "valid=9500/9500"
+        },
+        "no_empty_content": {
+          "passed": true,
+          "detail": "empty=0"
+        },
+        "derived_columns": {
+          "passed": true,
+          "detail": "mean_total=310"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.2s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D1-05",
+      "name": "Full Kaggle pipeline",
+      "status": "PASS",
+      "duration_sec": 0.12,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 8,
+      "assertions_total": 8,
+      "details": {
+        "s1_load": {
+          "passed": true,
+          "detail": "rows=9500"
+        },
+        "s2_profile": {
+          "passed": true,
+          "detail": "profile_keys=['rows', 'columns', 'null_pct', 'text_lengths']"
+        },
+        "s3_clean": {
+          "passed": 1,
+          "detail": "rows_after_dedup=9500"
+        },
+        "s4_transform": {
+          "passed": true,
+          "detail": "new_cols=3"
+        },
+        "s5_validate": {
+          "passed": true,
+          "detail": "validation={'rows': 9500, 'no_nulls': True, 'no_empty_prompts': True, 'id_unique': True}"
+        },
+        "s6_report": {
+          "passed": true,
+          "detail": "size=306 chars"
+        },
+        "all_stages": {
+          "passed": true,
+          "detail": "checkpoints=6"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.1s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D1-06",
+      "name": "Agent autonomy (Kaggle)",
+      "status": "PASS",
+      "duration_sec": 85.49,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 8,
+      "assertions_total": 8,
+      "details": {
+        "identifies_loading": {
+          "passed": true,
+          "detail": "matched: ['load']"
+        },
+        "identifies_profiling": {
+          "passed": true,
+          "detail": "matched: ['profile', 'quality', 'null']"
+        },
+        "identifies_cleaning": {
+          "passed": true,
+          "detail": "matched: ['clean', 'strip', 'duplicate']"
+        },
+        "identifies_transform": {
+          "passed": true,
+          "detail": "matched: ['transform', 'jsonl', 'prompt-completion', 'fine-tun']"
+        },
+        "identifies_validation": {
+          "passed": true,
+          "detail": "matched: ['validate', 'verify', 'check', 'schema']"
+        },
+        "correct_ordering": {
+          "passed": true,
+          "detail": "matched: ['load', 'profile']"
+        },
+        "mentions_checkpoint": {
+          "passed": true,
+          "detail": "matched: ['save']"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=85.5s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D2-01",
+      "name": "Profile 100K rows",
+      "status": "PASS",
+      "duration_sec": 0.15,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 7,
+      "assertions_total": 7,
+      "details": {
+        "loaded": {
+          "passed": true,
+          "detail": "rows=101000"
+        },
+        "type_detection": {
+          "passed": true,
+          "detail": "types=15"
+        },
+        "null_detection": {
+          "passed": true,
+          "detail": "null_cols=5"
+        },
+        "numeric_stats": {
+          "passed": true,
+          "detail": "numeric_cols=6"
+        },
+        "outlier_detection": {
+          "passed": true,
+          "detail": "outliers=8978"
+        },
+        "quality_score": {
+          "passed": 1,
+          "detail": "completeness=96.0%"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.1s (limit 300s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D2-02",
+      "name": "Clean 50K rows",
+      "status": "PASS",
+      "duration_sec": 0.38,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 7,
+      "assertions_total": 7,
+      "details": {
+        "loaded": {
+          "passed": true,
+          "detail": "rows=50500"
+        },
+        "numeric_imputation": {
+          "passed": 1,
+          "detail": "remaining_nulls=0"
+        },
+        "text_imputation": {
+          "passed": 1,
+          "detail": "remaining_nulls=0"
+        },
+        "no_row_drop": {
+          "passed": true,
+          "detail": "before=50500, after=50500"
+        },
+        "whitespace_stripped": {
+          "passed": true,
+          "detail": "leading whitespace removed"
+        },
+        "sentinel_detection": {
+          "passed": 1,
+          "detail": "sentinels_found=894"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.4s (limit 60s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D2-03",
+      "name": "Transform 100K rows",
+      "status": "PASS",
+      "duration_sec": 0.12,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 8,
+      "assertions_total": 8,
+      "details": {
+        "derive_revenue": {
+          "passed": 1,
+          "detail": "non_null=101000"
+        },
+        "derive_age_group": {
+          "passed": 1,
+          "detail": "groups={'senior': 51525, 'middle': 30842, 'young': 18633}"
+        },
+        "derive_high_value": {
+          "passed": true,
+          "detail": "high_value_count=10100"
+        },
+        "derive_log_income": {
+          "passed": 1,
+          "detail": "no NaN in log_income"
+        },
+        "derive_days": {
+          "passed": true,
+          "detail": "column created"
+        },
+        "rows_preserved": {
+          "passed": true,
+          "detail": "before=101000, after=101000"
+        },
+        "new_columns": {
+          "passed": true,
+          "detail": "new_cols=5"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.1s (limit 60s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D2-04",
+      "name": "Stats on 100K rows",
+      "status": "PASS",
+      "duration_sec": 0.99,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 7,
+      "assertions_total": 7,
+      "details": {
+        "loaded": {
+          "passed": true,
+          "detail": "numeric_cols=6"
+        },
+        "correlation_matrix": {
+          "passed": true,
+          "detail": "shape=(6, 6)"
+        },
+        "skewness": {
+          "passed": true,
+          "detail": "computed=6 cols"
+        },
+        "anova": {
+          "passed": true,
+          "detail": "F=0.27, p=0.8965"
+        },
+        "ttest": {
+          "passed": true,
+          "detail": "t=-0.74, p=0.4616"
+        },
+        "effect_size": {
+          "passed": true,
+          "detail": "Cohen's d=-0.005"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=1.0s (limit 120s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D2-05",
+      "name": "Viz on 100K rows",
+      "status": "PASS",
+      "duration_sec": 0.46,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 5,
+      "assertions_total": 5,
+      "details": {
+        "histogram": {
+          "passed": true,
+          "detail": "size=19522"
+        },
+        "bar_chart": {
+          "passed": true,
+          "detail": "size=13644"
+        },
+        "scatter_sampled": {
+          "passed": true,
+          "detail": "sample_n=5000"
+        },
+        "all_charts": {
+          "passed": true,
+          "detail": "count=3"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.5s (limit 30s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D2-06",
+      "name": "Validate 100K rows",
+      "status": "PASS",
+      "duration_sec": 0.11,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 9,
+      "assertions_total": 9,
+      "details": {
+        "loaded": {
+          "passed": true,
+          "detail": "rows=101000"
+        },
+        "type_validation": {
+          "passed": true,
+          "detail": "type_violations=0"
+        },
+        "age_range": {
+          "passed": true,
+          "detail": "out_of_range=0"
+        },
+        "purchase_positive": {
+          "passed": true,
+          "detail": "negative=0"
+        },
+        "status_enum": {
+          "passed": true,
+          "detail": "invalid_status=0"
+        },
+        "region_enum": {
+          "passed": true,
+          "detail": "invalid_region=0"
+        },
+        "sentinel_detection": {
+          "passed": 1,
+          "detail": "sentinels=1799"
+        },
+        "id_duplicates_detected": {
+          "passed": 1,
+          "detail": "duplicates=1000"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.1s (limit 30s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D2-07",
+      "name": "Report on 100K rows",
+      "status": "PASS",
+      "duration_sec": 0.12,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 6,
+      "assertions_total": 6,
+      "details": {
+        "report_exists": {
+          "passed": true,
+          "detail": "size=493 chars"
+        },
+        "has_6_sections": {
+          "passed": true,
+          "detail": "sections=6"
+        },
+        "has_summary": {
+          "passed": true,
+          "detail": "summary present"
+        },
+        "has_caveats": {
+          "passed": true,
+          "detail": "caveats present"
+        },
+        "has_findings": {
+          "passed": true,
+          "detail": "findings mention nulls"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.1s (limit 30s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D3-01",
+      "name": "Chunked loading 500K",
+      "status": "PASS",
+      "duration_sec": 0.59,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 6,
+      "assertions_total": 6,
+      "details": {
+        "all_chunks_loaded": {
+          "passed": true,
+          "detail": "chunks=10"
+        },
+        "total_rows": {
+          "passed": true,
+          "detail": "total=505000"
+        },
+        "no_gaps": {
+          "passed": true,
+          "detail": "id_coverage=100.00%"
+        },
+        "merged_total": {
+          "passed": true,
+          "detail": "merged=505000"
+        },
+        "schema_consistent": {
+          "passed": true,
+          "detail": "all chunks same columns"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.6s (limit 60s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D3-02",
+      "name": "Incremental profiling",
+      "status": "PASS",
+      "duration_sec": 1.31,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 4,
+      "assertions_total": 4,
+      "details": {
+        "means_match": {
+          "passed": true,
+          "detail": "max_diff=0.0000%"
+        },
+        "nulls_match": {
+          "passed": true,
+          "detail": "chunk nulls == full nulls"
+        },
+        "row_count": {
+          "passed": true,
+          "detail": "incremental=505000, full=505000"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=1.3s (limit 120s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D3-03",
+      "name": "Streaming transform",
+      "status": "PASS",
+      "duration_sec": 1.18,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 5,
+      "assertions_total": 5,
+      "details": {
+        "all_have_revenue": {
+          "passed": 1,
+          "detail": "non_null=505000"
+        },
+        "all_have_high_value": {
+          "passed": true,
+          "detail": "column exists"
+        },
+        "rows_preserved": {
+          "passed": true,
+          "detail": "merged=505000, original=505000"
+        },
+        "high_value_reasonable": {
+          "passed": 1,
+          "detail": "high_value_pct=10.00%"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=1.2s (limit 60s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D3-04",
+      "name": "Chunked cleaning",
+      "status": "PASS",
+      "duration_sec": 2.09,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 5,
+      "assertions_total": 5,
+      "details": {
+        "global_stats_computed": {
+          "passed": true,
+          "detail": "cols=6"
+        },
+        "no_numeric_nulls": {
+          "passed": 1,
+          "detail": "remaining=0"
+        },
+        "rows_preserved": {
+          "passed": true,
+          "detail": "total=505000"
+        },
+        "global_mean_used": {
+          "passed": 1,
+          "detail": "imputed_mean=48.50, global=48.50"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=2.1s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D3-06",
+      "name": "Memory bounded streaming",
+      "status": "SKIP",
+      "duration_sec": 0.0,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 0,
+      "assertions_total": 0,
+      "details": {},
+      "error": "psutil not available"
+    },
+    {
+      "scenario_id": "D4-01",
+      "name": "Checkpoint pipeline",
+      "status": "PASS",
+      "duration_sec": 0.1,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 7,
+      "assertions_total": 7,
+      "details": {
+        "ckpt_01_exists": {
+          "passed": true,
+          "detail": "size=1245919"
+        },
+        "ckpt_02_exists": {
+          "passed": true,
+          "detail": "keys=['rows', 'columns', 'null_pct', 'dtypes']"
+        },
+        "ckpt_03_exists": {
+          "passed": true,
+          "detail": "nulls_remaining=0"
+        },
+        "ckpt_04_exists": {
+          "passed": true,
+          "detail": "cols=16"
+        },
+        "ckpt_05_exists": {
+          "passed": true,
+          "detail": "valid=True"
+        },
+        "all_5_checkpoints": {
+          "passed": true,
+          "detail": "count=5"
+        },
+        "ckpt_size_ratio": {
+          "passed": true,
+          "detail": "ratio=3.2x source"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D4-02",
+      "name": "Resume from checkpoint",
+      "status": "PASS",
+      "duration_sec": 0.03,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 4,
+      "assertions_total": 4,
+      "details": {
+        "loaded_ckpt_03": {
+          "passed": true,
+          "detail": "rows=10100"
+        },
+        "transform_applied": {
+          "passed": true,
+          "detail": "revenue column created"
+        },
+        "validate_clean": {
+          "passed": true,
+          "detail": "nulls=0"
+        },
+        "matches_full_run": {
+          "passed": true,
+          "detail": "resumed=(10100, 16), full=(10100, 16)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D4-03",
+      "name": "Corrupt checkpoint recovery",
+      "status": "PASS",
+      "duration_sec": 0.03,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 5,
+      "assertions_total": 5,
+      "details": {
+        "corrupt_created": {
+          "passed": true,
+          "detail": "lines: 10102 -> 5051"
+        },
+        "detects_truncation": {
+          "passed": true,
+          "detail": "original=10100, corrupt=5050, lost=5050"
+        },
+        "fallback_exists": {
+          "passed": true,
+          "detail": "ckpt_02=True"
+        },
+        "can_rerun_from_ckpt_01": {
+          "passed": true,
+          "detail": "rows=10100"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.0s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D5-00",
+      "name": "DD template validation",
+      "status": "PASS",
+      "duration_sec": 6.34,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 3,
+      "assertions_total": 3,
+      "details": {
+        "templates_found": {
+          "passed": true,
+          "detail": "count=7"
+        },
+        "all_validate": {
+          "passed": true,
+          "detail": "pass=7, fail=0"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=6.3s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D5-01",
+      "name": "DD preview (local)",
+      "status": "PASS",
+      "duration_sec": 97.73,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 4,
+      "assertions_total": 4,
+      "details": {
+        "lmstudio_running": {
+          "passed": true,
+          "detail": "LM Studio reachable"
+        },
+        "dd_ran": {
+          "passed": true,
+          "detail": "rc=0, stdout=4347, stderr=1747"
+        },
+        "dd_produced_output": {
+          "passed": true,
+          "detail": "completed=True, progress=True"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=97.7s (limit 600s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D5-02",
+      "name": "Partial parquet recovery",
+      "status": "ERROR",
+      "duration_sec": 0.0,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 0,
+      "assertions_total": 0,
+      "details": {},
+      "error": "Traceback (most recent call last):\n  File \"./tests/e2e/deep-eval/run_deep_evals.py\", line 1516, in d5_02_partial_parquet_recovery\n    batch.to_parquet(partial_dir / f\"batch_{i:05d}.parquet\", index=False)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/lib/python3.14/site-packages/pandas/core/frame.py\", line 3135, in to_parquet\n    return to_parquet(\n        self,\n    ...<7 lines>...\n        **kwargs,\n    )\n  File \"/opt/homebrew/lib/python3.14/site-packages/pandas/io/parquet.py\", line 486, in to_parquet\n    impl = get_engine(engine)\n  File \"/opt/homebrew/lib/python3.14/site-packages/pandas/io/parquet.py\", line 68, in get_engine\n    raise ImportError(\n    ...<7 lines>...\n    )\nImportError: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.\nA suitable version of pyarrow or fastparquet is required for parquet support.\nTrying to import the above resulted in these errors:\n - `Import pyarrow` failed. pyarrow is required for parquet support. Use pip or conda to install the pyarrow package.\n - `Import fastparquet` failed. fastparquet is required for parquet support. Use pip or conda to install the fastparquet package.\n"
+    },
+    {
+      "scenario_id": "D5-03",
+      "name": "Health check pattern",
+      "status": "PASS",
+      "duration_sec": 0.01,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 8,
+      "assertions_total": 8,
+      "details": {
+        "lmstudio_health": {
+          "passed": true,
+          "detail": "model=qwen/qwen3.5-35b-a3b"
+        },
+        "dead_endpoint_detected": {
+          "passed": true,
+          "detail": "correctly detected dead endpoint"
+        },
+        "diagnose_model_unloaded": {
+          "passed": true,
+          "detail": "'Failed to load model' \u2192 model_unloaded"
+        },
+        "diagnose_endpoint_down": {
+          "passed": true,
+          "detail": "'Connection refused' \u2192 endpoint_down"
+        },
+        "diagnose_rate_limited": {
+          "passed": true,
+          "detail": "'429 Too Many Requests' \u2192 rate_limited"
+        },
+        "diagnose_auth_error": {
+          "passed": true,
+          "detail": "'401 Unauthorized' \u2192 auth_error"
+        },
+        "diagnose_oom_killed": {
+          "passed": true,
+          "detail": "'Killed' \u2192 oom_killed"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.0s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D5-04",
+      "name": "Resume with filtered seed",
+      "status": "PASS",
+      "duration_sec": 0.02,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 7,
+      "assertions_total": 7,
+      "details": {
+        "seed_created": {
+          "passed": true,
+          "detail": "rows=100"
+        },
+        "filtered_seed": {
+          "passed": true,
+          "detail": "remaining=70"
+        },
+        "no_overlap": {
+          "passed": true,
+          "detail": "overlap=0"
+        },
+        "final_count": {
+          "passed": true,
+          "detail": "total=100"
+        },
+        "complete_coverage": {
+          "passed": true,
+          "detail": "all covered"
+        },
+        "no_duplicates": {
+          "passed": 1,
+          "detail": "duplicates=0"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.0s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D5-06",
+      "name": "Agent multi-column synthesis",
+      "status": "PASS",
+      "duration_sec": 48.16,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 8,
+      "assertions_total": 8,
+      "details": {
+        "uses_datadesigner": {
+          "passed": true,
+          "detail": "matched: ['DataDesigner', 'data-designer', 'data_designer']"
+        },
+        "dependency_ordering": {
+          "passed": true,
+          "detail": "matched: ['depends', 'order', 'first', 'before']"
+        },
+        "description_first": {
+          "passed": true,
+          "detail": "matched: ['description']"
+        },
+        "tags_second": {
+          "passed": true,
+          "detail": "matched: ['tags']"
+        },
+        "marketing_last": {
+          "passed": true,
+          "detail": "matched: ['marketing']"
+        },
+        "preview_before_full": {
+          "passed": true,
+          "detail": "matched: ['preview', 'sample']"
+        },
+        "cost_awareness": {
+          "passed": true,
+          "detail": "matched: ['cost', 'estimate', 'token']"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=48.2s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D5-07",
+      "name": "Agent CJK synthesis",
+      "status": "PASS",
+      "duration_sec": 77.4,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 7,
+      "assertions_total": 7,
+      "details": {
+        "uses_datadesigner": {
+          "passed": true,
+          "detail": "matched: ['DataDesigner', 'data-designer']"
+        },
+        "traditional_chinese": {
+          "passed": true,
+          "detail": "matched: ['Traditional Chinese', '\u7e41\u9ad4', 'Cantonese']"
+        },
+        "not_simplified": {
+          "passed": true,
+          "detail": "matched: ['not Simplified', 'NOT Simplified', 'Traditional']"
+        },
+        "seed_columns": {
+          "passed": true,
+          "detail": "matched: ['word', 'jyutping', 'pos']"
+        },
+        "preview_cjk": {
+          "passed": true,
+          "detail": "matched: ['preview', 'verify', 'check', 'CJK']"
+        },
+        "prompt_language": {
+          "passed": true,
+          "detail": "matched: ['prompt', 'instruction', 'generate']"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=77.4s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D5-08",
+      "name": "Corrupt parquet recovery",
+      "status": "ERROR",
+      "duration_sec": 0.0,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 0,
+      "assertions_total": 0,
+      "details": {},
+      "error": "Traceback (most recent call last):\n  File \"./tests/e2e/deep-eval/run_deep_evals.py\", line 1693, in d5_08_corrupt_parquet_recovery\n    batch.to_parquet(partial_dir / f\"batch_{i:05d}.parquet\", index=False)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/lib/python3.14/site-packages/pandas/core/frame.py\", line 3135, in to_parquet\n    return to_parquet(\n        self,\n    ...<7 lines>...\n        **kwargs,\n    )\n  File \"/opt/homebrew/lib/python3.14/site-packages/pandas/io/parquet.py\", line 486, in to_parquet\n    impl = get_engine(engine)\n  File \"/opt/homebrew/lib/python3.14/site-packages/pandas/io/parquet.py\", line 68, in get_engine\n    raise ImportError(\n    ...<7 lines>...\n    )\nImportError: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.\nA suitable version of pyarrow or fastparquet is required for parquet support.\nTrying to import the above resulted in these errors:\n - `Import pyarrow` failed. pyarrow is required for parquet support. Use pip or conda to install the pyarrow package.\n - `Import fastparquet` failed. fastparquet is required for parquet support. Use pip or conda to install the fastparquet package.\n"
+    },
+    {
+      "scenario_id": "D5-09",
+      "name": "Multi-failure accumulation",
+      "status": "ERROR",
+      "duration_sec": 0.0,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 0,
+      "assertions_total": 0,
+      "details": {},
+      "error": "Traceback (most recent call last):\n  File \"./tests/e2e/deep-eval/run_deep_evals.py\", line 1768, in d5_09_multi_failure_accumulation\n    batch.to_parquet(fail1_dir / f\"batch_{i:05d}.parquet\", index=False)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/lib/python3.14/site-packages/pandas/core/frame.py\", line 3135, in to_parquet\n    return to_parquet(\n        self,\n    ...<7 lines>...\n        **kwargs,\n    )\n  File \"/opt/homebrew/lib/python3.14/site-packages/pandas/io/parquet.py\", line 486, in to_parquet\n    impl = get_engine(engine)\n  File \"/opt/homebrew/lib/python3.14/site-packages/pandas/io/parquet.py\", line 68, in get_engine\n    raise ImportError(\n    ...<7 lines>...\n    )\nImportError: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.\nA suitable version of pyarrow or fastparquet is required for parquet support.\nTrying to import the above resulted in these errors:\n - `Import pyarrow` failed. pyarrow is required for parquet support. Use pip or conda to install the pyarrow package.\n - `Import fastparquet` failed. fastparquet is required for parquet support. Use pip or conda to install the fastparquet package.\n"
+    },
+    {
+      "scenario_id": "D5-10",
+      "name": "Provider fallback config",
+      "status": "PASS",
+      "duration_sec": 0.0,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 9,
+      "assertions_total": 9,
+      "details": {
+        "local_config_valid": {
+          "passed": true,
+          "detail": "fields=['model_alias', 'provider', 'base_url', 'model', 'max_tokens']"
+        },
+        "gemini_config_valid": {
+          "passed": true,
+          "detail": "fields=['model_alias', 'provider', 'model', 'max_tokens']"
+        },
+        "provider_switched": {
+          "passed": true,
+          "detail": "local \u2192 gemini"
+        },
+        "api_key_check": {
+          "passed": true,
+          "detail": "GOOGLE_API_KEY=not set (normal in test env)"
+        },
+        "local_to_gemini": {
+          "passed": true,
+          "detail": "fallback=gemini"
+        },
+        "gemini_to_local": {
+          "passed": true,
+          "detail": "fallback=local"
+        },
+        "no_fallback_both_down": {
+          "passed": true,
+          "detail": "fallback=none"
+        },
+        "fallback_lower_max_tokens": {
+          "passed": true,
+          "detail": "cloud fallback uses lower max_tokens (shorter output expected)"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.0s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D7-01",
+      "name": "Token resolution and cleaning",
+      "status": "PASS",
+      "duration_sec": 0.0,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 10,
+      "assertions_total": 10,
+      "details": {
+        "clean_none": {
+          "passed": true,
+          "detail": "None -> None"
+        },
+        "clean_empty": {
+          "passed": true,
+          "detail": "empty -> None"
+        },
+        "clean_whitespace_only": {
+          "passed": true,
+          "detail": "whitespace-only -> None"
+        },
+        "clean_strips_newline": {
+          "passed": true,
+          "detail": "strips \\n"
+        },
+        "clean_strips_cr": {
+          "passed": true,
+          "detail": "strips \\r\\n"
+        },
+        "clean_strips_spaces": {
+          "passed": true,
+          "detail": "strips spaces"
+        },
+        "clean_valid": {
+          "passed": true,
+          "detail": "valid token unchanged"
+        },
+        "resolve_hf_token_priority": {
+          "passed": true,
+          "detail": "got='hf_primary'"
+        },
+        "resolve_fallback": {
+          "passed": true,
+          "detail": "got='hf_fallback'"
+        },
+        "resolve_none": {
+          "passed": true,
+          "detail": "got=None"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D7-02",
+      "name": "Inspect public dataset",
+      "status": "PASS",
+      "duration_sec": 0.0,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 7,
+      "assertions_total": 7,
+      "details": {
+        "has_configs": {
+          "passed": true,
+          "detail": "configs=['plain_text']"
+        },
+        "has_splits": {
+          "passed": true,
+          "detail": "splits=['train', 'test']"
+        },
+        "has_schema": {
+          "passed": true,
+          "detail": "schema_keys=['text', 'label']"
+        },
+        "has_sample_rows": {
+          "passed": true,
+          "detail": "rows=2"
+        },
+        "has_file_sizes": {
+          "passed": true,
+          "detail": "files=1"
+        },
+        "schema_has_label": {
+          "passed": true,
+          "detail": "label column in schema"
+        },
+        "sample_has_text_field": {
+          "passed": true,
+          "detail": "text field in sample rows"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D7-03",
+      "name": "Download selective patterns",
+      "status": "PASS",
+      "duration_sec": 0.0,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 7,
+      "assertions_total": 7,
+      "details": {
+        "called_once": {
+          "passed": true,
+          "detail": "calls=1"
+        },
+        "correct_repo": {
+          "passed": true,
+          "detail": "repo=username/my-dataset"
+        },
+        "has_allow_patterns": {
+          "passed": true,
+          "detail": "patterns=['*.parquet']"
+        },
+        "token_cleaned": {
+          "passed": true,
+          "detail": "token='hf_mytoken'"
+        },
+        "correct_local_dir": {
+          "passed": true,
+          "detail": "dir=data/input/hf_data"
+        },
+        "gated_error_url": {
+          "passed": true,
+          "detail": "gated={'error': 'gated', 'url': 'https://huggingface.co/username/my-dataset'}"
+        },
+        "not_found_message": {
+          "passed": true,
+          "detail": "not_found={'error': 'not_found', 'message': 'Repository not found'}"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D7-04",
+      "name": "Upload with PAUSE gate",
+      "status": "PASS",
+      "duration_sec": 0.0,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 8,
+      "assertions_total": 8,
+      "details": {
+        "card_has_provenance": {
+          "passed": true,
+          "detail": "provenance marker present"
+        },
+        "public_maps_to_false": {
+          "passed": true,
+          "detail": "public=False (not private)"
+        },
+        "private_maps_to_true": {
+          "passed": true,
+          "detail": "private=True"
+        },
+        "without_yes_aborts": {
+          "passed": true,
+          "detail": "no --yes + declined -> abort"
+        },
+        "with_yes_proceeds": {
+          "passed": true,
+          "detail": "--yes proceeds"
+        },
+        "retry_succeeds": {
+          "passed": true,
+          "detail": "attempts=3"
+        },
+        "retried_twice": {
+          "passed": true,
+          "detail": "attempt_log=[0, 1, 2]"
+        },
+        "flow_create_before_upload": {
+          "passed": true,
+          "detail": "order=['create_repo', 'generate_card', 'upload_folder']"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D7-05",
+      "name": "Credentials never in output",
+      "status": "PASS",
+      "duration_sec": 0.0,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 6,
+      "assertions_total": 6,
+      "details": {
+        "scrubbed_hf_token": {
+          "passed": true,
+          "detail": "credential absent after scrub: 'Token is [HF_TOKEN]'"
+        },
+        "scrubbed_sk_api_key": {
+          "passed": true,
+          "detail": "credential absent after scrub: 'Key: [API_KEY]'"
+        },
+        "scrubbed_mongo_conn": {
+          "passed": true,
+          "detail": "credential absent after scrub: 'mongodb://user:[PASSWORD]@host:27017/db'"
+        },
+        "scrubbed_bearer_token": {
+          "passed": true,
+          "detail": "credential absent after scrub: 'Authorization: Bearer [TOKEN]'"
+        },
+        "safe_text_unchanged": {
+          "passed": true,
+          "detail": "non-sensitive text not modified"
+        },
+        "multi_cred_scrubbed": {
+          "passed": true,
+          "detail": "multi_scrubbed='token=[HF_TOKEN] key=[API_KEY]'"
+        }
+      },
+      "error": null
+    }
+  ]
+}

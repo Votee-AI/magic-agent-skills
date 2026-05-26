@@ -1,0 +1,85 @@
+import { describe, it, expect } from 'vitest';
+import {
+  MAGIC_TOOLS,
+  SKILL_DIRS,
+  COMMAND_FILES,
+  getToolByValue,
+} from '../src/core/config.js';
+
+describe('MAGIC_TOOLS registry', () => {
+  it('has 30 tools', () => {
+    expect(MAGIC_TOOLS.length).toBe(30);
+  });
+
+  it('has unique values', () => {
+    const values = MAGIC_TOOLS.map((t) => t.value);
+    expect(new Set(values).size).toBe(values.length);
+  });
+
+  it('includes core tools', () => {
+    const values = MAGIC_TOOLS.map((t) => t.value);
+    expect(values).toContain('claude');
+    expect(values).toContain('cursor');
+    expect(values).toContain('windsurf');
+    expect(values).toContain('gemini');
+    expect(values).toContain('codex');
+    expect(values).toContain('github-copilot');
+  });
+
+  it('Claude has correct config', () => {
+    const claude = getToolByValue('claude');
+    expect(claude).toBeDefined();
+    expect(claude!.skillsDir).toBe('.claude');
+    expect(claude!.commandsDir).toBe('.claude/commands/magic');
+    expect(claude!.commandFormat).toBe('md');
+  });
+
+  it('Gemini uses toml format', () => {
+    const gemini = getToolByValue('gemini');
+    expect(gemini).toBeDefined();
+    expect(gemini!.commandFormat).toBe('toml');
+  });
+
+  it('GitHub Copilot uses prompt format', () => {
+    const copilot = getToolByValue('github-copilot');
+    expect(copilot).toBeDefined();
+    expect(copilot!.commandFormat).toBe('prompt');
+  });
+
+  it('skills-only tools have null commandsDir', () => {
+    const codex = getToolByValue('codex');
+    expect(codex).toBeDefined();
+    expect(codex!.commandsDir).toBeNull();
+    expect(codex!.commandFormat).toBeNull();
+  });
+
+  it('AGENTS.md has undefined skillsDir', () => {
+    const agents = getToolByValue('agents');
+    expect(agents).toBeDefined();
+    expect(agents!.skillsDir).toBeUndefined();
+  });
+});
+
+describe('SKILL_DIRS', () => {
+  it('has 12 skills', () => {
+    expect(SKILL_DIRS.length).toBe(12);
+  });
+
+  it('all start with magic-', () => {
+    for (const dir of SKILL_DIRS) {
+      expect(dir).toMatch(/^magic-/);
+    }
+  });
+});
+
+describe('COMMAND_FILES', () => {
+  it('has 13 commands', () => {
+    expect(COMMAND_FILES.length).toBe(13);
+  });
+
+  it('all end with .md', () => {
+    for (const file of COMMAND_FILES) {
+      expect(file).toMatch(/\.md$/);
+    }
+  });
+});
