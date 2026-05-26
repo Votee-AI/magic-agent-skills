@@ -1,14 +1,14 @@
 # MAGIC Namespace
 
-**MAGIC** (Multi-Agent Generic Intelligence Capabilities) is a framework for building AI agent skills — self-contained knowledge packages that turn AI coding assistants into domain-specific agents.
+**MAGIC** (Multi-Agent Generic Intelligence Capabilities) is a framework for the data work behind LLM development — turning AI coding assistants into specialists for data preparation, synthesis, annotation, tokenizer auditing, evaluation, and everything else needed to build training datasets and extend models to new languages.
+
+This repository is the unified home for all MAGIC agent skills. Each skill suite targets a different stage of the LLM development pipeline.
 
 ## Skill Suites
 
-This repository contains two skill suites under the MAGIC namespace:
-
 ### Data Science (12 skills)
 
-Skills prefixed with `magic-data-*` and `magic-*` cover the data science workflow: loading, profiling, cleaning, transformation, validation, synthesis, visualization, statistical analysis, and reporting.
+Skills prefixed with `magic-data-*` and `magic-*` cover the core data pipeline: loading, profiling, cleaning, transformation, validation, synthesis, visualization, statistical analysis, and reporting. These are the building blocks for preparing training data — from raw ingestion through quality-gated delivery to HuggingFace, databases, or file formats.
 
 | Skill | Purpose |
 |-------|---------|
@@ -27,7 +27,7 @@ Skills prefixed with `magic-data-*` and `magic-*` cover the data science workflo
 
 ### Computational Linguistics (18 skills)
 
-Skills prefixed with `linguistic-*` cover low-resource language NLP: tokenization, corpus building, morphological analysis, syntax, semantics, and more.
+Skills prefixed with `linguistic-*` cover low-resource language NLP — essential for extending LLMs beyond high-resource languages. Covers tokenizer auditing, corpus building, morphological analysis, annotation, cross-lingual transfer, evaluation, and more.
 
 | Skill | Purpose |
 |-------|---------|

@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/images/magic-logo-githubbg.png" alt="MAGIC" width="220">
+</p>
+
 # MAGIC Agent Skills
 
 [![skills.sh](https://skills.sh/b/Votee-AI/magic-agent-skills)](https://skills.sh/Votee-AI/magic-agent-skills)
@@ -5,9 +9,9 @@
 [![CI](https://github.com/Votee-AI/magic-agent-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/Votee-AI/magic-agent-skills/actions/workflows/ci.yml)
 [![License](https://img.shields.io/github/license/Votee-AI/magic-agent-skills)](LICENSE)
 
-**30 AI agent skills for data science and computational linguistics.**
+**30 agent skills for LLM training data preparation, data science, and computational linguistics.**
 
-Turn any AI coding assistant into a data agent or linguistics expert — through natural language. Works with Claude Code, Cursor, Windsurf, Gemini CLI, and [30 AI tools in total](#supported-tools).
+MAGIC (Multi-Agent Generic Intelligence Capabilities) turns any AI coding assistant into a specialist for the data work behind LLM development — from raw data ingestion and cleaning through synthesis, annotation, tokenizer auditing, and evaluation. Works with Claude Code, Cursor, Windsurf, Gemini CLI, and [30 AI tools in total](#supported-tools).
 
 ## How It Works
 
@@ -18,11 +22,15 @@ Each skill is a **self-contained knowledge package**. When an agent receives a t
 3. Agent reads `scripts/*.py` → sees reference implementations (not executed directly)
 4. Agent **writes its own code** adapted to the specific task
 
-Skills provide knowledge and patterns. The agent decides how to act.
+Skills provide knowledge and patterns. The agent decides how to act — it may follow the reference scripts closely, adapt them, or write entirely custom code.
+
+![The agent works in three layers](docs/images/img-1.png)
 
 ## Skills
 
 ### Data Science (12 skills)
+
+Skills for the core data pipeline — loading, profiling, cleaning, transforming, validating, and delivering datasets for LLM training and fine-tuning.
 
 | Skill | Description |
 |-------|-------------|
@@ -40,6 +48,8 @@ Skills provide knowledge and patterns. The agent decides how to act.
 | `magic-report-generation` | Structured report assembly, table formatting |
 
 ### Computational Linguistics (18 skills)
+
+Skills for low-resource language NLP — tokenizer auditing, corpus building, morphological analysis, annotation, cross-lingual transfer, and evaluation. Essential for extending LLMs to new languages.
 
 | Skill | Description |
 |-------|-------------|
@@ -67,7 +77,8 @@ Skills provide knowledge and patterns. The agent decides how to act.
 ### Prerequisites
 
 - **Node.js 20+** — required for the CLI installer
-- **Python 3.12+** — required for data science skill scripts
+- **Python 3.12+** — required for skill scripts and reference implementations
+- After installing, run `pip install -r requirements.txt` for Python dependencies
 
 ### Option 1: skills.sh (Recommended)
 
@@ -130,7 +141,14 @@ Run `npx @votee-ai/magic-agent-skills init` to auto-detect which tools are in yo
 magic-agent-skills/
 ├── skills/                     # 30 skill packages + shared utilities
 │   ├── magic-data-*/           # 12 data science skills
+│   │   ├── SKILL.md            # Knowledge document + frontmatter
+│   │   ├── scripts/            # Reference Python implementations
+│   │   └── references/         # Additional reference material
 │   ├── linguistic-*/           # 18 linguistics skills
+│   │   ├── SKILL.md            # Knowledge document + frontmatter
+│   │   ├── scripts/            # Reference implementations (where applicable)
+│   │   ├── references/         # Linguistic references
+│   │   └── evals/              # Skill-specific evaluation data
 │   └── _linguistic_shared/     # Shared Python utilities (not a skill)
 ├── commands/
 │   ├── magic/                  # 13 data slash commands
@@ -138,10 +156,11 @@ magic-agent-skills/
 ├── cli/                        # npm CLI installer
 ├── schema/
 │   └── SKILL.schema.json       # Frontmatter validation schema
+├── docs/images/                # Logo and architecture diagrams
 ├── .claude-plugin/
 │   └── marketplace.json        # Claude plugin manifest
 ├── skills.sh.json              # skills.sh registry grouping
-├── MAGIC.md                    # Namespace overview
+├── MAGIC.md                    # Namespace and skill suite overview
 └── RELEASING.md                # Versioning and release policy
 ```
 
