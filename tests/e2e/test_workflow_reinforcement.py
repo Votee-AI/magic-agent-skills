@@ -20,7 +20,7 @@ import pytest
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 SKILLS_DIR = PROJECT_ROOT / "skills"
-COMMANDS_DIR = PROJECT_ROOT / "commands" / "magic"
+COMMANDS_DIR = PROJECT_ROOT / "commands" / "data-agent"
 
 
 class TestNLWorkflowPrerequisites:
@@ -62,7 +62,7 @@ class TestMixedModePrerequisites:
     def test_nl_triggers_match_slash_commands(self):
         """NL trigger sections should reference their equivalent slash commands."""
         pairs = [
-            ("magic-data-lifecycle", "/magic:lifecycle"),
+            ("magic-data-lifecycle", "/data-agent:lifecycle"),
             ("magic-data-exploration", "explore"),
         ]
         for skill_name, slash_cmd in pairs:
@@ -80,7 +80,7 @@ class TestMixedModePrerequisites:
             )
 
     def test_lifecycle_nl_and_command_same_workflow(self):
-        """Both NL and /magic:lifecycle should describe the same workflow."""
+        """Both NL and /data-agent:lifecycle should describe the same workflow."""
         skill_content = (SKILLS_DIR / "magic-data-lifecycle" / "SKILL.md").read_text()
         # Both should reference Discover → Plan → Execute → Validate → Deliver
         assert "Discover" in skill_content

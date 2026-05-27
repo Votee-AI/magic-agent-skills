@@ -118,7 +118,7 @@ def _extract_guidance_commands(skill_name: str) -> list[str]:
     """Extract slash commands mentioned in Guidance blocks."""
     path = SKILLS_DIR / skill_name / "SKILL.md"
     content = path.read_text(encoding="utf-8")
-    commands = re.findall(r"/magic:[\w-]+", content)
+    commands = re.findall(r"/data-agent:[\w-]+", content)
     return list(set(commands))
 
 
@@ -469,10 +469,10 @@ class TestGuidanceActionChain:
     def test_lifecycle_guidance_commands_exist(self):
         """All slash commands referenced in lifecycle guidance should have command files."""
         commands = _extract_guidance_commands("magic-data-lifecycle")
-        commands_dir = PROJECT_ROOT / "commands" / "magic"
+        commands_dir = PROJECT_ROOT / "commands" / "data-agent"
 
         for cmd in commands:
-            # /magic:findings → findings.md
+            # /data-agent:findings → findings.md
             cmd_name = cmd.split(":")[-1]
             cmd_file = commands_dir / f"{cmd_name}.md"
             assert cmd_file.exists(), (
@@ -481,7 +481,7 @@ class TestGuidanceActionChain:
 
     def test_all_skills_guidance_commands_valid(self):
         """All guidance commands across all skills should reference valid command files."""
-        commands_dir = PROJECT_ROOT / "commands" / "magic"
+        commands_dir = PROJECT_ROOT / "commands" / "data-agent"
         invalid = []
 
         for skill_dir in sorted(SKILLS_DIR.iterdir()):

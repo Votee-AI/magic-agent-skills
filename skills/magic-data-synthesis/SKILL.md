@@ -10,7 +10,7 @@ metadata:
   phase: 2
   supports_pipeline: true
   supports_generation: true
-  eval_prompts: 9
+  eval_prompts: 6
   version: 0.1.0
   author: Votee MAGIC Team
   tags:

@@ -1,8 +1,8 @@
-# /magic:deliver — Deliver processed data to a destination
+# /data-agent:deliver — Deliver processed data to a destination
 
 ## Usage
 
-`/magic:deliver [destination]`
+`/data-agent:deliver [destination]`
 
 ## Description
 
@@ -44,7 +44,7 @@ Upload processed data to a HuggingFace dataset repository.
 
 **Example:**
 ```
-/magic:deliver hf
+/data-agent:deliver hf
 ```
 
 **Required:** `HF_TOKEN` env var or `huggingface-cli login`
@@ -59,7 +59,7 @@ Save processed data to a local output directory (default behavior without destin
 
 **Example:**
 ```
-/magic:deliver local
+/data-agent:deliver local
 ```
 
 ## Safety

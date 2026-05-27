@@ -218,7 +218,7 @@ class TestProgressiveDisclosureOrdering:
 
 
 class TestLifecycleSpecificStructure:
-    """Verify lifecycle skill has routing knowledge (interactive infra moved to /magic:lifecycle command)."""
+    """Verify lifecycle skill has routing knowledge (interactive infra moved to /data-agent:lifecycle command)."""
 
     def setup_method(self):
         self.path = SKILLS_DIR / "magic-data-lifecycle" / "SKILL.md"

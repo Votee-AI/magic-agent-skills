@@ -1,5 +1,5 @@
 <!-- Natural Language Triggers: "undo that", "go back to the previous version", "rollback", "revert to checkpoint", "that made things worse" -->
-# /magic:rollback — Revert to Previous Checkpoint
+# /data-agent:rollback — Revert to Previous Checkpoint
 
 Roll back to a previous data checkpoint when a processing step produces undesirable results.
 
@@ -19,7 +19,7 @@ Available checkpoints:
 
 ### Step 2: Accept Target or Ask
 
-If the user specified a checkpoint (e.g., `/magic:rollback ckpt_03`), use that. Otherwise, ask which checkpoint to revert to.
+If the user specified a checkpoint (e.g., `/data-agent:rollback ckpt_03`), use that. Otherwise, ask which checkpoint to revert to.
 
 ### Step 3: Confirm Before Reverting
 

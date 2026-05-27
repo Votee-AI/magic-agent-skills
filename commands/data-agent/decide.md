@@ -29,6 +29,6 @@ Record a decision in the analysis journal.
 
 **Prefixes:** `[auto]` for autonomous mode, `[fast-forward]` for fast-forwarded decisions.
 
-**See also:** `/magic:findings` to review options, `/magic:propose` to generate a plan, `/magic:review` to see decision history.
+**See also:** `/data-agent:findings` to review options, `/data-agent:propose` to generate a plan, `/data-agent:review` to see decision history.
 
 $ARGUMENTS

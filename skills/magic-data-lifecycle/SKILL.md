@@ -10,7 +10,7 @@ metadata:
   supports_pipeline: true
   supports_generation: false
   entry_point: true
-  eval_prompts: 5
+  eval_prompts: 3
   version: 0.1.0
   author: Votee MAGIC Team
   tags:
@@ -34,7 +34,7 @@ This skill provides routing knowledge — read it when you need to decide which 
 - You need to decide which skill handles a specific operation
 - The user's request is vague and you need a framework for breaking it down
 
-For the full interactive pipeline workflow with phases, tiers, PAUSE gates, and workspace tracking, see the `/magic:lifecycle` command instead.
+For the full interactive pipeline workflow with phases, tiers, PAUSE gates, and workspace tracking, see the `/data-agent:lifecycle` command instead.
 
 ## When to Use
 
@@ -45,7 +45,7 @@ For the full interactive pipeline workflow with phases, tiers, PAUSE gates, and 
 
 **When NOT to Use:**
 - Single, isolated operations — use the specific skill directly (e.g., "just load this file" → magic-data-loading)
-- User wants the full interactive pipeline with phase tracking → suggest `/magic:lifecycle` command instead
+- User wants the full interactive pipeline with phase tracking → suggest `/data-agent:lifecycle` command instead
 
 ## Data Processing Expertise
 

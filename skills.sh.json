@@ -2,8 +2,8 @@
   "$schema": "https://skills.sh/schema/skills.sh.json",
   "groupings": [
     {
-      "title": "Data Science",
-      "description": "12 skills for data loading, profiling, cleaning, transformation, visualization, and synthesis",
+      "title": "Data Agent",
+      "description": "12 skills for LLM training data loading, profiling, cleaning, transformation, visualization, and synthesis",
       "skills": [
         "magic-data-cleaning",
         "magic-data-exploration",

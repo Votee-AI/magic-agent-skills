@@ -51,8 +51,8 @@ describe('copyCommands', () => {
     const count = await copyCommands(testDir, claude);
 
     if (count > 0) {
-      expect(existsSync(join(testDir, '.claude/commands/magic'))).toBe(true);
-      const files = await readdir(join(testDir, '.claude/commands/magic'));
+      expect(existsSync(join(testDir, '.claude/commands/data-agent'))).toBe(true);
+      const files = await readdir(join(testDir, '.claude/commands/data-agent'));
       expect(files.some((f) => f.endsWith('.md'))).toBe(true);
     }
   });
@@ -62,7 +62,7 @@ describe('copyCommands', () => {
     const count = await copyCommands(testDir, gemini);
 
     if (count > 0) {
-      const files = await readdir(join(testDir, '.gemini/commands/magic'));
+      const files = await readdir(join(testDir, '.gemini/commands/data-agent'));
       expect(files.some((f) => f.endsWith('.toml'))).toBe(true);
     }
   });

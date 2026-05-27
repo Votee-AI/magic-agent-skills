@@ -172,10 +172,10 @@ class TestLifecycleSkill:
         assert "routing" in content.lower() or "Route" in content
 
     def test_references_lifecycle_command(self):
-        """Lifecycle skill should point to /magic:lifecycle for full workflow."""
+        """Lifecycle skill should point to /data-agent:lifecycle for full workflow."""
         path = SKILLS_DIR / "magic-data-lifecycle" / "SKILL.md"
         content = path.read_text()
-        assert "/magic:lifecycle" in content
+        assert "/data-agent:lifecycle" in content
 
     def test_references_custom_code_testing(self):
         path = SKILLS_DIR / "magic-data-lifecycle" / "SKILL.md"

@@ -14,6 +14,6 @@ Read the `magic-data-loading` SKILL.md `## Database Loading` section for connect
 5. Update `workspace_state.md` Data Source section with connection info
 6. Suggest next steps: "explore schema", "extract data", or "profile a table"
 
-**Important:** Connection is read-only by default. If user needs to write data, guide them to `/magic:deliver` instead.
+**Important:** Connection is read-only by default. If user needs to write data, guide them to `/data-agent:deliver` instead.
 
 $ARGUMENTS

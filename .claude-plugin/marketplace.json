@@ -10,8 +10,8 @@
   },
   "plugins": [
     {
-      "name": "data-science-skills",
-      "description": "12 data science skills for AI coding assistants",
+      "name": "data-agent-skills",
+      "description": "12 data agent skills for LLM training data preparation",
       "source": "./",
       "skills": [
         "./skills/magic-data-cleaning",

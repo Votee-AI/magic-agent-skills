@@ -105,8 +105,8 @@ npx @votee-ai/magic-agent-skills init
 # Non-interactive — specify tools directly
 npx @votee-ai/magic-agent-skills init --tools claude,cursor,windsurf
 
-# Install only data science skills
-npx @votee-ai/magic-agent-skills init --suite data-science
+# Install only data-agent skills
+npx @votee-ai/magic-agent-skills init --suite data-agent
 
 # Install only linguistic skills
 npx @votee-ai/magic-agent-skills init --suite linguistic
@@ -157,7 +157,7 @@ magic-agent-skills/
 │   ├── integration/            # Multi-skill workflow tests
 │   └── e2e/                    # End-to-end pipeline scenarios
 ├── commands/
-│   ├── magic/                  # 13 data slash commands
+│   ├── data-agent/             # 13 data-agent slash commands
 │   └── linguistic/             # 10 linguistic slash commands
 ├── cli/                        # npm CLI installer
 ├── schema/

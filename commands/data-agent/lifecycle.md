@@ -1,6 +1,6 @@
 <!-- Natural Language Triggers: "full pipeline", "lifecycle workflow", "set up pipeline", "structured data processing", "what phase are we in?", "lifecycle status" -->
 
-# /magic:lifecycle — Full Data Processing Pipeline
+# /data-agent:lifecycle — Full Data Processing Pipeline
 
 Run a comprehensive, phased data processing workflow with quality gates, progress tracking, and structured decision recording.
 
@@ -60,10 +60,10 @@ Do NOT show phase indicators for Tier 1 quick tasks.
 3. **Auto-profile** — run `quality_score.py` and `detect_all_issues.py` automatically
 4. **Present summary** — data overview with quality score and initial findings
 5. **Suggest next steps** — lead with direct guidance, mention slash commands as shortcuts:
-   - `/magic:findings` — structured findings categorized by severity
-   - `/magic:propose` — draft a processing plan based on findings
-   - `/magic:explore` — open interactive exploration mode
-   - `/magic:status` — show current phase and workspace state
+   - `/data-agent:findings` — structured findings categorized by severity
+   - `/data-agent:propose` — draft a processing plan based on findings
+   - `/data-agent:explore` — open interactive exploration mode
+   - `/data-agent:status` — show current phase and workspace state
 
 **Step 7:** Present findings after discovery in three categories:
 

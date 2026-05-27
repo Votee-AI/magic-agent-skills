@@ -35,6 +35,6 @@ Run a propose-then-act cycle for the current data processing task.
 - Include confidence levels (high/medium/low) for each finding
 - Never force a single path — always offer alternatives
 
-**See also:** `/magic:findings` for raw findings, `/magic:decide` to record choices, `/magic:spec` to formalize as a data spec.
+**See also:** `/data-agent:findings` for raw findings, `/data-agent:decide` to record choices, `/data-agent:spec` to formalize as a data spec.
 
 $ARGUMENTS

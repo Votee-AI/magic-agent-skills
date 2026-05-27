@@ -31,6 +31,6 @@ Initialize a MAGIC data processing workspace. Follow these steps:
 
    **c. LLM Configuration** — check for API keys in environment (`GOOGLE_API_KEY`, `HF_TOKEN`, etc.)
 
-   **d. Getting started** — suggest first steps: load data, run `/magic:explore`, or `/magic:lifecycle`
+   **d. Getting started** — suggest first steps: load data, run `/data-agent:explore`, or `/data-agent:lifecycle`
 
 7. Provide a comprehensive overview that helps users understand their workspace setup and next steps.

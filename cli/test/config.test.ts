@@ -30,7 +30,7 @@ describe('MAGIC_TOOLS registry', () => {
     const claude = getToolByValue('claude');
     expect(claude).toBeDefined();
     expect(claude!.skillsDir).toBe('.claude');
-    expect(claude!.commandsDir).toBe('.claude/commands/magic');
+    expect(claude!.commandsDir).toBe('.claude/commands/data-agent');
     expect(claude!.commandFormat).toBe('md');
   });
 
