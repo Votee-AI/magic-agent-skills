@@ -37,17 +37,23 @@ pip install -r requirements.txt
 ## Running Tests
 
 ```bash
-# Unit tests (fast, no external dependencies)
+# All tests (co-located per-skill + cross-cutting)
+MPLBACKEND=Agg pytest tests/ skills/ -q --tb=short
+
+# Cross-cutting tests only (structure, triggers, routing)
 MPLBACKEND=Agg pytest tests/unit/ -q --tb=short
 
-# Integration tests (may require network/filesystem fixtures)
+# Per-skill tests only (e.g., magic-data-cleaning)
+MPLBACKEND=Agg pytest skills/magic-data-cleaning/tests/ -q --tb=short
+
+# Integration tests
 MPLBACKEND=Agg pytest tests/integration/ -q --tb=short
 
 # E2E evals dry-run (validates routing logic, no LLM calls)
 python tests/e2e/evals/run_evals.py --all --dry-run
 ```
 
-All three suites must pass before a PR is merged.
+All suites must pass before a PR is merged.
 
 ## Branch Model
 
@@ -86,30 +92,45 @@ Before requesting review, confirm:
 
 ### Adding a New Skill
 
-A skill lives under `skills/magic-<name>/` and must contain:
+A skill lives under `skills/<name>/` (data skills use `magic-*`, linguistic skills use `linguistic-*`):
 
 ```
-skills/magic-<name>/
-  SKILL.md            # Required — skill specification
-  scripts/            # Reference scripts and callable tools
-  evals/
-    evals.json        # Required — routing eval cases
+skills/<name>/
+  SKILL.md            # Required — agent knowledge document
+  README.md           # Required — human-readable overview
+  scripts/            # Optional — reference scripts and callable tools
+  references/         # Optional — additional reference material
+  evals/              # Optional — routing eval cases
+  tests/              # Optional — per-skill unit tests
 ```
 
 ### SKILL.md Frontmatter
 
-Every `SKILL.md` must open with YAML frontmatter:
+Every `SKILL.md` must open with agentskills.io-compliant YAML frontmatter:
 
 ```yaml
 ---
 name: magic-<name>
-version: 1.0.0
-description: One-sentence description of what the skill does.
-triggers:
-  - keyword one
-  - keyword two
+description: "What the skill does and when to use it. Include trigger keywords."
+license: Apache-2.0
+compatibility: "Python 3.12+"
+metadata:
+  version: "0.1.0"
+  author: "Votee MAGIC Team"
+  domain: data-science
+  complexity: medium
+  requires_llm: false
+  tags:
+    - data-science
+    - your-tags
+  scripts:
+    - scripts/your_script.py
+  dependencies:
+    - pandas
 ---
 ```
+
+Root-level fields (`name`, `description`, `license`, `compatibility`) follow the agentskills.io spec. All extensions go under `metadata`.
 
 ### Script Tier Markers
 
@@ -152,6 +173,7 @@ python tests/e2e/evals/run_evals.py --skill magic-<name> --dry-run
 
 ### Modifying an Existing Skill
 
-- Update `SKILL.md` version in frontmatter (patch for fixes, minor for new capabilities)
+- Update `metadata.version` in SKILL.md frontmatter (patch for fixes, minor for new capabilities)
 - Add regression eval cases covering the changed behavior
-- Update `CHANGELOG.md`
+- Run the skill's co-located tests if they exist: `pytest skills/<name>/tests/`
+- Validate frontmatter: `python scripts/migrate-frontmatter.py --verify`

@@ -4,7 +4,7 @@
 
 | Tier | Command | What it validates |
 |------|---------|-------------------|
-| **Unit** | `MPLBACKEND=Agg pytest tests/unit/ -q` | Individual script correctness — inputs, outputs, edge cases |
+| **Unit** | `MPLBACKEND=Agg pytest tests/unit/ skills/*/tests/ -q` | Individual script correctness — co-located in `skills/*/tests/` + cross-cutting in `tests/unit/` |
 | **Integration** | `MPLBACKEND=Agg pytest tests/integration/ -q` | Multi-script workflows, NL routing, checkpoint flows |
 | **E2E** | `pytest tests/e2e/ -q` | Full pipeline scenarios, agent workflow simulation |
 | **Eval** | `python tests/e2e/evals/run_evals.py --all --dry-run` | Skill routing eval assertions (JSON structure validation) |
@@ -12,7 +12,7 @@
 
 Run all automated tests:
 ```bash
-MPLBACKEND=Agg pytest tests/unit/ tests/integration/ tests/e2e/ -q --tb=short
+MPLBACKEND=Agg pytest tests/ skills/ -q --tb=short
 ```
 
 ## Manual Testing
@@ -51,9 +51,7 @@ tests/
 ├── README.md                  ← You are here
 ├── unit/                      ← Script-level tests (805+ tests)
 │   ├── test_data/             ← Fixture CSV/JSONL files
-│   ├── test_data_loading/     ← Tests per skill
-│   ├── test_data_profiling/
-│   └── ...
+│   └── test_*.py              ← Cross-cutting validation tests
 ├── integration/               ← Multi-script workflow tests
 ├── e2e/                       ← End-to-end pipeline tests
 │   ├── datasets/              ← Synthetic test data
