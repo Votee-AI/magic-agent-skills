@@ -21,6 +21,37 @@ import {
 } from '../core/copy.js';
 import { getSuiteConfigs } from '../core/manifest.js';
 
+const ACCENT = chalk.hex('#00BCD4');
+const DIM = chalk.dim;
+
+const LOGO = [
+  '███╗   ███╗ █████╗  ██████╗ ██╗ ██████╗',
+  '████╗ ████║██╔══██╗██╔════╝ ██║██╔════╝',
+  '██╔████╔██║███████║██║  ███╗██║██║     ',
+  '██║╚██╔╝██║██╔══██║██║   ██║██║██║     ',
+  '██║ ╚═╝ ██║██║  ██║╚██████╔╝██║╚██████╗',
+  '╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝ ╚═════╝',
+];
+
+function printBanner(version: string, totalSkills: number): void {
+  const width = Math.min(process.stdout.columns || 80, 80);
+  console.log('');
+  if (width >= 60) {
+    for (const line of LOGO) {
+      console.log('  ' + ACCENT(line));
+    }
+    console.log('  ' + ACCENT.bold('  Agent Skills'));
+  } else {
+    console.log('  ' + ACCENT.bold('✦ MAGIC Agent Skills'));
+  }
+  console.log('');
+  console.log('  ' + DIM(`v${version} · ${totalSkills} skills · data-agent + linguistic`));
+  console.log('');
+  console.log('  ' + DIM('─'.repeat(width - 4)));
+  console.log('');
+  console.log('');
+}
+
 const LEGACY_CONFIG_FILENAME = 'magic-data-agent-skills.json';
 
 export interface InitOptions {
@@ -78,6 +109,16 @@ export async function init(options: InitOptions): Promise<void> {
   } catch {
     // Manifest not yet generated — fall back to data-only (backward compat)
     suiteConfigs = [];
+  }
+
+  // Show banner in interactive mode
+  const isInteractive = !options.suites && !options.skills;
+  if (isInteractive) {
+    const totalSkills = suiteConfigs.reduce((sum, s) => sum + s.skills.length, 0);
+    const pkg = JSON.parse(
+      await readFile(join(getPackageRoot(), 'package.json'), 'utf8'),
+    ) as { version: string };
+    printBanner(pkg.version, totalSkills || 30);
   }
 
   if (options.skills) {
