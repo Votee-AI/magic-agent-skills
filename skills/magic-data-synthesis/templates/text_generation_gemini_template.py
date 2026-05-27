@@ -26,7 +26,7 @@ def load_config_builder() -> DataDesignerConfigBuilder:
     # --- Model Config: Gemini via Google AI Studio (OpenAI-compatible endpoint) ---
     gemini_model = ModelConfig(
         alias="gemini-text",
-        model="gemini-3.1-flash-lite-preview",  # ADAPT: change to your preferred Gemini model
+        model="gemini-flash-latest",  # ADAPT: change to your preferred Gemini model
         inference_parameters=ChatCompletionInferenceParams(
             max_parallel_requests=4,
             temperature=0.7,
