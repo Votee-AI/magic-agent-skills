@@ -15,16 +15,14 @@
   },
   "files": [
     "bin",
-    "dist",
-    "skills",
-    "commands"
+    "dist"
   ],
   "engines": {
     "node": ">=20.0.0"
   },
   "scripts": {
     "build": "tsc",
-    "prepublishOnly": "bash scripts/copy-skills.sh && npm run build",
+    "prepublishOnly": "npm run build",
     "test": "vitest run",
     "test:watch": "vitest"
   },

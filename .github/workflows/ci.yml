@@ -37,8 +37,6 @@ jobs:
           node-version: "22"
       - name: Install dependencies
         run: cd cli && npm ci
-      - name: Bundle skills and commands
-        run: cd cli && bash scripts/copy-skills.sh
       - name: Build TypeScript
         run: cd cli && npm run build
       - name: Run CLI tests
@@ -165,37 +163,37 @@ jobs:
           node-version: "22"
       - name: Install dependencies
         run: cd cli && npm ci
-      - name: Prepare package bundle
-        run: cd cli && bash scripts/copy-skills.sh
-      - name: Verify bundle contents
+      - name: Build TypeScript
+        run: cd cli && npm run build
+      - name: Verify package contents (thin CLI only)
         run: |
           cd cli
-          find skills commands -type f 2>/dev/null | sort > /tmp/pack-output.txt
-          cat /tmp/pack-output.txt
-          if [ ! -f skills/manifest.json ]; then
-            echo "FAIL: skills/manifest.json not generated"
+          # Verify compiled output exists
+          if [ ! -d dist ]; then
+            echo "FAIL: dist/ not found — TypeScript was not compiled"
             exit 1
           fi
-          DATA_COUNT=$(node -e "const m=JSON.parse(require('fs').readFileSync('skills/manifest.json','utf8')); console.log(m.suites['data-agent'].skills.length)")
-          LING_COUNT=$(node -e "const m=JSON.parse(require('fs').readFileSync('skills/manifest.json','utf8')); console.log(m.suites.linguistic.skills.length)")
-          echo "Data skills in manifest: $DATA_COUNT"
-          echo "Linguistic skills in manifest: $LING_COUNT"
-          [ "$DATA_COUNT" -ge 12 ] || { echo "FAIL: Expected 12+ data skills, got $DATA_COUNT"; exit 1; }
-          [ "$LING_COUNT" -ge 18 ] || { echo "FAIL: Expected 18+ linguistic skills, got $LING_COUNT"; exit 1; }
-          FORBIDDEN="evals/ test-workspace/ .cache/ __pycache__ .omc/ openspec/ ref/"
-          for pattern in $FORBIDDEN; do
-            if grep -q "$pattern" /tmp/pack-output.txt; then
-              echo "FAIL: Bundle contains forbidden path: $pattern"
-              exit 1
-            fi
-          done
-          FILE_COUNT=$(wc -l < /tmp/pack-output.txt)
-          echo "Bundle file count: $FILE_COUNT"
-          if [ "$FILE_COUNT" -gt 500 ]; then
-            echo "FAIL: Bundle has $FILE_COUNT files (max 500)"
+          if [ ! -f bin/magic-agent-skills.js ]; then
+            echo "FAIL: bin/magic-agent-skills.js not found"
             exit 1
           fi
-          echo "PASS: Bundle contents verified"
+          # Verify skills and commands are NOT bundled
+          if [ -d skills ]; then
+            echo "FAIL: skills/ directory must not be bundled in the npm package"
+            exit 1
+          fi
+          if [ -d commands ]; then
+            echo "FAIL: commands/ directory must not be bundled in the npm package"
+            exit 1
+          fi
+          # Verify package is small (thin CLI only)
+          FILE_COUNT=$(find dist bin -type f | wc -l)
+          echo "Package file count: $FILE_COUNT"
+          if [ "$FILE_COUNT" -gt 50 ]; then
+            echo "FAIL: Package has $FILE_COUNT files (max 50 for thin CLI)"
+            exit 1
+          fi
+          echo "PASS: Package contents verified — thin CLI only, no bundled skills"
 
   license-check:
     runs-on: ubuntu-latest

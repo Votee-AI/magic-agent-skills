@@ -20,6 +20,7 @@ import {
   configPath,
 } from '../core/copy.js';
 import { getSuiteConfigs } from '../core/manifest.js';
+import { fetchFromGitHub, cleanupFetchDir } from '../core/fetch.js';
 
 const ACCENT = chalk.hex('#00BCD4');
 const DIM = chalk.dim;
@@ -117,179 +118,194 @@ export async function init(options: InitOptions): Promise<void> {
     }
   }
 
-  // --- Suite / skill selection ---
-  let selectedSkills: string[] = [];
-  let selectedSuites: string[] = preSelectedSuites;
-
-  let suiteConfigs: ReturnType<typeof getSuiteConfigs> = [];
-  try {
-    suiteConfigs = getSuiteConfigs();
-  } catch {
-    // Manifest not yet generated — fall back to data-only (backward compat)
-    suiteConfigs = [];
-  }
-
-  // Show banner in interactive mode
-  const isInteractive = !options.suites && !options.skills;
-  if (isInteractive) {
-    const totalSkills = suiteConfigs.reduce((sum, s) => sum + s.skills.length, 0);
-    const pkg = JSON.parse(
-      await readFile(join(getPackageRoot(), 'package.json'), 'utf8'),
-    ) as { version: string };
-    printBanner(pkg.version, totalSkills || 30);
-  }
-
-  if (options.skills) {
-    // --skills flag: explicit list
-    selectedSkills = options.skills.split(',').map((s) => s.trim()).filter(Boolean);
-    selectedSuites = resolveSuitesFromSkills(selectedSkills, suiteConfigs);
-  } else if (options.suites) {
-    // --suites flag
-    const suiteArg = options.suites.trim();
-    if (suiteArg === 'all') {
-      selectedSuites = suiteConfigs.map((s) => s.name);
-    } else {
-      selectedSuites = suiteArg.split(',').map((s) => s.trim()).filter(Boolean);
-    }
-    selectedSkills = resolveSkillsFromSuites(selectedSuites, suiteConfigs);
-  } else if (preSelectedSuites.length > 0) {
-    // Pre-selected from legacy migration
-    selectedSkills = resolveSkillsFromSuites(preSelectedSuites, suiteConfigs);
-  } else if (suiteConfigs.length > 0) {
-    // Interactive suite/skill selection
-    const totalSkills = suiteConfigs.reduce((sum, s) => sum + s.skills.length, 0);
-
-    const selectionMode = await select({
-      message: 'Which MAGIC skills would you like to install?',
-      choices: [
-        {
-          name: `All MAGIC skills (${totalSkills} skills)`,
-          value: 'all',
-        },
-        ...suiteConfigs.map((suite) => ({
-          name: `${suite.displayName} suite (${suite.skills.length} skills)`,
-          value: `suite:${suite.name}`,
-        })),
-        {
-          name: 'Select individual skills',
-          value: 'individual',
-        },
-      ],
-    });
-
-    if (selectionMode === 'all') {
-      selectedSuites = suiteConfigs.map((s) => s.name);
-      selectedSkills = resolveSkillsFromSuites(selectedSuites, suiteConfigs);
-    } else if (selectionMode.startsWith('suite:')) {
-      const suiteName = selectionMode.slice('suite:'.length);
-      selectedSuites = [suiteName];
-      selectedSkills = resolveSkillsFromSuites(selectedSuites, suiteConfigs);
-    } else {
-      // Individual skill selection with suite grouping
-      const choices: Array<Separator | { name: string; value: string; checked: boolean }> = [];
-      for (const suite of suiteConfigs) {
-        choices.push(new Separator(`── ${suite.displayName} ──`));
-        for (const skill of suite.skills) {
-          choices.push({ name: skill, value: skill, checked: false });
-        }
-      }
-      selectedSkills = await checkbox<string>({
-        message: 'Select skills to install (space to toggle, enter to confirm):',
-        choices,
-      });
-      selectedSuites = resolveSuitesFromSkills(selectedSkills, suiteConfigs);
-    }
-  } else {
-    // No manifest — install all data skills (backward compat)
-    selectedSuites = ['data'];
-    selectedSkills = [];
-  }
-
-  // --- Tool selection ---
-  const detectedToolValues = preSelectedTools.length > 0
-    ? preSelectedTools
-    : detectTools(projectPath);
-
-  let selectedToolValues: string[];
-
-  if (options.tools) {
-    if (options.tools === 'all') {
-      selectedToolValues = MAGIC_TOOLS.map((t) => t.value);
-    } else {
-      selectedToolValues = options.tools.split(',').map((s) => s.trim()).filter(Boolean);
-    }
-  } else if (detectedToolValues.length > 0) {
-    const autoApply = await confirm({
-      message: `Detected AI tools: ${detectedToolValues.join(', ')}. Install for these tools?`,
-      default: true,
-    });
-    if (autoApply) {
-      selectedToolValues = detectedToolValues;
-    } else {
-      selectedToolValues = await selectTools();
-    }
-  } else {
-    selectedToolValues = await selectTools();
-  }
-
-  if (selectedToolValues.length === 0) {
-    console.log(chalk.yellow('No tools selected. Aborting.'));
-    return;
-  }
-
-  // --- Installation ---
-  const spinner = ora('Installing MAGIC Agent Skills...').start();
-  let totalSkillsInstalled = 0;
-  let totalCommandsInstalled = 0;
-
-  for (const toolValue of selectedToolValues) {
-    const tool = getToolByValue(toolValue);
-    if (!tool) {
-      spinner.warn(`Unknown tool: ${toolValue}`);
-      continue;
-    }
-
-    const skillFilter = selectedSkills.length > 0 ? selectedSkills : undefined;
-    const skillCount = await copySkills(projectPath, tool, skillFilter);
-    const cmdCount = await copyCommands(projectPath, tool);
-    totalSkillsInstalled += skillCount;
-    totalCommandsInstalled += cmdCount;
-  }
-
-  // Write config
-  const now = new Date().toISOString();
+  // Read version from local package.json
   const pkg = JSON.parse(
     await readFile(join(getPackageRoot(), 'package.json'), 'utf8'),
   ) as { version: string };
-  const mergedTools = addMode && existingConfig
-    ? [...new Set([...existingConfig.tools, ...selectedToolValues])]
-    : selectedToolValues;
-  const mergedSuites = addMode && existingConfig
-    ? [...new Set([...(existingConfig.suites ?? []), ...selectedSuites])]
-    : selectedSuites;
-  const mergedSkills = addMode && existingConfig
-    ? [...new Set([...(existingConfig.skills ?? []), ...selectedSkills])]
-    : selectedSkills;
 
-  const config: InstalledConfig = {
-    version: pkg.version,
-    tools: mergedTools,
-    suites: mergedSuites,
-    skills: mergedSkills,
-    installedAt: existingConfig?.installedAt ?? now,
-    updatedAt: now,
-  };
-  await writeConfig(projectPath, config);
-
-  // Remove legacy config if migrated
-  if (legacyConfig && existsSync(legacyConfigPath)) {
-    await rm(legacyConfigPath, { force: true });
+  // --- Fetch latest skills from GitHub ---
+  const fetchSpinner = ora('Fetching latest skills from GitHub...').start();
+  let sourceDir: string;
+  try {
+    sourceDir = await fetchFromGitHub();
+    fetchSpinner.succeed('Fetched latest skills from GitHub.');
+  } catch (err) {
+    fetchSpinner.fail(err instanceof Error ? err.message : String(err));
+    return;
   }
 
-  spinner.succeed(
-    `Installed ${totalSkillsInstalled} skills and ${totalCommandsInstalled} commands for ${selectedToolValues.length} tool(s).`,
-  );
-  console.log(chalk.green(`Config written to ${CONFIG_FILENAME}`));
+  try {
+    // --- Suite / skill selection ---
+    let selectedSkills: string[] = [];
+    let selectedSuites: string[] = preSelectedSuites;
+
+    const skillsDir = join(sourceDir, 'skills');
+    let suiteConfigs: ReturnType<typeof getSuiteConfigs> = [];
+    try {
+      suiteConfigs = getSuiteConfigs(skillsDir, pkg.version);
+    } catch {
+      // Manifest discovery failed — fall back to empty (backward compat)
+      suiteConfigs = [];
+    }
+
+    // Show banner in interactive mode
+    const isInteractive = !options.suites && !options.skills;
+    if (isInteractive) {
+      const totalSkills = suiteConfigs.reduce((sum, s) => sum + s.skills.length, 0);
+      printBanner(pkg.version, totalSkills || 30);
+    }
+
+    if (options.skills) {
+      // --skills flag: explicit list
+      selectedSkills = options.skills.split(',').map((s) => s.trim()).filter(Boolean);
+      selectedSuites = resolveSuitesFromSkills(selectedSkills, suiteConfigs);
+    } else if (options.suites) {
+      // --suites flag
+      const suiteArg = options.suites.trim();
+      if (suiteArg === 'all') {
+        selectedSuites = suiteConfigs.map((s) => s.name);
+      } else {
+        selectedSuites = suiteArg.split(',').map((s) => s.trim()).filter(Boolean);
+      }
+      selectedSkills = resolveSkillsFromSuites(selectedSuites, suiteConfigs);
+    } else if (preSelectedSuites.length > 0) {
+      // Pre-selected from legacy migration
+      selectedSkills = resolveSkillsFromSuites(preSelectedSuites, suiteConfigs);
+    } else if (suiteConfigs.length > 0) {
+      // Interactive suite/skill selection
+      const totalSkills = suiteConfigs.reduce((sum, s) => sum + s.skills.length, 0);
+
+      const selectionMode = await select({
+        message: 'Which MAGIC skills would you like to install?',
+        choices: [
+          {
+            name: `All MAGIC skills (${totalSkills} skills)`,
+            value: 'all',
+          },
+          ...suiteConfigs.map((suite) => ({
+            name: `${suite.displayName} suite (${suite.skills.length} skills)`,
+            value: `suite:${suite.name}`,
+          })),
+          {
+            name: 'Select individual skills',
+            value: 'individual',
+          },
+        ],
+      });
+
+      if (selectionMode === 'all') {
+        selectedSuites = suiteConfigs.map((s) => s.name);
+        selectedSkills = resolveSkillsFromSuites(selectedSuites, suiteConfigs);
+      } else if (selectionMode.startsWith('suite:')) {
+        const suiteName = selectionMode.slice('suite:'.length);
+        selectedSuites = [suiteName];
+        selectedSkills = resolveSkillsFromSuites(selectedSuites, suiteConfigs);
+      } else {
+        // Individual skill selection with suite grouping
+        const choices: Array<Separator | { name: string; value: string; checked: boolean }> = [];
+        for (const suite of suiteConfigs) {
+          choices.push(new Separator(`── ${suite.displayName} ──`));
+          for (const skill of suite.skills) {
+            choices.push({ name: skill, value: skill, checked: false });
+          }
+        }
+        selectedSkills = await checkbox<string>({
+          message: 'Select skills to install (space to toggle, enter to confirm):',
+          choices,
+        });
+        selectedSuites = resolveSuitesFromSkills(selectedSkills, suiteConfigs);
+      }
+    } else {
+      // No manifest — install all data skills (backward compat)
+      selectedSuites = ['data'];
+      selectedSkills = [];
+    }
+
+    // --- Tool selection ---
+    const detectedToolValues = preSelectedTools.length > 0
+      ? preSelectedTools
+      : detectTools(projectPath);
+
+    let selectedToolValues: string[];
+
+    if (options.tools) {
+      if (options.tools === 'all') {
+        selectedToolValues = MAGIC_TOOLS.map((t) => t.value);
+      } else {
+        selectedToolValues = options.tools.split(',').map((s) => s.trim()).filter(Boolean);
+      }
+    } else if (detectedToolValues.length > 0) {
+      const autoApply = await confirm({
+        message: `Detected AI tools: ${detectedToolValues.join(', ')}. Install for these tools?`,
+        default: true,
+      });
+      if (autoApply) {
+        selectedToolValues = detectedToolValues;
+      } else {
+        selectedToolValues = await selectTools();
+      }
+    } else {
+      selectedToolValues = await selectTools();
+    }
+
+    if (selectedToolValues.length === 0) {
+      console.log(chalk.yellow('No tools selected. Aborting.'));
+      return;
+    }
+
+    // --- Installation ---
+    const spinner = ora('Installing MAGIC Agent Skills...').start();
+    let totalSkillsInstalled = 0;
+    let totalCommandsInstalled = 0;
+
+    for (const toolValue of selectedToolValues) {
+      const tool = getToolByValue(toolValue);
+      if (!tool) {
+        spinner.warn(`Unknown tool: ${toolValue}`);
+        continue;
+      }
+
+      const skillFilter = selectedSkills.length > 0 ? selectedSkills : undefined;
+      const skillCount = await copySkills(projectPath, tool, sourceDir, skillFilter);
+      const cmdCount = await copyCommands(projectPath, tool, sourceDir);
+      totalSkillsInstalled += skillCount;
+      totalCommandsInstalled += cmdCount;
+    }
+
+    // Write config
+    const now = new Date().toISOString();
+    const mergedTools = addMode && existingConfig
+      ? [...new Set([...existingConfig.tools, ...selectedToolValues])]
+      : selectedToolValues;
+    const mergedSuites = addMode && existingConfig
+      ? [...new Set([...(existingConfig.suites ?? []), ...selectedSuites])]
+      : selectedSuites;
+    const mergedSkills = addMode && existingConfig
+      ? [...new Set([...(existingConfig.skills ?? []), ...selectedSkills])]
+      : selectedSkills;
+
+    const config: InstalledConfig = {
+      version: pkg.version,
+      tools: mergedTools,
+      suites: mergedSuites,
+      skills: mergedSkills,
+      installedAt: existingConfig?.installedAt ?? now,
+      updatedAt: now,
+    };
+    await writeConfig(projectPath, config);
+
+    // Remove legacy config if migrated
+    if (legacyConfig && existsSync(legacyConfigPath)) {
+      await rm(legacyConfigPath, { force: true });
+    }
+
+    spinner.succeed(
+      `Installed ${totalSkillsInstalled} skills and ${totalCommandsInstalled} commands for ${selectedToolValues.length} tool(s).`,
+    );
+    console.log(chalk.green(`Config written to ${CONFIG_FILENAME}`));
+  } finally {
+    await cleanupFetchDir(sourceDir);
+  }
 }
 
 async function selectTools(): Promise<string[]> {

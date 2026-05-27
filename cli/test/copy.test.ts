@@ -1,19 +1,12 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { existsSync } from 'node:fs';
 import { readFile, writeFile, mkdir, rm, readdir } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 
+// The repo root contains skills/ and commands/ directories used as sourceDir in tests.
 const REPO_ROOT = resolve(fileURLToPath(import.meta.url), '..', '..', '..');
-
-vi.mock('../src/core/config.js', async () => {
-  const actual = await vi.importActual('../src/core/config.js') as any;
-  return {
-    ...actual,
-    getPackageRoot: () => REPO_ROOT,
-  };
-});
 
 import {
   copySkills,
@@ -43,7 +36,7 @@ describe('copySkills', () => {
   it('copies all 30 skills to Claude directory', async () => {
     const claude = getToolByValue('claude')!;
     await mkdir(join(testDir, '.claude'), { recursive: true });
-    const count = await copySkills(testDir, claude);
+    const count = await copySkills(testDir, claude, REPO_ROOT);
 
     expect(count).toBe(30);
     expect(existsSync(join(testDir, '.claude/skills/magic-data-loading'))).toBe(true);
@@ -54,14 +47,14 @@ describe('copySkills', () => {
 
   it('returns 0 for tools without skillsDir', async () => {
     const agents = getToolByValue('agents')!;
-    const count = await copySkills(testDir, agents);
+    const count = await copySkills(testDir, agents, REPO_ROOT);
     expect(count).toBe(0);
   });
 
   it('respects skillFilter — only copies selected skills', async () => {
     const claude = getToolByValue('claude')!;
     await mkdir(join(testDir, '.claude'), { recursive: true });
-    const count = await copySkills(testDir, claude, ['magic-data-loading', 'magic-data-profiling']);
+    const count = await copySkills(testDir, claude, REPO_ROOT, ['magic-data-loading', 'magic-data-profiling']);
 
     expect(count).toBe(2);
     expect(existsSync(join(testDir, '.claude/skills/magic-data-loading'))).toBe(true);
@@ -73,7 +66,7 @@ describe('copySkills', () => {
 describe('copyCommands', () => {
   it('copies both data-agent and linguistic commands for Claude', async () => {
     const claude = getToolByValue('claude')!;
-    const count = await copyCommands(testDir, claude);
+    const count = await copyCommands(testDir, claude, REPO_ROOT);
 
     if (count > 0) {
       expect(existsSync(join(testDir, '.claude/commands/data-agent'))).toBe(true);
@@ -87,7 +80,7 @@ describe('copyCommands', () => {
 
   it('converts to toml for Gemini', async () => {
     const gemini = getToolByValue('gemini')!;
-    const count = await copyCommands(testDir, gemini);
+    const count = await copyCommands(testDir, gemini, REPO_ROOT);
 
     if (count > 0) {
       const files = await readdir(join(testDir, '.gemini/commands/data-agent'));
@@ -97,7 +90,7 @@ describe('copyCommands', () => {
 
   it('returns 0 for skills-only tools', async () => {
     const codex = getToolByValue('codex')!;
-    const count = await copyCommands(testDir, codex);
+    const count = await copyCommands(testDir, codex, REPO_ROOT);
     expect(count).toBe(0);
   });
 });
@@ -106,7 +99,7 @@ describe('removeSkills', () => {
   it('removes previously copied skills', async () => {
     const claude = getToolByValue('claude')!;
     await mkdir(join(testDir, '.claude'), { recursive: true });
-    await copySkills(testDir, claude);
+    await copySkills(testDir, claude, REPO_ROOT);
     expect(existsSync(join(testDir, '.claude/skills/magic-data-loading'))).toBe(true);
 
     const removed = await removeSkills(testDir, claude);
@@ -117,7 +110,7 @@ describe('removeSkills', () => {
   it('removes only filtered skills when skillFilter provided', async () => {
     const claude = getToolByValue('claude')!;
     await mkdir(join(testDir, '.claude'), { recursive: true });
-    await copySkills(testDir, claude);
+    await copySkills(testDir, claude, REPO_ROOT);
 
     const removed = await removeSkills(testDir, claude, ['magic-data-loading']);
     expect(removed).toBe(1);
@@ -129,7 +122,7 @@ describe('removeSkills', () => {
 describe('removeCommands', () => {
   it('removes previously copied commands', async () => {
     const claude = getToolByValue('claude')!;
-    const copied = await copyCommands(testDir, claude);
+    const copied = await copyCommands(testDir, claude, REPO_ROOT);
     if (copied > 0) {
       const removed = await removeCommands(testDir, claude);
       expect(removed).toBeGreaterThan(0);

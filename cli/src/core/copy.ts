@@ -8,7 +8,6 @@ import {
   SKILL_DIRS,
   COMMAND_FILES,
   CONFIG_FILENAME,
-  getPackageRoot,
 } from './config.js';
 import { type CommandAdapter, getAdapter } from './adapters.js';
 
@@ -16,22 +15,15 @@ export async function ensureDir(path: string): Promise<void> {
   await mkdir(path, { recursive: true });
 }
 
-export function getSkillsSource(): string {
-  return join(getPackageRoot(), 'skills');
-}
-
-export function getCommandsSource(group: string): string {
-  return join(getPackageRoot(), 'commands', group);
-}
-
 export async function copySkills(
   projectPath: string,
   tool: ToolConfig,
+  sourceDir: string,
   skillFilter?: string[],
 ): Promise<number> {
   if (!tool.skillsDir) return 0;
 
-  const source = getSkillsSource();
+  const source = join(sourceDir, 'skills');
   const destBase = join(projectPath, tool.skillsDir, 'skills');
   let count = 0;
 
@@ -53,6 +45,7 @@ export async function copySkills(
 export async function copyCommands(
   projectPath: string,
   tool: ToolConfig,
+  sourceDir: string,
 ): Promise<number> {
   if (!tool.commandsDir || !tool.commandFormat) return 0;
 
@@ -63,7 +56,7 @@ export async function copyCommands(
   let count = 0;
 
   for (const [group, files] of Object.entries(COMMAND_FILES)) {
-    const source = getCommandsSource(group);
+    const source = join(sourceDir, 'commands', group);
     if (!existsSync(source)) continue;
 
     const destDir = join(commandsBase, group);

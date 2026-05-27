@@ -1,6 +1,5 @@
-import { readFileSync } from 'node:fs';
+import { readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
-import { getPackageRoot } from './config.js';
 
 export interface SuiteConfig {
   name: string;
@@ -11,42 +10,42 @@ export interface SuiteConfig {
 }
 
 export interface ManifestConfig {
-  suites: Record<string, {
-    skills: string[];
-  }>;
+  suites: Record<string, { skills: string[] }>;
 }
 
-export function loadManifest(): ManifestConfig {
-  const manifestPath = join(getPackageRoot(), 'skills', 'manifest.json');
-  try {
-    const raw = readFileSync(manifestPath, 'utf8');
-    return JSON.parse(raw) as ManifestConfig;
-  } catch (err) {
-    throw new Error(
-      `Failed to load skills manifest at ${manifestPath}. ` +
-      `Run "npm run build" or "bash scripts/copy-skills.sh" first.`,
-    );
-  }
+/**
+ * Discovers suites by scanning a skills directory for magic-* and linguistic-* subdirs.
+ * Works with any directory — fetched from GitHub, local repo, or bundled package.
+ */
+export function discoverManifest(skillsDir: string): ManifestConfig {
+  const dirs = readdirSync(skillsDir).filter(d =>
+    statSync(join(skillsDir, d)).isDirectory() && !d.startsWith('_')
+  );
+  return {
+    suites: {
+      'data-agent': { skills: dirs.filter(d => d.startsWith('magic-')).sort() },
+      linguistic: { skills: dirs.filter(d => d.startsWith('linguistic-')).sort() },
+    },
+  };
 }
 
-export function getSuiteConfigs(): SuiteConfig[] {
-  const manifest = loadManifest();
-  const pkg = JSON.parse(
-    readFileSync(join(getPackageRoot(), 'package.json'), 'utf8'),
-  ) as { version: string };
-
+/**
+ * Builds suite configs from a discovered manifest.
+ */
+export function getSuiteConfigs(skillsDir: string, version: string): SuiteConfig[] {
+  const manifest = discoverManifest(skillsDir);
   return [
     {
       name: 'data-agent',
       displayName: 'Data Agent',
-      version: pkg.version,
+      version,
       skills: manifest.suites['data-agent']?.skills ?? [],
       commandsDir: 'commands/data-agent',
     },
     {
       name: 'linguistic',
       displayName: 'Linguistic',
-      version: pkg.version,
+      version,
       skills: manifest.suites['linguistic']?.skills ?? [],
       commandsDir: 'commands/linguistic',
     },
