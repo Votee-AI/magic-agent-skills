@@ -1,0 +1,5 @@
+id,name,age,active,salary
+1,Alice,25,true,50000.50
+2,Bob,30,false,60000.00
+3,Charlie,35,true,75000.75
+4,Diana,28,true,55000.25

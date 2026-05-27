@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-05-07 14:58:42",
+  "total": 6,
+  "passed": 4,
+  "failed": 0,
+  "errors": 1,
+  "results": [
+    {
+      "scenario_id": "D2-01",
+      "name": "Profile 100K rows",
+      "status": "PASS",
+      "duration_sec": 0.15,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 7,
+      "assertions_total": 7,
+      "details": {
+        "loaded": {
+          "passed": true,
+          "detail": "rows=101000"
+        },
+        "type_detection": {
+          "passed": true,
+          "detail": "types=15"
+        },
+        "null_detection": {
+          "passed": true,
+          "detail": "null_cols=5"
+        },
+        "numeric_stats": {
+          "passed": true,
+          "detail": "numeric_cols=6"
+        },
+        "outlier_detection": {
+          "passed": true,
+          "detail": "outliers=8978"
+        },
+        "quality_score": {
+          "passed": 

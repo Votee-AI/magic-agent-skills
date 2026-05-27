@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-05-07 17:22:30",
+  "total": 1,
+  "passed": 1,
+  "failed": 0,
+  "errors": 0,
+  "results": [
+    {
+      "scenario_id": "D5-01",
+      "name": "DD preview (local)",
+      "status": "PASS",
+      "duration_sec": 26.26,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 5,
+      "assertions_total": 5,
+      "details": {
+        "lmstudio_running": {
+          "passed": true,
+          "detail": "LM Studio reachable"
+        },
+        "dd_exit_code": {
+          "passed": true,
+          "detail": "rc=0, stderr=ok"
+        },
+        "has_output": {
+          "passed": true,
+          "detail": "stdout_len=4347"
+        },
+        "preview_complete": {
+          "passed": true,
+          "detail": "found completion message in output"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=26.3s (limit 180s)"
+        }
+      },
+      "error": null
+    }
+  ]
+}

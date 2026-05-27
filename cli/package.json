@@ -1,0 +1,57 @@
+{
+  "name": "@votee-ai/magic-agent-skills",
+  "version": "0.1.0",
+  "description": "30 AI agent skills for data science and computational linguistics",
+  "license": "Apache-2.0",
+  "author": "Votee AI <tech@votee.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Votee-AI/magic-agent-skills.git",
+    "directory": "cli"
+  },
+  "type": "module",
+  "bin": {
+    "magic-agent-skills": "./bin/magic-agent-skills.js"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "commander": "^14.0.0",
+    "@inquirer/prompts": "^7.5.0",
+    "ora": "^8.2.0",
+    "fast-glob": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "ai-agent",
+    "data-science",
+    "skills",
+    "claude",
+    "cursor",
+    "windsurf",
+    "codex",
+    "gemini",
+    "data-processing",
+    "data-cleaning",
+    "data-profiling"
+  ]
+}

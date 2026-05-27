@@ -1,0 +1,49 @@
+{
+  "timestamp": "2026-05-07 18:15:56",
+  "total": 1,
+  "passed": 1,
+  "failed": 0,
+  "errors": 0,
+  "results": [
+    {
+      "scenario_id": "D5-07",
+      "name": "Agent CJK synthesis",
+      "status": "PASS",
+      "duration_sec": 103.1,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 7,
+      "assertions_total": 7,
+      "details": {
+        "uses_datadesigner": {
+          "passed": true,
+          "detail": "matched: ['data-designer']"
+        },
+        "traditional_chinese": {
+          "passed": true,
+          "detail": "matched: ['Traditional Chinese', '\u7e41\u9ad4', 'Cantonese']"
+        },
+        "not_simplified": {
+          "passed": true,
+          "detail": "matched: ['not Simplified', 'NOT Simplified', 'Traditional']"
+        },
+        "seed_columns": {
+          "passed": true,
+          "detail": "matched: ['word', 'jyutping', 'pos']"
+        },
+        "preview_cjk": {
+          "passed": true,
+          "detail": "matched: ['preview', 'verify', 'check', 'CJK']"
+        },
+        "prompt_language": {
+          "passed": true,
+          "detail": "matched: ['prompt', 'instruction', 'generate']"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=103.1s"
+        }
+      },
+      "error": null
+    }
+  ]
+}

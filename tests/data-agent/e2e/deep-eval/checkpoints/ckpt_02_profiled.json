@@ -1,0 +1,38 @@
+{
+  "rows": 10100,
+  "columns": 15,
+  "null_pct": {
+    "id": 0.0,
+    "customer_name": 0.0,
+    "age": 4.99,
+    "income": 9.98,
+    "city": 15.02,
+    "region": 0.0,
+    "category": 0.0,
+    "purchase_amount": 0.0,
+    "quantity": 0.0,
+    "date_purchased": 0.0,
+    "status": 0.0,
+    "score": 0.0,
+    "notes": 0.59,
+    "feedback": 29.69,
+    "is_active": 0.0
+  },
+  "dtypes": {
+    "id": "int64",
+    "customer_name": "object",
+    "age": "float64",
+    "income": "float64",
+    "city": "object",
+    "region": "object",
+    "category": "object",
+    "purchase_amount": "float64",
+    "quantity": "int64",
+    "date_purchased": "object",
+    "status": "object",
+    "score": "float64",
+    "notes": "object",
+    "feedback": "object",
+    "is_active": "bool"
+  }
+}

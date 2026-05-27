@@ -1,0 +1,209 @@
+{
+  "timestamp": "2026-05-07 17:43:47",
+  "total": 5,
+  "passed": 5,
+  "failed": 0,
+  "errors": 0,
+  "results": [
+    {
+      "scenario_id": "D1-01",
+      "name": "Load Kaggle data",
+      "status": "PASS",
+      "duration_sec": 0.02,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 7,
+      "assertions_total": 7,
+      "details": {
+        "loaded": {
+          "passed": true,
+          "detail": "rows=9500"
+        },
+        "columns": {
+          "passed": true,
+          "detail": "cols=['id', 'prompt', 'answer']"
+        },
+        "schema_detected": {
+          "passed": true,
+          "detail": "id=True, prompt=True, answer=True"
+        },
+        "prompt_is_text": {
+          "passed": true,
+          "detail": "dtype=object"
+        },
+        "null_check": {
+          "passed": true,
+          "detail": "nulls={'id': 0, 'prompt': 0, 'answer': 0}"
+        },
+        "text_stats": {
+          "passed": 1,
+          "detail": "mean_len=302, min=177, max=510"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.0s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D1-02",
+      "name": "Profile Kaggle data",
+      "status": "PASS",
+      "duration_sec": 0.03,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 8,
+      "assertions_total": 8,
+      "details": {
+        "type_detection": {
+          "passed": true,
+          "detail": "types={'id': 'text', 'prompt': 'text', 'answer': 'text'}"
+        },
+        "null_analysis": {
+          "passed": true,
+          "detail": "null_pct={'id': 0.0, 'prompt': 0.0, 'answer': 0.0}"
+        },
+        "prompt_length_dist": {
+          "passed": 1,
+          "detail": "mean=302, std=104, median=281"
+        },
+        "duplicate_check": {
+          "passed": true,
+          "detail": "duplicates=0"
+        },
+        "id_uniqueness": {
+          "passed": true,
+          "detail": "unique=9500, total=9500"
+        },
+        "answer_profiled": {
+          "passed": 1,
+          "detail": "mean_len=8"
+        },
+        "completeness": {
+          "passed": 1,
+          "detail": "completeness=100.0%"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.0s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D1-03",
+      "name": "Clean Kaggle data",
+      "status": "PASS",
+      "duration_sec": 0.03,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 6,
+      "assertions_total": 6,
+      "details": {
+        "whitespace_cleaned": {
+          "passed": true,
+          "detail": "text columns stripped"
+        },
+        "nulls_handled": {
+          "passed": 1,
+          "detail": "before=0, after=0"
+        },
+        "dedup": {
+          "passed": true,
+          "detail": "removed=0, remaining=9500"
+        },
+        "rows_preserved": {
+          "passed": 1,
+          "detail": "before=9500, after=9500, dups_removed=0"
+        },
+        "no_empty_prompts": {
+          "passed": 1,
+          "detail": "empty=0"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.0s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D1-04",
+      "name": "Transform Kaggle data",
+      "status": "PASS",
+      "duration_sec": 0.14,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 6,
+      "assertions_total": 6,
+      "details": {
+        "records_created": {
+          "passed": true,
+          "detail": "records=9500"
+        },
+        "jsonl_written": {
+          "passed": true,
+          "detail": "size=3823460"
+        },
+        "all_valid_json": {
+          "passed": true,
+          "detail": "valid=9500/9500"
+        },
+        "no_empty_content": {
+          "passed": true,
+          "detail": "empty=0"
+        },
+        "derived_columns": {
+          "passed": true,
+          "detail": "mean_total=310"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.1s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D1-05",
+      "name": "Full Kaggle pipeline",
+      "status": "PASS",
+      "duration_sec": 0.11,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 8,
+      "assertions_total": 8,
+      "details": {
+        "s1_load": {
+          "passed": true,
+          "detail": "rows=9500"
+        },
+        "s2_profile": {
+          "passed": true,
+          "detail": "profile_keys=['rows', 'columns', 'null_pct', 'text_lengths']"
+        },
+        "s3_clean": {
+          "passed": 1,
+          "detail": "rows_after_dedup=9500"
+        },
+        "s4_transform": {
+          "passed": true,
+          "detail": "new_cols=3"
+        },
+        "s5_validate": {
+          "passed": true,
+          "detail": "validation={'rows': 9500, 'no_nulls': True, 'no_empty_prompts': True, 'id_unique': True}"
+        },
+        "s6_report": {
+          "passed": true,
+          "detail": "size=306 chars"
+        },
+        "all_stages": {
+          "passed": true,
+          "detail": "checkpoints=6"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.1s"
+        }
+      },
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,371 @@
+{
+  "timestamp": "2026-05-27 17:07:44",
+  "provider": "auto",
+  "model": "claude-sonnet-4-6",
+  "total": 72,
+  "passed": 0,
+  "failed": 0,
+  "errors": 0,
+  "results": [
+    {
+      "name": "missing_value_handling",
+      "status": "dry_run",
+      "skill": "magic-data-cleaning"
+    },
+    {
+      "name": "string_normalization",
+      "status": "dry_run",
+      "skill": "magic-data-cleaning"
+    },
+    {
+      "name": "complex_cleaning_plan",
+      "status": "dry_run",
+      "skill": "magic-data-cleaning"
+    },
+    {
+      "name": "cleaning-vs-synthesis-boundary",
+      "status": "dry_run",
+      "skill": "magic-data-cleaning"
+    },
+    {
+      "name": "empty-dataset-edge",
+      "status": "dry_run",
+      "skill": "magic-data-cleaning"
+    },
+    {
+      "name": "scriptable_tool_standard_cleaning",
+      "status": "dry_run",
+      "skill": "magic-data-cleaning"
+    },
+    {
+      "name": "scriptable_tool_custom_cleaning",
+      "status": "dry_run",
+      "skill": "magic-data-cleaning"
+    },
+    {
+      "name": "basic_pattern_detection",
+      "status": "dry_run",
+      "skill": "magic-data-exploration"
+    },
+    {
+      "name": "correlation_investigation",
+      "status": "dry_run",
+      "skill": "magic-data-exploration"
+    },
+    {
+      "name": "multi_segment_analysis",
+      "status": "dry_run",
+      "skill": "magic-data-exploration"
+    },
+    {
+      "name": "spurious_correlation_trap",
+      "status": "dry_run",
+      "skill": "magic-data-exploration"
+    },
+    {
+      "name": "basic_pipeline_routing",
+      "status": "dry_run",
+      "skill": "magic-data-lifecycle"
+    },
+    {
+      "name": "multi_skill_pipeline",
+      "status": "dry_run",
+      "skill": "magic-data-lifecycle"
+    },
+    {
+      "name": "complex_orchestration",
+      "status": "dry_run",
+      "skill": "magic-data-lifecycle"
+    },
+    {
+      "name": "refinement-loop",
+      "status": "dry_run",
+      "skill": "magic-data-lifecycle"
+    },
+    {
+      "name": "wrong-skill-routing",
+      "status": "dry_run",
+      "skill": "magic-data-lifecycle"
+    },
+    {
+      "name": "basic_csv_load",
+      "status": "dry_run",
+      "skill": "magic-data-loading"
+    },
+    {
+      "name": "cjk_encoding",
+      "status": "dry_run",
+      "skill": "magic-data-loading"
+    },
+    {
+      "name": "multi_source_merge",
+      "status": "dry_run",
+      "skill": "magic-data-loading"
+    },
+    {
+      "name": "encoding-failure-recovery",
+      "status": "dry_run",
+      "skill": "magic-data-loading"
+    },
+    {
+      "name": "ambiguous-format",
+      "status": "dry_run",
+      "skill": "magic-data-loading"
+    },
+    {
+      "name": "database_connection",
+      "status": "dry_run",
+      "skill": "magic-data-loading"
+    },
+    {
+      "name": "database_extract",
+      "status": "dry_run",
+      "skill": "magic-data-loading"
+    },
+    {
+      "name": "hf_dataset_inspect",
+      "status": "dry_run",
+      "skill": "magic-data-loading"
+    },
+    {
+      "name": "hf_dataset_download",
+      "status": "dry_run",
+      "skill": "magic-data-loading"
+    },
+    {
+      "name": "callable_tool_direct",
+      "status": "dry_run",
+      "skill": "magic-data-loading"
+    },
+    {
+      "name": "reference_impl_read_adapt",
+      "status": "dry_run",
+      "skill": "magic-data-loading"
+    },
+    {
+      "name": "basic_quality_score",
+      "status": "dry_run",
+      "skill": "magic-data-profiling"
+    },
+    {
+      "name": "outlier_detection",
+      "status": "dry_run",
+      "skill": "magic-data-profiling"
+    },
+    {
+      "name": "large_dataset_profiling",
+      "status": "dry_run",
+      "skill": "magic-data-profiling"
+    },
+    {
+      "name": "misleading-quality-score",
+      "status": "dry_run",
+      "skill": "magic-data-profiling"
+    },
+    {
+      "name": "scriptable_tool_direct_call",
+      "status": "dry_run",
+      "skill": "magic-data-profiling"
+    },
+    {
+      "name": "scriptable_tool_custom_mode",
+      "status": "dry_run",
+      "skill": "magic-data-profiling"
+    },
+    {
+      "name": "fill_missing_definitions",
+      "status": "dry_run",
+      "skill": "magic-data-synthesis"
+    },
+    {
+      "name": "example_generation",
+      "status": "dry_run",
+      "skill": "magic-data-synthesis"
+    },
+    {
+      "name": "quality_gated_synthesis",
+      "status": "dry_run",
+      "skill": "magic-data-synthesis"
+    },
+    {
+      "name": "fill_missing_values",
+      "status": "dry_run",
+      "skill": "magic-data-synthesis"
+    },
+    {
+      "name": "generate_new_column",
+      "status": "dry_run",
+      "skill": "magic-data-synthesis"
+    },
+    {
+      "name": "batch_synthesis_pipeline",
+      "status": "dry_run",
+      "skill": "magic-data-synthesis"
+    },
+    {
+      "name": "local_reasoning_model_trap",
+      "status": "dry_run",
+      "skill": "magic-data-synthesis"
+    },
+    {
+      "name": "datadesigner_not_installed_fallback",
+      "status": "dry_run",
+      "skill": "magic-data-synthesis"
+    },
+    {
+      "name": "llm_backend_failure_recovery",
+      "status": "dry_run",
+      "skill": "magic-data-synthesis"
+    },
+    {
+      "name": "basic_reshape",
+      "status": "dry_run",
+      "skill": "magic-data-transformation"
+    },
+    {
+      "name": "multi_table_merge",
+      "status": "dry_run",
+      "skill": "magic-data-transformation"
+    },
+    {
+      "name": "complex_pipeline",
+      "status": "dry_run",
+      "skill": "magic-data-transformation"
+    },
+    {
+      "name": "join-explosion-prevention",
+      "status": "dry_run",
+      "skill": "magic-data-transformation"
+    },
+    {
+      "name": "scriptable_tier_b_aggregate",
+      "status": "dry_run",
+      "skill": "magic-data-transformation"
+    },
+    {
+      "name": "reference_impl_derive_columns",
+      "status": "dry_run",
+      "skill": "magic-data-transformation"
+    },
+    {
+      "name": "basic_schema_validation",
+      "status": "dry_run",
+      "skill": "magic-data-validation"
+    },
+    {
+      "name": "constraint_checking",
+      "status": "dry_run",
+      "skill": "magic-data-validation"
+    },
+    {
+      "name": "fitness_for_use",
+      "status": "dry_run",
+      "skill": "magic-data-validation"
+    },
+    {
+      "name": "schema-drift-detection",
+      "status": "dry_run",
+      "skill": "magic-data-validation"
+    },
+    {
+      "name": "simpsons-paradox-detection",
+      "status": "dry_run",
+      "skill": "magic-data-validation"
+    },
+    {
+      "name": "scriptable_tool_schema_validation",
+      "status": "dry_run",
+      "skill": "magic-data-validation"
+    },
+    {
+      "name": "reference_impl_custom_constraints",
+      "status": "dry_run",
+      "skill": "magic-data-validation"
+    },
+    {
+      "name": "basic_bar_chart",
+      "status": "dry_run",
+      "skill": "magic-data-visualization"
+    },
+    {
+      "name": "multi_chart_dashboard",
+      "status": "dry_run",
+      "skill": "magic-data-visualization"
+    },
+    {
+      "name": "story_driven_viz",
+      "status": "dry_run",
+      "skill": "magic-data-visualization"
+    },
+    {
+      "name": "misleading_chart_prevention",
+      "status": "dry_run",
+      "skill": "magic-data-visualization"
+    },
+    {
+      "name": "scriptable_chart_selection",
+      "status": "dry_run",
+      "skill": "magic-data-visualization"
+    },
+    {
+      "name": "basic_summary_report",
+      "status": "dry_run",
+      "skill": "magic-report-generation"
+    },
+    {
+      "name": "multi_section_report",
+      "status": "dry_run",
+      "skill": "magic-report-generation"
+    },
+    {
+      "name": "contradictory_findings",
+      "status": "dry_run",
+      "skill": "magic-report-generation"
+    },
+    {
+      "name": "selective_reporting_prevention",
+      "status": "dry_run",
+      "skill": "magic-report-generation"
+    },
+    {
+      "name": "descriptive_stats",
+      "status": "dry_run",
+      "skill": "magic-statistical-analysis"
+    },
+    {
+      "name": "hypothesis_testing",
+      "status": "dry_run",
+      "skill": "magic-statistical-analysis"
+    },
+    {
+      "name": "multi_group_comparison",
+      "status": "dry_run",
+      "skill": "magic-statistical-analysis"
+    },
+    {
+      "name": "multiple_testing_trap",
+      "status": "dry_run",
+      "skill": "magic-statistical-analysis"
+    },
+    {
+      "name": "scriptable_tier_b_with_params",
+      "status": "dry_run",
+      "skill": "magic-statistical-analysis"
+    },
+    {
+      "name": "basic_workspace_setup",
+      "status": "dry_run",
+      "skill": "magic-workspace-init"
+    },
+    {
+      "name": "multi_dataset_project",
+      "status": "dry_run",
+      "skill": "magic-workspace-init"
+    },
+    {
+      "name": "etl_pipeline_workspace",
+      "status": "dry_run",
+      "skill": "magic-workspace-init"
+    }
+  ]
+}

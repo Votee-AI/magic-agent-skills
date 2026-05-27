@@ -1,0 +1,789 @@
+{
+  "timestamp": "2026-05-08 15:58:32",
+  "total": 21,
+  "passed": 20,
+  "failed": 1,
+  "errors": 0,
+  "results": [
+    {
+      "scenario_id": "D1-01",
+      "name": "Load Kaggle data",
+      "status": "PASS",
+      "duration_sec": 0.03,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 7,
+      "assertions_total": 7,
+      "details": {
+        "loaded": {
+          "passed": true,
+          "detail": "rows=9500"
+        },
+        "columns": {
+          "passed": true,
+          "detail": "cols=['id', 'prompt', 'answer']"
+        },
+        "schema_detected": {
+          "passed": true,
+          "detail": "id=True, prompt=True, answer=True"
+        },
+        "prompt_is_text": {
+          "passed": true,
+          "detail": "dtype=object"
+        },
+        "null_check": {
+          "passed": true,
+          "detail": "nulls={'id': 0, 'prompt': 0, 'answer': 0}"
+        },
+        "text_stats": {
+          "passed": 1,
+          "detail": "mean_len=302, min=177, max=510"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.0s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D1-02",
+      "name": "Profile Kaggle data",
+      "status": "PASS",
+      "duration_sec": 0.03,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 8,
+      "assertions_total": 8,
+      "details": {
+        "type_detection": {
+          "passed": true,
+          "detail": "types={'id': 'text', 'prompt': 'text', 'answer': 'text'}"
+        },
+        "null_analysis": {
+          "passed": true,
+          "detail": "null_pct={'id': 0.0, 'prompt': 0.0, 'answer': 0.0}"
+        },
+        "prompt_length_dist": {
+          "passed": 1,
+          "detail": "mean=302, std=104, median=281"
+        },
+        "duplicate_check": {
+          "passed": true,
+          "detail": "duplicates=0"
+        },
+        "id_uniqueness": {
+          "passed": true,
+          "detail": "unique=9500, total=9500"
+        },
+        "answer_profiled": {
+          "passed": 1,
+          "detail": "mean_len=8"
+        },
+        "completeness": {
+          "passed": 1,
+          "detail": "completeness=100.0%"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.0s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D1-03",
+      "name": "Clean Kaggle data",
+      "status": "PASS",
+      "duration_sec": 0.03,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 6,
+      "assertions_total": 6,
+      "details": {
+        "whitespace_cleaned": {
+          "passed": true,
+          "detail": "text columns stripped"
+        },
+        "nulls_handled": {
+          "passed": 1,
+          "detail": "before=0, after=0"
+        },
+        "dedup": {
+          "passed": true,
+          "detail": "removed=0, remaining=9500"
+        },
+        "rows_preserved": {
+          "passed": 1,
+          "detail": "before=9500, after=9500, dups_removed=0"
+        },
+        "no_empty_prompts": {
+          "passed": 1,
+          "detail": "empty=0"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.0s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D1-04",
+      "name": "Transform Kaggle data",
+      "status": "PASS",
+      "duration_sec": 0.14,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 6,
+      "assertions_total": 6,
+      "details": {
+        "records_created": {
+          "passed": true,
+          "detail": "records=9500"
+        },
+        "jsonl_written": {
+          "passed": true,
+          "detail": "size=3823460"
+        },
+        "all_valid_json": {
+          "passed": true,
+          "detail": "valid=9500/9500"
+        },
+        "no_empty_content": {
+          "passed": true,
+          "detail": "empty=0"
+        },
+        "derived_columns": {
+          "passed": true,
+          "detail": "mean_total=310"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.1s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D1-05",
+      "name": "Full Kaggle pipeline",
+      "status": "PASS",
+      "duration_sec": 0.1,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 8,
+      "assertions_total": 8,
+      "details": {
+        "s1_load": {
+          "passed": true,
+          "detail": "rows=9500"
+        },
+        "s2_profile": {
+          "passed": true,
+          "detail": "profile_keys=['rows', 'columns', 'null_pct', 'text_lengths']"
+        },
+        "s3_clean": {
+          "passed": 1,
+          "detail": "rows_after_dedup=9500"
+        },
+        "s4_transform": {
+          "passed": true,
+          "detail": "new_cols=3"
+        },
+        "s5_validate": {
+          "passed": true,
+          "detail": "validation={'rows': 9500, 'no_nulls': True, 'no_empty_prompts': True, 'id_unique': True}"
+        },
+        "s6_report": {
+          "passed": true,
+          "detail": "size=306 chars"
+        },
+        "all_stages": {
+          "passed": true,
+          "detail": "checkpoints=6"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.1s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D1-06",
+      "name": "Agent autonomy (Kaggle)",
+      "status": "FAIL",
+      "duration_sec": 49.9,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 7,
+      "assertions_total": 8,
+      "details": {
+        "identifies_loading": {
+          "passed": true,
+          "detail": "matched: ['load', 'read_csv']"
+        },
+        "identifies_profiling": {
+          "passed": true,
+          "detail": "matched: ['profile', 'quality', 'null']"
+        },
+        "identifies_cleaning": {
+          "passed": true,
+          "detail": "matched: ['clean', 'strip', 'duplicate']"
+        },
+        "identifies_transform": {
+          "passed": true,
+          "detail": "matched: ['transform', 'jsonl', 'prompt-completion', 'fine-tun']"
+        },
+        "identifies_validation": {
+          "passed": true,
+          "detail": "matched: ['validate', 'verify', 'check', 'schema']"
+        },
+        "correct_ordering": {
+          "passed": true,
+          "detail": "matched: ['load', 'profile']"
+        },
+        "mentions_checkpoint": {
+          "passed": false,
+          "detail": "none matched"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=49.9s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D2-01",
+      "name": "Profile 100K rows",
+      "status": "PASS",
+      "duration_sec": 0.15,
+      "peak_memory_mb": 101.9,
+      "assertions_passed": 7,
+      "assertions_total": 7,
+      "details": {
+        "loaded": {
+          "passed": true,
+          "detail": "rows=101000"
+        },
+        "type_detection": {
+          "passed": true,
+          "detail": "types=15"
+        },
+        "null_detection": {
+          "passed": true,
+          "detail": "null_cols=5"
+        },
+        "numeric_stats": {
+          "passed": true,
+          "detail": "numeric_cols=6"
+        },
+        "outlier_detection": {
+          "passed": true,
+          "detail": "outliers=8978"
+        },
+        "quality_score": {
+          "passed": 1,
+          "detail": "completeness=96.0%"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.1s (limit 300s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D2-02",
+      "name": "Clean 50K rows",
+      "status": "PASS",
+      "duration_sec": 0.49,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 7,
+      "assertions_total": 7,
+      "details": {
+        "loaded": {
+          "passed": true,
+          "detail": "rows=50500"
+        },
+        "numeric_imputation": {
+          "passed": 1,
+          "detail": "remaining_nulls=0"
+        },
+        "text_imputation": {
+          "passed": 1,
+          "detail": "remaining_nulls=0"
+        },
+        "no_row_drop": {
+          "passed": true,
+          "detail": "before=50500, after=50500"
+        },
+        "whitespace_stripped": {
+          "passed": true,
+          "detail": "leading whitespace removed"
+        },
+        "sentinel_detection": {
+          "passed": 1,
+          "detail": "sentinels_found=894"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.5s (limit 60s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D2-03",
+      "name": "Transform 100K rows",
+      "status": "PASS",
+      "duration_sec": 0.12,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 8,
+      "assertions_total": 8,
+      "details": {
+        "derive_revenue": {
+          "passed": 1,
+          "detail": "non_null=101000"
+        },
+        "derive_age_group": {
+          "passed": 1,
+          "detail": "groups={'senior': 51525, 'middle': 30842, 'young': 18633}"
+        },
+        "derive_high_value": {
+          "passed": true,
+          "detail": "high_value_count=10100"
+        },
+        "derive_log_income": {
+          "passed": 1,
+          "detail": "no NaN in log_income"
+        },
+        "derive_days": {
+          "passed": true,
+          "detail": "column created"
+        },
+        "rows_preserved": {
+          "passed": true,
+          "detail": "before=101000, after=101000"
+        },
+        "new_columns": {
+          "passed": true,
+          "detail": "new_cols=5"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.1s (limit 60s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D2-04",
+      "name": "Stats on 100K rows",
+      "status": "PASS",
+      "duration_sec": 0.48,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 7,
+      "assertions_total": 7,
+      "details": {
+        "loaded": {
+          "passed": true,
+          "detail": "numeric_cols=6"
+        },
+        "correlation_matrix": {
+          "passed": true,
+          "detail": "shape=(6, 6)"
+        },
+        "skewness": {
+          "passed": true,
+          "detail": "computed=6 cols"
+        },
+        "anova": {
+          "passed": true,
+          "detail": "F=0.27, p=0.8965"
+        },
+        "ttest": {
+          "passed": true,
+          "detail": "t=-0.74, p=0.4616"
+        },
+        "effect_size": {
+          "passed": true,
+          "detail": "Cohen's d=-0.005"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.5s (limit 120s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D2-05",
+      "name": "Viz on 100K rows",
+      "status": "PASS",
+      "duration_sec": 0.35,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 5,
+      "assertions_total": 5,
+      "details": {
+        "histogram": {
+          "passed": true,
+          "detail": "size=19522"
+        },
+        "bar_chart": {
+          "passed": true,
+          "detail": "size=13644"
+        },
+        "scatter_sampled": {
+          "passed": true,
+          "detail": "sample_n=5000"
+        },
+        "all_charts": {
+          "passed": true,
+          "detail": "count=3"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.4s (limit 30s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D2-06",
+      "name": "Validate 100K rows",
+      "status": "PASS",
+      "duration_sec": 0.11,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 9,
+      "assertions_total": 9,
+      "details": {
+        "loaded": {
+          "passed": true,
+          "detail": "rows=101000"
+        },
+        "type_validation": {
+          "passed": true,
+          "detail": "type_violations=0"
+        },
+        "age_range": {
+          "passed": true,
+          "detail": "out_of_range=0"
+        },
+        "purchase_positive": {
+          "passed": true,
+          "detail": "negative=0"
+        },
+        "status_enum": {
+          "passed": true,
+          "detail": "invalid_status=0"
+        },
+        "region_enum": {
+          "passed": true,
+          "detail": "invalid_region=0"
+        },
+        "sentinel_detection": {
+          "passed": 1,
+          "detail": "sentinels=1799"
+        },
+        "id_duplicates_detected": {
+          "passed": 1,
+          "detail": "duplicates=1000"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.1s (limit 30s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D2-07",
+      "name": "Report on 100K rows",
+      "status": "PASS",
+      "duration_sec": 0.12,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 6,
+      "assertions_total": 6,
+      "details": {
+        "report_exists": {
+          "passed": true,
+          "detail": "size=493 chars"
+        },
+        "has_6_sections": {
+          "passed": true,
+          "detail": "sections=6"
+        },
+        "has_summary": {
+          "passed": true,
+          "detail": "summary present"
+        },
+        "has_caveats": {
+          "passed": true,
+          "detail": "caveats present"
+        },
+        "has_findings": {
+          "passed": true,
+          "detail": "findings mention nulls"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.1s (limit 30s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D3-01",
+      "name": "Chunked loading 500K",
+      "status": "PASS",
+      "duration_sec": 0.56,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 6,
+      "assertions_total": 6,
+      "details": {
+        "all_chunks_loaded": {
+          "passed": true,
+          "detail": "chunks=10"
+        },
+        "total_rows": {
+          "passed": true,
+          "detail": "total=505000"
+        },
+        "no_gaps": {
+          "passed": true,
+          "detail": "id_coverage=100.00%"
+        },
+        "merged_total": {
+          "passed": true,
+          "detail": "merged=505000"
+        },
+        "schema_consistent": {
+          "passed": true,
+          "detail": "all chunks same columns"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.6s (limit 60s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D3-02",
+      "name": "Incremental profiling",
+      "status": "PASS",
+      "duration_sec": 1.32,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 4,
+      "assertions_total": 4,
+      "details": {
+        "means_match": {
+          "passed": true,
+          "detail": "max_diff=0.0000%"
+        },
+        "nulls_match": {
+          "passed": true,
+          "detail": "chunk nulls == full nulls"
+        },
+        "row_count": {
+          "passed": true,
+          "detail": "incremental=505000, full=505000"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=1.3s (limit 120s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D3-03",
+      "name": "Streaming transform",
+      "status": "PASS",
+      "duration_sec": 1.15,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 5,
+      "assertions_total": 5,
+      "details": {
+        "all_have_revenue": {
+          "passed": 1,
+          "detail": "non_null=505000"
+        },
+        "all_have_high_value": {
+          "passed": true,
+          "detail": "column exists"
+        },
+        "rows_preserved": {
+          "passed": true,
+          "detail": "merged=505000, original=505000"
+        },
+        "high_value_reasonable": {
+          "passed": 1,
+          "detail": "high_value_pct=10.00%"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=1.1s (limit 60s)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D3-04",
+      "name": "Chunked cleaning",
+      "status": "PASS",
+      "duration_sec": 2.04,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 5,
+      "assertions_total": 5,
+      "details": {
+        "global_stats_computed": {
+          "passed": true,
+          "detail": "cols=6"
+        },
+        "no_numeric_nulls": {
+          "passed": 1,
+          "detail": "remaining=0"
+        },
+        "rows_preserved": {
+          "passed": true,
+          "detail": "total=505000"
+        },
+        "global_mean_used": {
+          "passed": 1,
+          "detail": "imputed_mean=48.50, global=48.50"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=2.0s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D3-06",
+      "name": "Memory bounded streaming",
+      "status": "PASS",
+      "duration_sec": 0.71,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 4,
+      "assertions_total": 4,
+      "details": {
+        "total_rows": {
+          "passed": true,
+          "detail": "total=505000"
+        },
+        "mem_bounded": {
+          "passed": true,
+          "detail": "delta=0.1MB, chunk=6.1MB, full=62.8MB"
+        },
+        "not_full_dataset": {
+          "passed": true,
+          "detail": "delta=0.1MB < full=62.8MB"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.7s"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D4-01",
+      "name": "Checkpoint pipeline",
+      "status": "PASS",
+      "duration_sec": 0.1,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 7,
+      "assertions_total": 7,
+      "details": {
+        "ckpt_01_exists": {
+          "passed": true,
+          "detail": "size=1245919"
+        },
+        "ckpt_02_exists": {
+          "passed": true,
+          "detail": "keys=['rows', 'columns', 'null_pct', 'dtypes']"
+        },
+        "ckpt_03_exists": {
+          "passed": true,
+          "detail": "nulls_remaining=0"
+        },
+        "ckpt_04_exists": {
+          "passed": true,
+          "detail": "cols=16"
+        },
+        "ckpt_05_exists": {
+          "passed": true,
+          "detail": "valid=True"
+        },
+        "all_5_checkpoints": {
+          "passed": true,
+          "detail": "count=5"
+        },
+        "ckpt_size_ratio": {
+          "passed": true,
+          "detail": "ratio=3.2x source"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D4-02",
+      "name": "Resume from checkpoint",
+      "status": "PASS",
+      "duration_sec": 0.03,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 4,
+      "assertions_total": 4,
+      "details": {
+        "loaded_ckpt_03": {
+          "passed": true,
+          "detail": "rows=10100"
+        },
+        "transform_applied": {
+          "passed": true,
+          "detail": "revenue column created"
+        },
+        "validate_clean": {
+          "passed": true,
+          "detail": "nulls=0"
+        },
+        "matches_full_run": {
+          "passed": true,
+          "detail": "resumed=(10100, 16), full=(10100, 16)"
+        }
+      },
+      "error": null
+    },
+    {
+      "scenario_id": "D4-03",
+      "name": "Corrupt checkpoint recovery",
+      "status": "PASS",
+      "duration_sec": 0.03,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 5,
+      "assertions_total": 5,
+      "details": {
+        "corrupt_created": {
+          "passed": true,
+          "detail": "lines: 10102 -> 5051"
+        },
+        "detects_truncation": {
+          "passed": true,
+          "detail": "original=10100, corrupt=5050, lost=5050"
+        },
+        "fallback_exists": {
+          "passed": true,
+          "detail": "ckpt_02=True"
+        },
+        "can_rerun_from_ckpt_01": {
+          "passed": true,
+          "detail": "rows=10100"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=0.0s"
+        }
+      },
+      "error": null
+    }
+  ]
+}

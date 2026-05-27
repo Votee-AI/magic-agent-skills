@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-05-07 17:52:50",
+  "total": 1,
+  "passed": 0,
+  "failed": 1,
+  "errors": 0,
+  "results": [
+    {
+      "scenario_id": "D5-01",
+      "name": "DD preview (local)",
+      "status": "FAIL",
+      "duration_sec": 268.04,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 2,
+      "assertions_total": 5,
+      "details": {
+        "lmstudio_running": {
+          "passed": true,
+          "detail": "LM Studio reachable"
+        },
+        "dd_exit_code": {
+          "passed": false,
+          "detail": "rc=1, stderr=[17:48:23] [INFO] \ud83c\udfa5 Preview generation in progress\n[17:48:23] [INFO]   |-- \ud83d\udd12 Jinja rendering engine: secure\n[17:48:23] [INFO] \u2705 Validation passed\n[17:48:23] [INFO] \u26d3\ufe0f Sorting column configs into a Dir"
+        },
+        "has_output": {
+          "passed": true,
+          "detail": "stdout_len=422"
+        },
+        "preview_complete": {
+          "passed": false,
+          "detail": "found completion message in output"
+        },
+        "timing": {
+          "passed": false,
+          "detail": "elapsed=268.0s (limit 180s)"
+        }
+      },
+      "error": null
+    }
+  ]
+}

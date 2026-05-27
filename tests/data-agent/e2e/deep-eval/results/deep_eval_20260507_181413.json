@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-05-07 18:14:13",
+  "total": 1,
+  "passed": 1,
+  "failed": 0,
+  "errors": 0,
+  "results": [
+    {
+      "scenario_id": "D5-06",
+      "name": "Agent multi-column synthesis",
+      "status": "PASS",
+      "duration_sec": 47.84,
+      "peak_memory_mb": 0.0,
+      "assertions_passed": 8,
+      "assertions_total": 8,
+      "details": {
+        "uses_datadesigner": {
+          "passed": true,
+          "detail": "matched: ['DataDesigner', 'data-designer']"
+        },
+        "dependency_ordering": {
+          "passed": true,
+          "detail": "matched: ['depends', 'order', 'first', 'before']"
+        },
+        "description_first": {
+          "passed": true,
+          "detail": "matched: ['description']"
+        },
+        "tags_second": {
+          "passed": true,
+          "detail": "matched: ['tags']"
+        },
+        "marketing_last": {
+          "passed": true,
+          "detail": "matched: ['marketing']"
+        },
+        "preview_before_full": {
+          "passed": true,
+          "detail": "matched: ['preview', 'sample']"
+        },
+        "cost_awareness": {
+          "passed": true,
+          "detail": "matched: ['cost', 'estimate', 'token']"
+        },
+        "timing": {
+          "passed": true,
+          "detail": "elapsed=47.8s"
+        }
+      },
+      "error": null
+    }
+  ]
+}
