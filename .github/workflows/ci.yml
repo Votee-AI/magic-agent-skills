@@ -176,7 +176,7 @@ jobs:
             echo "FAIL: skills/manifest.json not generated"
             exit 1
           fi
-          DATA_COUNT=$(node -e "const m=JSON.parse(require('fs').readFileSync('skills/manifest.json','utf8')); console.log(m.suites.data.skills.length)")
+          DATA_COUNT=$(node -e "const m=JSON.parse(require('fs').readFileSync('skills/manifest.json','utf8')); console.log(m.suites['data-agent'].skills.length)")
           LING_COUNT=$(node -e "const m=JSON.parse(require('fs').readFileSync('skills/manifest.json','utf8')); console.log(m.suites.linguistic.skills.length)")
           echo "Data skills in manifest: $DATA_COUNT"
           echo "Linguistic skills in manifest: $LING_COUNT"
