@@ -13,13 +13,13 @@ from __future__ import annotations
 
 import re
 import subprocess
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
-SCORES_REL = "tests/e2e/scores.json"
+SCORES_REL = "tests/linguistic/e2e/scores.json"
 CHANGELOG = REPO_ROOT / "tests" / "linguistic" / "e2e" / "scores_changelog.md"
 
 
@@ -79,7 +79,7 @@ def test_target_score_changes_have_changelog_entry():
                 "guard and is missing, but the diff modifies target_score"
             )
         pytest.skip("changelog absent and no target_score in diff")
-    today = datetime.utcnow().strftime("%Y-%m-%d")
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     is_ok, reason = _check_diff_against_changelog(diff, CHANGELOG.read_text())
     assert is_ok, (
         f"{reason}. Add a `## {today} — <skill> <field> <old>→<new> — "

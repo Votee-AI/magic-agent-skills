@@ -61,25 +61,37 @@ describe('MAGIC_TOOLS registry', () => {
 });
 
 describe('SKILL_DIRS', () => {
-  it('has 12 skills', () => {
-    expect(SKILL_DIRS.length).toBe(12);
+  it('has 30 skills', () => {
+    expect(SKILL_DIRS.length).toBe(30);
   });
 
-  it('all start with magic-', () => {
-    for (const dir of SKILL_DIRS) {
-      expect(dir).toMatch(/^magic-/);
-    }
+  it('includes data-agent and linguistic skills', () => {
+    const dataSkills = SKILL_DIRS.filter((d) => d.startsWith('magic-'));
+    const linguisticSkills = SKILL_DIRS.filter((d) => d.startsWith('linguistic-'));
+    expect(dataSkills.length).toBe(12);
+    expect(linguisticSkills.length).toBe(18);
   });
 });
 
 describe('COMMAND_FILES', () => {
-  it('has 13 commands', () => {
-    expect(COMMAND_FILES.length).toBe(13);
+  it('has data-agent and linguistic groups', () => {
+    expect(COMMAND_FILES).toHaveProperty('data-agent');
+    expect(COMMAND_FILES).toHaveProperty('linguistic');
   });
 
-  it('all end with .md', () => {
-    for (const file of COMMAND_FILES) {
-      expect(file).toMatch(/\.md$/);
+  it('data-agent has 13 commands', () => {
+    expect(COMMAND_FILES['data-agent'].length).toBe(13);
+  });
+
+  it('linguistic has 10 commands', () => {
+    expect(COMMAND_FILES.linguistic.length).toBe(10);
+  });
+
+  it('all files end with .md', () => {
+    for (const files of Object.values(COMMAND_FILES)) {
+      for (const file of files) {
+        expect(file).toMatch(/\.md$/);
+      }
     }
   });
 });

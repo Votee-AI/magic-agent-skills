@@ -1,8 +1,20 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { existsSync } from 'node:fs';
 import { readFile, writeFile, mkdir, rm, readdir } from 'node:fs/promises';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
+import { fileURLToPath } from 'node:url';
+
+const REPO_ROOT = resolve(fileURLToPath(import.meta.url), '..', '..', '..');
+
+vi.mock('../src/core/config.js', async () => {
+  const actual = await vi.importActual('../src/core/config.js') as any;
+  return {
+    ...actual,
+    getPackageRoot: () => REPO_ROOT,
+  };
+});
+
 import {
   copySkills,
   copyCommands,
@@ -28,14 +40,16 @@ afterEach(async () => {
 });
 
 describe('copySkills', () => {
-  it('copies skills to Claude directory', async () => {
+  it('copies all 30 skills to Claude directory', async () => {
     const claude = getToolByValue('claude')!;
     await mkdir(join(testDir, '.claude'), { recursive: true });
     const count = await copySkills(testDir, claude);
 
-    expect(count).toBe(12);
+    expect(count).toBe(30);
     expect(existsSync(join(testDir, '.claude/skills/magic-data-loading'))).toBe(true);
     expect(existsSync(join(testDir, '.claude/skills/magic-data-loading/SKILL.md'))).toBe(true);
+    expect(existsSync(join(testDir, '.claude/skills/linguistic-tokenize'))).toBe(true);
+    expect(existsSync(join(testDir, '.claude/skills/linguistic-tokenize/SKILL.md'))).toBe(true);
   });
 
   it('returns 0 for tools without skillsDir', async () => {
@@ -46,14 +60,17 @@ describe('copySkills', () => {
 });
 
 describe('copyCommands', () => {
-  it('copies md commands for Claude', async () => {
+  it('copies both data-agent and linguistic commands for Claude', async () => {
     const claude = getToolByValue('claude')!;
     const count = await copyCommands(testDir, claude);
 
     if (count > 0) {
       expect(existsSync(join(testDir, '.claude/commands/data-agent'))).toBe(true);
-      const files = await readdir(join(testDir, '.claude/commands/data-agent'));
-      expect(files.some((f) => f.endsWith('.md'))).toBe(true);
+      expect(existsSync(join(testDir, '.claude/commands/linguistic'))).toBe(true);
+      const dataFiles = await readdir(join(testDir, '.claude/commands/data-agent'));
+      const lingFiles = await readdir(join(testDir, '.claude/commands/linguistic'));
+      expect(dataFiles.some((f) => f.endsWith('.md'))).toBe(true);
+      expect(lingFiles.some((f) => f.endsWith('.md'))).toBe(true);
     }
   });
 
@@ -82,7 +99,7 @@ describe('removeSkills', () => {
     expect(existsSync(join(testDir, '.claude/skills/magic-data-loading'))).toBe(true);
 
     const removed = await removeSkills(testDir, claude);
-    expect(removed).toBe(12);
+    expect(removed).toBe(30);
     expect(existsSync(join(testDir, '.claude/skills/magic-data-loading'))).toBe(false);
   });
 });

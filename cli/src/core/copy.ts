@@ -20,8 +20,8 @@ export function getSkillsSource(): string {
   return join(getPackageRoot(), 'skills');
 }
 
-export function getCommandsSource(): string {
-  return join(getPackageRoot(), 'commands', 'magic');
+export function getCommandsSource(group: string): string {
+  return join(getPackageRoot(), 'commands', group);
 }
 
 export async function copySkills(
@@ -56,21 +56,25 @@ export async function copyCommands(
   const adapter = getAdapter(tool.commandFormat);
   if (!adapter) return 0;
 
-  const source = getCommandsSource();
-  if (!existsSync(source)) return 0;
-
-  const destDir = join(projectPath, tool.commandsDir);
-  await ensureDir(destDir);
-
+  const commandsBase = join(projectPath, tool.commandsDir, '..');
   let count = 0;
-  for (const file of COMMAND_FILES) {
-    const srcPath = join(source, file);
-    if (!existsSync(srcPath)) continue;
 
-    const content = await readFile(srcPath, 'utf-8');
-    const adapted = adapter.adapt(file, content);
-    await writeFile(join(destDir, adapted.filename), adapted.content, 'utf-8');
-    count++;
+  for (const [group, files] of Object.entries(COMMAND_FILES)) {
+    const source = getCommandsSource(group);
+    if (!existsSync(source)) continue;
+
+    const destDir = join(commandsBase, group);
+    await ensureDir(destDir);
+
+    for (const file of files) {
+      const srcPath = join(source, file);
+      if (!existsSync(srcPath)) continue;
+
+      const content = await readFile(srcPath, 'utf-8');
+      const adapted = adapter.adapt(file, content);
+      await writeFile(join(destDir, adapted.filename), adapted.content, 'utf-8');
+      count++;
+    }
   }
 
   return count;
@@ -96,29 +100,33 @@ export async function removeSkills(
   return count;
 }
 
+const ALL_COMMAND_FILES: string[] = Object.values(COMMAND_FILES).flat();
+
 export async function removeCommands(
   projectPath: string,
   tool: ToolConfig,
 ): Promise<number> {
   if (!tool.commandsDir) return 0;
 
-  const destDir = join(projectPath, tool.commandsDir);
-  if (!existsSync(destDir)) return 0;
-
-  const files = await readdir(destDir);
+  const commandsBase = join(projectPath, tool.commandsDir, '..');
   let count = 0;
 
-  for (const file of files) {
-    if (file.startsWith('magic-') || COMMAND_FILES.includes(file as any)) {
-      await rm(join(destDir, file), { force: true });
-      count++;
-    }
-  }
+  for (const group of Object.keys(COMMAND_FILES)) {
+    const destDir = join(commandsBase, group);
+    if (!existsSync(destDir)) continue;
 
-  // Remove the directory if empty
-  const remaining = await readdir(destDir);
-  if (remaining.length === 0) {
-    await rm(destDir, { recursive: true, force: true });
+    const files = await readdir(destDir);
+    for (const file of files) {
+      if (ALL_COMMAND_FILES.includes(file)) {
+        await rm(join(destDir, file), { force: true });
+        count++;
+      }
+    }
+
+    const remaining = await readdir(destDir);
+    if (remaining.length === 0) {
+      await rm(destDir, { recursive: true, force: true });
+    }
   }
 
   return count;
