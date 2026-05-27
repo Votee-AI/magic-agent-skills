@@ -14,6 +14,8 @@ program
   .command('init')
   .description('Install MAGIC skills and commands for your AI tools')
   .option('-t, --tools <tools>', 'Comma-separated tool IDs (e.g., claude,cursor) or "all"')
+  .option('-s, --suites <suites>', 'Comma-separated suite names: all, data, linguistic')
+  .option('--skills <skills>', 'Comma-separated skill names')
   .option('-f, --force', 'Overwrite existing installation')
   .action(init);
 

@@ -24,7 +24,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "prepublishOnly": "bash scripts/prepare-publish.sh && npm run build",
+    "prepublishOnly": "bash scripts/copy-skills.sh && npm run build",
     "test": "vitest run",
     "test:watch": "vitest"
   },

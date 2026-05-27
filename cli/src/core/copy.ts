@@ -27,6 +27,7 @@ export function getCommandsSource(group: string): string {
 export async function copySkills(
   projectPath: string,
   tool: ToolConfig,
+  skillFilter?: string[],
 ): Promise<number> {
   if (!tool.skillsDir) return 0;
 
@@ -34,7 +35,9 @@ export async function copySkills(
   const destBase = join(projectPath, tool.skillsDir, 'skills');
   let count = 0;
 
-  for (const skillDir of SKILL_DIRS) {
+  const skillsToInstall = skillFilter ?? SKILL_DIRS;
+
+  for (const skillDir of skillsToInstall) {
     const src = join(source, skillDir);
     if (!existsSync(src)) continue;
 
@@ -83,13 +86,16 @@ export async function copyCommands(
 export async function removeSkills(
   projectPath: string,
   tool: ToolConfig,
+  skillFilter?: string[],
 ): Promise<number> {
   if (!tool.skillsDir) return 0;
 
   const destBase = join(projectPath, tool.skillsDir, 'skills');
   let count = 0;
 
-  for (const skillDir of SKILL_DIRS) {
+  const skillsToRemove = skillFilter ?? SKILL_DIRS;
+
+  for (const skillDir of skillsToRemove) {
     const dest = join(destBase, skillDir);
     if (existsSync(dest)) {
       await rm(dest, { recursive: true, force: true });
@@ -100,25 +106,27 @@ export async function removeSkills(
   return count;
 }
 
-const ALL_COMMAND_FILES: string[] = Object.values(COMMAND_FILES).flat();
-
 export async function removeCommands(
   projectPath: string,
   tool: ToolConfig,
 ): Promise<number> {
-  if (!tool.commandsDir) return 0;
+  if (!tool.commandsDir || !tool.commandFormat) return 0;
+
+  const adapter = getAdapter(tool.commandFormat);
+  if (!adapter) return 0;
 
   const commandsBase = join(projectPath, tool.commandsDir, '..');
   let count = 0;
 
-  for (const group of Object.keys(COMMAND_FILES)) {
+  for (const [group, files] of Object.entries(COMMAND_FILES)) {
     const destDir = join(commandsBase, group);
     if (!existsSync(destDir)) continue;
 
-    const files = await readdir(destDir);
     for (const file of files) {
-      if (ALL_COMMAND_FILES.includes(file)) {
-        await rm(join(destDir, file), { force: true });
+      const adapted = adapter.adapt(file, '').filename;
+      const target = join(destDir, adapted);
+      if (existsSync(target)) {
+        await rm(target, { force: true });
         count++;
       }
     }

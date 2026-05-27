@@ -1,15 +1,14 @@
 import { existsSync } from 'node:fs';
 import { rm } from 'node:fs/promises';
-import { resolve } from 'node:path';
+import { join } from 'node:path';
 import chalk from 'chalk';
 import ora from 'ora';
-import { getToolByValue, CONFIG_FILENAME } from '../core/config.js';
+import { getToolByValue } from '../core/config.js';
 import {
-  readConfig,
-  writeConfig,
-  configPath,
   removeSkills,
   removeCommands,
+  readConfig,
+  configPath,
 } from '../core/copy.js';
 
 export interface RemoveOptions {
@@ -17,49 +16,45 @@ export interface RemoveOptions {
 }
 
 export async function remove(options: RemoveOptions): Promise<void> {
-  const projectPath = resolve('.');
+  const projectPath = process.cwd();
 
   const config = await readConfig(projectPath);
   if (!config) {
-    console.error(chalk.red('No installation found. Nothing to remove.'));
-    process.exit(1);
+    console.log(
+      chalk.yellow('No MAGIC Agent Skills installation found.'),
+    );
+    return;
   }
 
-  const toolsToRemove = options.tools
-    ? options.tools.split(',').map((t) => t.trim())
+  const toolValues = options.tools
+    ? options.tools.split(',').map((s) => s.trim()).filter(Boolean)
     : config.tools;
 
-  const spinner = ora('Removing MAGIC Data Agent Skills...').start();
+  const skillFilter = config.skills && config.skills.length > 0 ? config.skills : undefined;
+
+  const spinner = ora('Removing MAGIC Agent Skills...').start();
   let totalSkills = 0;
   let totalCommands = 0;
 
-  for (const toolValue of toolsToRemove) {
+  for (const toolValue of toolValues) {
     const tool = getToolByValue(toolValue);
-    if (!tool) {
-      spinner.warn(`Unknown tool: ${toolValue} — skipping`);
-      continue;
-    }
+    if (!tool) continue;
 
-    spinner.text = `Removing from ${tool.name}...`;
-    totalSkills += await removeSkills(projectPath, tool);
+    totalSkills += await removeSkills(projectPath, tool, skillFilter);
     totalCommands += await removeCommands(projectPath, tool);
   }
 
-  // Update or remove config
-  const remaining = config.tools.filter((t) => !toolsToRemove.includes(t));
-  if (remaining.length === 0) {
+  // Only delete config if removing from all tools
+  const removingAll =
+    !options.tools || toolValues.length === config.tools.length;
+  if (removingAll) {
     const cfgPath = configPath(projectPath);
     if (existsSync(cfgPath)) {
-      await rm(cfgPath);
+      await rm(cfgPath, { force: true });
     }
-    spinner.succeed(chalk.green('All MAGIC Data Agent Skills removed.'));
-  } else {
-    config.tools = remaining;
-    config.updatedAt = new Date().toISOString();
-    await writeConfig(projectPath, config);
-    spinner.succeed(chalk.green(`Removed from: ${toolsToRemove.join(', ')}`));
-    console.log(`  Remaining tools: ${remaining.join(', ')}`);
   }
 
-  console.log(`  Removed ${totalSkills} skill directories, ${totalCommands} command files`);
+  spinner.succeed(
+    `Removed ${totalSkills} skills and ${totalCommands} commands from ${toolValues.length} tool(s).`,
+  );
 }

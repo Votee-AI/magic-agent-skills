@@ -57,6 +57,17 @@ describe('copySkills', () => {
     const count = await copySkills(testDir, agents);
     expect(count).toBe(0);
   });
+
+  it('respects skillFilter — only copies selected skills', async () => {
+    const claude = getToolByValue('claude')!;
+    await mkdir(join(testDir, '.claude'), { recursive: true });
+    const count = await copySkills(testDir, claude, ['magic-data-loading', 'magic-data-profiling']);
+
+    expect(count).toBe(2);
+    expect(existsSync(join(testDir, '.claude/skills/magic-data-loading'))).toBe(true);
+    expect(existsSync(join(testDir, '.claude/skills/magic-data-profiling'))).toBe(true);
+    expect(existsSync(join(testDir, '.claude/skills/magic-data-cleaning'))).toBe(false);
+  });
 });
 
 describe('copyCommands', () => {
@@ -102,6 +113,17 @@ describe('removeSkills', () => {
     expect(removed).toBe(30);
     expect(existsSync(join(testDir, '.claude/skills/magic-data-loading'))).toBe(false);
   });
+
+  it('removes only filtered skills when skillFilter provided', async () => {
+    const claude = getToolByValue('claude')!;
+    await mkdir(join(testDir, '.claude'), { recursive: true });
+    await copySkills(testDir, claude);
+
+    const removed = await removeSkills(testDir, claude, ['magic-data-loading']);
+    expect(removed).toBe(1);
+    expect(existsSync(join(testDir, '.claude/skills/magic-data-loading'))).toBe(false);
+    expect(existsSync(join(testDir, '.claude/skills/magic-data-profiling'))).toBe(true);
+  });
 });
 
 describe('removeCommands', () => {
@@ -121,10 +143,12 @@ describe('config read/write', () => {
     expect(config).toBeNull();
   });
 
-  it('roundtrips config', async () => {
+  it('roundtrips config with suites and skills', async () => {
     const config = {
       version: '0.1.0',
       tools: ['claude', 'cursor'],
+      suites: ['data'],
+      skills: ['magic-data-loading', 'magic-data-profiling'],
       installedAt: '2026-01-01T00:00:00.000Z',
       updatedAt: '2026-01-01T00:00:00.000Z',
     };

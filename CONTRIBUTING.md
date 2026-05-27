@@ -37,33 +37,46 @@ pip install -r requirements.txt
 ## Running Tests
 
 ```bash
-# All tests (co-located per-skill + cross-cutting)
-MPLBACKEND=Agg pytest tests/ skills/ -q --tb=short
+# Structural tests — validates all 30 skills (SKILL.md, triggers, scripts)
+MPLBACKEND=Agg pytest tests/shared/ -q --tb=short
 
-# Cross-cutting tests only (structure, triggers, routing)
-MPLBACKEND=Agg pytest tests/unit/ -q --tb=short
-
-# Per-skill tests only (e.g., magic-data-cleaning)
-MPLBACKEND=Agg pytest skills/magic-data-cleaning/tests/ -q --tb=short
+# Unit tests — data-agent and linguistic skill scripts
+MPLBACKEND=Agg pytest tests/data-agent/unit/ tests/linguistic/unit/ -q --tb=short
 
 # Integration tests
-MPLBACKEND=Agg pytest tests/integration/ -q --tb=short
+MPLBACKEND=Agg pytest tests/data-agent/integration/ tests/linguistic/integration/ -q --tb=short
 
 # E2E evals dry-run (validates routing logic, no LLM calls)
-python tests/e2e/evals/run_evals.py --all --dry-run
+python tests/data-agent/e2e/evals/run_evals.py --all --dry-run
+
+# CLI tests
+cd cli && npm test
 ```
 
 All suites must pass before a PR is merged.
 
-## Branch Model
+## Branch Strategy
 
-| Branch | Purpose |
-|--------|---------|
-| `main` | Stable, released code |
-| `feat/<slug>` | New features |
-| `fix/<slug>` | Bug fixes |
+| Branch | Purpose | Base | PR target |
+|--------|---------|------|-----------|
+| `main` | Stable, released code. Protected — requires PR + CI pass. | — | — |
+| `dev` | Integration branch for feature work. Long-lived; all feature and fix PRs merge here first. | `main` | `main` (via release branch) |
+| `feat/<slug>` | New features. Short-lived; one feature per branch. | `dev` | `dev` |
+| `fix/<slug>` | Bug fixes. Short-lived; one fix per branch. | `dev` | `dev` |
+| `release/vX.Y` | Release preparation — version bumps, changelog, final QA. | `dev` | `main` |
 
-Branch off `main`, open a PR back to `main`.
+### Merge flow
+
+```
+feat/* ─┐
+fix/*  ─┴─► dev ─► release/vX.Y ─► main
+```
+
+1. Branch `feat/*` or `fix/*` from `dev`.
+2. Open a PR targeting `dev`; CI must pass before merge.
+3. When `dev` is ready to ship, cut a `release/vX.Y` branch from `dev` for release prep.
+4. Open a PR from `release/vX.Y` to `main`; merging triggers the release workflow and publishes to npm.
+5. After the release PR merges, `main` is tagged and `dev` is fast-forwarded to `main`.
 
 ## Commit Messages
 
@@ -92,45 +105,30 @@ Before requesting review, confirm:
 
 ### Adding a New Skill
 
-A skill lives under `skills/<name>/` (data skills use `magic-*`, linguistic skills use `linguistic-*`):
+A skill lives under `skills/magic-<name>/` and must contain:
 
 ```
-skills/<name>/
-  SKILL.md            # Required — agent knowledge document
-  README.md           # Required — human-readable overview
-  scripts/            # Optional — reference scripts and callable tools
-  references/         # Optional — additional reference material
-  evals/              # Optional — routing eval cases
-  tests/              # Optional — per-skill unit tests
+skills/magic-<name>/
+  SKILL.md            # Required — skill specification
+  scripts/            # Reference scripts and callable tools
+  evals/
+    evals.json        # Required — routing eval cases
 ```
 
 ### SKILL.md Frontmatter
 
-Every `SKILL.md` must open with agentskills.io-compliant YAML frontmatter:
+Every `SKILL.md` must open with YAML frontmatter:
 
 ```yaml
 ---
 name: magic-<name>
-description: "What the skill does and when to use it. Include trigger keywords."
-license: Apache-2.0
-compatibility: "Python 3.12+"
-metadata:
-  version: "0.1.0"
-  author: "Votee MAGIC Team"
-  domain: data-science
-  complexity: medium
-  requires_llm: false
-  tags:
-    - data-science
-    - your-tags
-  scripts:
-    - scripts/your_script.py
-  dependencies:
-    - pandas
+version: 1.0.0
+description: One-sentence description of what the skill does.
+triggers:
+  - keyword one
+  - keyword two
 ---
 ```
-
-Root-level fields (`name`, `description`, `license`, `compatibility`) follow the agentskills.io spec. All extensions go under `metadata`.
 
 ### Script Tier Markers
 
@@ -173,7 +171,6 @@ python tests/e2e/evals/run_evals.py --skill magic-<name> --dry-run
 
 ### Modifying an Existing Skill
 
-- Update `metadata.version` in SKILL.md frontmatter (patch for fixes, minor for new capabilities)
+- Update `SKILL.md` version in frontmatter (patch for fixes, minor for new capabilities)
 - Add regression eval cases covering the changed behavior
-- Run the skill's co-located tests if they exist: `pytest skills/<name>/tests/`
-- Validate frontmatter: `python scripts/migrate-frontmatter.py --verify`
+- Update `CHANGELOG.md`

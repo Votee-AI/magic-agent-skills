@@ -73,6 +73,21 @@ describe('SKILL_DIRS', () => {
   });
 });
 
+describe('InstalledConfig interface', () => {
+  it('includes suites and skills fields', () => {
+    const config: import('../src/core/config.js').InstalledConfig = {
+      version: '0.1.0',
+      tools: ['claude'],
+      suites: ['data'],
+      skills: ['magic-data-loading'],
+      installedAt: '2026-01-01T00:00:00.000Z',
+      updatedAt: '2026-01-01T00:00:00.000Z',
+    };
+    expect(config.suites).toEqual(['data']);
+    expect(config.skills).toEqual(['magic-data-loading']);
+  });
+});
+
 describe('COMMAND_FILES', () => {
   it('has data-agent and linguistic groups', () => {
     expect(COMMAND_FILES).toHaveProperty('data-agent');

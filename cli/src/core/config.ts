@@ -12,6 +12,8 @@ export interface ToolConfig {
 export interface InstalledConfig {
   version: string;
   tools: string[];
+  suites: string[];
+  skills: string[];
   installedAt: string;
   updatedAt: string;
 }

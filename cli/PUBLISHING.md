@@ -19,7 +19,7 @@ cd cli
 
 # 1. Bundle skills + commands and build TypeScript
 #    (prepublishOnly runs this automatically, but you can do it manually first)
-bash scripts/prepare-publish.sh
+bash scripts/copy-skills.sh
 npm run build
 
 # 2. Verify package contents
