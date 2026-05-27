@@ -1,5 +1,9 @@
 # Publishing @votee-ai/magic-agent-skills to npm
 
+## Architecture
+
+The npm package is a **thin CLI installer** (~50KB). It does NOT bundle skills — skills are fetched from GitHub at runtime when users run `init` or `update`. This means skill updates don't require a new npm publish.
+
 ## Prerequisites
 
 1. **npm account** with access to the `@votee-ai` scope
@@ -17,12 +21,10 @@
 ```bash
 cd cli
 
-# 1. Bundle skills + commands and build TypeScript
-#    (prepublishOnly runs this automatically, but you can do it manually first)
-bash scripts/copy-skills.sh
+# 1. Build TypeScript
 npm run build
 
-# 2. Verify package contents
+# 2. Verify package contents (should be thin — bin + dist only, no skills)
 npm pack --dry-run
 
 # 3. Publish (public scoped package)
@@ -83,3 +85,7 @@ To unlink:
 ```bash
 npm unlink -g @votee-ai/magic-agent-skills
 ```
+
+## Note on copy-skills.sh
+
+`scripts/copy-skills.sh` is used by CI only (for testing the skill bundle structure). It is NOT used for npm publishing — the published package contains only the CLI tool, not skills.

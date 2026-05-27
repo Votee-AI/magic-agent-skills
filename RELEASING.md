@@ -30,11 +30,13 @@ git push origin v1.0.0
 
 The `release.yml` workflow automatically:
 
-1. Runs the full CI suite
+1. Runs the full CI suite (8 jobs)
 2. Builds the CLI (`npm run build`)
-3. Runs `scripts/copy-skills.sh` to bundle skills into the npm package
-4. Publishes to npm with `--provenance`
-5. Creates a GitHub Release with changelog
+3. Verifies tag version matches `cli/package.json` version
+4. Publishes the thin CLI to npm with `--provenance`
+5. Creates a GitHub Release with install instructions
+
+Note: The npm package is a thin installer — skills are fetched from GitHub at runtime, not bundled.
 
 ## Branch Strategy
 
