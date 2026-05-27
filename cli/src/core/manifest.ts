@@ -37,10 +37,10 @@ export function getSuiteConfigs(): SuiteConfig[] {
 
   return [
     {
-      name: 'data',
-      displayName: 'Data Science',
+      name: 'data-agent',
+      displayName: 'Data Agent',
       version: pkg.version,
-      skills: manifest.suites['data']?.skills ?? [],
+      skills: manifest.suites['data-agent']?.skills ?? [],
       commandsDir: 'commands/data-agent',
     },
     {

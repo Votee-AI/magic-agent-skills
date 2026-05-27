@@ -12,7 +12,7 @@ const mockReadFileSync = readFileSync as ReturnType<typeof vi.fn>;
 
 const SAMPLE_MANIFEST = {
   suites: {
-    data: {
+    'data-agent': {
       skills: [
         'magic-data-cleaning',
         'magic-data-exploration',
@@ -39,7 +39,7 @@ describe('loadManifest', () => {
   it('parses manifest.json from skills directory', () => {
     mockReadFileSync.mockReturnValueOnce(JSON.stringify(SAMPLE_MANIFEST));
     const manifest = loadManifest();
-    expect(manifest.suites['data']?.skills).toHaveLength(4);
+    expect(manifest.suites['data-agent']?.skills).toHaveLength(4);
     expect(manifest.suites['linguistic']?.skills).toHaveLength(2);
   });
 
@@ -64,9 +64,9 @@ describe('getSuiteConfigs', () => {
     const configs = getSuiteConfigs();
     expect(configs).toHaveLength(2);
 
-    const data = configs.find((c) => c.name === 'data');
+    const data = configs.find((c) => c.name === 'data-agent');
     expect(data).toBeDefined();
-    expect(data!.displayName).toBe('Data Science');
+    expect(data!.displayName).toBe('Data Agent');
     expect(data!.skills).toHaveLength(4);
     expect(data!.commandsDir).toBe('commands/data-agent');
 
@@ -88,7 +88,7 @@ describe('getSuiteConfigs', () => {
   });
 
   it('returns empty skills array when suite missing from manifest', () => {
-    const partialManifest = { suites: { data: { skills: ['magic-data-loading'] } } };
+    const partialManifest = { suites: { 'data-agent': { skills: ['magic-data-loading'] } } };
     mockReadFileSync
       .mockReturnValueOnce(JSON.stringify(partialManifest))
       .mockReturnValueOnce(JSON.stringify(SAMPLE_PKG));

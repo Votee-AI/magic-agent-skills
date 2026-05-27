@@ -27,7 +27,7 @@ node -e "
   const lingSkills = dirs.filter(d => d.startsWith('linguistic-'));
   const manifest = {
     suites: {
-      data: { skills: dataSkills.sort() },
+      'data-agent': { skills: dataSkills.sort() },
       linguistic: { skills: lingSkills.sort() }
     }
   };
