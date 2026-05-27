@@ -12,7 +12,7 @@ import pytest
 
 PROJECT_ROOT = Path(__file__).parent
 SKILLS_DIR = PROJECT_ROOT / "skills"
-TEST_DATA_DIR = PROJECT_ROOT / "tests" / "unit" / "test_data"
+TEST_DATA_DIR = PROJECT_ROOT / "tests" / "test_data"
 
 
 @pytest.fixture

@@ -152,10 +152,13 @@ magic-agent-skills/
 │   │   ├── evals/              # Skill-specific evaluation data
 │   │   └── tests/              # Per-skill tests (where applicable)
 │   └── _linguistic_shared/     # Shared Python utilities (not a skill)
-├── tests/                      # Cross-cutting validation tests
-│   ├── unit/                   # Structure, triggers, consistency checks
-│   ├── integration/            # Multi-skill workflow tests
-│   └── e2e/                    # End-to-end pipeline scenarios
+├── tests/                      # Test suites by category
+│   ├── shared/                 # Cross-cutting tests (all 30 skills)
+│   ├── data-agent/             # Data-agent specific tests
+│   │   ├── unit/               # Script-level tests
+│   │   ├── integration/        # Multi-skill workflow tests
+│   │   └── e2e/                # End-to-end pipeline scenarios
+│   └── linguistic/             # Linguistic tests (future)
 ├── commands/
 │   ├── data-agent/             # 13 data-agent slash commands
 │   └── linguistic/             # 10 linguistic slash commands

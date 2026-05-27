@@ -1,1 +1,1 @@
-# MAGIC data agent skills tests
+# Unit tests for MAGIC data agent skills
