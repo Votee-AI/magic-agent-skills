@@ -287,7 +287,7 @@ def main():
     skills = []
     if args.all:
         skills = [d.name for d in SKILLS_DIR.iterdir()
-                  if d.is_dir() and (d / "evals" / "evals.json").exists()]
+                  if d.is_dir() and d.name.startswith('magic-') and (d / "evals" / "evals.json").exists()]
     elif args.skill:
         skills = [args.skill]
 

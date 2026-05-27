@@ -64,7 +64,9 @@ jobs:
         with:
           node-version: "22"
       - name: Install ajv-cli and js-yaml
-        run: npm install -g ajv-cli ajv-formats js-yaml
+        run: |
+          npm install -g ajv-cli ajv-formats
+          npm install js-yaml
       - name: Validate SKILL.schema.json is valid JSON Schema
         run: ajv compile -s schema/SKILL.schema.json
       - name: Extract and validate all SKILL.md frontmatters
