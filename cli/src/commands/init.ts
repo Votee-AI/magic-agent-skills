@@ -66,11 +66,29 @@ export async function init(options: InitOptions): Promise<void> {
 
   // Check for existing installation
   const existingConfig = await readConfig(projectPath);
+  let addMode = false;
+
   if (existingConfig && !options.force) {
-    console.log(
-      chalk.yellow('MAGIC Agent Skills already installed. Use --force to overwrite or run "update" to refresh.'),
-    );
-    return;
+    if (options.suites || options.skills) {
+      addMode = true;
+    } else {
+      const existingCount = existingConfig.skills?.length ?? 0;
+      const existingSuites = existingConfig.suites?.join(', ') || 'unknown';
+      console.log(chalk.dim(`  Installed: ${existingCount} skills (${existingSuites})\n`));
+
+      const action = await select({
+        message: 'MAGIC Agent Skills already installed. What would you like to do?',
+        choices: [
+          { name: 'Add more skills to this installation', value: 'add' },
+          { name: 'Reinstall from scratch', value: 'reinstall' },
+          { name: 'Cancel', value: 'cancel' },
+        ],
+      });
+
+      if (action === 'cancel') return;
+      if (action === 'add') addMode = true;
+      // 'reinstall' falls through to normal install flow
+    }
   }
 
   // --- C4: Legacy config migration ---
@@ -243,11 +261,21 @@ export async function init(options: InitOptions): Promise<void> {
   const pkg = JSON.parse(
     await readFile(join(getPackageRoot(), 'package.json'), 'utf8'),
   ) as { version: string };
+  const mergedTools = addMode && existingConfig
+    ? [...new Set([...existingConfig.tools, ...selectedToolValues])]
+    : selectedToolValues;
+  const mergedSuites = addMode && existingConfig
+    ? [...new Set([...(existingConfig.suites ?? []), ...selectedSuites])]
+    : selectedSuites;
+  const mergedSkills = addMode && existingConfig
+    ? [...new Set([...(existingConfig.skills ?? []), ...selectedSkills])]
+    : selectedSkills;
+
   const config: InstalledConfig = {
     version: pkg.version,
-    tools: selectedToolValues,
-    suites: selectedSuites,
-    skills: selectedSkills,
+    tools: mergedTools,
+    suites: mergedSuites,
+    skills: mergedSkills,
     installedAt: existingConfig?.installedAt ?? now,
     updatedAt: now,
   };
