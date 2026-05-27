@@ -14,6 +14,10 @@ ref/
 .env.*
 !.env.example
 
+# === Virtual Environments ===
+.venv/
+venv/
+
 # === Build Artifacts ===
 
 # Node.js
