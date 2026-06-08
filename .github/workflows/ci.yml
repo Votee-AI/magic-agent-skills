@@ -208,3 +208,23 @@ jobs:
         run: |
           pip-licenses --format=markdown --with-urls \
             --fail-on="GNU General Public License;AGPL;Server Side Public License;Business Source License;Commons Clause"
+
+  # Guards that internal development content never lands on `main`.
+  # Internal artifacts live only on the private `dev` branch; `main` is generated
+  # from `dev` via scripts/sync-main.sh (which strips export-ignored paths).
+  # Scoped to main so it does NOT fail on `dev`, where this content is expected.
+  no-internal-content:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure no internal content on main
+        run: |
+          LEAKED=$(git ls-files | grep -E '^(openspec/|\.omc/|ref/|CLAUDE\.local\.md)' || true)
+          if [ -n "$LEAKED" ]; then
+            echo "FAIL: internal development content present on main:"
+            echo "$LEAKED"
+            echo "main must be regenerated from dev via scripts/sync-main.sh"
+            exit 1
+          fi
+          echo "PASS: main is clean of internal content"

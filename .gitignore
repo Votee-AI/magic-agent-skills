@@ -9,6 +9,9 @@ openspec/
 # Reference implementations and research repos
 ref/
 
+# Internal agent guide — force-added on `dev` only, never on `main`/public
+CLAUDE.local.md
+
 # Environment and secrets
 .env
 .env.*

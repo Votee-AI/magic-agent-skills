@@ -1,0 +1,8 @@
+# Internal development content lives ONLY on the private `dev` branch.
+# `export-ignore` makes `git archive` omit these paths, so the clean `main`
+# branch (generated via scripts/sync-main.sh) and any public export never
+# contain them. See CLAUDE.local.md for the full branch model.
+openspec/        export-ignore
+.omc/            export-ignore
+ref/             export-ignore
+CLAUDE.local.md  export-ignore
