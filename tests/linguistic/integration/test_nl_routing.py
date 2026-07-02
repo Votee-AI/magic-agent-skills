@@ -57,22 +57,22 @@ def test_command_routes_to_real_skill(cmd: Path) -> None:
     if "no skill" in routes_to.lower():
         return  # meta command (e.g. /linguistic:help)
     skill_names = _skill_names()
-    # Extract `linguistic-foo` tokens and verify each exists as a skill dir.
-    referenced = set(re.findall(r"\blinguistic-[a-z]+\b", routes_to))
-    assert referenced, f"{cmd} routes_to has no recognizable linguistic-* skill"
+    # Extract `magic-linguistic-foo` tokens and verify each exists as a skill dir.
+    referenced = set(re.findall(r"\bmagic-linguistic-[a-z]+\b", routes_to))
+    assert referenced, f"{cmd} routes_to has no recognizable magic-linguistic-* skill"
     missing = referenced - skill_names
     assert not missing, f"{cmd} routes_to references missing skills: {missing}"
 
 
 def test_routing_logic_skills_exist() -> None:
     """The orchestrator's routing_logic.md references skill names that must exist as dirs."""
-    routing_md = SKILLS_DIR / "linguistic-orchestrator" / "references" / "routing_logic.md"
+    routing_md = SKILLS_DIR / "magic-linguistic-orchestrator" / "references" / "routing_logic.md"
     if not routing_md.exists():
         pytest.skip("routing_logic.md not yet authored")
     text = routing_md.read_text(encoding="utf-8")
-    referenced = set(re.findall(r"\blinguistic-[a-z]+\b", text))
-    skills = _skill_names() | {"linguistic-orchestrator"}
+    referenced = set(re.findall(r"\bmagic-linguistic-[a-z]+\b", text))
+    skills = _skill_names() | {"magic-linguistic-orchestrator"}
     # Phase 0 may reference optional modules even before they're authored.
-    optional = {"linguistic-codeswitch", "linguistic-historical", "linguistic-lexicon"}
+    optional = {"magic-linguistic-codeswitch", "magic-linguistic-historical", "magic-linguistic-lexicon"}
     missing = (referenced - skills) - optional
     assert not missing, f"routing_logic.md references unknown skills: {missing}"

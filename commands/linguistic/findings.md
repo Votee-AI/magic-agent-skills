@@ -4,7 +4,7 @@ nl_triggers:
   - "what are the findings"
   - "show me the issues"
   - "what's wrong"
-routes_to: linguistic-orchestrator (findings mode)
+routes_to: magic-linguistic-orchestrator (findings mode)
 ---
 
 # /linguistic:findings

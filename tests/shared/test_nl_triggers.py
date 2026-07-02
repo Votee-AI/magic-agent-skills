@@ -16,7 +16,7 @@ import pytest
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 SKILLS_DIR = PROJECT_ROOT / "skills"
-COMMANDS_DIR = PROJECT_ROOT / "commands" / "data-agent"
+COMMANDS_DIR = PROJECT_ROOT / "commands" / "data"
 
 # P1 skills that MUST have NL trigger sections
 P1_SKILLS = [
@@ -117,7 +117,7 @@ class TestP1SkillNLTriggers:
         path = SKILLS_DIR / "magic-data-lifecycle" / "SKILL.md"
         content = _read_text(path)
         # Check the trigger section mentions the equivalence
-        assert "/data-agent:lifecycle" in content or "/data-agent:status" in content, (
+        assert "/data:lifecycle" in content or "/data:status" in content, (
             "Lifecycle NL triggers should reference equivalent slash commands"
         )
 

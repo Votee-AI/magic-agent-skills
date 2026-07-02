@@ -10,11 +10,11 @@ import yaml
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 SKILLS_DIR = REPO_ROOT / "skills"
-ORCH = SKILLS_DIR / "linguistic-orchestrator"
+ORCH = SKILLS_DIR / "magic-linguistic-orchestrator"
 
-PHASE4_SKILLS = ["linguistic-eval", "linguistic-codeswitch", "linguistic-historical", "linguistic-lexicon"]
-A_TIER = {"linguistic-eval"}
-MINDSET = {"linguistic-codeswitch", "linguistic-historical", "linguistic-lexicon"}
+PHASE4_SKILLS = ["magic-linguistic-eval", "magic-linguistic-codeswitch", "magic-linguistic-historical", "magic-linguistic-lexicon"]
+A_TIER = {"magic-linguistic-eval"}
+MINDSET = {"magic-linguistic-codeswitch", "magic-linguistic-historical", "magic-linguistic-lexicon"}
 FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 
 
@@ -24,7 +24,7 @@ def test_skill_present_in_orchestrator_routing(skill_name: str) -> None:
     pipeline = (ORCH / "references" / "pipeline_phases.md").read_text(encoding="utf-8")
     skill_md = (ORCH / "SKILL.md").read_text(encoding="utf-8")
     combined = routing + pipeline + skill_md
-    bare = skill_name.removeprefix("linguistic-")
+    bare = skill_name.removeprefix("magic-linguistic-")
     # Accept full name, bare suffix in table cell (with or without parenthetical), or backtick
     assert (
         skill_name in combined

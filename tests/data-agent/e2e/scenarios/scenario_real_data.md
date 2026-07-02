@@ -56,7 +56,7 @@ Or more simply:
   "scenario_name": "sales_regional_analysis",
   "mode": "real_data",
   "input": {
-    "file_path": "/Users/me/data/sales_2024.csv",
+    "file_path": "/path/to/data/sales_2024.csv",
     "description": "Q4 2024 sales data. Goal: understand regional revenue patterns."
   },
   "pipeline": [

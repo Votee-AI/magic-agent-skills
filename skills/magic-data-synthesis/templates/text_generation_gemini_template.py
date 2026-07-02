@@ -30,7 +30,10 @@ def load_config_builder() -> DataDesignerConfigBuilder:
         inference_parameters=ChatCompletionInferenceParams(
             max_parallel_requests=4,
             temperature=0.7,
-            max_tokens=256,
+            # Gemini accounts for the output budget differently — keep max_tokens >= 512 or
+            # outputs can truncate to a few tokens (e.g. 256→fragments, 512→full sentence).
+            # Also: do NOT pass `seed` (Gemini rejects it with HTTP 400).
+            max_tokens=512,
         ),
         provider="gemini",
         skip_health_check=True,

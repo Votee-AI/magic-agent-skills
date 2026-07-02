@@ -5,6 +5,7 @@ import {
   COMMAND_FILES,
   getToolByValue,
 } from '../src/core/config.js';
+import { suiteForDir } from '../src/core/suites.js';
 
 describe('MAGIC_TOOLS registry', () => {
   it('has 30 tools', () => {
@@ -30,7 +31,8 @@ describe('MAGIC_TOOLS registry', () => {
     const claude = getToolByValue('claude');
     expect(claude).toBeDefined();
     expect(claude!.skillsDir).toBe('.claude');
-    expect(claude!.commandsDir).toBe('.claude/commands/data-agent');
+    // commandsDir is the literal BASE; copyCommands appends the group leaf.
+    expect(claude!.commandsDir).toBe('.claude/commands');
     expect(claude!.commandFormat).toBe('md');
   });
 
@@ -65,9 +67,11 @@ describe('SKILL_DIRS', () => {
     expect(SKILL_DIRS.length).toBe(30);
   });
 
-  it('includes data-agent and linguistic skills', () => {
-    const dataSkills = SKILL_DIRS.filter((d) => d.startsWith('magic-'));
-    const linguisticSkills = SKILL_DIRS.filter((d) => d.startsWith('linguistic-'));
+  it('includes data and linguistic skills', () => {
+    // Use the ordered suite logic: magic-linguistic-* is matched before the
+    // data magic-* rule, so the two suites partition cleanly (12 data, 18 ling).
+    const dataSkills = SKILL_DIRS.filter((d) => suiteForDir(d)?.key === 'data');
+    const linguisticSkills = SKILL_DIRS.filter((d) => suiteForDir(d)?.key === 'linguistic');
     expect(dataSkills.length).toBe(12);
     expect(linguisticSkills.length).toBe(18);
   });
@@ -89,13 +93,13 @@ describe('InstalledConfig interface', () => {
 });
 
 describe('COMMAND_FILES', () => {
-  it('has data-agent and linguistic groups', () => {
-    expect(COMMAND_FILES).toHaveProperty('data-agent');
+  it('has data and linguistic groups', () => {
+    expect(COMMAND_FILES).toHaveProperty('data');
     expect(COMMAND_FILES).toHaveProperty('linguistic');
   });
 
-  it('data-agent has 13 commands', () => {
-    expect(COMMAND_FILES['data-agent'].length).toBe(13);
+  it('data has 13 commands', () => {
+    expect(COMMAND_FILES['data'].length).toBe(13);
   });
 
   it('linguistic has 10 commands', () => {

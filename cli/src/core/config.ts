@@ -7,6 +7,13 @@ export interface ToolConfig {
   skillsDir: string | undefined;
   commandsDir: string | null;
   commandFormat: 'md' | 'toml' | 'prompt' | null;
+  /**
+   * Optional, more-specific marker for auto-detection. When set, `detectTools`
+   * requires THIS path (relative to the project) to exist rather than just the
+   * `skillsDir`. Used to avoid over-detecting tools whose `skillsDir` is a
+   * generic shared directory (e.g. `.github`, which exists in most repos).
+   */
+  detectMarker?: string;
 }
 
 export interface InstalledConfig {
@@ -19,35 +26,41 @@ export interface InstalledConfig {
 }
 
 // Adapted from OpenSpec's AI_TOOLS registry (MIT licensed)
-// Extended with MAGIC-specific commandsDir and commandFormat fields
+// Extended with MAGIC-specific commandsDir and commandFormat fields.
+//
+// `commandsDir` is the LITERAL base directory under which the per-suite command
+// group (e.g. `data`, `linguistic`) is created. copyCommands/removeCommands
+// append the group leaf — so Claude installs to `.claude/commands/data` and
+// `.claude/commands/linguistic`, Windsurf to `.windsurf/workflows/data`, etc.
+// Do NOT bake a group leaf into these values.
 export const MAGIC_TOOLS: ToolConfig[] = [
-  { name: 'Amazon Q Developer', value: 'amazon-q', skillsDir: '.amazonq', commandsDir: '.amazonq/commands/data-agent', commandFormat: 'md' },
-  { name: 'Antigravity', value: 'antigravity', skillsDir: '.agent', commandsDir: '.agent/commands/data-agent', commandFormat: 'md' },
-  { name: 'Auggie (Augment CLI)', value: 'auggie', skillsDir: '.augment', commandsDir: '.augment/commands/data-agent', commandFormat: 'md' },
+  { name: 'Amazon Q Developer', value: 'amazon-q', skillsDir: '.amazonq', commandsDir: '.amazonq/commands', commandFormat: 'md' },
+  { name: 'Antigravity', value: 'antigravity', skillsDir: '.agent', commandsDir: '.agent/commands', commandFormat: 'md' },
+  { name: 'Auggie (Augment CLI)', value: 'auggie', skillsDir: '.augment', commandsDir: '.augment/commands', commandFormat: 'md' },
   { name: 'Bob Shell', value: 'bob', skillsDir: '.bob', commandsDir: null, commandFormat: null },
-  { name: 'Claude Code', value: 'claude', skillsDir: '.claude', commandsDir: '.claude/commands/data-agent', commandFormat: 'md' },
-  { name: 'Cline', value: 'cline', skillsDir: '.cline', commandsDir: '.cline/commands/data-agent', commandFormat: 'md' },
+  { name: 'Claude Code', value: 'claude', skillsDir: '.claude', commandsDir: '.claude/commands', commandFormat: 'md' },
+  { name: 'Cline', value: 'cline', skillsDir: '.cline', commandsDir: '.cline/commands', commandFormat: 'md' },
   { name: 'Codex', value: 'codex', skillsDir: '.codex', commandsDir: null, commandFormat: null },
-  { name: 'CodeBuddy Code (CLI)', value: 'codebuddy', skillsDir: '.codebuddy', commandsDir: '.codebuddy/commands/data-agent', commandFormat: 'md' },
+  { name: 'CodeBuddy Code (CLI)', value: 'codebuddy', skillsDir: '.codebuddy', commandsDir: '.codebuddy/commands', commandFormat: 'md' },
   { name: 'Continue', value: 'continue', skillsDir: '.continue', commandsDir: '.continue/prompts', commandFormat: 'prompt' },
   { name: 'CoStrict', value: 'costrict', skillsDir: '.cospec', commandsDir: null, commandFormat: null },
-  { name: 'Crush', value: 'crush', skillsDir: '.crush', commandsDir: '.crush/commands/data-agent', commandFormat: 'md' },
-  { name: 'Cursor', value: 'cursor', skillsDir: '.cursor', commandsDir: '.cursor/commands/data-agent', commandFormat: 'md' },
+  { name: 'Crush', value: 'crush', skillsDir: '.crush', commandsDir: '.crush/commands', commandFormat: 'md' },
+  { name: 'Cursor', value: 'cursor', skillsDir: '.cursor', commandsDir: '.cursor/commands', commandFormat: 'md' },
   { name: 'Factory Droid', value: 'factory', skillsDir: '.factory', commandsDir: null, commandFormat: null },
   { name: 'ForgeCode', value: 'forgecode', skillsDir: '.forge', commandsDir: null, commandFormat: null },
-  { name: 'Gemini CLI', value: 'gemini', skillsDir: '.gemini', commandsDir: '.gemini/commands/data-agent', commandFormat: 'toml' },
-  { name: 'GitHub Copilot', value: 'github-copilot', skillsDir: '.github', commandsDir: '.github/prompts', commandFormat: 'prompt' },
+  { name: 'Gemini CLI', value: 'gemini', skillsDir: '.gemini', commandsDir: '.gemini/commands', commandFormat: 'toml' },
+  { name: 'GitHub Copilot', value: 'github-copilot', skillsDir: '.github', commandsDir: '.github/prompts', commandFormat: 'prompt', detectMarker: '.github/copilot-instructions.md' },
   { name: 'iFlow', value: 'iflow', skillsDir: '.iflow', commandsDir: null, commandFormat: null },
-  { name: 'Junie', value: 'junie', skillsDir: '.junie', commandsDir: '.junie/commands/data-agent', commandFormat: 'md' },
-  { name: 'Kilo Code', value: 'kilocode', skillsDir: '.kilocode', commandsDir: '.kilocode/commands/data-agent', commandFormat: 'md' },
+  { name: 'Junie', value: 'junie', skillsDir: '.junie', commandsDir: '.junie/commands', commandFormat: 'md' },
+  { name: 'Kilo Code', value: 'kilocode', skillsDir: '.kilocode', commandsDir: '.kilocode/commands', commandFormat: 'md' },
   { name: 'Kimi CLI', value: 'kimi', skillsDir: '.kimi', commandsDir: null, commandFormat: null },
-  { name: 'Kiro', value: 'kiro', skillsDir: '.kiro', commandsDir: '.kiro/commands/data-agent', commandFormat: 'md' },
-  { name: 'Lingma', value: 'lingma', skillsDir: '.lingma', commandsDir: '.lingma/commands/data-agent', commandFormat: 'toml' },
-  { name: 'OpenCode', value: 'opencode', skillsDir: '.opencode', commandsDir: '.opencode/commands/data-agent', commandFormat: 'md' },
+  { name: 'Kiro', value: 'kiro', skillsDir: '.kiro', commandsDir: '.kiro/commands', commandFormat: 'md' },
+  { name: 'Lingma', value: 'lingma', skillsDir: '.lingma', commandsDir: '.lingma/commands', commandFormat: 'toml' },
+  { name: 'OpenCode', value: 'opencode', skillsDir: '.opencode', commandsDir: '.opencode/commands', commandFormat: 'md' },
   { name: 'Pi', value: 'pi', skillsDir: '.pi', commandsDir: null, commandFormat: null },
-  { name: 'Qoder', value: 'qoder', skillsDir: '.qoder', commandsDir: '.qoder/commands/data-agent', commandFormat: 'md' },
-  { name: 'Qwen Code', value: 'qwen', skillsDir: '.qwen', commandsDir: '.qwen/commands/data-agent', commandFormat: 'toml' },
-  { name: 'RooCode', value: 'roocode', skillsDir: '.roo', commandsDir: '.roo/commands/data-agent', commandFormat: 'md' },
+  { name: 'Qoder', value: 'qoder', skillsDir: '.qoder', commandsDir: '.qoder/commands', commandFormat: 'md' },
+  { name: 'Qwen Code', value: 'qwen', skillsDir: '.qwen', commandsDir: '.qwen/commands', commandFormat: 'toml' },
+  { name: 'RooCode', value: 'roocode', skillsDir: '.roo', commandsDir: '.roo/commands', commandFormat: 'md' },
   { name: 'Trae', value: 'trae', skillsDir: '.trae', commandsDir: null, commandFormat: null },
   { name: 'Windsurf', value: 'windsurf', skillsDir: '.windsurf', commandsDir: '.windsurf/workflows', commandFormat: 'md' },
   { name: 'AGENTS.md', value: 'agents', skillsDir: undefined, commandsDir: null, commandFormat: null },
@@ -66,28 +79,28 @@ export const SKILL_DIRS = [
   'magic-report-generation',
   'magic-statistical-analysis',
   'magic-workspace-init',
-  'linguistic-annotate',
-  'linguistic-bitext',
-  'linguistic-codeswitch',
-  'linguistic-corpus',
-  'linguistic-discourse',
-  'linguistic-ethics',
-  'linguistic-eval',
-  'linguistic-historical',
-  'linguistic-lexicon',
-  'linguistic-morph',
-  'linguistic-orchestrator',
-  'linguistic-scope',
-  'linguistic-scripts',
-  'linguistic-semantics',
-  'linguistic-speech',
-  'linguistic-syntax',
-  'linguistic-tokenize',
-  'linguistic-transfer',
+  'magic-linguistic-annotate',
+  'magic-linguistic-bitext',
+  'magic-linguistic-codeswitch',
+  'magic-linguistic-corpus',
+  'magic-linguistic-discourse',
+  'magic-linguistic-ethics',
+  'magic-linguistic-eval',
+  'magic-linguistic-historical',
+  'magic-linguistic-lexicon',
+  'magic-linguistic-morph',
+  'magic-linguistic-orchestrator',
+  'magic-linguistic-scope',
+  'magic-linguistic-scripts',
+  'magic-linguistic-semantics',
+  'magic-linguistic-speech',
+  'magic-linguistic-syntax',
+  'magic-linguistic-tokenize',
+  'magic-linguistic-transfer',
 ] as const;
 
 export const COMMAND_FILES = {
-  'data-agent': [
+  data: [
     'connect.md',
     'decide.md',
     'deliver.md',

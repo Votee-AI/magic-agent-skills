@@ -1,4 +1,4 @@
-# Skill Evaluation Report: linguistic-morph (iteration 1)
+# Skill Evaluation Report: magic-linguistic-morph (iteration 1)
 
 > **Date**: 2026-04-23 | **SKILL.md**: 200 lines | **References**: 5 files | **Scripts**: 2 files
 > **Total Score**: **103/120 (86%)** | **Grade**: **A−** (target B+; +7) | Per-dim floors: ✅

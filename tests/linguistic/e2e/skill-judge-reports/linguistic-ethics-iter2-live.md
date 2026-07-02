@@ -1,9 +1,9 @@
-# Skill Evaluation Report: linguistic-ethics (iteration 2 — LIVE)
+# Skill Evaluation Report: magic-linguistic-ethics (iteration 2 — LIVE)
 
 > **Date**: 2026-04-23
 > **Evaluator**: live skill-judge by general-purpose subagent (a97616c9acf05c252) against softaworks/agent-toolkit @ 2026-04-23 rubric
 > **Method**: real read of SKILL.md + 5 references + evals.json + per-dim line-range scoring + 2-eval knowledge-delta verification
-> **Replaces**: `linguistic-ethics-iter1.md` (simulated 110/A)
+> **Replaces**: `magic-linguistic-ethics-iter1.md` (simulated 110/A)
 > **SKILL.md**: 202 lines | **References**: 5 files, ~545 lines | **Scripts**: 0 (intentional — ethics decisions are not deterministic)
 
 ## Summary
@@ -12,7 +12,7 @@
 - **Grade**: **A-** (target: ≥ 102 / A-) — exceeds target by 4 points
 - **Pattern**: Process (~200 line target; 202 actual)
 - **E:A:R Knowledge Ratio**: ~75 : 22 : 3 (lower E than the simulated 80 — more advice/process content than pure expertise)
-- **Verdict**: Production-ready expert skill in the A- band. **Simulated A grade does NOT hold up** — the skill is solidly A-, not A. Top-1 in the suite by total but the gap to other A- skills (e.g., linguistic-eval at simulated 108) is narrower than the simulated session implied. No critical blockers.
+- **Verdict**: Production-ready expert skill in the A- band. **Simulated A grade does NOT hold up** — the skill is solidly A-, not A. Top-1 in the suite by total but the gap to other A- skills (e.g., magic-linguistic-eval at simulated 108) is narrower than the simulated session implied. No critical blockers.
 
 ## Dimension Scores (vs simulated iter-1)
 
@@ -90,4 +90,4 @@ These three changes would lift the skill from 106 to ~110 and into solid A terri
 
 ## Verdict
 
-**A- (106/120) confirmed.** The skill is production-ready and exceeds its A- target by 4 points. The simulated iter-1 A grade (110) **does not hold up** under live re-scoring; the over-credit was modest (4 pts) and concentrated in D1/D2/D5/D8. No critical issues. The skill is genuinely the strongest in the suite by content density and expert-delta, but the gap to other A- skills (linguistic-eval at simulated 108, linguistic-transfer at 106, linguistic-annotate at 105) is smaller than iter-1 implied. Top-1 ranking holds; A grade does not.
+**A- (106/120) confirmed.** The skill is production-ready and exceeds its A- target by 4 points. The simulated iter-1 A grade (110) **does not hold up** under live re-scoring; the over-credit was modest (4 pts) and concentrated in D1/D2/D5/D8. No critical issues. The skill is genuinely the strongest in the suite by content density and expert-delta, but the gap to other A- skills (magic-linguistic-eval at simulated 108, magic-linguistic-transfer at 106, magic-linguistic-annotate at 105) is smaller than iter-1 implied. Top-1 ranking holds; A grade does not.

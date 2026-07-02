@@ -6,6 +6,7 @@ metadata:
   domain: data-science
   complexity: low
   requires_llm: false
+  test_coverage: advisory  # structurally validated, not behaviorally tested (no executable tests by design)
   phase: 0
   supports_pipeline: false
   supports_generation: false

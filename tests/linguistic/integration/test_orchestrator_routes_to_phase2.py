@@ -13,12 +13,12 @@ import yaml
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 SKILLS_DIR = REPO_ROOT / "skills"
-ORCH = SKILLS_DIR / "linguistic-orchestrator"
+ORCH = SKILLS_DIR / "magic-linguistic-orchestrator"
 
 PHASE2_SKILLS = [
-    "linguistic-corpus",
-    "linguistic-bitext",
-    "linguistic-transfer",
+    "magic-linguistic-corpus",
+    "magic-linguistic-bitext",
+    "magic-linguistic-transfer",
 ]
 
 FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
@@ -30,7 +30,7 @@ def test_skill_present_in_orchestrator_routing(skill_name: str) -> None:
     pipeline = (ORCH / "references" / "pipeline_phases.md").read_text(encoding="utf-8")
     skill_md = (ORCH / "SKILL.md").read_text(encoding="utf-8")
     combined = routing + pipeline + skill_md
-    bare = skill_name.removeprefix("linguistic-")
+    bare = skill_name.removeprefix("magic-linguistic-")
     assert (skill_name in combined) or (f"| {bare} |" in combined) or (f"`{bare}`" in combined), (
         f"{skill_name} (or bare suffix '{bare}') is not referenced in the orchestrator"
     )
@@ -76,7 +76,7 @@ def test_skill_has_evals(skill_name: str) -> None:
     data = json.loads(p.read_text(encoding="utf-8"))
     assert data["skill_name"] == skill_name
     n = len(data["evals"])
-    risky = {"linguistic-transfer"}
+    risky = {"magic-linguistic-transfer"}
     if skill_name in risky:
         assert n >= 5, f"{skill_name} is risky tier; expected ≥ 5 evals, got {n}"
     else:

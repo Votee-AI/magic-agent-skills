@@ -42,9 +42,40 @@ Note: The npm package is a thin installer — skills are fetched from GitHub at 
 
 | Branch | Purpose |
 |--------|---------|
-| `main` | Stable release branch. All releases are tagged from here. |
+| `main` | Stable release branch. All releases are tagged from here. **Protected** (see below). |
 | `dev` | Integration branch. PRs merge here first. |
 | `feat/*` | Feature branches for new skills or changes. |
+
+### `main` branch protection
+
+`main` is **generated** from `dev` by `scripts/sync-main.sh` (a clean `git archive` that
+strips `export-ignore`d internal paths). It must be branch-protected so nothing bypasses
+the sync + the `no-internal-content` CI guard. Required settings (configure via the GitHub
+repo UI, or the `gh` command below):
+
+- **Require status checks to pass** before merge, including at minimum:
+  `no-internal-content`, `license-check`, `schema-validation`, `package-content`, `unit-tests`,
+  `cli-tests`.
+- **Restrict who can push** to `main` (maintainers only); require PR review for everyone else.
+- **Block force-pushes** except via the sanctioned `sync-main.sh` flow (a maintainer may
+  force-push a freshly-generated `main` after running the script; this is the only sanctioned
+  direct-write path).
+
+```bash
+# Example: require the no-internal-content check on main (run once, admin).
+gh api -X PUT repos/Votee-AI/magic-agent-skills/branches/main/protection \
+  -F required_status_checks[strict]=true \
+  -F required_status_checks[contexts][]=no-internal-content \
+  -F required_status_checks[contexts][]=license-check \
+  -F enforce_admins=false \
+  -F restrictions= \
+  -F required_pull_request_reviews=
+```
+
+> Branch protection is a **GitHub repo-admin action** (not a file in the repo). The above is
+> the documented target state for maintainers; the guards themselves live in
+> `scripts/sync-main.sh` and `.github/workflows/ci.yml` (the `no-internal-content` job checks
+> for `openspec/ | .omc/ | ref/ | features/ | CLAUDE.local.md`).
 
 ## Checklist Before Release
 
@@ -57,11 +88,22 @@ Note: The npm package is a thin installer — skills are fetched from GitHub at 
 
 ## Dual-Repo Sync
 
-This repository (`votee/magic-agent-skills`) is the private development repo. Public releases are pushed to `Votee-AI/magic-agent-skills`:
+This repository (`votee/magic-agent-skills`, `origin`) is the private development repo. Public
+releases are pushed to `Votee-AI/magic-agent-skills` (`public`). `main` is **generated** from
+`dev` — never `git merge dev` into `main`. The only sanctioned way to update `main` is:
 
 ```bash
-# Push release to public repo (excludes .omc/, openspec/, ref/ via .gitignore)
-git push public main --tags
+# Regenerate a clean main from dev (strips export-ignored internal paths via git archive).
+scripts/sync-main.sh        # commits a clean main from dev
+git show --stat HEAD        # review the generated tree
+git push origin main        # then, when ready:
+git push public main
 ```
 
-Internal planning content (`.omc/`, `openspec/`, `ref/`) is excluded from the public repo via `.gitignore`.
+Internal planning content (`openspec/`, `.omc/`, `ref/`, `features/`, `CLAUDE.local.md`) is
+excluded from `main` via `.gitattributes` `export-ignore` (read by `git archive` inside
+`sync-main.sh`). **Verify cleanliness after every sync**:
+
+```bash
+git ls-files | grep -E '^(openspec/|\.omc/|ref/|features/|CLAUDE\.local\.md)'   # expect no output
+```

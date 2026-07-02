@@ -1,4 +1,4 @@
-# Skill Evaluation Report: linguistic-annotate (iteration 1)
+# Skill Evaluation Report: magic-linguistic-annotate (iteration 1)
 
 > **Date**: 2026-04-23 | **SKILL.md**: 165 lines | **References**: 5 files | **Scripts**: 2 files (incl. working IAA calculator)
 > **Total Score**: **105/120 (88%)** | **Grade**: **A−** (target B+; +9) | Per-dim floors: ✅

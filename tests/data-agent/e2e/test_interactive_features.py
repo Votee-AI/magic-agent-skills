@@ -323,7 +323,7 @@ Test slash command functionality
         shutil.rmtree(workspace)
 
     def test_explore_command_simulation(self, sample_workspace):
-        """Test /data-agent:explore command simulation."""
+        """Test /data:explore command simulation."""
         # This would simulate the explore command behavior
         # For now, verify the workspace has necessary files for exploration
         assert os.path.exists(f"{sample_workspace}/data/input/sample.csv")
@@ -337,7 +337,7 @@ Test slash command functionality
         assert os.path.getsize(input_file) == original_size
 
     def test_findings_command_simulation(self, sample_workspace):
-        """Test /data-agent:findings command simulation."""
+        """Test /data:findings command simulation."""
         # Simulate creating analysis reports that findings would read
         analysis_report = {
             "quality_score": 72,
@@ -369,7 +369,7 @@ Test slash command functionality
             assert len(loaded_report["anomaly_flags"]) == 1
 
     def test_decide_command_simulation(self, sample_workspace):
-        """Test /data-agent:decide command simulation."""
+        """Test /data:decide command simulation."""
         # Simulate the decision recording that decide command would do
         decision_entry = f"""### Decision at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 - **Context:** Processing decision for test
@@ -389,7 +389,7 @@ Test slash command functionality
             assert "Best approach for testing" in content
 
     def test_status_command_simulation(self, sample_workspace):
-        """Test /data-agent:status command simulation."""
+        """Test /data:status command simulation."""
         # Status command would read workspace state and present summary
         with open(f"{sample_workspace}/workspace_state.md", 'r') as f:
             state_content = f.read()
@@ -399,7 +399,7 @@ Test slash command functionality
         assert "initializing" in state_content
 
     def test_spec_command_simulation(self, sample_workspace):
-        """Test /data-agent:spec command simulation."""
+        """Test /data:spec command simulation."""
         # Create spec directory
         os.makedirs(f"{sample_workspace}/specs", exist_ok=True)
 

@@ -17,7 +17,7 @@ that fetches skills from GitHub at runtime — it does **not** bundle skill cont
 | Path | Purpose |
 |------|---------|
 | `skills/magic-data-*` | Data-agent skills (loading, cleaning, synthesis, …) |
-| `skills/linguistic-*` | Computational-linguistics skills |
+| `skills/magic-linguistic-*` | Computational-linguistics skills |
 | `skills/_linguistic_shared/` | Shared resources for linguistic skills |
 | `cli/` | Thin Node CLI installer (runtime GitHub fetch) |
 | `schema/SKILL.schema.json` | JSON Schema all `SKILL.md` frontmatter must satisfy |

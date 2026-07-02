@@ -6,13 +6,24 @@ import {
   copyCommands,
   readConfig,
   writeConfig,
+  ConfigCorruptError,
 } from '../core/copy.js';
 import { fetchFromGitHub, cleanupFetchDir } from '../core/fetch.js';
 
 export async function update(): Promise<void> {
   const projectPath = process.cwd();
 
-  const config = await readConfig(projectPath);
+  let config;
+  try {
+    config = await readConfig(projectPath);
+  } catch (err) {
+    if (err instanceof ConfigCorruptError) {
+      console.log(chalk.red(`\n  ${err.message}\n`));
+      process.exitCode = 1;
+      return;
+    }
+    throw err;
+  }
   if (!config) {
     console.log(
       chalk.yellow('No MAGIC Agent Skills installation found. Run "init" first.'),
@@ -36,13 +47,20 @@ export async function update(): Promise<void> {
     const skillFilter = config.skills && config.skills.length > 0 ? config.skills : undefined;
     let totalSkills = 0;
     let totalCommands = 0;
+    const failures: string[] = [];
 
     for (const toolValue of config.tools) {
       const tool = getToolByValue(toolValue);
       if (!tool) continue;
 
-      totalSkills += await copySkills(projectPath, tool, sourceDir, skillFilter);
-      totalCommands += await copyCommands(projectPath, tool, sourceDir);
+      try {
+        totalSkills += await copySkills(projectPath, tool, sourceDir, skillFilter);
+        totalCommands += await copyCommands(projectPath, tool, sourceDir);
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : String(err);
+        spinner.warn(`Failed to update ${toolValue}: ${msg}`);
+        failures.push(toolValue);
+      }
     }
 
     await writeConfig(projectPath, {
@@ -53,6 +71,9 @@ export async function update(): Promise<void> {
     spinner.succeed(
       `Updated ${totalSkills} skills and ${totalCommands} commands across ${config.tools.length} tool(s).`,
     );
+    if (failures.length > 0) {
+      console.log(chalk.yellow(`  Skipped (failed): ${failures.join(', ')}`));
+    }
   } finally {
     await cleanupFetchDir(sourceDir);
   }

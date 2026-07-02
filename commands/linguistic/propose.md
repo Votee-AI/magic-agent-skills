@@ -4,7 +4,7 @@ nl_triggers:
   - "propose a plan"
   - "what should I do for [language]?"
   - "give me a roadmap"
-routes_to: linguistic-orchestrator (planning mode)
+routes_to: magic-linguistic-orchestrator (planning mode)
 ---
 
 # /linguistic:propose

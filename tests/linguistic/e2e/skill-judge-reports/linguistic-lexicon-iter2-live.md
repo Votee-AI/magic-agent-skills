@@ -1,4 +1,4 @@
-# Skill Evaluation Report: linguistic-lexicon (iter-2-live)
+# Skill Evaluation Report: magic-linguistic-lexicon (iter-2-live)
 
 > **Date**: 2026-04-23 | **Method**: live-skill-judge (inline) | **SKILL.md**: 56 lines (Mindset target met) | **References**: 1 + 2 cross-ref stubs | **Scripts**: 0 (Mindset by design)
 > **Total**: **98/120 (B+)** — matches simulated 98 exactly.
@@ -15,7 +15,7 @@
 | D8 Practical Usability | **12** | (none) | Concrete cross-lingual lexicon sources + Atkins & Rundell as deeper-reading anchor. No tooling-specific config templates. |
 
 **Knowledge-delta verification (eval #2, MWE-glossary-RAG)**:
-- With-skill: YES + MWE inventory drives glossary injection + literal mistranslation as dominant failure + PARSEME data + cross-reference linguistic-semantics + variant handling. **PASS all assertions.**
+- With-skill: YES + MWE inventory drives glossary injection + literal mistranslation as dominant failure + PARSEME data + cross-reference magic-linguistic-semantics + variant handling. **PASS all assertions.**
 - Baseline: might say "yes good idea" without naming PARSEME or framing as dominant failure mode. Likely 2/3 pass.
 - Delta: **MODERATE-to-HIGH**.
 

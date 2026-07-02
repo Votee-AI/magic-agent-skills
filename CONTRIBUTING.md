@@ -2,18 +2,28 @@
 
 Thank you for your interest in contributing. This document covers everything you need to get started.
 
-## Contributor License Agreement (CLA)
+## Contributor License Agreement (CLA) / contribution terms
 
-All contributors must sign the Votee Contributor License Agreement before
-their pull request can be merged. The CLA will be presented automatically
-when you open your first pull request via our CLA bot.
+**Current policy — inbound = outbound (Apache-2.0).** This project is licensed under
+[Apache-2.0](LICENSE). By submitting a contribution (a pull request, patch, or any other
+form), **you agree that your contribution is licensed to the project and its users under
+the same Apache-2.0 license**, and you represent that you have the right to do so (the
+work is yours to contribute, or you have permission to contribute it). This standard
+inbound=outbound model is sufficient for contributing today — no separate signature is
+required to open or merge a PR.
 
-The CLA ensures that contributions are properly licensed under Apache 2.0
-while protecting both contributors and the project.
+To make provenance explicit, we recommend signing off your commits with the
+[Developer Certificate of Origin](https://developercertificate.org/):
 
-*CLA document and bot integration are being finalized. Early contributors
-should note that submitting a PR constitutes intent to sign the CLA once
-available.*
+```bash
+git commit -s -m "your message"   # adds a Signed-off-by trailer
+```
+
+> **Maintainer note:** Votee may later introduce a formal signed CLA (and an automated
+> CLA-check bot) for organizational/IP reasons. If/when that lands, this section and the
+> PR flow will be updated; until then the inbound=outbound terms above govern all
+> contributions. The formal CLA text + bot wiring is a Votee legal/ops decision tracked
+> separately — it is **not** a blocker for contributing.
 
 ## Code of Conduct
 

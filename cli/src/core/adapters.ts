@@ -1,6 +1,15 @@
 export interface CommandAdapter {
   extension: string;
-  adapt(filename: string, content: string): { filename: string; content: string };
+  /**
+   * `group` (e.g. `data`, `linguistic`) namespaces the generated slug so the
+   * two suites' identically-named commands (e.g. `explore.md`) don't collide
+   * in flat command registries (Gemini/Copilot/Continue).
+   */
+  adapt(
+    filename: string,
+    content: string,
+    group: string,
+  ): { filename: string; content: string };
 }
 
 function extractDescription(content: string): string {
@@ -21,20 +30,23 @@ function stripTriggerComment(content: string): string {
 export const markdownAdapter: CommandAdapter = {
   extension: '.md',
   adapt(filename, content) {
+    // Markdown adapter writes into a group subdirectory, so no slug namespacing
+    // is needed — the directory already disambiguates the two suites.
     return { filename, content };
   },
 };
 
 export const tomlAdapter: CommandAdapter = {
   extension: '.toml',
-  adapt(filename, content) {
+  adapt(filename, content, group) {
     const name = filename.replace(/\.md$/, '');
+    const slug = `magic-${group}-${name}`;
     const description = extractDescription(content);
     const body = stripTriggerComment(content);
 
     const toml = [
       `[command]`,
-      `name = "magic-${name}"`,
+      `name = "${slug}"`,
       `description = ${JSON.stringify(description)}`,
       ``,
       `[command.prompt]`,
@@ -44,14 +56,15 @@ export const tomlAdapter: CommandAdapter = {
       ``,
     ].join('\n');
 
-    return { filename: `magic-${name}.toml`, content: toml };
+    return { filename: `${slug}.toml`, content: toml };
   },
 };
 
 export const promptAdapter: CommandAdapter = {
   extension: '.prompt.md',
-  adapt(filename, content) {
+  adapt(filename, content, group) {
     const name = filename.replace(/\.md$/, '');
+    const slug = `magic-${group}-${name}`;
     const description = extractDescription(content);
     const body = stripTriggerComment(content);
 
@@ -65,7 +78,7 @@ export const promptAdapter: CommandAdapter = {
       ``,
     ].join('\n');
 
-    return { filename: `magic-${name}.prompt.md`, content: prompt };
+    return { filename: `${slug}.prompt.md`, content: prompt };
   },
 };
 

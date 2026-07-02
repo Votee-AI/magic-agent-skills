@@ -1,4 +1,4 @@
-# linguistic-scope — skill-judge report (iter-2-live)
+# magic-linguistic-scope — skill-judge report (iter-2-live)
 
 - **Date**: 2026-04-23
 - **Method**: Live read of SKILL.md + 4 references + 3 scripts + shared `lang_codes.py`. Scripts executed against Quechua, Chinese, Yoruba, English, Inuktitut to verify behavior. Two evals (#2 Quechua, #5 Inuktitut) verified against assertions.
@@ -58,7 +58,7 @@ The 70% expert ratio is well above what a generic Claude session would produce o
 
 **With-skill simulation** (informed by SKILL.md + script output):
 
-> "Quechua" is a macrolanguage (ISO 639-3 `que`, Glottolog `quec1387`). Per `language_lookup.py`, the canonical record's notes say "MACROLANGUAGE — disambiguate to Cusco (quz), Ayacucho (quy), Bolivian (quh), etc." Per the linguistic-scope workflow (Step 1), I must STOP and ask you to pick a specific subtag before proceeding to resource classification or transfer source selection. Quechua varieties span Indigenous communities in Peru, Bolivia, and Ecuador; per the EGIDS table, ethics-depth needs FPIC and community pre-engagement before any data acquisition.
+> "Quechua" is a macrolanguage (ISO 639-3 `que`, Glottolog `quec1387`). Per `language_lookup.py`, the canonical record's notes say "MACROLANGUAGE — disambiguate to Cusco (quz), Ayacucho (quy), Bolivian (quh), etc." Per the magic-linguistic-scope workflow (Step 1), I must STOP and ask you to pick a specific subtag before proceeding to resource classification or transfer source selection. Quechua varieties span Indigenous communities in Peru, Bolivia, and Ecuador; per the EGIDS table, ethics-depth needs FPIC and community pre-engagement before any data acquisition.
 >
 > **Please confirm one of**: (1) Cusco Quechua (quz); (2) Ayacucho Quechua (quy); (3) Bolivian Quechua (quh); (4) other variant.
 
@@ -104,7 +104,7 @@ The 70% expert ratio is well above what a generic Claude session would produce o
 >
 > Polysynthesis means tokenizer fertility 4-7×; vocab extension is MANDATORY (per `typological_databases.md`). Build path: multilingual base (NLLB-200) + vocab extension (FOCUS/OFA) + LoRA, with West Greenlandic as the auxiliary language.
 >
-> **MANDATORY ROUTING**: Inuktitut is an Indigenous Canadian language; route to `linguistic-ethics` BEFORE any data acquisition. FPIC and community pre-engagement are non-negotiable. Consider archive routes (DELAMAN, AILLA) for existing community-cleared data.
+> **MANDATORY ROUTING**: Inuktitut is an Indigenous Canadian language; route to `magic-linguistic-ethics` BEFORE any data acquisition. FPIC and community pre-engagement are non-negotiable. Consider archive routes (DELAMAN, AILLA) for existing community-cleared data.
 
 **Assertion check**:
 - "iku" ✓, "polysynth" ✓

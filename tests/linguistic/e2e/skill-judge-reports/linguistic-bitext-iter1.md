@@ -1,4 +1,4 @@
-# Skill Evaluation Report: linguistic-bitext (iteration 1)
+# Skill Evaluation Report: magic-linguistic-bitext (iteration 1)
 
 > **Date**: 2026-04-23
 > **Evaluator**: simulated skill-judge against softaworks/agent-toolkit @ 2026-04-23 rubric

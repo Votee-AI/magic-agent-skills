@@ -10,9 +10,9 @@ import yaml
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 SKILLS_DIR = REPO_ROOT / "skills"
-ORCH = SKILLS_DIR / "linguistic-orchestrator"
+ORCH = SKILLS_DIR / "magic-linguistic-orchestrator"
 
-PHASE3A_SKILLS = ["linguistic-morph", "linguistic-syntax", "linguistic-annotate"]
+PHASE3A_SKILLS = ["magic-linguistic-morph", "magic-linguistic-syntax", "magic-linguistic-annotate"]
 FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 
 
@@ -22,7 +22,7 @@ def test_skill_present_in_orchestrator_routing(skill_name: str) -> None:
     pipeline = (ORCH / "references" / "pipeline_phases.md").read_text(encoding="utf-8")
     skill_md = (ORCH / "SKILL.md").read_text(encoding="utf-8")
     combined = routing + pipeline + skill_md
-    bare = skill_name.removeprefix("linguistic-")
+    bare = skill_name.removeprefix("magic-linguistic-")
     assert (skill_name in combined) or (f"| {bare} |" in combined) or (f"`{bare}`" in combined)
 
 

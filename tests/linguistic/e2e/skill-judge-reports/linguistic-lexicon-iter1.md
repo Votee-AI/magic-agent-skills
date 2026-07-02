@@ -1,4 +1,4 @@
-# Skill Evaluation Report: linguistic-lexicon (iteration 1, Mindset stub)
+# Skill Evaluation Report: magic-linguistic-lexicon (iteration 1, Mindset stub)
 
 > **Date**: 2026-04-23 | **SKILL.md**: 56 lines | **References**: 3 files (1 + 2 cross-ref stubs) | **Scripts**: 0 (Mindset)
 > **Total Score**: **98/120 (82%)** | **Grade**: **B+** (target ≥ 96; +2) | Per-dim floors: ✅

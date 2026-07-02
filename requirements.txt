@@ -27,7 +27,7 @@ tabulate>=0.9        # magic-report-generation (table formatting)
 
 # ── Optional (synthesis + testing) ────────────────────────────────
 pytest>=8.0          # test runner for tests/ (was pulled transitively before; pin explicitly)
-data-designer        # magic-data-synthesis (LLM-based generation via DataDesigner)
+data-designer==0.6.0 # magic-data-synthesis (LLM generation via DataDesigner; pinned so CI's engine-integration job verifies a known engine — see .github/workflows/ci.yml)
 tiktoken>=0.7        # magic-data-synthesis (token counting for cost estimation)
 rapidfuzz>=3.0,<4.0  # magic-data-cleaning/validation (fuzzy column name suggestions)
 psutil>=5.9          # deep eval runner (memory monitoring)

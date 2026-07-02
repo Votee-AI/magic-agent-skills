@@ -1,4 +1,4 @@
-# Skill Evaluation Report: linguistic-orchestrator (iteration 2 — LIVE)
+# Skill Evaluation Report: magic-linguistic-orchestrator (iteration 2 — LIVE)
 
 > **Date**: 2026-04-23
 > **Method**: Live skill-judge (manual rubric application by general-purpose subagent) + simulated knowledge-delta verification on representative ambiguous routing query.
@@ -46,7 +46,7 @@
 **Test query**: "My Khmer-trained MT model produces garbled output and weird tokenization. Where do I start?"
 
 **With-skill response** (using triage tree L141 row 1 + routing_logic.md Template 1):
-> Phase: Scope→Acquire diagnostic. Khmer is Brahmic abugida (no spaces, complex cluster shaping). Route order: (1) `linguistic-scripts` — verify NFC normalization, ZWNJ/ZWSP audit, Khmer Unicode block (U+1780–U+17FF) confusable check; garbled output is almost always upstream script policy. (2) `linguistic-tokenize` — measure fertility vs English (space-less Brahmic typically 4-6x without preprocessing); audit byte-fallback. (3) `linguistic-eval` — once script+tokenizer fixed, re-measure with chrF++ (NOT BLEU — Khmer is morphologically rich AND space-less; BLEU+WER both degenerate). Phase Indicator: `[Phase: Acquire | Language: Khmer (khm) | Resource Class: 2 | Skills routed: scripts, tokenize, eval]`. Update workspace_state.md.
+> Phase: Scope→Acquire diagnostic. Khmer is Brahmic abugida (no spaces, complex cluster shaping). Route order: (1) `magic-linguistic-scripts` — verify NFC normalization, ZWNJ/ZWSP audit, Khmer Unicode block (U+1780–U+17FF) confusable check; garbled output is almost always upstream script policy. (2) `magic-linguistic-tokenize` — measure fertility vs English (space-less Brahmic typically 4-6x without preprocessing); audit byte-fallback. (3) `magic-linguistic-eval` — once script+tokenizer fixed, re-measure with chrF++ (NOT BLEU — Khmer is morphologically rich AND space-less; BLEU+WER both degenerate). Phase Indicator: `[Phase: Acquire | Language: Khmer (khm) | Resource Class: 2 | Skills routed: scripts, tokenize, eval]`. Update workspace_state.md.
 
 **Baseline response** (generic ML engineer, no skill):
 > Try a different tokenizer, maybe SentencePiece with larger vocab. Check training data quality. Maybe use mBART or NLLB. Garbled output usually means encoding issues — check UTF-8.

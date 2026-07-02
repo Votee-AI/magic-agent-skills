@@ -4,7 +4,7 @@ nl_triggers:
   - "what's my status"
   - "where are we?"
   - "current phase?"
-routes_to: linguistic-orchestrator (status mode)
+routes_to: magic-linguistic-orchestrator (status mode)
 ---
 
 # /linguistic:status

@@ -1,9 +1,9 @@
-# Skill Evaluation Report: linguistic-transfer (iteration 2 — LIVE)
+# Skill Evaluation Report: magic-linguistic-transfer (iteration 2 — LIVE)
 
 > **Date**: 2026-04-23
 > **Evaluator**: live skill-judge by general-purpose subagent (abdc04a7a5c81873f) against softaworks/agent-toolkit @ 2026-04-23 rubric
 > **Method**: real read of SKILL.md + 5 references + 2 scripts + evals.json + per-dim line-range scoring + 2-eval knowledge-delta verification (Eval #2 distant-pair-inuktitut + Eval #5 commercial-forgetting-protection)
-> **Replaces**: `linguistic-transfer-iter1.md` (simulated 106/A-)
+> **Replaces**: `magic-linguistic-transfer-iter1.md` (simulated 106/A-)
 > **SKILL.md**: 150 lines | **References**: 5 files (adapter_patterns, finetuning_recipes, source_selection, forgetting_mitigation, canonical_sources) ~410 lines total | **Scripts**: 2 (uriel_transfer_plan.py 130L, lora_config_advisor.py 152L)
 
 ## Summary
@@ -12,16 +12,16 @@
 - **Grade**: **A-** (target: ≥ 96 / B+) — exceeds B+ target by 9 points
 - **Pattern**: Process (~200 line target; 150 actual main + 410 references = 560 total)
 - **E:A:R Knowledge Ratio**: ~70 : 25 : 5 (more procedural advice than pure expertise; iter-1 simulated 75:22:3 was slightly optimistic on E)
-- **Verdict**: Production-ready expert skill in the A- band. **Simulated A- (106) holds in tier and tier-rank changes only at the margin** — the live re-score puts transfer at 105, tied with linguistic-scope (105 live) and behind linguistic-ethics (106 live). The "highest Phase 2 score" claim was over-confident even at iter-1 (linguistic-eval was simulated at 108) and does NOT hold under honest live measurement. No critical blockers.
+- **Verdict**: Production-ready expert skill in the A- band. **Simulated A- (106) holds in tier and tier-rank changes only at the margin** — the live re-score puts transfer at 105, tied with magic-linguistic-scope (105 live) and behind magic-linguistic-ethics (106 live). The "highest Phase 2 score" claim was over-confident even at iter-1 (magic-linguistic-eval was simulated at 108) and does NOT hold under honest live measurement. No critical blockers.
 
 ## Dimension Scores (vs simulated iter-1)
 
 | Dim | Live | Iter-1 | Δ | Max | Notes (with line-range evidence) |
 |---|---|---|---|---|---|
 | **D1 Knowledge Delta** | **17** | 18 | -1 | 20 | 7 named expert items in SKILL.md L29-43: (1) rank scales with typology not data, (2) CP needs ≥ 1B target tokens, (3) Unsloth 2× faster than LLaMA-Factory single-GPU, (4) source-mix 10-20% mandatory, (5) MAD-X stacking only when multilingual+multi-task, (6) vocab-extension methods (FOCUS/OFA/HyperOfa) must align with transfer choice, (7) attention-only LoRA loses 2-5 BLEU on hard pairs. Reference depth: adapter_patterns has the approach matrix L41-52 + 6 method-mismatches L56-63; finetuning_recipes has the lora_for_distance function L24-34 + sampling-α formula L41-49 + source-mix table L55-62; forgetting_mitigation has 6 mitigation techniques with cost ordering. **Down 1 from iter-1**: numerical claims (2× Unsloth, 2-5 BLEU, $5K-$50K CP cost) are **uncited in SKILL.md** (canonical_sources.md L46-48 lists tool URLs but no benchmark citations); the "rank scales with typology not data size" claim — while genuinely useful synthesis — is presented as folk wisdom without anchored source (no Lin et al. citation in SKILL.md, only references list it L23). Iter-1 over-credited the "synthesis novelty" without docking for missing source anchoring. |
-| **D2 Mindset + Procedures** | **13** | 14 | -1 | 15 | 7-step workflow (L46-108) + 3 concrete decision matrices: (a) approach by class+data+URIEL L54-63, (b) LoRA config by URIEL L72-77, (c) tool by setup L98-104. Cross-skill cooperation explicit (Step 1 reads workspace_state from scope; Step 5 routes to linguistic-scope; Step 7 hands off to linguistic-eval). **Down 1**: Step 5 (L90-94) is loose — says "Route to linguistic-scope uriel_distance.py" + "Use scripts/uriel_transfer_plan.py to consolidate" without specifying what to do with the consolidated output (no acceptance criteria). Step 7 (L106-108) is one sentence ("Write to workspace_state.md under 'Transfer Plan'") — no template-fill procedure. Iter-1 awarded 14 by counting decision matrices; live docks 1 for Step 5/7 thinness. |
+| **D2 Mindset + Procedures** | **13** | 14 | -1 | 15 | 7-step workflow (L46-108) + 3 concrete decision matrices: (a) approach by class+data+URIEL L54-63, (b) LoRA config by URIEL L72-77, (c) tool by setup L98-104. Cross-skill cooperation explicit (Step 1 reads workspace_state from scope; Step 5 routes to magic-linguistic-scope; Step 7 hands off to magic-linguistic-eval). **Down 1**: Step 5 (L90-94) is loose — says "Route to magic-linguistic-scope uriel_distance.py" + "Use scripts/uriel_transfer_plan.py to consolidate" without specifying what to do with the consolidated output (no acceptance criteria). Step 7 (L106-108) is one sentence ("Write to workspace_state.md under 'Transfer Plan'") — no template-fill procedure. Iter-1 awarded 14 by counting decision matrices; live docks 1 for Step 5/7 thinness. |
 | **D3 Anti-Pattern Quality** | **14** | 14 | 0 | 15 | 8 NEVERs L112-119 each with WHY: never r=4 for distant pairs (rank insufficient), never ignore URIEL (English rarely optimal source), never CP with <100M tokens (overfits), never skip source-mix (forgetting preventable), never attention-only LoRA for distant transfer, never assume tool choice doesn't matter, never mix incompatible vocab+transfer methods, never report results without source-task baseline. Plus 6 method-mismatches in adapter_patterns.md L56-63 + 4 anti-patterns in lora_config_advisor.py L139-144 + 3 in uriel_transfer_plan.py L96-100. ~21 named anti-patterns total. Holds at 14. |
-| **D4 Spec / Description** | **14** | 14 | 0 | 15 | Description (L3) packed with WHAT (LoRA/QLoRA/DoRA/MAD-X/BAD-X/CP-vs-LoRA/forgetting/tool selection) + WHEN-keywords (LoRA, QLoRA, DoRA, adapter, MAD-X, BAD-X, vocab extension transfer, continued pretraining, fine-tuning a multilingual model for X, catastrophic forgetting, Unsloth, LLaMA-Factory, Axolotl, PEFT) + meta-trigger ("how do I add [language] support to [model]") + pushy trigger ("**Use BEFORE running training jobs** — wrong adapter choice or rank wastes weeks of compute") + routing ("Routed by linguistic-orchestrator in the Adapt phase"). When-NOT-to-use explicit (L27). Holds. |
+| **D4 Spec / Description** | **14** | 14 | 0 | 15 | Description (L3) packed with WHAT (LoRA/QLoRA/DoRA/MAD-X/BAD-X/CP-vs-LoRA/forgetting/tool selection) + WHEN-keywords (LoRA, QLoRA, DoRA, adapter, MAD-X, BAD-X, vocab extension transfer, continued pretraining, fine-tuning a multilingual model for X, catastrophic forgetting, Unsloth, LLaMA-Factory, Axolotl, PEFT) + meta-trigger ("how do I add [language] support to [model]") + pushy trigger ("**Use BEFORE running training jobs** — wrong adapter choice or rank wastes weeks of compute") + routing ("Routed by magic-linguistic-orchestrator in the Adapt phase"). When-NOT-to-use explicit (L27). Holds. |
 | **D5 Progressive Disclosure** | **13** | 14 | -1 | 15 | 4 MANDATORY READ pointers, all step-aligned: Step 2→adapter_patterns (L52), Step 3→finetuning_recipes (L67), Step 4→forgetting_mitigation (L81), Step 5→source_selection (L92). Reference depth substantial: 4 heavy refs at ~80-130L each. **Down 1**: canonical_sources.md exists (L1-49) but has **NO pointer from SKILL.md** — citations are stranded. No light-vs-heavy pointer differentiation (all are bold MANDATORY READ; would benefit from "skim once" markers for canonical_sources). Iter-1 awarded 14 by counting MANDATORY READs without checking that all references are reachable. |
 | **D6 Freedom Calibration** | **13** | 13 | 0 | 15 | Process pattern, mid freedom. Decision matrices (3 of them) give concrete numerical recommendations without forbidding judgment. Output Format (L132-150) has placeholders that allow customization. Edge cases section (L122-128) acknowledges ambiguity (e.g., "Mandarin Han for Cantonese — vocab extension may be unnecessary; check overlap first"). Appropriate calibration; holds. |
 | **D7 Pattern Recognition** | **9** | 8 | +1 | 10 | Process pattern target ~200 lines; 150 actual + 410 references = appropriate split. Structural elements (workflow steps, references, scripts, evals, output format, anti-patterns, edge cases) all present and aligned with Process-pattern expectations. Iter-1 8/10 was conservative; live re-score awards 9/10 for clean pattern fit. |
@@ -58,7 +58,7 @@ D3, D4, D6 hold up under live re-scoring; the anti-pattern density and trigger l
 
 **With-skill response** (synthesizing SKILL.md L31, L60, L72-77 + adapter_patterns.md L48 + source_selection.md L40-43 + forgetting_mitigation.md L24-35):
 
-> Inuktitut is Class 1 with URIEL English-Inuktitut ≈ 0.78 — VERY DISTANT pair. Closest source is Kalaallisut at URIEL=0.21 but Kalaallisut is also Class 1, so single-source CP is not viable. Use a multilingual base (NLLB-200 or BLOOM) + HyperOfa vocab extension + LoRA r=64-128, all-linear target modules + save embed_tokens (vocab extended). Source-mix 15-20% English in training. Continued pretraining is NOT viable (insufficient target tokens, would overfit + forget source). Polysynthetic morphology: expect length-ratio anomalies in bitext — coordinate with linguistic-tokenize for fertility audit and linguistic-bitext for length-ratio guard.
+> Inuktitut is Class 1 with URIEL English-Inuktitut ≈ 0.78 — VERY DISTANT pair. Closest source is Kalaallisut at URIEL=0.21 but Kalaallisut is also Class 1, so single-source CP is not viable. Use a multilingual base (NLLB-200 or BLOOM) + HyperOfa vocab extension + LoRA r=64-128, all-linear target modules + save embed_tokens (vocab extended). Source-mix 15-20% English in training. Continued pretraining is NOT viable (insufficient target tokens, would overfit + forget source). Polysynthetic morphology: expect length-ratio anomalies in bitext — coordinate with magic-linguistic-tokenize for fertility audit and magic-linguistic-bitext for length-ratio guard.
 
 **Assertion check**:
 - must_contain_one ["distant", "DISTANT", "0.78", "polysynth"] → PASS (4 of 4 hit)
@@ -124,15 +124,15 @@ These three changes would lift the skill from 105 to ~109-110 and into solid A t
 
 **A- (105/120) confirmed.** The skill is production-ready and exceeds its A- target (102) by 3 points. The simulated iter-1 score (106) **mostly holds up** under live re-scoring — net delta is just -1, well within calibration noise. The breakdown matters: -3 over-credits on D1/D2/D5 (numerical claims uncited, Steps 5+7 thin, canonical_sources unreachable) were nearly cancelled by +2 under-credits on D7/D8 (pattern fit + two-script JSON output).
 
-**Critical reframing**: The iter-1 narrative claimed linguistic-transfer was the "highest Phase 2 score" — this **does NOT hold**. Live re-scoring places transfer at 105, in a tied/trailing position:
-- linguistic-ethics (106 live) — ahead by 1
-- linguistic-scope (105 live) — tied
-- linguistic-eval (108 simulated, not yet re-scored live) — projected ahead
-- linguistic-annotate (105 simulated, not yet re-scored live) — projected tied
-- linguistic-scripts (104 live) — behind by 1
-- linguistic-tokenize (104 live) — behind by 1
-- linguistic-orchestrator (102 live) — behind by 3
+**Critical reframing**: The iter-1 narrative claimed magic-linguistic-transfer was the "highest Phase 2 score" — this **does NOT hold**. Live re-scoring places transfer at 105, in a tied/trailing position:
+- magic-linguistic-ethics (106 live) — ahead by 1
+- magic-linguistic-scope (105 live) — tied
+- magic-linguistic-eval (108 simulated, not yet re-scored live) — projected ahead
+- magic-linguistic-annotate (105 simulated, not yet re-scored live) — projected tied
+- magic-linguistic-scripts (104 live) — behind by 1
+- magic-linguistic-tokenize (104 live) — behind by 1
+- magic-linguistic-orchestrator (102 live) — behind by 3
 
-The skill is solidly A- but is **NOT** the suite leader (linguistic-ethics holds top live position; linguistic-eval may overtake on relive).
+The skill is solidly A- but is **NOT** the suite leader (magic-linguistic-ethics holds top live position; magic-linguistic-eval may overtake on relive).
 
 The skill remains genuinely useful — the URIEL-distance-to-LoRA-rank synthesis is real expert delta, demonstrated by HIGH knowledge-delta on Eval #2 (distant pairs is exactly where naive baselines fail). No critical issues; ship as-is for B+/A- needs, iterate on the three improvements above to push into solid A territory with margin.

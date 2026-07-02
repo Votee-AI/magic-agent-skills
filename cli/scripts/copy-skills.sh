@@ -23,11 +23,12 @@ node -e "
   const dirs = fs.readdirSync(skillsDir).filter(d =>
     fs.statSync(path.join(skillsDir, d)).isDirectory() && !d.startsWith('_')
   );
-  const dataSkills = dirs.filter(d => d.startsWith('magic-'));
-  const lingSkills = dirs.filter(d => d.startsWith('linguistic-'));
+  // Most-specific-first: magic-linguistic-* must be matched before the data magic-* rule.
+  const lingSkills = dirs.filter(d => d.startsWith('magic-linguistic-'));
+  const dataSkills = dirs.filter(d => d.startsWith('magic-') && !d.startsWith('magic-linguistic-'));
   const manifest = {
     suites: {
-      'data-agent': { skills: dataSkills.sort() },
+      data: { skills: dataSkills.sort() },
       linguistic: { skills: lingSkills.sort() }
     }
   };

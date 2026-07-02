@@ -44,5 +44,5 @@ fi
 git commit -m "release: sync main from $SRC (clean export, internal content stripped)"
 echo
 echo "main synced from '$SRC'. Review:   git show --stat HEAD"
-echo "Verify clean:  git ls-files | grep -E '^(openspec/|\\.omc/|ref/|CLAUDE\\.local\\.md)'  # expect no output"
+echo "Verify clean:  git ls-files | grep -E '^(openspec/|\\.omc/|ref/|features/|CLAUDE\\.local\\.md)'  # expect no output"
 echo "Publish:       git push origin main && git push public main"

@@ -119,7 +119,7 @@ def test_gaming_guard_accepts_lowered_target_with_changelog():
     )
     honest_changelog = (
         "# scores.json changelog\n\n"
-        "## 2026-04-24 — linguistic-ethics target_score 102→100 — re-baselining after live re-eval surfaced D1 ceiling\n"  # noqa: E501  # long changelog example string
+        "## 2026-04-24 — magic-linguistic-ethics target_score 102→100 — re-baselining after live re-eval surfaced D1 ceiling\n"  # noqa: E501  # long changelog example string
     )
     is_ok, reason = _check_diff_against_changelog(honest_diff, honest_changelog)
     assert is_ok is True, f"gating logic should accept honest diff with changelog: {reason}"
@@ -149,6 +149,6 @@ def test_gaming_guard_rejects_changelog_entry_missing_required_field_marker():
         '-      "target_score": 102,\n'
         '+      "target_score": 100,\n'
     )
-    weak_changelog = "# scores.json changelog\n\n## 2026-04-24 — linguistic-ethics minor formatting tidy-up\n"
+    weak_changelog = "# scores.json changelog\n\n## 2026-04-24 — magic-linguistic-ethics minor formatting tidy-up\n"
     is_ok, _ = _check_diff_against_changelog(hostile_diff, weak_changelog)
     assert is_ok is False, "gate must require the entry to mention the enforced field by name"

@@ -1,4 +1,4 @@
-# Skill Evaluation Report: linguistic-tokenize (iteration 1)
+# Skill Evaluation Report: magic-linguistic-tokenize (iteration 1)
 
 > **Date**: 2026-04-23
 > **Evaluator**: simulated skill-judge against softaworks/agent-toolkit @ 2026-04-23 rubric (no real LLM run)

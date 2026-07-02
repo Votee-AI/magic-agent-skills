@@ -1,5 +1,6 @@
 import { readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import { SUITES, suiteForDir } from './suites.js';
 
 export interface SuiteConfig {
   name: string;
@@ -14,19 +15,28 @@ export interface ManifestConfig {
 }
 
 /**
- * Discovers suites by scanning a skills directory for magic-* and linguistic-* subdirs.
+ * Discovers suites by scanning a skills directory and bucketing each subdir into
+ * the first matching suite (most-specific-first, see suites.ts).
  * Works with any directory — fetched from GitHub, local repo, or bundled package.
  */
 export function discoverManifest(skillsDir: string): ManifestConfig {
   const dirs = readdirSync(skillsDir).filter(d =>
     statSync(join(skillsDir, d)).isDirectory() && !d.startsWith('_')
   );
-  return {
-    suites: {
-      'data-agent': { skills: dirs.filter(d => d.startsWith('magic-')).sort() },
-      linguistic: { skills: dirs.filter(d => d.startsWith('linguistic-')).sort() },
-    },
-  };
+
+  const suites: Record<string, { skills: string[] }> = {};
+  for (const suite of SUITES) {
+    suites[suite.key] = { skills: [] };
+  }
+  for (const d of dirs) {
+    const suite = suiteForDir(d);
+    if (suite) suites[suite.key]!.skills.push(d);
+  }
+  for (const key of Object.keys(suites)) {
+    suites[key]!.skills.sort();
+  }
+
+  return { suites };
 }
 
 /**
@@ -34,20 +44,11 @@ export function discoverManifest(skillsDir: string): ManifestConfig {
  */
 export function getSuiteConfigs(skillsDir: string, version: string): SuiteConfig[] {
   const manifest = discoverManifest(skillsDir);
-  return [
-    {
-      name: 'data-agent',
-      displayName: 'Data Agent',
-      version,
-      skills: manifest.suites['data-agent']?.skills ?? [],
-      commandsDir: 'commands/data-agent',
-    },
-    {
-      name: 'linguistic',
-      displayName: 'Linguistic',
-      version,
-      skills: manifest.suites['linguistic']?.skills ?? [],
-      commandsDir: 'commands/linguistic',
-    },
-  ];
+  return SUITES.map((suite) => ({
+    name: suite.key,
+    displayName: suite.displayName,
+    version,
+    skills: manifest.suites[suite.key]?.skills ?? [],
+    commandsDir: `commands/${suite.commandGroup}`,
+  }));
 }

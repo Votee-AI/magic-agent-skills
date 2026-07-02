@@ -24,7 +24,7 @@ FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 
 
 def _skill_md_files() -> list[Path]:
-    return sorted(p for p in SKILLS_DIR.glob("linguistic-*/SKILL.md") if p.is_file())
+    return sorted(p for p in SKILLS_DIR.glob("magic-linguistic-*/SKILL.md") if p.is_file())
 
 
 def _parse_frontmatter(text: str) -> dict | None:
@@ -59,14 +59,14 @@ def test_skill_md_line_count(skill_md: Path) -> None:
 
 def test_orchestrator_present() -> None:
     """The orchestrator is the entry-point skill; must exist after Phase 0."""
-    p = SKILLS_DIR / "linguistic-orchestrator" / "SKILL.md"
-    assert p.exists(), "linguistic-orchestrator/SKILL.md is missing — Phase 0 incomplete"
+    p = SKILLS_DIR / "magic-linguistic-orchestrator" / "SKILL.md"
+    assert p.exists(), "magic-linguistic-orchestrator/SKILL.md is missing — Phase 0 incomplete"
 
 
 def test_orchestrator_is_entry_point() -> None:
-    p = SKILLS_DIR / "linguistic-orchestrator" / "SKILL.md"
+    p = SKILLS_DIR / "magic-linguistic-orchestrator" / "SKILL.md"
     fm = _parse_frontmatter(p.read_text(encoding="utf-8"))
     assert fm is not None
     md = fm.get("metadata", {})
-    assert md.get("entry_point") is True, "linguistic-orchestrator must have metadata.entry_point = true"
-    assert md.get("phase") == 0, "linguistic-orchestrator must have metadata.phase = 0"
+    assert md.get("entry_point") is True, "magic-linguistic-orchestrator must have metadata.entry_point = true"
+    assert md.get("phase") == 0, "magic-linguistic-orchestrator must have metadata.phase = 0"

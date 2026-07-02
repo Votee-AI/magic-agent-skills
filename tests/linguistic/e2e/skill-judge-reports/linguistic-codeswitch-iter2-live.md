@@ -1,4 +1,4 @@
-# Skill Evaluation Report: linguistic-codeswitch (iter-2-live)
+# Skill Evaluation Report: magic-linguistic-codeswitch (iter-2-live)
 
 > **Date**: 2026-04-23 | **Method**: live-skill-judge (inline) | **SKILL.md**: 53 lines (Mindset target met) | **References**: 1 + 1 cross-ref stub | **Scripts**: 0 (Mindset by design)
 > **Total**: **97/120 (B+)** — matches simulated 97 exactly.

@@ -1,4 +1,4 @@
-# Skill Evaluation Report: linguistic-discourse (iteration 1)
+# Skill Evaluation Report: magic-linguistic-discourse (iteration 1)
 
 > **Date**: 2026-04-23 | **SKILL.md**: 134 lines | **References**: 4 files | **Scripts**: 0 (Philosophy pattern, by design)
 > **Total Score**: **103/120 (86%)** | **Grade**: **A−** (target B+; +7) | Per-dim floors: ✅

@@ -25,7 +25,7 @@ import interaction_utils  # noqa: E402
 
 
 def test_orchestrator_mentions_concrete_low_resource_language() -> None:
-    p = REPO_ROOT / "skills" / "linguistic-orchestrator" / "SKILL.md"
+    p = REPO_ROOT / "skills" / "magic-linguistic-orchestrator" / "SKILL.md"
     text = p.read_text(encoding="utf-8")
     # At least one of these should appear in the orchestrator (used as triage example).
     candidates = ["Yoruba", "Khmer", "Quechua", "Cantonese", "Twi", "Kinyarwanda"]
@@ -41,11 +41,11 @@ def test_phase_indicator_format() -> None:
         language="Yoruba",
         iso="yor",
         resource_class=2,
-        skills_routed=["linguistic-scope", "linguistic-ethics"],
+        skills_routed=["magic-linguistic-scope", "magic-linguistic-ethics"],
     )
     expected_pattern = (
         r"^\[Phase: Scope \| Language: Yoruba \(yor\) \| Resource Class: 2 \| "
-        r"Skills routed: linguistic-scope, linguistic-ethics\]$"
+        r"Skills routed: magic-linguistic-scope, magic-linguistic-ethics\]$"
     )
     assert re.match(expected_pattern, s), f"phase_indicator output unexpected: {s}"
 
@@ -66,9 +66,9 @@ def test_findings_presenter_single_finding_routes_correctly() -> None:
         evidence="eval_report.json shows BLEU=0.12 as headline",
         recommended_action="Switch to chrF++ or COMET-22; report BLEU only as secondary",
     )
-    assert f.owner_skill == "linguistic-eval"
+    assert f.owner_skill == "magic-linguistic-eval"
     rendered = findings_presenter.render_finding(f)
-    assert "linguistic-eval" in rendered
+    assert "magic-linguistic-eval" in rendered
     assert "HIGH" in rendered
 
 

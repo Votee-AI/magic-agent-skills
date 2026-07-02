@@ -25,8 +25,8 @@ def repo_root() -> Path:
 
 @pytest.fixture(scope="session")
 def script_paths() -> list[Path]:
-    """All Python scripts under skills/linguistic-*/scripts/*.py (smoke-test target set)."""
-    return sorted(SKILLS_ROOT.glob("linguistic-*/scripts/*.py"))
+    """All Python scripts under skills/magic-linguistic-*/scripts/*.py (smoke-test target set)."""
+    return sorted(SKILLS_ROOT.glob("magic-linguistic-*/scripts/*.py"))
 
 
 def run_script(*args: str, timeout: int = 30, cwd: Path = REPO_ROOT) -> subprocess.CompletedProcess:

@@ -1,4 +1,4 @@
-"""Smoke + self-test tests for skills/linguistic-speech/scripts/ipa_validate.py.
+"""Smoke + self-test tests for skills/magic-linguistic-speech/scripts/ipa_validate.py.
 
 Covers 0011-ipa-validate-self-test (audit mode + per-language orthographic_block declarations)
 plus the existing validate() entry-point smoke (Yoruba minimal pair).
@@ -12,7 +12,7 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
-SCRIPT = REPO_ROOT / "skills" / "linguistic-speech" / "scripts" / "ipa_validate.py"
+SCRIPT = REPO_ROOT / "skills" / "magic-linguistic-speech" / "scripts" / "ipa_validate.py"
 
 
 def _run(*args: str, timeout: int = 30) -> subprocess.CompletedProcess:

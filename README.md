@@ -53,24 +53,24 @@ Skills for low-resource language NLP — tokenizer auditing, corpus building, mo
 
 | Skill | Description |
 |-------|-------------|
-| `linguistic-orchestrator` | Routes tasks to the appropriate linguistic skill |
-| `linguistic-scope` | Language assessment and resource classification |
-| `linguistic-tokenize` | Tokenizer fertility audit, vocab extension strategy |
-| `linguistic-corpus` | Corpus collection and curation |
-| `linguistic-morph` | Morphological analysis and generation |
-| `linguistic-syntax` | Syntactic parsing and treebanks |
-| `linguistic-semantics` | Word embeddings and semantic similarity |
-| `linguistic-lexicon` | Lexicon building and management |
-| `linguistic-annotate` | Annotation project design, IAA metrics |
-| `linguistic-bitext` | Parallel corpus alignment |
-| `linguistic-codeswitch` | Code-switching detection and handling |
-| `linguistic-discourse` | Discourse analysis and coherence |
-| `linguistic-ethics` | Ethical considerations for language technology |
-| `linguistic-eval` | Evaluation methodology and benchmarks |
-| `linguistic-historical` | Historical linguistics and language change |
-| `linguistic-scripts` | Writing system analysis and conversion |
-| `linguistic-speech` | Speech processing and phonology |
-| `linguistic-transfer` | Cross-lingual transfer and adaptation |
+| `magic-linguistic-orchestrator` | Routes tasks to the appropriate linguistic skill |
+| `magic-linguistic-scope` | Language assessment and resource classification |
+| `magic-linguistic-tokenize` | Tokenizer fertility audit, vocab extension strategy |
+| `magic-linguistic-corpus` | Corpus collection and curation |
+| `magic-linguistic-morph` | Morphological analysis and generation |
+| `magic-linguistic-syntax` | Syntactic parsing and treebanks |
+| `magic-linguistic-semantics` | Word embeddings and semantic similarity |
+| `magic-linguistic-lexicon` | Lexicon building and management |
+| `magic-linguistic-annotate` | Annotation project design, IAA metrics |
+| `magic-linguistic-bitext` | Parallel corpus alignment |
+| `magic-linguistic-codeswitch` | Code-switching detection and handling |
+| `magic-linguistic-discourse` | Discourse analysis and coherence |
+| `magic-linguistic-ethics` | Ethical considerations for language technology |
+| `magic-linguistic-eval` | Evaluation methodology and benchmarks |
+| `magic-linguistic-historical` | Historical linguistics and language change |
+| `magic-linguistic-scripts` | Writing system analysis and conversion |
+| `magic-linguistic-speech` | Speech processing and phonology |
+| `magic-linguistic-transfer` | Cross-lingual transfer and adaptation |
 
 ## Installation
 
@@ -105,11 +105,11 @@ npx @votee-ai/magic-agent-skills init
 # Non-interactive — specify tools directly
 npx @votee-ai/magic-agent-skills init --tools claude,cursor,windsurf
 
-# Install only data-agent skills
-npx @votee-ai/magic-agent-skills init --suite data-agent
+# Install only data skills
+npx @votee-ai/magic-agent-skills init --suites data
 
 # Install only linguistic skills
-npx @votee-ai/magic-agent-skills init --suite linguistic
+npx @votee-ai/magic-agent-skills init --suites linguistic
 ```
 
 ### Option 3: Claude Plugin Marketplace
@@ -145,13 +145,15 @@ magic-agent-skills/
 │   │   ├── scripts/            # Reference Python implementations
 │   │   ├── references/         # Additional reference material
 │   │   └── tests/              # Per-skill unit tests (co-located)
-│   ├── linguistic-*/           # 18 linguistics skills
+│   ├── magic-linguistic-*/     # 18 linguistics skills
 │   │   ├── SKILL.md            # Knowledge document + frontmatter
 │   │   ├── scripts/            # Reference implementations (where applicable)
 │   │   ├── references/         # Linguistic references
 │   │   ├── evals/              # Skill-specific evaluation data
+│   │   ├── _linguistic_shared/ # Generated bundle (synced from below; do not hand-edit)
 │   │   └── tests/              # Per-skill tests (where applicable)
-│   └── _linguistic_shared/     # Shared Python utilities (not a skill)
+│   └── _linguistic_shared/     # Shared Python utilities — SOURCE OF TRUTH (not a skill);
+│                               # synced into each skill by scripts/sync-linguistic-shared.py
 ├── tests/                      # Test suites by category
 │   ├── shared/                 # Cross-cutting tests (all 30 skills)
 │   ├── data-agent/             # Data-agent specific tests
@@ -160,7 +162,7 @@ magic-agent-skills/
 │   │   └── e2e/                # End-to-end pipeline scenarios
 │   └── linguistic/             # Linguistic tests (future)
 ├── commands/
-│   ├── data-agent/             # 13 data-agent slash commands
+│   ├── data/                   # 13 data slash commands
 │   └── linguistic/             # 10 linguistic slash commands
 ├── cli/                        # npm CLI installer
 ├── schema/

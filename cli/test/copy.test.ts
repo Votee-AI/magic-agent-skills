@@ -16,6 +16,8 @@ import {
   readConfig,
   writeConfig,
   detectTools,
+  ConfigCorruptError,
+  configPath,
 } from '../src/core/copy.js';
 import { getToolByValue } from '../src/core/config.js';
 
@@ -41,8 +43,8 @@ describe('copySkills', () => {
     expect(count).toBe(30);
     expect(existsSync(join(testDir, '.claude/skills/magic-data-loading'))).toBe(true);
     expect(existsSync(join(testDir, '.claude/skills/magic-data-loading/SKILL.md'))).toBe(true);
-    expect(existsSync(join(testDir, '.claude/skills/linguistic-tokenize'))).toBe(true);
-    expect(existsSync(join(testDir, '.claude/skills/linguistic-tokenize/SKILL.md'))).toBe(true);
+    expect(existsSync(join(testDir, '.claude/skills/magic-linguistic-tokenize'))).toBe(true);
+    expect(existsSync(join(testDir, '.claude/skills/magic-linguistic-tokenize/SKILL.md'))).toBe(true);
   });
 
   it('returns 0 for tools without skillsDir', async () => {
@@ -64,14 +66,14 @@ describe('copySkills', () => {
 });
 
 describe('copyCommands', () => {
-  it('copies both data-agent and linguistic commands for Claude', async () => {
+  it('copies both data and linguistic commands for Claude', async () => {
     const claude = getToolByValue('claude')!;
     const count = await copyCommands(testDir, claude, REPO_ROOT);
 
     if (count > 0) {
-      expect(existsSync(join(testDir, '.claude/commands/data-agent'))).toBe(true);
+      expect(existsSync(join(testDir, '.claude/commands/data'))).toBe(true);
       expect(existsSync(join(testDir, '.claude/commands/linguistic'))).toBe(true);
-      const dataFiles = await readdir(join(testDir, '.claude/commands/data-agent'));
+      const dataFiles = await readdir(join(testDir, '.claude/commands/data'));
       const lingFiles = await readdir(join(testDir, '.claude/commands/linguistic'));
       expect(dataFiles.some((f) => f.endsWith('.md'))).toBe(true);
       expect(lingFiles.some((f) => f.endsWith('.md'))).toBe(true);
@@ -83,7 +85,7 @@ describe('copyCommands', () => {
     const count = await copyCommands(testDir, gemini, REPO_ROOT);
 
     if (count > 0) {
-      const files = await readdir(join(testDir, '.gemini/commands/data-agent'));
+      const files = await readdir(join(testDir, '.gemini/commands/data'));
       expect(files.some((f) => f.endsWith('.toml'))).toBe(true);
     }
   });
@@ -92,6 +94,20 @@ describe('copyCommands', () => {
     const codex = getToolByValue('codex')!;
     const count = await copyCommands(testDir, codex, REPO_ROOT);
     expect(count).toBe(0);
+  });
+
+  it('installs Windsurf commands under workflows/<group> (P0: keeps the configured leaf)', async () => {
+    // Windsurf's commandsDir is `.windsurf/workflows` (a base, no group leaf).
+    // Commands MUST land in `.windsurf/workflows/data`, not `.windsurf/data`.
+    const windsurf = getToolByValue('windsurf')!;
+    const count = await copyCommands(testDir, windsurf, REPO_ROOT);
+
+    if (count > 0) {
+      expect(existsSync(join(testDir, '.windsurf/workflows/data'))).toBe(true);
+      expect(existsSync(join(testDir, '.windsurf/workflows/linguistic'))).toBe(true);
+      // The buggy destination must NOT exist.
+      expect(existsSync(join(testDir, '.windsurf/data'))).toBe(false);
+    }
   });
 });
 
@@ -128,6 +144,20 @@ describe('removeCommands', () => {
       expect(removed).toBeGreaterThan(0);
     }
   });
+
+  it('removes Windsurf commands from the SAME workflows/<group> path it installed to (P0)', async () => {
+    // Install and remove MUST use identical path logic.
+    const windsurf = getToolByValue('windsurf')!;
+    const copied = await copyCommands(testDir, windsurf, REPO_ROOT);
+    if (copied > 0) {
+      expect(existsSync(join(testDir, '.windsurf/workflows/data'))).toBe(true);
+      const removed = await removeCommands(testDir, windsurf);
+      expect(removed).toBeGreaterThan(0);
+      // Group dirs are emptied and pruned, not left dangling.
+      expect(existsSync(join(testDir, '.windsurf/workflows/data'))).toBe(false);
+      expect(existsSync(join(testDir, '.windsurf/workflows/linguistic'))).toBe(false);
+    }
+  });
 });
 
 describe('config read/write', () => {
@@ -149,6 +179,23 @@ describe('config read/write', () => {
     const read = await readConfig(testDir);
     expect(read).toEqual(config);
   });
+
+  it('throws ConfigCorruptError on invalid JSON (P1: no raw SyntaxError)', async () => {
+    await writeFile(configPath(testDir), '{ not valid json ', 'utf-8');
+    await expect(readConfig(testDir)).rejects.toBeInstanceOf(ConfigCorruptError);
+    await expect(readConfig(testDir)).rejects.toThrow(/init --force/);
+  });
+
+  it('repairs missing required arrays so update/remove never throw on iterate (P1)', async () => {
+    // A partially-written config missing tools/skills/suites.
+    await writeFile(configPath(testDir), JSON.stringify({ version: '0.1.0' }), 'utf-8');
+    const read = await readConfig(testDir);
+    expect(read).not.toBeNull();
+    expect(Array.isArray(read!.tools)).toBe(true);
+    expect(Array.isArray(read!.skills)).toBe(true);
+    expect(Array.isArray(read!.suites)).toBe(true);
+    expect(read!.tools).toEqual([]);
+  });
 });
 
 describe('detectTools', () => {
@@ -165,5 +212,18 @@ describe('detectTools', () => {
   it('returns empty for clean directory', () => {
     const detected = detectTools(testDir);
     expect(detected).toEqual([]);
+  });
+
+  it('does NOT over-detect GitHub Copilot from a bare .github dir (P2)', async () => {
+    // `.github` exists in most repos (CI workflows). It must not auto-detect
+    // Copilot unless its specific marker file is present.
+    await mkdir(join(testDir, '.github'), { recursive: true });
+    expect(detectTools(testDir)).not.toContain('github-copilot');
+  });
+
+  it('detects GitHub Copilot only when its marker file exists (P2)', async () => {
+    await mkdir(join(testDir, '.github'), { recursive: true });
+    await writeFile(join(testDir, '.github/copilot-instructions.md'), '# copilot', 'utf-8');
+    expect(detectTools(testDir)).toContain('github-copilot');
   });
 });

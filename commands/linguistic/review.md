@@ -4,7 +4,7 @@ nl_triggers:
   - "review status"
   - "where are we"
   - "summarize what we've done"
-routes_to: linguistic-orchestrator (review mode)
+routes_to: magic-linguistic-orchestrator (review mode)
 ---
 
 # /linguistic:review

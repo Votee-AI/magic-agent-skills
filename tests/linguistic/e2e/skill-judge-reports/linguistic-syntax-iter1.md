@@ -1,4 +1,4 @@
-# Skill Evaluation Report: linguistic-syntax (iteration 1)
+# Skill Evaluation Report: magic-linguistic-syntax (iteration 1)
 
 > **Date**: 2026-04-23 | **SKILL.md**: 152 lines | **References**: 4 files | **Scripts**: 2 files
 > **Total Score**: **101/120 (84%)** | **Grade**: **A−** (target B+; +5) | Per-dim floors: ✅

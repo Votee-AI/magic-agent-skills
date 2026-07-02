@@ -4,7 +4,7 @@ nl_triggers:
   - "decide on [topic]"
   - "make a call on [topic]"
   - "what should we use for [topic]?"
-routes_to: linguistic-orchestrator (decision mode)
+routes_to: magic-linguistic-orchestrator (decision mode)
 ---
 
 # /linguistic:decide
@@ -12,10 +12,10 @@ routes_to: linguistic-orchestrator (decision mode)
 Crystallize a pending decision recorded in `workspace_state.md` under "Open Questions". The orchestrator presents the options with bounded pros/cons and routes to the relevant specialist for the recommendation.
 
 Common decisions:
-- Transfer source language (via `linguistic-scope` URIEL distance).
-- Vocabulary extension method (via `linguistic-tokenize`).
-- Eval benchmark suite (via `linguistic-eval`).
-- Sacred-text gating threshold (via `linguistic-ethics`).
-- Adapter vs full fine-tune vs LoRA (via `linguistic-transfer`).
+- Transfer source language (via `magic-linguistic-scope` URIEL distance).
+- Vocabulary extension method (via `magic-linguistic-tokenize`).
+- Eval benchmark suite (via `magic-linguistic-eval`).
+- Sacred-text gating threshold (via `magic-linguistic-ethics`).
+- Adapter vs full fine-tune vs LoRA (via `magic-linguistic-transfer`).
 
 Decisions are recorded with rationale in `workspace_state.md` under "Decisions Recorded".

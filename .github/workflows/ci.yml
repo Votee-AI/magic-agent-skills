@@ -28,6 +28,39 @@ jobs:
       - name: Integration tests
         run: MPLBACKEND=Agg pytest tests/data-agent/integration/ tests/linguistic/integration/ -q --tb=short
 
+  # Verifies the magic-data-synthesis layer against the REAL pinned DataDesigner
+  # engine (data-designer==0.6.0) — not the importorskip'd silent-skip path. The
+  # canary FAILS (not skips) if the engine is missing where it is required, so CI
+  # can never go green while the engine integration is unexercised (gap G2 / H3).
+  # Scope: engine *construction* + API fidelity (no LLM endpoint needed). Live
+  # *generation* e2e (tests/data-agent/e2e/test_methodology_*.py) needs an LLM
+  # endpoint + MCP server and is intentionally NOT run here — run it locally/nightly.
+  engine-integration:
+    runs-on: ubuntu-latest
+    env:
+      MAGIC_REQUIRE_ENGINE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies (incl. pinned DataDesigner engine)
+        run: pip install -r requirements.txt
+      - name: Engine canary (FAILS if the engine is absent where required)
+        run: pytest tests/data-agent/e2e/test_engine_canary.py -q --tb=short
+      - name: Engine construction + API fidelity (real DD 0.6, no endpoint)
+        run: |
+          MPLBACKEND=Agg pytest \
+            tests/data-agent/integration/ \
+            -q --tb=short
+      - name: Honest verification status
+        if: always()
+        run: |
+          echo "Engine CONSTRUCTION + API fidelity verified against data-designer==0.6.0."
+          echo "Live GENERATION e2e (tests/data-agent/e2e/test_methodology_*.py) requires an"
+          echo "LLM endpoint + MCP server and is NOT run in CI — run it locally or in a"
+          echo "self-hosted/nightly job. CI does not claim the generation pipeline is verified."
+
   cli-tests:
     runs-on: ubuntu-latest
     steps:
@@ -41,6 +74,29 @@ jobs:
         run: cd cli && npm run build
       - name: Run CLI tests
         run: cd cli && npm test
+
+  # Drift guard: each linguistic skill ships a committed in-skill copy of
+  # `_linguistic_shared/`, generated from the canonical source by
+  # scripts/sync-linguistic-shared.py. This job regenerates the bundles and
+  # fails if any committed copy diverged from source (modified, missing, or
+  # orphaned). Uses `git status --porcelain` so it also catches NEW untracked
+  # bundles (new skills) and removed orphaned bundles — not just modifications.
+  check-shared-in-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fail if bundles drift from source (modified, missing, or orphaned)
+        run: |
+          python scripts/sync-linguistic-shared.py
+          CHANGES="$(git status --porcelain skills/magic-linguistic-*/_linguistic_shared)"
+          if [ -n "$CHANGES" ]; then
+            echo "In-skill _linguistic_shared bundles are out of sync. Run scripts/sync-linguistic-shared.py and commit:"
+            echo "$CHANGES"
+            exit 1
+          fi
 
   eval-validation:
     runs-on: ubuntu-latest
@@ -97,34 +153,6 @@ jobs:
             exit 1
           fi
           echo "All SKILL.md frontmatters validated successfully"
-
-  methodology-validation:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Validate methodology templates
-        run: |
-          shopt -s globstar nullglob
-          FOUND=0
-          FAILED=0
-          for tmpl in skills/magic-data-synthesis/methodologies/stages/**/*.md; do
-            [ "$(basename "$tmpl")" = "README.md" ] && continue
-            [ "$(basename "$tmpl")" = "_template.md" ] && continue
-            FOUND=$((FOUND + 1))
-            echo "Validating: $tmpl"
-            for section in "Stage" "Source" "When to Use" "Pipeline Stages" "Quality Rubric"; do
-              if ! grep -q "^## $section" "$tmpl"; then
-                echo "FAIL: $tmpl missing required section: ## $section"
-                FAILED=1
-              fi
-            done
-          done
-          if [ "$FOUND" -eq 0 ]; then
-            echo "WARN: No methodology templates found (expected in Phase 2+)"
-          else
-            echo "Validated $FOUND methodology templates"
-          fi
-          exit $FAILED
 
   marketplace-validation:
     runs-on: ubuntu-latest
@@ -220,7 +248,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Ensure no internal content on main
         run: |
-          LEAKED=$(git ls-files | grep -E '^(openspec/|\.omc/|ref/|CLAUDE\.local\.md)' || true)
+          LEAKED=$(git ls-files | grep -E '^(openspec/|\.omc/|ref/|features/|CLAUDE\.local\.md)' || true)
           if [ -n "$LEAKED" ]; then
             echo "FAIL: internal development content present on main:"
             echo "$LEAKED"

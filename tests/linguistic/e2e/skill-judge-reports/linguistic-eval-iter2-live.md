@@ -1,4 +1,4 @@
-# Skill Evaluation Report: linguistic-eval (iter-2-live)
+# Skill Evaluation Report: magic-linguistic-eval (iter-2-live)
 
 > **Date**: 2026-04-23 | **Method**: live-skill-judge (inline; subagent rate-limited at session boundary, scored by main-loop Sonnet against same rubric)
 > **SKILL.md**: 184 lines | **References**: 5 + 1 cross-ref stub | **Scripts**: 3 (smoke-tested earlier, all produce structured JSON)

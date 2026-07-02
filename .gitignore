@@ -23,6 +23,10 @@ venv/
 
 # === Build Artifacts ===
 
+# DataDesigner default output dir (created by preview()/create() with no artifact_path,
+# e.g. running templates/*.py directly). Tests use tmp dirs; this guards stray local runs.
+artifacts/
+
 # Node.js
 node_modules/
 dist/
@@ -50,3 +54,4 @@ cli/commands/
 test-workspace/
 .cache/
 coverage/
+tests/data-agent/e2e/evals/last_run_results.json

@@ -19,7 +19,7 @@ SCRIPT_REFERENCE_RE = re.compile(r"`?(scripts/[a-zA-Z0-9_]+\.py)`?")
 
 
 def _skill_md_files() -> list[Path]:
-    return sorted(p for p in SKILLS_DIR.glob("linguistic-*/SKILL.md") if p.is_file())
+    return sorted(p for p in SKILLS_DIR.glob("magic-linguistic-*/SKILL.md") if p.is_file())
 
 
 @pytest.mark.parametrize("skill_md", _skill_md_files(), ids=lambda p: p.parent.name)

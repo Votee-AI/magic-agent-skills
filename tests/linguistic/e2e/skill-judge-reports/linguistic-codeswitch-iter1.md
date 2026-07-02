@@ -1,4 +1,4 @@
-# Skill Evaluation Report: linguistic-codeswitch (iteration 1, Mindset stub)
+# Skill Evaluation Report: magic-linguistic-codeswitch (iteration 1, Mindset stub)
 
 > **Date**: 2026-04-23 | **SKILL.md**: 53 lines | **References**: 2 files | **Scripts**: 0 (Mindset)
 > **Total Score**: **97/120 (81%)** | **Grade**: **B+** (target ≥ 96; +1) | Per-dim floors: ✅

@@ -68,7 +68,7 @@ engine: DataDesigner (primary), batch_synthesize.py (legacy reference)
 config_format: Python file with load_config_builder() function
 preview_gate: HARD GATE — always before full generation, even in autonomous mode
 pipeline_mode: agent generates synthesize_column() function, calls inline
-model_config: MAGIC_LLM_* env vars (MODEL, BASE_URL, API_KEY, MAX_TOKENS)
+model_config: MAGIC_LLM_* env vars (MODEL, BASE_URL, API_KEY, MAX_TOKENS); provider="local" targets LM Studio at localhost:1234; MCP templates also read MAGIC_TOOL_MODEL (tool-capable model)
 seed_types: LocalFileSeedSource (workspace files), DataFrameSeedSource (checkpoints)
 quality_control: LLMJudgeColumnConfig with multi-rubric scoring (one call per row)
 quality_threshold: mean_100 >= 70% good, >= 60% acceptable, < 60% regenerate
@@ -78,6 +78,8 @@ feasibility_rule: assess per column — synthesize (LLM) vs code (expression) vs
 thinking_tags: auto-stripped (<think>, <reasoning>, <thought>, <reflection>) for local models
 prompt_sanitization: injection patterns filtered, whitespace normalized, values truncated
 dd_install_check: importlib.util.find_spec("data_designer") — guide install if absent
+dd_version: ">=0.6 — async DAG engine + per-model AIMD adaptive concurrency are the v0.6 default"
+capability_reference: references/datadesigner_capabilities.md — full engine surface (11 columns, 14 samplers, 6 seed sources, processors, workflow chaining, message traces, MCP tool-use, agent-rollout ingestion, person sampling). Read it when a task needs a primitive the recipe templates don't already wire up.
 ```
 
 **Feasibility decision per column:**
@@ -135,6 +137,8 @@ Before any synthesis, ask:
   | Cloud batch API (OpenAI batch, Vertex batch) | 10–20+ | Batch APIs are designed for throughput; limited by cost budget, not infra |
 
   When in doubt, start with `max_parallel_requests=2`, measure throughput on preview, then scale up. Doubling parallelism on a local endpoint and seeing no speedup means the GPU is saturated.
+
+  **DD ≥0.6 reconciliation:** From v0.6 the async DAG engine is the default and applies **per-model AIMD adaptive concurrency** — it drops ~75% on a 429 and adds a slot after a run of successes, so it auto-tunes the live concurrency level. On DD ≥0.6 treat the table values as a **ceiling**, not a fixed level: AIMD starts conservative and ramps within `max_parallel_requests`. The knob that still matters for slow self-hosted endpoints is `timeout`. Set `DATA_DESIGNER_ASYNC_ENGINE=0` only if you need deterministic sync ordering. (Full detail: `references/datadesigner_capabilities.md` §8.)
 - **Quality verification at scale**: Preview validates a small sample, but full runs need post-generation quality checks:
 
   | Dataset Size | Verification Strategy |
@@ -153,6 +157,7 @@ Before any synthesis, ask:
   - Mode collapse: many rows producing near-identical phrasing → increase temperature or add diversity samplers
 
   **Domain-specific spot checks**: For tasks with ambiguous inputs (e.g., terms with multiple meanings), flag entries where the generated output may reflect the wrong sense. Example: "bank" means both a financial institution and a river bank — a model may pick the wrong sense depending on context.
+- **Verification scope (what the test suite actually exercises vs. documents)**: The engine integration is verified end-to-end through `validate` → `preview` → `create`: a `create()` run is asserted to persist a well-formed dataset on disk with the expected row count. **Documented but NOT exercised by tests:** partitioned/sharded scale runs, checkpoint/resume, multi-batch merge beyond a small smoke run, and cloud-cost controls. Treat those as design guidance to verify against your own endpoint before a large run — they are not covered by an automated test.
 - **When to use LLM**: Deterministic text fixes (whitespace, encoding, casing) are always code via cleaning. Semantic operations (filling sentinels with meaningful content, translation, annotation) require LLM via this skill.
 
 ### Constraints
@@ -162,9 +167,10 @@ Before any synthesis, ask:
 - MUST validate output with quality checks before checkpointing as complete
 - MUST assess feasibility per column — LLM is not the default; it's chosen when code cannot solve it
 - MUST run `data-designer validate` before preview — catches config errors before any API calls
+- SHOULD use a SEPARATE, ideally stronger, judge model for rejection sampling. WHY: a model judging its own output (same model as the generator) is a **known-weak placeholder, not a calibrated gate** — it tends to rate its own work favourably, so the filter passes low-quality rows. The bundled templates expose a distinct `judge`/`judge-model` alias (set `MAGIC_*_JUDGE_MODEL` + `_PROVIDER` to a stronger/cloud judge); when you leave it pointed at the generator model, treat the judge scores as a smoke signal, not a quality guarantee, and spot-check the kept rows manually.
 - NEVER skip the preview gate, even in autonomous/pipeline mode. WHY: a bad prompt on 50K rows = $100+ wasted, and produces content HARDER to clean than the original sentinels
 - NEVER synthesize binary data — text-representable only
-- NEVER use a local reasoning model (Qwen, DeepSeek) without `extract_reasoning_content=True`. WHY: these models put ALL output in the reasoning/thinking field — the `content` field returns empty, giving you zero results with no error
+- NEVER use a local reasoning model (Qwen, DeepSeek) without `extract_reasoning_content=True`. WHY: these models put ALL output in the reasoning/thinking field — the `content` field returns empty, giving you zero results with no error. SET IT ON the LLM column (`LLMTextColumnConfig`/`LLMCodeColumnConfig`), NOT on `ChatCompletionInferenceParams` (that raises a Pydantic "Extra inputs are not permitted"). NOTE: this flag is **dual-purpose** — beyond the local-model workaround it is also the native **CoT-capture feature** (emits a `{column}__reasoning_content` column) for reasoning-stage data; pair it with `with_trace` to keep both the full trace and the isolated chain-of-thought (see `references/datadesigner_capabilities.md` §6).
 - NEVER set `max_tokens` below 2048 with local reasoning models. WHY: they use 3000+ tokens for internal reasoning before producing the answer; low limits truncate mid-thinking and return empty output
 - NEVER assume `enable_thinking: false` works for all models. WHY: LM Studio Qwen ignores this flag; use `extract_reasoning_content=True` instead as the reliable approach
 - NEVER skip output language verification on preview when generating non-English content. WHY: models default to English even when explicitly asked for another language — always visually verify the first 5 rows
@@ -467,7 +473,8 @@ When `data-designer create` fails mid-generation, follow this sequence:
 
 | Doc | When to Read |
 |-----|-------------|
-| `references/recipe_patterns.md` | **MANDATORY** before step 2 — choosing which template |
+| `references/recipe_patterns.md` | **MANDATORY** before step 2 — choosing which template; also the DD recipe-pattern catalog (trajectory capture, rejection sampling, multi-judge, distractor injection, …) |
+| `references/datadesigner_capabilities.md` | When a task needs a DD primitive beyond the recipe templates — traces, MCP tool-use, person sampling, agent-rollout ingestion, workflow chaining, seed-source expansion, async/AIMD concurrency |
 | `references/cost_control.md` | When estimating cost for cloud models |
 | `references/quality_bridge.md` | When recipe includes LLMJudge column |
 | `references/domain_knowledge.md` | When configuring seeds, Jinja prompts, or conditional sampling |

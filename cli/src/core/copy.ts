@@ -52,14 +52,15 @@ export async function copyCommands(
   const adapter = getAdapter(tool.commandFormat);
   if (!adapter) return 0;
 
-  const commandsBase = join(projectPath, tool.commandsDir, '..');
   let count = 0;
 
   for (const [group, files] of Object.entries(COMMAND_FILES)) {
     const source = join(sourceDir, 'commands', group);
     if (!existsSync(source)) continue;
 
-    const destDir = join(commandsBase, group);
+    // commandsDir is the literal base; append the group leaf so e.g.
+    // Windsurf installs to `.windsurf/workflows/data`, not `.windsurf/data`.
+    const destDir = join(projectPath, tool.commandsDir, group);
     await ensureDir(destDir);
 
     for (const file of files) {
@@ -67,7 +68,7 @@ export async function copyCommands(
       if (!existsSync(srcPath)) continue;
 
       const content = await readFile(srcPath, 'utf-8');
-      const adapted = adapter.adapt(file, content);
+      const adapted = adapter.adapt(file, content, group);
       await writeFile(join(destDir, adapted.filename), adapted.content, 'utf-8');
       count++;
     }
@@ -108,15 +109,15 @@ export async function removeCommands(
   const adapter = getAdapter(tool.commandFormat);
   if (!adapter) return 0;
 
-  const commandsBase = join(projectPath, tool.commandsDir, '..');
   let count = 0;
 
   for (const [group, files] of Object.entries(COMMAND_FILES)) {
-    const destDir = join(commandsBase, group);
+    // Identical path logic to copyCommands: commandsDir is the literal base.
+    const destDir = join(projectPath, tool.commandsDir, group);
     if (!existsSync(destDir)) continue;
 
     for (const file of files) {
-      const adapted = adapter.adapt(file, '').filename;
+      const adapted = adapter.adapt(file, '', group).filename;
       const target = join(destDir, adapted);
       if (existsSync(target)) {
         await rm(target, { force: true });
@@ -137,13 +138,51 @@ export function configPath(projectPath: string): string {
   return join(projectPath, CONFIG_FILENAME);
 }
 
+export class ConfigCorruptError extends Error {
+  constructor(public readonly cause: unknown) {
+    super(
+      `Config file "${CONFIG_FILENAME}" is corrupt and could not be parsed — ` +
+        `run \`init --force\` to recreate it.`,
+    );
+    this.name = 'ConfigCorruptError';
+  }
+}
+
 export async function readConfig(
   projectPath: string,
 ): Promise<InstalledConfig | null> {
   const path = configPath(projectPath);
   if (!existsSync(path)) return null;
   const raw = await readFile(path, 'utf-8');
-  return JSON.parse(raw) as InstalledConfig;
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(raw);
+  } catch (err) {
+    throw new ConfigCorruptError(err);
+  }
+
+  if (typeof parsed !== 'object' || parsed === null) {
+    throw new ConfigCorruptError(new Error('config is not an object'));
+  }
+
+  // Tolerate/repair missing required arrays so update/remove never throw
+  // `undefined is not iterable` on a partially-written config.
+  const obj = parsed as Record<string, unknown>;
+  return {
+    version: typeof obj.version === 'string' ? obj.version : '0.0.0',
+    tools: Array.isArray(obj.tools) ? (obj.tools as string[]) : [],
+    suites: Array.isArray(obj.suites) ? (obj.suites as string[]) : [],
+    skills: Array.isArray(obj.skills) ? (obj.skills as string[]) : [],
+    installedAt:
+      typeof obj.installedAt === 'string'
+        ? obj.installedAt
+        : new Date().toISOString(),
+    updatedAt:
+      typeof obj.updatedAt === 'string'
+        ? obj.updatedAt
+        : new Date().toISOString(),
+  };
 }
 
 export async function writeConfig(
@@ -159,7 +198,10 @@ export function detectTools(projectPath: string): string[] {
 
   for (const tool of MAGIC_TOOLS) {
     if (!tool.skillsDir) continue;
-    if (existsSync(join(projectPath, tool.skillsDir))) {
+    // Prefer a tool-specific marker when defined (avoids over-detecting tools
+    // whose skillsDir is a generic shared dir like `.github`).
+    const marker = tool.detectMarker ?? tool.skillsDir;
+    if (existsSync(join(projectPath, marker))) {
       detected.push(tool.value);
     }
   }

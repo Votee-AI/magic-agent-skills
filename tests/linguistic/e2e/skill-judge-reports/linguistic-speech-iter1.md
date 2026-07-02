@@ -1,4 +1,4 @@
-# Skill Evaluation Report: linguistic-speech (iteration 1)
+# Skill Evaluation Report: magic-linguistic-speech (iteration 1)
 
 > **Date**: 2026-04-23 | **SKILL.md**: 178 lines | **References**: 5 files | **Scripts**: 2 files (incl. working IPA validator)
 > **Total Score**: **104/120 (87%)** | **Grade**: **A−** (target B+; +8) | Per-dim floors: ✅

@@ -22,7 +22,7 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
-SPEECH_DIR = REPO_ROOT / "skills" / "linguistic-speech"
+SPEECH_DIR = REPO_ROOT / "skills" / "magic-linguistic-speech"
 IPA_VALIDATE = SPEECH_DIR / "scripts" / "ipa_validate.py"
 LHOTSE_ADVISOR = SPEECH_DIR / "scripts" / "lhotse_recipe_advisor.py"
 EVALS_JSON = SPEECH_DIR / "evals" / "evals.json"
@@ -40,7 +40,7 @@ def _run(*args: str, timeout: int = 30) -> subprocess.CompletedProcess:
 def test_speech_evals_json_well_formed():
     """Sanity: evals.json parses, has 3 evals, each has assertions."""
     payload = json.loads(EVALS_JSON.read_text())
-    assert payload["skill_name"] == "linguistic-speech"
+    assert payload["skill_name"] == "magic-linguistic-speech"
     assert len(payload["evals"]) == 3
     for ev in payload["evals"]:
         assert ev["assertions"], f"eval {ev['id']} ({ev['name']}) has no assertions"

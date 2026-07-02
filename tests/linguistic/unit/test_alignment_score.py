@@ -1,4 +1,4 @@
-"""Smoke + branch tests for skills/linguistic-bitext/scripts/alignment_score.py.
+"""Smoke + branch tests for skills/magic-linguistic-bitext/scripts/alignment_score.py.
 
 Covers 0012-alignment-niger-congo-branch (Niger-Congo widening) and the existing
 polysynthetic / agglutinative / semitic / default branches.
@@ -13,7 +13,7 @@ from pathlib import Path
 import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
-SCRIPT = REPO_ROOT / "skills" / "linguistic-bitext" / "scripts" / "alignment_score.py"
+SCRIPT = REPO_ROOT / "skills" / "magic-linguistic-bitext" / "scripts" / "alignment_score.py"
 sys.path.insert(0, str(SCRIPT.parent))
 
 from alignment_score import _is_niger_congo, recommend_length_ratio  # noqa: E402

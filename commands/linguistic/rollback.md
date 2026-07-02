@@ -4,7 +4,7 @@ nl_triggers:
   - "rollback"
   - "undo that"
   - "go back to [point]"
-routes_to: linguistic-orchestrator (rollback mode)
+routes_to: magic-linguistic-orchestrator (rollback mode)
 ---
 
 # /linguistic:rollback

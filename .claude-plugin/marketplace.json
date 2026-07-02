@@ -10,8 +10,8 @@
   },
   "plugins": [
     {
-      "name": "data-agent-skills",
-      "description": "12 data agent skills for LLM training data preparation",
+      "name": "data-skills",
+      "description": "12 data skills for LLM training data preparation",
       "source": "./",
       "skills": [
         "./skills/magic-data-cleaning",
@@ -33,24 +33,24 @@
       "description": "18 computational linguistics skills for low-resource language NLP",
       "source": "./",
       "skills": [
-        "./skills/linguistic-annotate",
-        "./skills/linguistic-bitext",
-        "./skills/linguistic-codeswitch",
-        "./skills/linguistic-corpus",
-        "./skills/linguistic-discourse",
-        "./skills/linguistic-ethics",
-        "./skills/linguistic-eval",
-        "./skills/linguistic-historical",
-        "./skills/linguistic-lexicon",
-        "./skills/linguistic-morph",
-        "./skills/linguistic-orchestrator",
-        "./skills/linguistic-scope",
-        "./skills/linguistic-scripts",
-        "./skills/linguistic-semantics",
-        "./skills/linguistic-speech",
-        "./skills/linguistic-syntax",
-        "./skills/linguistic-tokenize",
-        "./skills/linguistic-transfer"
+        "./skills/magic-linguistic-annotate",
+        "./skills/magic-linguistic-bitext",
+        "./skills/magic-linguistic-codeswitch",
+        "./skills/magic-linguistic-corpus",
+        "./skills/magic-linguistic-discourse",
+        "./skills/magic-linguistic-ethics",
+        "./skills/magic-linguistic-eval",
+        "./skills/magic-linguistic-historical",
+        "./skills/magic-linguistic-lexicon",
+        "./skills/magic-linguistic-morph",
+        "./skills/magic-linguistic-orchestrator",
+        "./skills/magic-linguistic-scope",
+        "./skills/magic-linguistic-scripts",
+        "./skills/magic-linguistic-semantics",
+        "./skills/magic-linguistic-speech",
+        "./skills/magic-linguistic-syntax",
+        "./skills/magic-linguistic-tokenize",
+        "./skills/magic-linguistic-transfer"
       ]
     }
   ]
