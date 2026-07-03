@@ -1,0 +1,258 @@
+name: CI
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main]
+  workflow_call:
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Structural tests (all 30 skills)
+        run: MPLBACKEND=Agg pytest tests/shared/ -q --tb=short
+      - name: Data-agent unit tests
+        run: MPLBACKEND=Agg pytest tests/data-agent/unit/ -q --tb=short
+      - name: Linguistic unit tests
+        run: MPLBACKEND=Agg pytest tests/linguistic/unit/ -q --tb=short
+      - name: Integration tests
+        run: MPLBACKEND=Agg pytest tests/data-agent/integration/ tests/linguistic/integration/ -q --tb=short
+
+  # Verifies the magic-data-synthesis layer against the REAL pinned DataDesigner
+  # engine (data-designer==0.6.0) — not the importorskip'd silent-skip path. The
+  # canary FAILS (not skips) if the engine is missing where it is required, so CI
+  # can never go green while the engine integration is unexercised (gap G2 / H3).
+  # Scope: engine *construction* + API fidelity (no LLM endpoint needed). Live
+  # *generation* e2e (tests/data-agent/e2e/test_methodology_*.py) needs an LLM
+  # endpoint + MCP server and is intentionally NOT run here — run it locally/nightly.
+  engine-integration:
+    runs-on: ubuntu-latest
+    env:
+      MAGIC_REQUIRE_ENGINE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies (incl. pinned DataDesigner engine)
+        run: pip install -r requirements.txt
+      - name: Engine canary (FAILS if the engine is absent where required)
+        run: pytest tests/data-agent/e2e/test_engine_canary.py -q --tb=short
+      - name: Engine construction + API fidelity (real DD 0.6, no endpoint)
+        run: |
+          MPLBACKEND=Agg pytest \
+            tests/data-agent/integration/ \
+            -q --tb=short
+      - name: Honest verification status
+        if: always()
+        run: |
+          echo "Engine CONSTRUCTION + API fidelity verified against data-designer==0.6.0."
+          echo "Live GENERATION e2e (tests/data-agent/e2e/test_methodology_*.py) requires an"
+          echo "LLM endpoint + MCP server and is NOT run in CI — run it locally or in a"
+          echo "self-hosted/nightly job. CI does not claim the generation pipeline is verified."
+
+  cli-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install dependencies
+        run: cd cli && npm ci
+      - name: Build TypeScript
+        run: cd cli && npm run build
+      - name: Run CLI tests
+        run: cd cli && npm test
+
+  # Drift guard: each linguistic skill ships a committed in-skill copy of
+  # `_linguistic_shared/`, generated from the canonical source by
+  # scripts/sync-linguistic-shared.py. This job regenerates the bundles and
+  # fails if any committed copy diverged from source (modified, missing, or
+  # orphaned). Uses `git status --porcelain` so it also catches NEW untracked
+  # bundles (new skills) and removed orphaned bundles — not just modifications.
+  check-shared-in-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fail if bundles drift from source (modified, missing, or orphaned)
+        run: |
+          python scripts/sync-linguistic-shared.py
+          CHANGES="$(git status --porcelain skills/magic-linguistic-*/_linguistic_shared)"
+          if [ -n "$CHANGES" ]; then
+            echo "In-skill _linguistic_shared bundles are out of sync. Run scripts/sync-linguistic-shared.py and commit:"
+            echo "$CHANGES"
+            exit 1
+          fi
+
+  eval-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Validate eval JSON structure
+        run: python tests/data-agent/e2e/evals/run_evals.py --all --dry-run
+
+  schema-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install ajv-cli and js-yaml
+        run: |
+          npm install -g ajv-cli ajv-formats
+          npm install js-yaml
+      - name: Validate SKILL.schema.json is valid JSON Schema
+        run: ajv compile -s schema/SKILL.schema.json
+      - name: Extract and validate all SKILL.md frontmatters
+        run: |
+          set -e
+          FAILED=0
+          for skill_dir in skills/*/; do
+            SKILL_MD="$skill_dir/SKILL.md"
+            if [ ! -f "$SKILL_MD" ]; then continue; fi
+            DIR_NAME=$(basename "$skill_dir")
+            if [[ "$DIR_NAME" == _* ]]; then continue; fi
+            echo "Validating: $SKILL_MD"
+            node -e "
+              const yaml = require('js-yaml');
+              const fs = require('fs');
+              const content = fs.readFileSync('$SKILL_MD', 'utf8');
+              const match = content.match(/^---\n([\s\S]*?)\n---/);
+              if (!match) { console.error('No frontmatter found in $SKILL_MD'); process.exit(1); }
+              const doc = yaml.load(match[1]);
+              if (doc.name !== '$DIR_NAME') {
+                console.error('Name mismatch: frontmatter has \"' + doc.name + '\" but directory is \"$DIR_NAME\"');
+                process.exit(1);
+              }
+              fs.writeFileSync('/tmp/frontmatter.json', JSON.stringify(doc, null, 2));
+            " || { echo "FAIL: Cannot parse YAML in $SKILL_MD"; FAILED=1; continue; }
+            ajv validate -s schema/SKILL.schema.json -d /tmp/frontmatter.json || FAILED=1
+          done
+          if [ "$FAILED" -eq 1 ]; then
+            echo "Schema validation FAILED"
+            exit 1
+          fi
+          echo "All SKILL.md frontmatters validated successfully"
+
+  marketplace-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate marketplace.json skill paths exist
+        run: |
+          node -e "
+            const fs = require('fs');
+            const m = JSON.parse(fs.readFileSync('.claude-plugin/marketplace.json', 'utf8'));
+            let failed = 0;
+            let total = 0;
+            for (const plugin of m.plugins) {
+              for (const skillPath of plugin.skills) {
+                total++;
+                const dir = skillPath.replace('./', '');
+                if (!fs.existsSync(dir)) {
+                  console.error('Missing skill directory:', dir);
+                  failed++;
+                }
+              }
+            }
+            if (failed > 0) {
+              console.error(failed + ' of ' + total + ' skill paths are missing');
+              process.exit(1);
+            }
+            console.log('All ' + total + ' skill paths valid');
+          "
+
+  package-content:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install dependencies
+        run: cd cli && npm ci
+      - name: Build TypeScript
+        run: cd cli && npm run build
+      - name: Verify package contents (thin CLI only)
+        run: |
+          cd cli
+          # Verify compiled output exists
+          if [ ! -d dist ]; then
+            echo "FAIL: dist/ not found — TypeScript was not compiled"
+            exit 1
+          fi
+          if [ ! -f bin/magic-agent-skills.js ]; then
+            echo "FAIL: bin/magic-agent-skills.js not found"
+            exit 1
+          fi
+          # Verify skills and commands are NOT bundled
+          if [ -d skills ]; then
+            echo "FAIL: skills/ directory must not be bundled in the npm package"
+            exit 1
+          fi
+          if [ -d commands ]; then
+            echo "FAIL: commands/ directory must not be bundled in the npm package"
+            exit 1
+          fi
+          # Verify package is small (thin CLI only)
+          FILE_COUNT=$(find dist bin -type f | wc -l)
+          echo "Package file count: $FILE_COUNT"
+          if [ "$FILE_COUNT" -gt 50 ]; then
+            echo "FAIL: Package has $FILE_COUNT files (max 50 for thin CLI)"
+            exit 1
+          fi
+          echo "PASS: Package contents verified — thin CLI only, no bundled skills"
+
+  license-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pip-licenses
+      - run: pip install -r requirements.txt
+      - name: Check for prohibited licenses
+        run: |
+          pip-licenses --format=markdown --with-urls \
+            --fail-on="GNU General Public License;AGPL;Server Side Public License;Business Source License;Commons Clause"
+
+  # Guards that internal development content never lands on `main`.
+  # Internal artifacts live only on the private `dev` branch; `main` is generated
+  # from `dev` via scripts/sync-main.sh (which strips export-ignored paths).
+  # Scoped to main so it does NOT fail on `dev`, where this content is expected.
+  no-internal-content:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure no internal content on main
+        run: |
+          LEAKED=$(git ls-files | grep -E '^(openspec/|\.omc/|ref/|features/|CLAUDE\.local\.md)' || true)
+          if [ -n "$LEAKED" ]; then
+            echo "FAIL: internal development content present on main:"
+            echo "$LEAKED"
+            echo "main must be regenerated from dev via scripts/sync-main.sh"
+            exit 1
+          fi
+          echo "PASS: main is clean of internal content"

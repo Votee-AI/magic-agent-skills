@@ -1,0 +1,10 @@
+{
+  "scenario": "text_analysis",
+  "checks": [
+    {"pattern": "ckpt_01_*.csv", "description": "Loaded JSONL data converted to CSV"},
+    {"pattern": "ckpt_02_*", "description": "Text distribution analysis output"},
+    {"pattern": "ckpt_03_*", "description": "Pattern detection output"},
+    {"pattern": "*.png", "description": "Text visualization generated"},
+    {"pattern": "*report*.md", "description": "Text analysis report generated"}
+  ]
+}

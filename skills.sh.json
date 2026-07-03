@@ -1,0 +1,47 @@
+{
+  "$schema": "https://skills.sh/schema/skills.sh.json",
+  "groupings": [
+    {
+      "title": "Data Agent",
+      "description": "12 skills for LLM training data loading, profiling, cleaning, transformation, visualization, and synthesis",
+      "skills": [
+        "magic-data-cleaning",
+        "magic-data-exploration",
+        "magic-data-lifecycle",
+        "magic-data-loading",
+        "magic-data-profiling",
+        "magic-data-synthesis",
+        "magic-data-transformation",
+        "magic-data-validation",
+        "magic-data-visualization",
+        "magic-report-generation",
+        "magic-statistical-analysis",
+        "magic-workspace-init"
+      ]
+    },
+    {
+      "title": "Linguistics",
+      "description": "18 skills for low-resource language NLP with AI coding assistants",
+      "skills": [
+        "magic-linguistic-annotate",
+        "magic-linguistic-bitext",
+        "magic-linguistic-codeswitch",
+        "magic-linguistic-corpus",
+        "magic-linguistic-discourse",
+        "magic-linguistic-ethics",
+        "magic-linguistic-eval",
+        "magic-linguistic-historical",
+        "magic-linguistic-lexicon",
+        "magic-linguistic-morph",
+        "magic-linguistic-orchestrator",
+        "magic-linguistic-scope",
+        "magic-linguistic-scripts",
+        "magic-linguistic-semantics",
+        "magic-linguistic-speech",
+        "magic-linguistic-syntax",
+        "magic-linguistic-tokenize",
+        "magic-linguistic-transfer"
+      ]
+    }
+  ]
+}
