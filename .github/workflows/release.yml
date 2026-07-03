@@ -72,7 +72,7 @@ jobs:
               echo "WARN: SPDX conversion for $f skipped (tooling optional)"
           done
       - name: Upload SBOM artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: sbom
           path: |
