@@ -30,7 +30,7 @@
     "chalk": "^5.4.1",
     "commander": "^14.0.0",
     "@inquirer/core": "^10.3.2",
-    "@inquirer/prompts": "^7.5.0",
+    "@inquirer/prompts": "^8.5.2",
     "ora": "^8.2.0",
     "fast-glob": "^3.3.3"
   },
