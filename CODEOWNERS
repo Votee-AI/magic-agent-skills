@@ -1,0 +1,10 @@
+# Default owner for everything
+* @votee-ai/magic-maintainers
+
+# CLI installer
+/cli/ @votee-ai/magic-maintainers
+
+# CI/CD and governance
+/.github/ @votee-ai/magic-maintainers
+/LICENSE @votee-ai/magic-maintainers
+/NOTICE @votee-ai/magic-maintainers

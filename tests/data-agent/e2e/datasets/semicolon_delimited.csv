@@ -1,0 +1,801 @@
+id;name;city;amount;category;date;score;active
+1;Thomas Jones;Chicago;7684.04;Electronics;2023-04-13;51.29;yes
+2;Mark Brown;New York;7905.63;Sports;2024-03-11;70.41;no
+3;Barbara Taylor;Jacksonville;6683.35;Food;2023-09-28;93.52;no
+4;Barbara Taylor;Austin;2676.84;Sports;2023-04-17;37.58;yes
+5;Karen Harris;Indianapolis;9081.23;Food;2023-03-13;70.81;no
+6;Robert García;Phoenix;6740.25;Food;2024-12-01;47.57;no
+7;Jennifer Johnson;Houston;5648.36;Books;2023-01-21;67.44;no
+8;Richard Hernandez;San Antonio;1198.8;Food;2024-09-06;76.29;yes
+9;Sébastien White;Phoenix;4525.85;Food;2023-05-02;4.55;yes
+10;Jessica Young;San Jose;4657.55;Clothing;2024-04-11;64.66;yes
+11;David Thomas;Columbus;8659.18;Electronics;2023-08-03;22.67;no
+12;Linda Brown;Houston;5511.82;Books;2023-11-27;67.0;yes
+13;Michelle Brown;Los Angeles;3865.97;Books;2024-04-03;46.83;no
+14;Matthew Williams;Houston;9770.32;Books;2023-03-29;77.36;yes
+15;Ashley Williams;Jacksonville;1196.13;Clothing;2024-01-08;12.34;no
+16;Anthony Robinson;Los Angeles;4283.23;Food;2023-04-10;62.63;yes
+17;Ashley Jackson;San Diego;516.04;Electronics;2024-10-25;27.85;yes
+18;Christopher Jones;Chicago;7425.05;Sports;2023-05-11;85.3;no
+19;Sarah Lewis;Dallas;9188.96;Food;2024-10-23;92.84;yes
+20;María Thompson;Fort Worth;2872.37;Clothing;2023-11-05;99.64;no
+21;Christopher Garcia;Houston;8597.58;Food;2023-12-10;79.6;yes
+22;James Jones;Fort Worth;2992.96;Food;2024-05-06;75.37;yes
+23;André Lopez;Philadelphia;9116.62;Clothing;2024-02-18;21.55;no
+24;Betty García;San Jose;7564.22;Books;2024-01-21;33.6;no
+25;Susan Clark;Phoenix;8068.58;Books;2023-07-11;46.57;no
+26;Pierre Ramirez;San Jose;278.26;Electronics;2023-10-04;77.34;yes
+27;William Clark;Fort Worth;9631.82;Electronics;2023-06-10;91.5;no
+28;Sébastien Thompson;New York;7294.04;Books;2024-04-04;18.91;yes
+29;Sébastien Walker;Dallas;3117.04;Sports;2023-11-10;92.24;no
+30;François Taylor;New York;8311.01;Food;2023-01-22;69.56;no
+31;Betty González;San Diego;2887.06;Sports;2023-09-10;61.08;no
+32;James Davis;Dallas;8740.26;Food;2024-07-14;19.98;no
+33;Paul Anderson;Dallas;1214.55;Books;2024-04-19;5.55;no
+34;Sébastien Thompson;New York;7066.49;Electronics;2023-02-28;56.85;no
+35;Susan Clark;Los Angeles;5452.91;Electronics;2024-05-25;65.15;yes
+36;Margaret White;Jacksonville;1055.69;Sports;2024-11-12;21.08;no
+37;Susan Harris;Fort Worth;2494.75;Electronics;2024-04-20;55.65;yes
+38;Mary Clark;New York;222.8;Books;2024-11-30;85.65;no
+39;Susan Miller;San Jose;4740.8;Sports;2023-07-09;83.51;no
+40;John White;Los Angeles;3082.53;Food;2024-11-17;92.74;no
+41;Jean Moore;San Jose;6023.74;Electronics;2024-07-16;36.59;yes
+42;Donna López;Jacksonville;3042.65;Clothing;2024-07-20;31.8;yes
+43;Joseph Sanchez;San Diego;3069.2;Electronics;2023-09-01;74.94;no
+44;Andrew Lewis;Phoenix;7457.61;Food;2024-05-19;43.11;yes
+45;Barbara Taylor;Jacksonville;576.61;Sports;2023-05-11;8.75;no
+46;Joshua Thompson;Austin;9038.66;Food;2024-04-29;28.28;no
+47;Betty Sanchez;San Antonio;8537.41;Clothing;2024-10-08;41.86;yes
+48;Thomas Gonzalez;Los Angeles;6711.27;Books;2023-01-21;29.25;yes
+49;Karen Sanchez;San Diego;5972.89;Electronics;2023-06-16;33.22;yes
+50;Patricia Martinez;Austin;8933.79;Sports;2023-10-01;29.38;yes
+51;John Moore;Philadelphia;1934.77;Books;2024-01-23;4.15;no
+52;Sébastien González;San Diego;881.79;Food;2024-08-23;63.71;yes
+53;Sébastien Thompson;New York;2471.15;Sports;2023-11-12;59.73;yes
+54;Kimberly Davis;Indianapolis;7966.32;Books;2023-01-14;65.34;no
+55;Michelle Jackson;New York;443.24;Sports;2023-08-30;19.23;yes
+56;María Pérez;Jacksonville;5869.79;Clothing;2023-12-12;29.57;yes
+57;Jennifer Clark;San Antonio;9954.83;Clothing;2024-07-18;61.96;yes
+58;Kimberly Garcia;San Diego;8571.39;Electronics;2023-12-06;59.96;yes
+59;Andrew Müller;Fort Worth;5262.31;Electronics;2023-04-02;50.63;no
+60;Nancy Lee;Chicago;730.05;Clothing;2024-01-02;35.04;no
+61;Jennifer Garcia;Phoenix;8330.6;Sports;2024-03-30;91.29;yes
+62;Stéphanie Brown;Jacksonville;6029.89;Clothing;2024-03-03;33.98;yes
+63;Sandra Hernandez;New York;1237.84;Electronics;2024-05-23;45.56;no
+64;Sandra Young;San Antonio;1029.19;Clothing;2023-02-04;67.81;yes
+65;Lisa Rodriguez;Phoenix;9105.31;Clothing;2023-07-25;54.3;yes
+66;John Young;San Diego;6725.08;Sports;2023-03-22;34.69;yes
+67;Michelle Pérez;Fort Worth;8309.94;Books;2024-07-15;43.56;yes
+68;Emily Harris;San Diego;8801.89;Electronics;2024-01-23;79.45;yes
+69;Donald Garcia;Dallas;5760.55;Sports;2023-01-02;27.81;yes
+70;Mary Martin;San Antonio;5222.72;Clothing;2024-01-25;14.23;yes
+71;Margaret Hernandez;Austin;4361.23;Clothing;2024-07-19;31.32;yes
+72;Patricia Anderson;New York;3237.77;Books;2023-04-16;84.95;yes
+73;Jennifer Walker;Fort Worth;4402.5;Electronics;2024-04-21;8.9;no
+74;Donna Johnson;Chicago;7761.41;Electronics;2024-12-03;99.17;no
+75;Joseph Hernandez;San Diego;6059.04;Food;2024-02-06;54.1;no
+76;Linda Clark;Chicago;8935.98;Electronics;2024-12-30;98.48;yes
+77;Pierre Jones;San Diego;4489.46;Books;2024-07-09;93.9;yes
+78;Jennifer Clark;New York;6110.19;Food;2023-06-11;45.28;no
+79;Patricia Jackson;Phoenix;6349.94;Food;2023-07-21;19.85;yes
+80;Karen Müller;Houston;5957.8;Clothing;2023-09-27;16.49;no
+81;Karen Lopez;Phoenix;7056.07;Clothing;2023-09-28;24.0;yes
+82;Sébastien Smith;San Diego;2450.59;Electronics;2024-03-31;71.01;no
+83;Betty Wilson;San Jose;5172.4;Food;2024-04-06;27.29;no
+84;Donna Pérez;Indianapolis;1131.83;Clothing;2024-12-27;34.14;no
+85;David González;Columbus;3906.66;Books;2023-09-09;44.88;yes
+86;Richard Williams;Houston;4927.9;Clothing;2024-12-02;91.32;no
+87;Steven Garcia;Austin;6557.02;Clothing;2023-10-23;18.94;yes
+88;Barbara Jones;Houston;9510.26;Food;2024-12-25;0.5;yes
+89;Daniel Martinez;Indianapolis;6046.45;Food;2024-12-20;6.01;yes
+90;José Johnson;Chicago;7461.58;Sports;2023-12-04;90.48;yes
+91;Richard Johnson;San Antonio;5112.03;Books;2023-02-22;64.75;yes
+92;Karen Smith;Chicago;6377.63;Food;2023-08-05;27.3;yes
+93;Andrew Rodriguez;Jacksonville;802.23;Electronics;2023-07-07;17.72;yes
+94;Thomas Rodriguez;Chicago;2618.48;Books;2024-01-15;29.43;no
+95;David Anderson;Austin;3682.35;Books;2024-05-07;11.48;no
+96;Lisa Rodríguez;San Jose;4777.68;Food;2023-02-10;94.15;no
+97;Paul Walker;Phoenix;551.92;Books;2023-06-06;78.42;yes
+98;Donald Jones;Phoenix;1486.24;Food;2023-01-15;46.24;yes
+99;José Wilson;Columbus;2840.46;Clothing;2023-03-06;86.5;yes
+100;David Rodriguez;Philadelphia;9718.17;Sports;2024-06-04;24.95;yes
+101;Kimberly Lopez;San Diego;3380.34;Clothing;2023-12-10;71.71;no
+102;Paul López;San Jose;4872.21;Food;2023-05-09;85.61;yes
+103;James Thompson;Philadelphia;2041.37;Food;2024-10-09;35.68;no
+104;Mark Davis;Indianapolis;6146.72;Clothing;2024-04-16;75.75;yes
+105;David Pérez;Jacksonville;2878.76;Electronics;2023-03-04;29.51;no
+106;Susan Walker;New York;2149.23;Electronics;2023-05-19;29.89;yes
+107;Paul Lee;Indianapolis;5214.07;Electronics;2024-05-13;10.71;no
+108;Andrew Jones;San Diego;154.51;Food;2024-08-15;44.01;yes
+109;Charles Wilson;San Diego;175.87;Books;2024-01-27;72.97;no
+110;Betty Brown;Dallas;2268.78;Food;2024-11-05;94.02;yes
+111;Matthew Sanchez;Dallas;463.54;Books;2024-02-23;60.38;no
+112;Sarah Davis;Los Angeles;1169.45;Clothing;2023-10-16;86.31;no
+113;Joshua Wilson;Indianapolis;3454.72;Sports;2024-01-14;82.25;yes
+114;Ashley Rodríguez;Los Angeles;8045.6;Books;2024-05-04;17.33;no
+115;Steven White;Chicago;5763.28;Electronics;2023-08-19;48.58;yes
+116;Joseph Müller;New York;5175.41;Food;2023-02-10;11.69;yes
+117;Matthew Taylor;Houston;3005.54;Clothing;2023-01-28;68.22;yes
+118;Steven Johnson;Columbus;9324.36;Electronics;2023-05-15;94.99;no
+119;Susan Garcia;Houston;4030.45;Clothing;2023-07-20;13.71;no
+120;Jennifer Williams;Columbus;962.22;Sports;2023-02-02;73.39;yes
+121;Michael Davis;Dallas;6208.96;Food;2023-02-17;63.22;yes
+122;María Anderson;Dallas;1227.0;Food;2024-05-17;58.36;no
+123;Sébastien Robinson;Dallas;3517.71;Sports;2024-02-11;39.01;no
+124;Steven Walker;San Jose;5123.38;Food;2024-07-27;35.51;no
+125;Joshua Ramirez;San Antonio;8754.8;Books;2024-12-28;4.52;yes
+126;Emily Robinson;Columbus;4986.11;Clothing;2023-04-09;21.79;yes
+127;Donna Müller;Indianapolis;7052.36;Electronics;2024-11-14;1.52;yes
+128;Andrew Ramirez;Los Angeles;9928.89;Sports;2024-12-26;58.14;yes
+129;Steven Brown;San Jose;1401.74;Books;2024-06-30;10.59;yes
+130;Nancy Johnson;Phoenix;2819.84;Electronics;2024-09-04;87.3;no
+131;Barbara Jones;Houston;4006.3;Electronics;2024-04-06;52.31;yes
+132;Barbara Müller;Jacksonville;4276.1;Sports;2024-10-04;69.97;no
+133;Donna Gonzalez;Austin;4169.11;Books;2023-01-05;41.09;no
+134;Donald González;San Diego;9085.35;Electronics;2023-08-06;56.06;yes
+135;Pierre Harris;Los Angeles;7168.92;Electronics;2024-05-17;94.27;no
+136;Joseph Robinson;Philadelphia;6118.26;Books;2024-02-02;8.27;yes
+137;Linda Jones;Fort Worth;3162.79;Food;2024-01-28;25.39;no
+138;Mark Brown;Phoenix;8255.52;Electronics;2023-07-26;78.0;yes
+139;Elizabeth Johnson;Indianapolis;9555.1;Clothing;2023-01-15;9.87;yes
+140;Anthony Young;Jacksonville;8229.86;Books;2024-07-07;7.57;no
+141;Emily González;Los Angeles;115.49;Electronics;2024-04-05;36.15;yes
+142;Betty Ramirez;Austin;6400.37;Sports;2024-11-21;9.22;no
+143;Robert Martin;San Jose;606.24;Clothing;2024-07-28;58.51;yes
+144;David Martinez;Indianapolis;2650.31;Electronics;2023-08-29;22.63;yes
+145;Michelle Rodríguez;New York;689.29;Clothing;2024-07-17;89.57;yes
+146;Jennifer Davis;San Diego;6077.57;Clothing;2023-04-06;78.35;no
+147;Daniel Clark;Los Angeles;6897.24;Food;2024-04-29;69.97;no
+148;Jean Lopez;San Antonio;1233.43;Clothing;2024-02-11;61.69;yes
+149;Betty Gonzalez;Dallas;3900.0;Food;2023-08-19;86.35;no
+150;Michelle Moore;Dallas;4616.74;Books;2024-10-16;22.31;yes
+151;Matthew Müller;San Diego;3753.62;Food;2023-06-20;87.31;no
+152;Sébastien Lopez;Austin;1298.15;Sports;2024-06-24;78.95;no
+153;José González;Columbus;4247.58;Electronics;2023-02-05;74.82;yes
+154;Stéphanie Brown;Jacksonville;7536.66;Books;2024-06-08;56.13;yes
+155;Robert Pérez;San Jose;802.98;Books;2023-06-09;24.62;yes
+156;Linda Lewis;Dallas;893.78;Sports;2024-11-29;42.35;yes
+157;Donald Rodriguez;Los Angeles;3612.24;Food;2023-08-31;79.36;yes
+158;Mark Wilson;Philadelphia;9423.08;Electronics;2023-03-27;3.18;no
+159;Michelle Thompson;Houston;6718.87;Food;2024-07-31;78.21;no
+160;David White;Columbus;6818.83;Clothing;2024-11-12;24.01;yes
+161;James Pérez;Houston;3683.01;Food;2024-07-10;14.43;yes
+162;Christopher Clark;Phoenix;5977.24;Books;2024-07-27;11.57;yes
+163;Jean González;Jacksonville;200.3;Electronics;2024-10-07;2.73;no
+164;Daniel Smith;Chicago;6397.35;Food;2023-01-28;52.36;yes
+165;Michelle Anderson;Columbus;9141.54;Electronics;2024-09-11;21.83;yes
+166;Christopher Rodriguez;New York;6164.48;Electronics;2024-07-09;98.94;no
+167;William Martinez;San Diego;8749.62;Clothing;2023-12-06;57.44;no
+168;Betty López;Phoenix;7267.33;Clothing;2023-11-27;13.79;no
+169;Matthew Clark;Chicago;1293.53;Books;2024-10-01;68.88;no
+170;David Rodríguez;San Jose;9034.29;Sports;2024-05-20;89.77;yes
+171;Mary Miller;Columbus;757.79;Electronics;2023-12-14;74.52;no
+172;Sarah Ramirez;San Antonio;5386.28;Sports;2024-04-17;7.64;no
+173;Kimberly Ramirez;San Antonio;1507.16;Books;2023-08-19;89.59;yes
+174;Thomas Harris;New York;215.9;Electronics;2023-07-09;79.39;yes
+175;Matthew Miller;Jacksonville;4278.14;Electronics;2023-08-13;15.83;yes
+176;Jennifer Harris;Dallas;3020.9;Sports;2024-01-20;5.18;no
+177;Steven Robinson;Indianapolis;4911.4;Food;2024-01-12;55.73;yes
+178;François Thompson;Los Angeles;5814.28;Clothing;2023-10-10;15.6;no
+179;Betty Lewis;Phoenix;533.02;Food;2024-09-24;83.46;no
+180;Christopher Miller;Fort Worth;1317.73;Sports;2024-09-19;35.83;no
+181;Thomas Martin;Columbus;5630.56;Clothing;2023-09-16;91.29;yes
+182;André Martin;Phoenix;3497.36;Food;2023-12-25;56.57;no
+183;Nancy Lewis;Columbus;7318.82;Clothing;2024-12-10;18.27;yes
+184;Michelle Miller;San Diego;6557.69;Electronics;2024-03-31;13.96;yes
+185;James Dupont;Columbus;8471.48;Food;2024-02-15;57.65;yes
+186;Richard Walker;San Diego;6955.68;Clothing;2024-10-10;76.19;no
+187;Daniel Jackson;Columbus;4356.32;Clothing;2023-11-14;78.15;no
+188;Ashley Walker;San Antonio;6762.37;Clothing;2024-11-07;27.58;no
+189;Mark Robinson;San Antonio;2826.27;Food;2023-08-13;20.42;yes
+190;Sandra Thomas;Jacksonville;3132.5;Books;2023-08-22;1.68;no
+191;Michelle Jackson;Austin;7910.95;Food;2024-11-14;67.92;no
+192;Sarah Smith;Philadelphia;4519.55;Sports;2024-10-25;7.66;no
+193;Susan Johnson;Philadelphia;8003.97;Food;2024-01-09;42.08;no
+194;Margaret Walker;Austin;8241.98;Clothing;2024-11-02;60.17;no
+195;Donna Brown;Dallas;8589.87;Electronics;2024-08-30;93.71;yes
+196;James Davis;Philadelphia;9174.69;Food;2024-04-16;31.18;yes
+197;Mark Williams;Jacksonville;4366.75;Food;2023-08-21;24.98;yes
+198;Ashley Martinez;Fort Worth;3256.78;Clothing;2024-11-22;65.42;yes
+199;Barbara Jackson;Fort Worth;5863.77;Electronics;2023-04-23;61.92;no
+200;Jean García;Los Angeles;3774.61;Electronics;2024-05-11;33.21;yes
+201;Steven White;Los Angeles;6050.63;Sports;2024-03-17;92.81;no
+202;Margaret Dupont;Fort Worth;7085.3;Food;2024-07-17;84.49;yes
+203;Michael Robinson;Phoenix;6915.21;Electronics;2023-09-25;22.4;yes
+204;Linda Smith;Indianapolis;3808.07;Electronics;2024-05-24;23.91;yes
+205;John Harris;Houston;1751.92;Books;2024-01-21;51.23;no
+206;Daniel Davis;Austin;4362.24;Books;2024-01-22;77.36;no
+207;Sébastien Pérez;Los Angeles;1511.68;Electronics;2023-04-23;4.4;yes
+208;John Müller;Indianapolis;8911.96;Sports;2024-09-04;69.33;no
+209;Margaret Davis;Indianapolis;3524.19;Electronics;2024-09-16;64.82;yes
+210;Kimberly López;Chicago;1629.15;Clothing;2023-03-22;23.15;yes
+211;Ashley Harris;San Antonio;351.93;Food;2024-11-29;68.14;yes
+212;Susan Dupont;San Diego;6493.64;Sports;2023-04-23;94.02;no
+213;Jean Thomas;Jacksonville;6405.33;Clothing;2023-01-02;4.68;yes
+214;Patricia Pérez;Fort Worth;3471.98;Sports;2024-10-03;31.97;yes
+215;Christopher Wilson;Philadelphia;809.95;Clothing;2023-08-08;43.82;yes
+216;Donald Moore;Austin;4155.33;Food;2024-07-19;89.93;no
+217;Michael Martinez;Phoenix;3181.05;Food;2023-08-13;96.23;yes
+218;Michael Müller;Fort Worth;6803.49;Books;2024-01-20;44.41;no
+219;Daniel Lee;New York;6097.21;Clothing;2024-02-07;75.0;yes
+220;Charles Jackson;San Diego;3709.48;Books;2024-09-29;53.17;no
+221;Emily Robinson;Chicago;2257.14;Clothing;2023-05-10;53.78;yes
+222;Sarah Johnson;Indianapolis;9881.56;Books;2023-02-22;27.81;yes
+223;James Jones;Philadelphia;4594.62;Food;2024-11-14;21.7;no
+224;Karen Hernandez;Chicago;6913.91;Sports;2024-12-30;28.8;no
+225;María Johnson;San Antonio;1491.47;Books;2024-11-02;55.63;yes
+226;John White;Fort Worth;4907.34;Clothing;2024-12-10;2.92;no
+227;Elizabeth Martin;Columbus;372.61;Clothing;2024-02-20;90.72;yes
+228;Robert Pérez;San Antonio;5104.01;Food;2023-09-04;15.63;yes
+229;Donna Walker;Jacksonville;9643.77;Clothing;2024-03-14;22.01;yes
+230;William García;Indianapolis;3903.65;Electronics;2023-07-22;51.83;no
+231;José López;Dallas;486.06;Sports;2023-07-03;71.01;yes
+232;Nancy Harris;Phoenix;406.46;Books;2023-05-03;9.57;no
+233;Thomas Martinez;Indianapolis;3941.07;Sports;2024-02-05;31.77;yes
+234;Sandra White;San Diego;1684.25;Food;2023-10-21;96.87;no
+235;Ashley Taylor;San Jose;331.19;Books;2023-10-07;26.23;no
+236;Thomas Wilson;San Jose;7586.51;Books;2024-09-01;31.31;yes
+237;William Johnson;San Diego;4639.38;Electronics;2023-07-17;83.65;no
+238;Pierre Sanchez;New York;2963.52;Food;2024-05-25;5.02;yes
+239;Joshua Rodriguez;Jacksonville;9010.82;Clothing;2023-05-24;46.46;yes
+240;Nancy Brown;Phoenix;1249.78;Electronics;2024-08-31;37.96;yes
+241;Betty Robinson;Chicago;9563.6;Electronics;2023-07-20;31.66;yes
+242;Pierre García;New York;3208.27;Sports;2023-05-04;28.57;yes
+243;Daniel Pérez;Houston;8895.2;Sports;2023-07-06;9.14;no
+244;David Garcia;San Diego;6069.13;Sports;2023-11-22;31.48;yes
+245;Sarah Lee;Chicago;8284.4;Electronics;2024-04-08;4.31;no
+246;María González;San Jose;9841.73;Clothing;2023-12-15;78.1;no
+247;André Rodríguez;Los Angeles;2955.21;Books;2024-10-21;39.82;yes
+248;Kimberly Taylor;Austin;9615.24;Sports;2024-02-07;44.39;no
+249;Andrew Sanchez;Dallas;3955.87;Clothing;2023-12-12;89.36;yes
+250;Donna Lopez;San Jose;3916.57;Food;2024-05-25;65.81;no
+251;Daniel Thompson;Phoenix;3469.83;Sports;2023-05-27;0.81;no
+252;Christopher Ramirez;Columbus;5459.94;Books;2023-05-28;94.32;no
+253;Donald Garcia;San Antonio;1626.04;Food;2024-12-11;23.71;yes
+254;Anthony García;Austin;5581.74;Food;2024-05-03;10.76;no
+255;Elizabeth Miller;Austin;5462.88;Books;2024-10-01;76.81;yes
+256;Barbara Taylor;Los Angeles;7642.83;Sports;2024-07-04;50.05;no
+257;Betty Lee;Dallas;8353.13;Electronics;2023-12-04;43.38;no
+258;Margaret Johnson;Fort Worth;4460.37;Books;2024-10-02;24.95;no
+259;François Smith;Dallas;3093.1;Books;2024-04-17;54.75;no
+260;Emily Clark;Houston;2667.42;Books;2023-05-31;27.44;yes
+261;Mark Lee;Houston;2026.78;Food;2024-02-19;90.16;yes
+262;David Hernandez;Philadelphia;670.71;Clothing;2023-10-25;21.52;no
+263;Emily López;San Jose;3490.23;Electronics;2024-09-02;88.44;no
+264;Kimberly Harris;San Jose;2775.45;Sports;2023-09-20;55.94;yes
+265;Nancy Jones;San Jose;9667.53;Sports;2023-05-24;82.85;yes
+266;Steven González;Philadelphia;5621.32;Clothing;2023-12-12;71.28;yes
+267;Sébastien Martin;Jacksonville;3538.04;Books;2024-09-15;69.67;yes
+268;Charles López;New York;5846.63;Electronics;2024-07-25;32.43;no
+269;François Taylor;Columbus;1478.05;Sports;2023-01-02;23.39;no
+270;Pierre García;Columbus;4496.03;Sports;2023-10-31;21.09;yes
+271;William Clark;Dallas;6299.72;Books;2023-09-11;85.72;yes
+272;Mary Rodriguez;Los Angeles;4940.09;Clothing;2024-10-13;82.04;yes
+273;William Taylor;Phoenix;4077.61;Electronics;2024-03-28;44.06;yes
+274;James Sanchez;Dallas;9939.1;Clothing;2023-02-06;13.24;yes
+275;François Sanchez;Houston;8815.12;Clothing;2023-06-09;38.23;yes
+276;Joshua López;Austin;6271.72;Electronics;2023-01-09;61.93;no
+277;John Pérez;Chicago;5736.84;Electronics;2023-08-21;45.44;no
+278;José Walker;Indianapolis;6244.54;Sports;2023-04-09;78.02;no
+279;Donna García;San Antonio;2092.99;Sports;2024-10-20;99.76;yes
+280;Elizabeth Jackson;Philadelphia;4011.86;Electronics;2023-07-27;19.11;yes
+281;Andrew Taylor;San Diego;490.65;Food;2023-05-11;45.97;yes
+282;Barbara Lopez;Chicago;4807.91;Sports;2024-02-08;43.1;no
+283;Jessica Harris;Phoenix;5475.94;Food;2023-06-01;30.45;yes
+284;Charles Davis;San Jose;2354.72;Electronics;2023-02-23;19.81;yes
+285;Donald Lee;Houston;9643.89;Sports;2023-04-30;6.57;no
+286;Thomas White;Indianapolis;9103.6;Clothing;2024-11-03;88.71;yes
+287;Andrew Thomas;Fort Worth;7249.22;Electronics;2024-09-19;41.98;no
+288;Jennifer Davis;Houston;5380.53;Books;2024-08-09;49.69;no
+289;Matthew Moore;Houston;8712.69;Food;2024-09-16;91.69;yes
+290;Matthew Lopez;San Jose;1393.46;Electronics;2024-02-24;77.63;no
+291;Joseph Clark;San Diego;7926.05;Electronics;2024-02-26;13.05;yes
+292;André Clark;Philadelphia;1335.73;Sports;2023-04-14;56.54;no
+293;Sébastien Dupont;Chicago;7962.69;Sports;2023-09-11;44.23;yes
+294;Barbara Thomas;San Jose;2830.1;Sports;2023-08-15;79.72;no
+295;Michael Taylor;Phoenix;8783.2;Books;2023-04-22;72.42;yes
+296;Daniel Clark;Philadelphia;9446.02;Sports;2024-05-24;69.04;no
+297;Christopher Thompson;Phoenix;1573.08;Electronics;2024-04-17;34.05;no
+298;Michael Wilson;Philadelphia;4680.49;Sports;2023-04-09;80.5;no
+299;Joseph Miller;San Diego;9811.78;Clothing;2023-06-02;5.24;yes
+300;William Davis;San Antonio;4885.73;Sports;2023-12-04;15.96;yes
+301;Daniel Robinson;Phoenix;8649.12;Books;2024-12-06;33.56;no
+302;Sarah Young;San Jose;5928.44;Clothing;2023-06-12;7.68;yes
+303;Sandra López;Philadelphia;3815.77;Electronics;2024-12-20;23.5;no
+304;Sarah Taylor;Columbus;2929.26;Electronics;2024-11-11;83.02;yes
+305;Susan Young;Houston;2111.91;Food;2023-06-10;94.83;no
+306;Lisa López;Jacksonville;7641.8;Clothing;2024-08-02;30.46;yes
+307;José García;Dallas;3926.75;Food;2024-02-02;26.45;no
+308;John Pérez;Fort Worth;5161.63;Clothing;2023-10-04;27.99;no
+309;François Clark;Houston;4974.02;Clothing;2024-05-18;27.77;no
+310;Daniel Anderson;New York;5815.06;Books;2024-01-27;3.59;no
+311;Patricia Robinson;San Antonio;8669.21;Food;2023-05-15;92.69;yes
+312;Nancy Sanchez;San Antonio;9809.32;Books;2023-07-14;21.37;no
+313;Richard Moore;Houston;4135.08;Clothing;2024-02-05;42.0;yes
+314;Steven Thomas;Fort Worth;8292.44;Electronics;2024-10-01;0.97;yes
+315;Pierre Johnson;Columbus;7668.83;Clothing;2023-02-02;85.8;no
+316;Paul García;Chicago;5777.94;Books;2024-11-18;73.12;yes
+317;Sandra Gonzalez;San Diego;9564.87;Food;2024-04-04;94.68;yes
+318;Richard Moore;Phoenix;2084.7;Food;2024-04-14;78.16;yes
+319;Ashley Dupont;San Jose;1181.72;Books;2024-01-10;31.37;no
+320;Paul Robinson;San Antonio;8554.22;Food;2023-01-22;24.79;yes
+321;Mark Thomas;Houston;4447.58;Sports;2024-10-31;69.77;yes
+322;José Martinez;Houston;8484.99;Electronics;2023-02-07;36.41;no
+323;Sandra Sanchez;San Diego;8941.59;Electronics;2023-08-18;56.62;no
+324;Joshua Martin;Columbus;718.33;Electronics;2023-12-31;0.63;yes
+325;Robert Smith;San Diego;8846.3;Food;2024-07-16;6.19;no
+326;Sandra Williams;Los Angeles;4538.36;Food;2024-03-13;53.54;yes
+327;Pierre Wilson;Columbus;5153.28;Clothing;2023-10-10;56.61;yes
+328;Sandra Brown;Los Angeles;6303.27;Clothing;2023-01-27;75.15;yes
+329;Sarah Pérez;Chicago;9271.19;Electronics;2023-08-14;13.2;no
+330;Matthew Smith;Indianapolis;289.25;Sports;2023-10-04;51.32;yes
+331;Jean Anderson;Jacksonville;4820.75;Clothing;2024-08-31;19.44;no
+332;William Anderson;Jacksonville;6908.45;Clothing;2023-10-11;9.32;no
+333;Lisa Brown;Chicago;7254.8;Food;2024-04-25;41.05;yes
+334;Elizabeth Pérez;New York;6956.07;Sports;2024-03-28;16.33;no
+335;Andrew Garcia;Indianapolis;1430.91;Electronics;2024-10-20;22.18;no
+336;Joshua Harris;Columbus;3064.02;Clothing;2024-05-30;31.76;no
+337;David Gonzalez;Chicago;3651.28;Sports;2024-06-30;25.94;no
+338;Kimberly Sanchez;Philadelphia;8063.93;Sports;2023-07-11;8.76;no
+339;Michael Brown;San Diego;2859.72;Electronics;2023-02-18;8.99;yes
+340;Linda Martin;Fort Worth;2185.98;Sports;2024-05-26;19.32;no
+341;Mark Martinez;Jacksonville;9578.74;Sports;2023-01-17;5.06;yes
+342;François García;Columbus;187.75;Sports;2023-06-21;62.65;yes
+343;Betty Williams;San Jose;9978.43;Clothing;2023-08-08;28.73;yes
+344;Jennifer Jones;Philadelphia;6800.53;Electronics;2023-06-07;27.97;yes
+345;Robert White;Phoenix;8301.85;Sports;2024-04-21;33.2;yes
+346;William López;Indianapolis;3016.73;Sports;2023-02-15;66.28;yes
+347;Karen López;Houston;241.72;Clothing;2024-01-08;87.06;no
+348;Sarah Taylor;Chicago;7404.91;Electronics;2024-06-01;75.91;no
+349;Lisa Williams;Fort Worth;8358.03;Food;2023-04-09;72.75;no
+350;Ashley López;Houston;7430.71;Clothing;2023-02-06;48.44;yes
+351;Donna Gonzalez;Columbus;1514.22;Electronics;2023-10-07;69.38;no
+352;Sébastien Sanchez;San Antonio;7558.94;Sports;2023-12-15;55.28;no
+353;William Brown;New York;7712.34;Electronics;2024-05-11;21.63;no
+354;Susan Pérez;San Antonio;6619.55;Electronics;2023-10-29;20.86;yes
+355;Kimberly Hernandez;New York;7684.55;Electronics;2023-06-30;29.64;no
+356;André Williams;Los Angeles;8474.62;Food;2024-08-29;91.08;yes
+357;Margaret Robinson;Indianapolis;6174.68;Electronics;2023-04-09;54.74;no
+358;William Williams;Houston;977.19;Food;2024-11-30;73.39;yes
+359;Matthew García;New York;4927.52;Sports;2023-04-26;34.66;yes
+360;Elizabeth Rodriguez;Austin;868.73;Food;2023-07-10;40.77;yes
+361;Joseph Sanchez;Jacksonville;4134.68;Sports;2023-09-10;12.56;no
+362;Robert Hernandez;Austin;4130.35;Sports;2023-06-10;17.13;no
+363;Kimberly Harris;Indianapolis;753.5;Food;2023-09-13;82.74;yes
+364;Joseph Rodríguez;Austin;3553.32;Clothing;2023-11-19;58.48;no
+365;Linda Jones;Dallas;1198.88;Books;2023-05-08;33.75;yes
+366;Stéphanie Clark;Jacksonville;8101.53;Electronics;2023-01-18;80.29;yes
+367;Sarah Garcia;Philadelphia;9482.11;Books;2024-07-19;24.65;no
+368;Andrew Gonzalez;Fort Worth;815.93;Electronics;2024-07-23;97.6;no
+369;Margaret Jones;New York;9555.64;Electronics;2023-11-19;34.48;no
+370;Richard Taylor;New York;5273.51;Sports;2024-11-16;33.73;yes
+371;Michelle Dupont;Philadelphia;3065.7;Electronics;2024-09-17;31.19;yes
+372;Mark Williams;Houston;860.93;Electronics;2023-10-15;12.21;no
+373;Michelle García;Houston;5056.18;Food;2024-10-24;11.11;yes
+374;Michelle Ramirez;Indianapolis;7965.7;Books;2024-09-30;64.81;no
+375;Richard Müller;Austin;7100.16;Food;2023-06-04;87.51;yes
+376;Jennifer Harris;Indianapolis;597.24;Electronics;2024-05-04;79.05;no
+377;Charles Thomas;Philadelphia;821.73;Sports;2024-01-21;14.11;no
+378;Michelle Lewis;Indianapolis;4088.45;Food;2023-04-14;54.56;yes
+379;Steven Gonzalez;Columbus;3023.38;Food;2024-01-28;10.56;no
+380;François Sanchez;Jacksonville;2400.6;Clothing;2023-09-03;4.53;no
+381;María González;Austin;2881.94;Electronics;2023-06-25;65.64;yes
+382;Anthony Rodríguez;San Antonio;8054.48;Sports;2023-02-08;53.52;no
+383;Michael Jones;Dallas;9299.36;Food;2024-04-21;8.2;yes
+384;François Young;San Jose;4110.52;Food;2024-11-12;3.49;no
+385;Daniel Martinez;Phoenix;9070.5;Sports;2024-06-21;98.98;yes
+386;Ashley Walker;Dallas;3282.81;Electronics;2024-02-12;3.0;no
+387;Joshua Young;Houston;4816.73;Clothing;2024-06-08;44.45;no
+388;Sarah González;Fort Worth;2337.69;Food;2024-05-20;50.46;no
+389;Mary Wilson;San Jose;6440.71;Clothing;2023-02-05;11.73;no
+390;Richard Robinson;Los Angeles;9791.91;Books;2024-11-15;16.91;yes
+391;Elizabeth Johnson;Chicago;6074.58;Electronics;2023-01-20;35.18;yes
+392;Ashley Gonzalez;Fort Worth;3642.36;Books;2023-11-17;76.17;yes
+393;Jean Ramirez;Austin;6513.39;Books;2024-05-26;50.71;yes
+394;André Taylor;New York;1316.91;Books;2024-02-04;63.79;yes
+395;Michelle Young;Columbus;8897.72;Electronics;2024-10-15;98.52;yes
+396;Kimberly Harris;Columbus;5080.53;Electronics;2024-04-15;76.8;yes
+397;Pierre López;Philadelphia;4548.56;Sports;2023-05-23;43.44;no
+398;Stéphanie Garcia;Fort Worth;5900.06;Clothing;2023-04-02;44.64;no
+399;Charles Walker;Philadelphia;6285.36;Clothing;2023-12-20;61.88;no
+400;Michael Martinez;New York;810.58;Sports;2024-12-27;66.54;no
+401;André Dupont;Austin;6857.91;Sports;2023-02-20;50.07;yes
+402;Kimberly Lewis;Fort Worth;2495.12;Books;2024-10-26;64.49;yes
+403;Joseph Walker;Chicago;7168.13;Sports;2024-11-28;2.35;yes
+404;Andrew Robinson;Phoenix;8243.09;Food;2024-07-28;42.96;no
+405;Nancy Brown;Chicago;8059.19;Clothing;2023-07-09;27.89;yes
+406;Karen Dupont;San Jose;5569.76;Sports;2023-05-05;12.92;no
+407;Emily Brown;Chicago;5249.68;Food;2023-05-30;9.95;yes
+408;Anthony Taylor;Columbus;1514.47;Food;2023-11-10;60.32;yes
+409;Elizabeth Thompson;San Jose;7775.93;Food;2024-07-23;52.36;yes
+410;Thomas Martinez;Chicago;2786.95;Food;2023-12-08;25.36;yes
+411;James Thompson;Phoenix;5017.28;Books;2023-11-01;47.1;no
+412;Betty Moore;Fort Worth;2914.31;Food;2024-11-22;49.22;no
+413;Susan Robinson;Phoenix;1424.9;Books;2024-11-12;19.5;yes
+414;Elizabeth González;Houston;6332.62;Books;2023-02-23;65.21;no
+415;Paul Lopez;New York;637.89;Food;2024-03-19;78.09;yes
+416;Michael Robinson;Phoenix;7511.59;Clothing;2024-09-04;79.15;yes
+417;David Müller;San Jose;3244.11;Food;2023-09-21;60.25;yes
+418;Jennifer Anderson;Phoenix;101.33;Food;2023-02-22;51.16;yes
+419;Ashley Hernandez;Houston;5160.18;Food;2024-07-25;6.1;no
+420;Daniel Clark;Philadelphia;563.83;Clothing;2024-09-11;28.78;yes
+421;Kimberly García;San Jose;2834.08;Electronics;2023-01-05;9.33;yes
+422;Mark Brown;Houston;7099.07;Electronics;2023-04-13;96.38;no
+423;Thomas López;Columbus;720.63;Books;2023-07-15;13.51;yes
+424;Richard Anderson;San Antonio;8409.45;Books;2023-12-16;15.18;no
+425;Mark Robinson;San Antonio;137.82;Clothing;2023-02-16;88.96;yes
+426;David Dupont;Los Angeles;2543.56;Sports;2024-10-17;94.39;yes
+427;Mary Wilson;Chicago;7434.95;Electronics;2023-09-26;76.58;yes
+428;Karen Thompson;New York;3231.07;Books;2024-01-05;0.54;yes
+429;David Ramirez;San Diego;1108.73;Electronics;2024-09-27;0.13;yes
+430;John Taylor;Dallas;3666.32;Clothing;2023-04-16;37.81;yes
+431;José Lewis;Houston;2776.89;Clothing;2024-10-31;14.34;no
+432;Mark Lee;Philadelphia;8442.85;Sports;2024-10-20;1.84;yes
+433;Sébastien Thomas;Dallas;3202.14;Sports;2024-10-18;46.41;no
+434;Andrew Martin;Philadelphia;7910.43;Clothing;2023-04-30;94.31;no
+435;Jennifer Jackson;Columbus;8929.53;Books;2024-08-26;32.38;yes
+436;Robert Williams;Jacksonville;4394.79;Electronics;2023-02-27;66.11;no
+437;James Rodríguez;Jacksonville;9108.44;Food;2023-12-12;65.22;yes
+438;Joseph García;Jacksonville;3835.45;Sports;2024-04-18;25.11;no
+439;Paul Sanchez;Dallas;9644.38;Food;2023-04-27;65.04;yes
+440;Lisa Lopez;Indianapolis;983.97;Books;2023-05-07;21.23;no
+441;Sarah Anderson;Houston;6901.49;Sports;2024-01-28;12.2;no
+442;José Thomas;San Diego;4988.76;Food;2024-10-02;70.14;yes
+443;Anthony Davis;Dallas;3937.72;Books;2023-02-27;11.34;no
+444;Jean Sanchez;Houston;6363.85;Electronics;2024-09-25;99.69;yes
+445;Thomas Robinson;Phoenix;7068.19;Books;2024-05-27;18.35;yes
+446;Linda Anderson;Columbus;143.2;Sports;2023-04-06;59.41;yes
+447;Anthony Miller;San Diego;1752.84;Clothing;2024-09-29;41.14;yes
+448;John Robinson;Jacksonville;7159.16;Electronics;2023-04-28;12.64;yes
+449;José Harris;San Jose;6697.22;Food;2024-07-13;2.78;no
+450;John Martin;Columbus;9663.87;Sports;2024-08-23;62.27;no
+451;Jean Anderson;Philadelphia;7634.27;Clothing;2024-05-02;80.68;no
+452;Matthew Walker;Jacksonville;9512.65;Books;2023-08-25;84.2;yes
+453;Susan Miller;San Antonio;7055.15;Clothing;2023-09-29;48.27;no
+454;Thomas Martin;Chicago;3050.72;Sports;2023-07-08;77.75;no
+455;Emily Rodriguez;San Antonio;1143.11;Sports;2024-12-04;67.28;no
+456;Donna Thompson;Jacksonville;7840.06;Clothing;2024-03-22;72.43;no
+457;Mary Harris;Columbus;6477.08;Books;2024-08-03;49.26;no
+458;Linda Hernandez;San Diego;577.04;Clothing;2023-09-04;63.34;yes
+459;Richard Taylor;San Jose;3664.5;Sports;2023-03-17;80.55;yes
+460;Linda Lee;Philadelphia;9572.32;Sports;2023-06-03;39.79;no
+461;Sarah Walker;Indianapolis;5053.97;Food;2024-10-17;80.6;yes
+462;Sarah Young;San Jose;4384.02;Food;2024-03-10;59.2;yes
+463;Donna Dupont;Dallas;4631.23;Electronics;2023-03-27;16.59;no
+464;David Sanchez;Fort Worth;2167.94;Sports;2024-11-27;2.47;no
+465;Steven Rodríguez;Philadelphia;3750.2;Food;2023-10-12;36.28;yes
+466;André Davis;Jacksonville;3761.15;Clothing;2023-08-08;54.67;no
+467;David Thompson;Dallas;618.31;Books;2023-03-10;83.98;yes
+468;Lisa Taylor;Fort Worth;7698.92;Clothing;2023-02-16;12.75;yes
+469;Elizabeth Dupont;Houston;4223.39;Books;2023-04-04;80.02;no
+470;Joseph Thomas;San Diego;8239.58;Food;2024-03-28;86.3;yes
+471;Nancy Lewis;Austin;8518.45;Electronics;2023-07-23;15.07;yes
+472;Karen Müller;Houston;2198.74;Clothing;2023-08-06;85.16;yes
+473;Barbara Dupont;Los Angeles;6607.8;Clothing;2024-04-18;99.15;no
+474;Steven Johnson;San Jose;4775.59;Clothing;2024-03-07;72.68;no
+475;Steven Müller;Austin;8813.55;Books;2023-12-07;78.48;no
+476;André Gonzalez;Dallas;2235.83;Food;2024-07-04;99.44;no
+477;Sandra Müller;Phoenix;6810.35;Clothing;2024-09-03;60.55;yes
+478;Richard Clark;Houston;6116.75;Clothing;2023-10-16;30.79;no
+479;Nancy Johnson;Los Angeles;3023.48;Electronics;2023-09-11;83.75;no
+480;Donna Clark;New York;1452.35;Electronics;2023-12-23;61.45;no
+481;Jean Anderson;Austin;6551.23;Food;2023-01-23;58.12;no
+482;Kimberly Hernandez;San Antonio;7412.11;Food;2024-06-05;25.36;yes
+483;John Garcia;Philadelphia;3224.71;Sports;2023-04-10;75.63;yes
+484;William Garcia;Indianapolis;6483.84;Electronics;2023-06-29;8.17;yes
+485;William Young;Indianapolis;4011.8;Sports;2023-08-11;92.43;no
+486;Ashley Lopez;Los Angeles;7160.75;Books;2024-10-20;32.58;no
+487;Linda Davis;San Diego;2072.23;Sports;2024-03-17;12.78;yes
+488;Margaret Martin;Austin;8913.13;Clothing;2024-08-30;44.24;no
+489;Sébastien Miller;Houston;2945.36;Sports;2023-11-21;4.25;no
+490;David Martin;San Diego;3741.08;Food;2024-05-30;68.46;yes
+491;Jessica Brown;Indianapolis;675.11;Books;2023-01-16;90.27;yes
+492;Jennifer Thompson;San Antonio;1203.97;Clothing;2023-12-02;83.73;no
+493;Betty Williams;Phoenix;5207.03;Sports;2023-09-15;12.74;no
+494;André Wilson;San Jose;2749.17;Books;2024-05-11;12.63;no
+495;David Moore;San Jose;8371.25;Books;2023-06-09;81.34;yes
+496;Elizabeth White;Jacksonville;245.46;Clothing;2024-04-19;92.43;yes
+497;Elizabeth Gonzalez;San Diego;3853.03;Sports;2024-10-25;46.07;yes
+498;Matthew Jackson;Columbus;3439.72;Books;2024-11-20;49.9;yes
+499;Jean González;Dallas;291.34;Books;2024-11-05;31.83;no
+500;Pierre Davis;Phoenix;1331.25;Electronics;2024-01-15;89.43;yes
+501;Mark Dupont;San Jose;4195.06;Books;2024-06-28;64.49;yes
+502;José Moore;Phoenix;4979.36;Electronics;2024-11-21;28.83;no
+503;Jennifer Moore;Los Angeles;4102.47;Sports;2024-03-02;29.88;no
+504;Charles Thompson;Phoenix;5356.28;Sports;2024-09-04;89.12;no
+505;Andrew Dupont;Chicago;5991.8;Sports;2023-09-25;1.36;yes
+506;André Williams;San Antonio;198.25;Food;2024-07-30;32.27;no
+507;Margaret Martinez;San Jose;4694.54;Sports;2024-02-21;55.44;no
+508;Paul Robinson;Phoenix;9638.64;Books;2023-06-17;14.82;yes
+509;Joseph Müller;San Diego;5238.42;Clothing;2023-02-12;9.21;yes
+510;Michael Lopez;New York;6807.67;Electronics;2024-07-09;81.53;no
+511;Sandra Lee;Chicago;3187.45;Food;2023-10-12;89.44;yes
+512;Donald Harris;Chicago;7762.51;Sports;2024-02-01;82.36;no
+513;Karen Pérez;Dallas;7751.92;Sports;2023-01-12;89.88;no
+514;Patricia Lewis;Phoenix;5260.83;Clothing;2024-08-29;55.31;yes
+515;José Martin;Jacksonville;9762.54;Clothing;2023-10-29;81.23;no
+516;Lisa Dupont;Dallas;1342.95;Food;2023-09-10;38.4;yes
+517;André González;Fort Worth;267.78;Electronics;2024-05-13;66.63;yes
+518;Kimberly González;Dallas;7724.57;Sports;2023-02-04;98.88;yes
+519;Mary Anderson;New York;8090.84;Food;2024-12-27;22.57;no
+520;Kimberly González;Los Angeles;1290.05;Books;2023-03-31;38.99;yes
+521;Jennifer Lopez;Phoenix;2729.27;Books;2024-08-27;48.0;yes
+522;John Moore;Houston;273.77;Food;2024-08-24;13.8;no
+523;Michelle Lee;Indianapolis;3003.76;Sports;2024-02-22;8.1;no
+524;Joseph Müller;San Jose;7754.1;Food;2023-04-25;82.97;no
+525;Paul Clark;Dallas;5227.81;Sports;2024-09-08;97.68;no
+526;Linda González;San Antonio;3546.15;Clothing;2023-07-15;40.47;yes
+527;Stéphanie Walker;Philadelphia;3780.22;Food;2024-05-15;8.76;yes
+528;Daniel Wilson;San Antonio;113.4;Sports;2024-09-17;6.58;yes
+529;Susan Johnson;New York;3068.03;Food;2024-05-07;89.13;no
+530;Andrew Jones;New York;6499.94;Food;2023-03-16;46.38;no
+531;Donna Wilson;San Diego;9744.52;Sports;2024-02-17;32.0;yes
+532;Joshua Sanchez;Fort Worth;8485.9;Sports;2024-01-11;47.65;no
+533;Karen Johnson;Fort Worth;333.59;Electronics;2024-02-24;31.83;no
+534;Joshua Garcia;Los Angeles;8995.75;Food;2024-12-29;48.9;yes
+535;Thomas Sanchez;Jacksonville;7853.66;Books;2023-10-04;85.96;yes
+536;Margaret Johnson;San Jose;7825.72;Food;2024-11-06;59.23;no
+537;Paul Pérez;Austin;4634.16;Food;2024-01-29;69.47;no
+538;Robert Smith;Dallas;4040.25;Sports;2024-04-01;36.47;no
+539;Michelle Lopez;San Antonio;3098.87;Food;2023-07-11;73.85;yes
+540;Emily White;Philadelphia;750.38;Food;2024-11-19;66.66;yes
+541;Sébastien Young;New York;2359.53;Books;2023-04-09;11.96;yes
+542;David Martinez;New York;2541.38;Sports;2024-07-01;57.26;yes
+543;John Wilson;Los Angeles;4892.36;Food;2023-04-06;25.67;yes
+544;Jessica Martinez;Philadelphia;7499.7;Clothing;2024-10-25;80.41;no
+545;Mark Martinez;Columbus;4790.72;Electronics;2024-10-24;42.59;no
+546;Elizabeth Walker;Philadelphia;672.66;Books;2023-07-09;99.47;no
+547;André Smith;Los Angeles;9582.12;Food;2023-02-06;9.25;yes
+548;Robert Martin;New York;9432.97;Clothing;2024-01-04;78.03;yes
+549;Linda Lopez;San Jose;7873.38;Food;2024-11-25;67.37;yes
+550;James Martin;Phoenix;9914.15;Food;2024-06-08;76.75;no
+551;Margaret Pérez;Phoenix;5490.38;Sports;2023-10-06;30.75;yes
+552;Sébastien Pérez;Los Angeles;9631.41;Sports;2023-08-05;49.21;yes
+553;Elizabeth Pérez;Philadelphia;848.49;Sports;2023-09-30;79.65;no
+554;José Lewis;Dallas;3720.24;Clothing;2023-03-03;23.25;yes
+555;Sébastien Anderson;Los Angeles;2331.27;Food;2024-08-18;22.6;no
+556;Jennifer Martin;San Jose;2038.75;Electronics;2024-12-29;55.11;yes
+557;Susan Johnson;Los Angeles;1493.95;Books;2023-12-08;52.36;yes
+558;William Pérez;Chicago;6261.9;Sports;2024-02-01;28.23;no
+559;Karen Clark;Fort Worth;7835.09;Sports;2024-11-29;29.81;no
+560;Mark Smith;San Antonio;5825.15;Food;2023-01-19;27.78;no
+561;Paul Garcia;Philadelphia;1554.93;Food;2023-06-26;77.15;no
+562;Andrew Jones;Jacksonville;8130.13;Clothing;2024-09-03;65.19;no
+563;Steven Wilson;San Diego;6395.95;Clothing;2024-01-31;83.24;no
+564;Elizabeth Martin;Indianapolis;3942.84;Sports;2024-03-20;97.55;yes
+565;Lisa García;San Diego;6773.89;Food;2023-08-21;47.42;yes
+566;Matthew Robinson;Philadelphia;2673.06;Electronics;2023-03-17;6.67;no
+567;Joshua Young;Jacksonville;3517.4;Books;2023-09-22;4.81;yes
+568;Sébastien White;Austin;9183.11;Food;2024-03-30;29.57;no
+569;José Rodríguez;San Jose;2975.99;Food;2024-12-18;93.25;yes
+570;Karen White;Chicago;4752.88;Clothing;2024-01-19;52.32;no
+571;Pierre Thomas;Chicago;8912.4;Books;2024-07-17;27.18;yes
+572;María Davis;Indianapolis;7106.44;Sports;2024-05-20;39.92;yes
+573;Christopher Smith;New York;715.81;Food;2024-01-02;59.86;yes
+574;Linda Robinson;San Antonio;1558.3;Sports;2023-05-24;65.29;yes
+575;Ashley Rodríguez;Phoenix;177.63;Food;2023-03-10;15.39;yes
+576;Robert Thompson;Houston;6346.13;Sports;2023-04-09;97.7;no
+577;Sébastien García;San Jose;4531.97;Books;2024-01-31;54.48;no
+578;James Clark;Indianapolis;1429.32;Clothing;2023-01-25;13.57;no
+579;François Martinez;Houston;9583.55;Books;2024-04-13;89.36;yes
+580;Sandra Moore;Columbus;5343.63;Electronics;2024-04-28;7.46;no
+581;Thomas Clark;Houston;2494.74;Clothing;2024-07-18;90.77;yes
+582;Linda Lopez;Philadelphia;5055.98;Books;2023-05-31;99.66;yes
+583;Anthony Davis;Indianapolis;6828.24;Electronics;2023-05-24;70.04;yes
+584;Matthew Brown;San Diego;854.77;Food;2024-07-22;77.04;no
+585;Steven Smith;San Diego;2819.57;Food;2023-02-08;33.73;yes
+586;Charles Young;Phoenix;8088.96;Sports;2023-04-19;94.16;no
+587;Jessica Wilson;Indianapolis;4650.68;Clothing;2024-11-23;52.97;no
+588;Stéphanie Jones;Philadelphia;5511.11;Food;2023-02-11;73.24;yes
+589;André Clark;Houston;4384.88;Clothing;2023-07-05;92.41;yes
+590;Margaret Johnson;Jacksonville;534.61;Food;2024-02-02;97.52;no
+591;Jennifer Rodriguez;Columbus;1740.92;Sports;2023-08-11;83.32;no
+592;Steven Sanchez;Austin;4510.86;Books;2024-09-25;30.3;no
+593;Stéphanie Gonzalez;Fort Worth;2170.94;Sports;2023-05-13;96.65;no
+594;William Gonzalez;Dallas;594.79;Electronics;2023-06-12;62.81;no
+595;Donald Hernandez;San Diego;8452.13;Food;2023-08-03;93.06;no
+596;Patricia García;San Jose;9813.81;Electronics;2023-08-23;67.61;yes
+597;Donna Brown;Jacksonville;7952.11;Electronics;2024-10-19;30.72;no
+598;Donna Jackson;San Jose;8552.47;Clothing;2024-08-10;37.0;no
+599;Jennifer García;New York;2495.57;Food;2023-01-09;55.05;no
+600;Sarah Gonzalez;Indianapolis;9610.21;Electronics;2023-03-15;79.0;no
+601;André White;Los Angeles;2049.56;Books;2024-05-06;31.8;yes
+602;Charles Hernandez;Dallas;9519.16;Electronics;2023-09-10;57.97;yes
+603;James Harris;San Diego;9948.71;Books;2023-08-18;34.56;no
+604;Michael Sanchez;Columbus;7146.06;Clothing;2024-06-02;81.58;no
+605;Christopher Anderson;Chicago;9813.32;Electronics;2023-06-23;46.67;no
+606;James Lopez;San Diego;5738.44;Sports;2024-10-14;7.67;yes
+607;Michael Anderson;Jacksonville;2669.46;Clothing;2023-06-17;16.61;yes
+608;Christopher Jackson;New York;4426.26;Books;2023-06-19;6.11;yes
+609;Mark Sanchez;San Jose;5976.25;Clothing;2024-01-28;49.93;yes
+610;Steven Dupont;Houston;823.51;Electronics;2024-09-25;10.63;yes
+611;Paul Rodríguez;Chicago;6261.2;Food;2023-07-13;11.41;yes
+612;Betty Hernandez;Philadelphia;9813.66;Food;2024-05-31;94.1;no
+613;Paul Davis;San Antonio;1982.07;Books;2023-01-29;87.27;yes
+614;Jean Wilson;Houston;7946.69;Books;2023-06-14;45.21;yes
+615;Barbara Johnson;San Antonio;9088.2;Food;2024-02-26;98.58;no
+616;Jean Rodriguez;Dallas;9442.65;Books;2023-12-05;0.02;yes
+617;John Lee;Austin;9605.34;Clothing;2024-10-09;61.4;no
+618;Betty Davis;Los Angeles;5262.45;Sports;2024-05-10;61.64;yes
+619;Stéphanie Johnson;Austin;9775.35;Sports;2023-12-31;45.74;no
+620;Jennifer Lewis;Chicago;7597.37;Clothing;2023-12-08;39.69;no
+621;Mark Clark;Phoenix;1700.55;Sports;2024-05-14;45.54;no
+622;Matthew Lopez;Chicago;4821.31;Electronics;2024-10-18;41.5;no
+623;Robert García;Austin;7211.48;Clothing;2024-05-25;73.05;no
+624;Stéphanie Pérez;San Diego;2548.67;Books;2023-11-23;13.54;yes
+625;Joseph González;Jacksonville;6442.09;Clothing;2023-08-05;19.76;yes
+626;Joseph White;San Jose;6699.34;Food;2023-10-28;18.05;no
+627;Jennifer Lee;San Diego;1710.73;Books;2023-05-12;26.25;no
+628;Daniel Thomas;San Diego;5694.34;Food;2023-03-11;52.53;no
+629;Sébastien Anderson;Jacksonville;7739.11;Books;2023-09-09;11.12;yes
+630;Matthew González;Jacksonville;5039.07;Sports;2024-02-19;86.82;no
+631;David Anderson;Dallas;219.82;Clothing;2024-03-20;29.74;no
+632;Patricia Lee;Houston;189.48;Electronics;2023-07-01;16.25;no
+633;Richard Thompson;Phoenix;3634.59;Books;2023-06-16;67.56;no
+634;Charles García;Phoenix;9269.32;Books;2023-04-01;3.81;yes
+635;Susan Brown;San Diego;2363.9;Food;2024-12-14;62.0;no
+636;Stéphanie Ramirez;San Antonio;6380.2;Sports;2024-06-14;69.82;no
+637;Mark Lewis;Dallas;2298.55;Food;2023-02-08;21.49;yes
+638;Paul Davis;Indianapolis;3284.53;Food;2023-05-06;4.2;no
+639;Jessica González;Indianapolis;8495.62;Sports;2024-03-26;36.36;no
+640;Sandra Moore;Columbus;7315.73;Electronics;2023-06-22;9.86;yes
+641;Mary Gonzalez;San Diego;1044.45;Food;2024-10-14;11.65;yes
+642;Patricia Clark;Los Angeles;4344.15;Food;2023-08-08;25.43;yes
+643;Matthew Walker;San Jose;388.78;Books;2024-09-29;29.55;no
+644;David Miller;Jacksonville;4860.81;Sports;2023-02-27;53.0;no
+645;Donald Martinez;Houston;6658.1;Clothing;2024-10-21;67.84;yes
+646;Joshua Gonzalez;Philadelphia;1273.18;Electronics;2024-04-20;59.28;yes
+647;Donald Miller;Jacksonville;2959.96;Electronics;2024-03-31;14.84;yes
+648;María González;Los Angeles;4038.58;Sports;2023-12-27;17.21;no
+649;Karen Brown;San Antonio;9203.36;Books;2023-01-01;87.88;no
+650;Michael Smith;Chicago;9933.22;Books;2024-01-22;55.84;yes
+651;José Gonzalez;Fort Worth;544.62;Sports;2023-12-14;86.99;no
+652;Nancy Lee;Chicago;7633.98;Books;2023-07-09;37.15;yes
+653;Nancy Lewis;Austin;3780.07;Electronics;2024-05-19;61.44;no
+654;William Clark;Los Angeles;3985.34;Electronics;2023-07-10;52.37;no
+655;William Anderson;Austin;7567.22;Clothing;2024-05-22;31.91;no
+656;Barbara Harris;San Diego;9192.42;Sports;2024-01-04;46.99;no
+657;María Davis;Philadelphia;9514.19;Food;2024-02-13;50.25;yes
+658;Lisa Thomas;New York;5813.51;Food;2023-04-27;20.08;no
+659;Betty Ramirez;Jacksonville;3635.5;Clothing;2023-05-14;31.5;no
+660;Andrew Brown;New York;7896.74;Clothing;2023-02-27;79.14;yes
+661;Lisa Jackson;San Antonio;2584.91;Books;2024-07-09;91.58;no
+662;Emily Martinez;San Diego;5684.33;Clothing;2024-11-15;35.98;yes
+663;Matthew Moore;Phoenix;3649.93;Clothing;2024-11-02;30.7;yes
+664;Charles González;Jacksonville;6600.65;Food;2023-06-22;19.52;no
+665;Barbara Müller;Austin;2479.95;Books;2023-05-29;67.85;no
+666;Robert López;Phoenix;1996.77;Clothing;2023-03-21;32.31;yes
+667;José García;Houston;9190.57;Clothing;2023-08-01;98.77;yes
+668;Steven Lee;Columbus;1107.86;Books;2023-07-22;32.57;yes
+669;Thomas Thompson;Philadelphia;5108.98;Sports;2023-08-17;39.41;no
+670;Stéphanie Pérez;Columbus;2286.44;Books;2024-11-06;60.33;yes
+671;Joseph López;Philadelphia;485.41;Food;2023-08-15;80.17;yes
+672;Margaret Miller;Chicago;456.59;Sports;2024-10-20;46.95;yes
+673;Ashley Hernandez;Dallas;1834.7;Electronics;2024-06-15;42.27;no
+674;Barbara Rodriguez;Jacksonville;8681.03;Books;2024-03-16;99.56;yes
+675;Susan Gonzalez;Austin;2896.54;Food;2024-02-06;1.05;no
+676;Matthew Johnson;Columbus;9509.55;Sports;2023-02-16;89.51;no
+677;Paul Miller;San Antonio;5858.06;Books;2023-08-21;14.91;yes
+678;Christopher Moore;New York;4422.48;Clothing;2023-11-01;78.59;no
+679;John Hernandez;Indianapolis;5842.88;Books;2024-06-09;61.79;yes
+680;Joshua Harris;Fort Worth;5215.31;Electronics;2023-05-23;34.18;no
+681;Jean Jackson;San Antonio;7611.88;Books;2024-02-19;87.39;no
+682;Patricia Clark;Phoenix;2896.71;Sports;2024-05-27;1.29;yes
+683;Donna Dupont;Phoenix;3595.2;Sports;2024-01-08;22.67;yes
+684;Joshua González;Columbus;8951.53;Books;2024-07-19;56.69;yes
+685;Michelle Pérez;Fort Worth;9469.92;Sports;2023-09-16;35.15;no
+686;Steven González;Los Angeles;8936.33;Clothing;2024-10-17;61.04;no
+687;John Rodriguez;Houston;4252.54;Books;2024-04-15;2.41;yes
+688;Linda Müller;Jacksonville;7825.62;Clothing;2023-01-12;11.65;yes
+689;Jennifer Brown;Philadelphia;4815.72;Clothing;2023-11-26;12.71;no
+690;Richard Johnson;San Jose;5025.64;Food;2023-12-24;18.93;no
+691;Robert Ramirez;Indianapolis;2126.33;Books;2024-02-12;45.93;no
+692;Ashley Lee;Austin;5952.19;Sports;2024-10-29;75.21;yes
+693;Linda Rodríguez;San Antonio;1942.75;Clothing;2024-01-08;90.55;no
+694;Linda Williams;Austin;3382.49;Food;2023-01-08;83.54;yes
+695;José Williams;Phoenix;8564.8;Books;2023-05-02;19.69;no
+696;Nancy Garcia;Dallas;2150.05;Books;2023-12-14;44.12;no
+697;Mary White;Chicago;804.47;Electronics;2024-11-06;19.94;yes
+698;José Johnson;New York;783.18;Electronics;2023-03-31;26.45;yes
+699;Donna Taylor;Houston;9413.77;Clothing;2024-10-09;50.35;yes
+700;Paul García;Dallas;5118.51;Electronics;2024-11-28;6.81;no
+701;Daniel Walker;Houston;4153.18;Clothing;2023-11-12;21.82;no
+702;Linda Thompson;Los Angeles;8127.7;Sports;2023-06-27;93.54;no
+703;José González;San Jose;8374.68;Clothing;2024-06-23;46.61;yes
+704;Robert Gonzalez;Columbus;3388.69;Electronics;2023-02-10;44.54;no
+705;Mark Young;Columbus;6966.82;Sports;2024-12-04;1.46;yes
+706;Sébastien Thomas;Phoenix;7734.12;Electronics;2024-05-16;24.74;yes
+707;María Walker;Chicago;6581.04;Clothing;2023-05-25;86.63;yes
+708;Jessica Lopez;Fort Worth;1600.79;Food;2023-07-20;16.46;no
+709;Thomas Thomas;Jacksonville;8771.24;Books;2024-12-24;41.51;no
+710;Elizabeth Davis;Fort Worth;5437.04;Electronics;2024-04-05;1.43;yes
+711;Karen Williams;Dallas;2896.48;Clothing;2024-07-11;47.83;no
+712;Jessica Walker;Houston;4309.76;Sports;2024-06-30;2.1;yes
+713;Pierre White;Philadelphia;471.95;Electronics;2023-09-10;81.96;yes
+714;Margaret Jones;Los Angeles;1365.88;Electronics;2024-01-25;82.49;no
+715;Karen Smith;Philadelphia;7678.91;Books;2024-08-16;78.77;yes
+716;Sandra Lee;Chicago;100.12;Clothing;2023-09-13;28.34;yes
+717;Karen Garcia;Jacksonville;4224.0;Food;2024-12-09;83.72;no
+718;Nancy Moore;Jacksonville;5272.85;Sports;2024-03-25;54.3;yes
+719;Linda Dupont;Dallas;640.88;Clothing;2023-01-10;37.38;yes
+720;Steven Thomas;Austin;9733.47;Sports;2023-08-30;62.53;yes
+721;Elizabeth Rodríguez;Los Angeles;2338.64;Electronics;2023-09-08;1.23;yes
+722;Kimberly Wilson;Indianapolis;3111.57;Books;2023-01-05;14.3;yes
+723;Emily Müller;Jacksonville;3109.03;Books;2023-04-29;74.23;yes
+724;Daniel Johnson;Jacksonville;2381.12;Food;2024-01-09;24.42;yes
+725;André Lee;Dallas;114.59;Books;2023-03-06;59.8;no
+726;Mary Ramirez;Phoenix;7320.51;Electronics;2023-05-26;38.51;no
+727;William Smith;San Diego;9671.77;Food;2023-08-12;85.48;yes
+728;David Williams;Los Angeles;2320.51;Clothing;2023-08-27;95.24;yes
+729;Daniel Clark;Philadelphia;6664.17;Books;2023-06-26;88.36;no
+730;Patricia Moore;Chicago;7444.77;Food;2023-10-09;27.06;no
+731;Jennifer López;Jacksonville;8499.41;Electronics;2023-03-04;19.42;no
+732;Nancy Anderson;Jacksonville;4284.03;Sports;2023-08-05;47.44;no
+733;Nancy Pérez;Columbus;3099.02;Sports;2024-11-19;0.73;no
+734;María Lopez;San Jose;3320.42;Electronics;2024-04-05;2.58;yes
+735;Sébastien Rodríguez;Phoenix;7154.95;Electronics;2024-09-01;55.33;no
+736;Sarah López;Jacksonville;8186.12;Sports;2023-04-15;52.04;no
+737;Sandra Harris;San Diego;1897.98;Food;2023-04-09;99.46;no
+738;María Walker;San Jose;3772.32;Sports;2024-05-25;20.18;yes
+739;Susan Garcia;Columbus;9029.21;Electronics;2024-01-20;25.81;yes
+740;John Thomas;New York;8086.27;Books;2024-02-09;11.35;yes
+741;Michael Wilson;Phoenix;9850.1;Clothing;2024-06-01;91.75;yes
+742;William Anderson;Chicago;7567.06;Books;2024-04-20;77.78;yes
+743;Christopher López;Houston;3992.63;Books;2024-12-09;82.23;yes
+744;Mary Ramirez;Los Angeles;5947.31;Electronics;2024-10-06;90.28;no
+745;Mary López;Dallas;6644.04;Sports;2024-03-12;52.49;yes
+746;Sarah Wilson;Chicago;876.71;Food;2023-01-23;45.12;yes
+747;Karen Moore;Indianapolis;5490.52;Books;2024-07-18;33.04;no
+748;Barbara Sanchez;Los Angeles;7122.28;Sports;2024-11-07;58.92;yes
+749;Mary Sanchez;San Jose;1756.48;Food;2024-12-14;45.43;no
+750;Steven González;Austin;7828.25;Books;2024-04-02;45.16;no
+751;Donald Wilson;Dallas;5879.35;Food;2023-03-24;93.69;yes
+752;James Thomas;San Antonio;9527.0;Sports;2023-05-25;98.4;no
+753;Jean Williams;Philadelphia;519.98;Clothing;2023-03-26;79.65;no
+754;Paul Garcia;New York;2726.73;Sports;2023-03-19;75.68;no
+755;Matthew Gonzalez;Phoenix;6055.38;Electronics;2024-04-01;68.06;no
+756;Kimberly Davis;Jacksonville;3035.94;Food;2023-01-01;16.61;yes
+757;Christopher García;Austin;7172.8;Clothing;2023-02-20;5.91;no
+758;Patricia Sanchez;Columbus;7614.15;Food;2024-11-15;69.07;yes
+759;Joseph Brown;Indianapolis;1114.91;Food;2024-12-17;72.88;no
+760;Pierre Lopez;Austin;5187.16;Books;2024-03-21;4.7;no
+761;Ashley Dupont;Chicago;5138.02;Electronics;2024-03-24;92.81;no
+762;Margaret Gonzalez;New York;3755.88;Food;2024-05-02;9.11;yes
+763;Donald Wilson;Houston;9335.96;Sports;2023-02-03;28.59;yes
+764;Karen Moore;Fort Worth;8292.31;Sports;2023-12-14;67.24;yes
+765;Mark Garcia;Los Angeles;7002.37;Books;2023-04-05;16.99;no
+766;Ashley Robinson;Los Angeles;7171.83;Electronics;2023-03-13;5.54;no
+767;François Johnson;Chicago;4670.99;Electronics;2024-07-04;33.11;no
+768;Daniel Jackson;San Diego;9217.85;Sports;2023-06-03;76.6;no
+769;Donald Jones;San Diego;6976.49;Clothing;2023-09-07;41.37;yes
+770;Charles García;Jacksonville;7316.91;Books;2024-11-04;65.3;no
+771;Barbara Sanchez;Indianapolis;8630.74;Books;2024-03-13;57.96;yes
+772;Mary Hernandez;San Antonio;2813.31;Sports;2023-04-28;2.22;no
+773;Donald Anderson;Philadelphia;8090.0;Sports;2023-11-02;98.85;yes
+774;William White;Dallas;2032.88;Clothing;2023-09-25;4.14;yes
+775;Charles Rodriguez;Houston;3518.89;Clothing;2023-02-23;96.78;no
+776;Paul Lee;Jacksonville;3422.54;Electronics;2023-08-24;54.99;no
+777;William Lewis;New York;9787.4;Books;2024-01-24;96.32;yes
+778;Jean Miller;San Diego;8579.72;Books;2024-02-05;11.48;no
+779;Jessica Thomas;San Antonio;7041.58;Sports;2024-09-15;49.04;no
+780;Steven Brown;San Antonio;7297.86;Electronics;2023-10-30;16.95;yes
+781;Patricia Taylor;Indianapolis;5664.52;Books;2023-07-26;5.1;yes
+782;Andrew Robinson;Chicago;9476.2;Electronics;2023-08-17;61.75;yes
+783;Emily Rodríguez;Houston;5012.96;Electronics;2024-07-31;20.78;yes
+784;Joshua Pérez;San Jose;3867.13;Sports;2023-03-16;58.77;no
+785;Paul Miller;Dallas;1714.05;Electronics;2024-03-10;11.24;yes
+786;Anthony Lewis;Indianapolis;7883.44;Clothing;2023-04-13;33.2;yes
+787;Nancy Wilson;Philadelphia;7370.99;Clothing;2024-02-26;78.16;yes
+788;Michael Pérez;Indianapolis;3905.11;Food;2024-12-04;43.71;no
+789;Nancy Jones;Indianapolis;349.41;Sports;2023-11-02;62.77;yes
+790;Mary Ramirez;Phoenix;8406.07;Food;2023-04-08;64.75;no
+791;Christopher Rodríguez;Chicago;213.04;Clothing;2023-12-01;84.38;yes
+792;Joseph Lee;Dallas;7066.63;Food;2024-03-10;32.49;yes
+793;Barbara White;Phoenix;9705.55;Sports;2024-03-22;68.73;no
+794;Joshua Jones;Phoenix;4432.85;Sports;2023-11-04;96.16;yes
+795;James Gonzalez;Columbus;2426.24;Electronics;2023-09-06;73.02;yes
+796;Christopher Clark;Houston;7078.22;Books;2023-06-15;48.99;no
+797;Pierre Lee;Columbus;8189.57;Electronics;2024-04-25;63.07;yes
+798;Sarah Pérez;Houston;5509.66;Sports;2023-12-01;73.97;yes
+799;Pierre Dupont;Jacksonville;9673.65;Clothing;2024-06-25;61.23;yes
+800;Emily Taylor;New York;611.52;Clothing;2023-04-16;1.67;yes

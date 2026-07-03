@@ -1,0 +1,12 @@
+{
+  "scenario": "full_pipeline",
+  "checks": [
+    {"pattern": "ckpt_01_*.csv", "description": "Loaded data checkpoint exists"},
+    {"pattern": "ckpt_02_*", "description": "Profiling checkpoint exists"},
+    {"pattern": "ckpt_03_*.csv", "description": "Cleaned data checkpoint exists"},
+    {"pattern": "ckpt_04_*", "description": "Validation checkpoint exists"},
+    {"pattern": "ckpt_05_*.json", "description": "Stats checkpoint exists"},
+    {"pattern": "*.png", "description": "Chart image generated"},
+    {"pattern": "*report*.md", "description": "Report generated"}
+  ]
+}

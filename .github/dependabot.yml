@@ -1,0 +1,46 @@
+# Dependabot — keep CLI (npm), skills (pip), and CI (GitHub Actions) patched.
+# Docs: https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+#
+# v1 policy: open update PRs, but do NOT auto-merge. Auto-merge is deferred.
+
+version: 2
+
+updates:
+  # CLI installer — npm (lives in cli/, not the repo root)
+  - package-ecosystem: "npm"
+    directory: "/cli"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels:
+      - "type: chore"
+      - "domain: cli"
+    commit-message:
+      prefix: "chore(deps-cli)"
+
+  # Skills — Python (root requirements.txt)
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels:
+      - "type: chore"
+      - "domain: data"
+    commit-message:
+      prefix: "chore(deps-py)"
+    # data-designer is intentionally pinned (==0.6.0) for engine parity — don't auto-bump it.
+    ignore:
+      - dependency-name: "data-designer"
+
+  # CI workflows — keep actions/* versions current
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 5
+    labels:
+      - "type: chore"
+      - "domain: ci-cd"
+    commit-message:
+      prefix: "chore(deps-ci)"

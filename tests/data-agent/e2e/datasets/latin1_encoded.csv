@@ -1,0 +1,501 @@
+id,name,city,description,amount
+1,Béatrice Pérez,Montréal,Société d'électronique et de télécommunications,1582.07
+2,Amélie Rodríguez,Montréal,Restaurant français avec cuisine traditionnelle,4297.05
+3,Stéphanie González,Montréal,Restaurant français avec cuisine traditionnelle,1614.54
+4,Jérôme López,Zürich,Musée d'art contemporain et d'histoire naturelle,2428.83
+5,Béatrice Rodríguez,Strasbourg,Société d'électronique et de télécommunications,8705.67
+6,Stéphanie Pérez,Genève,Pâtisserie artisanale proposant des spécialités régionales,4781.63
+7,Céline Rodríguez,Bruxelles,Pâtisserie artisanale proposant des spécialités régionales,5400.05
+8,José Lefèvre,Strasbourg,Librairie spécialisée en littérature étrangère,1866.62
+9,Stéphanie García,Bruxelles,Université renommée pour la recherche scientifique,3191.49
+10,Céline Lefèvre,München,Hôtel de qualité supérieure au centre-ville,2379.44
+11,François Dupré,Québec,Pâtisserie artisanale proposant des spécialités régionales,2141.24
+12,André Sánchez,Québec,Société d'électronique et de télécommunications,6415.81
+13,Sébastien Martínez,São Paulo,Restaurant français avec cuisine traditionnelle,2643.15
+14,André Sánchez,Québec,Pâtisserie artisanale proposant des spécialités régionales,6356.95
+15,Émilie López,Zürich,Restaurant français avec cuisine traditionnelle,678.7
+16,Émilie González,Málaga,Pâtisserie artisanale proposant des spécialités régionales,1503.57
+17,María Martínez,Paris,Hôtel de qualité supérieure au centre-ville,2817.95
+18,José Dupré,São Paulo,Pâtisserie artisanale proposant des spécialités régionales,6010.76
+19,José González,Paris,Société d'électronique et de télécommunications,6790.83
+20,Stéphanie Martínez,Bruxelles,Pâtisserie artisanale proposant des spécialités régionales,4482.9
+21,Béatrice García,Paris,Université renommée pour la recherche scientifique,4513.33
+22,María Martínez,Paris,Hôtel de qualité supérieure au centre-ville,7272.72
+23,Émilie García,São Paulo,Société d'électronique et de télécommunications,256.63
+24,Jérôme Martínez,München,Musée d'art contemporain et d'histoire naturelle,3476.79
+25,Jérôme Dupré,Montréal,Société d'électronique et de télécommunications,8205.2
+26,François Pérez,Québec,Université renommée pour la recherche scientifique,6071.87
+27,Émilie González,Québec,Hôtel de qualité supérieure au centre-ville,3438.55
+28,Émilie Rodríguez,Zürich,Musée d'art contemporain et d'histoire naturelle,9064.7
+29,José Müller,São Paulo,Université renommée pour la recherche scientifique,7748.97
+30,María García,Zürich,Université renommée pour la recherche scientifique,2722.46
+31,Céline Pérez,Málaga,Café très agréable avec une belle terrasse,6488.37
+32,François Lefèvre,Málaga,Hôtel de qualité supérieure au centre-ville,5997.93
+33,Sébastien Sánchez,Zürich,Société d'électronique et de télécommunications,4071.76
+34,María Lefèvre,São Paulo,Restaurant français avec cuisine traditionnelle,3732.87
+35,François Sánchez,Zürich,Restaurant français avec cuisine traditionnelle,3501.25
+36,Émilie García,Québec,Société d'électronique et de télécommunications,6209.84
+37,Jérôme Pérez,Strasbourg,Société d'électronique et de télécommunications,4479.86
+38,Céline González,Genève,Hôtel de qualité supérieure au centre-ville,8335.44
+39,Émilie Martínez,Paris,Société d'électronique et de télécommunications,6729.07
+40,Céline Dupré,Genève,Café très agréable avec une belle terrasse,792.32
+41,François Dupré,São Paulo,Musée d'art contemporain et d'histoire naturelle,6437.67
+42,Céline Sánchez,Genève,Société d'électronique et de télécommunications,2784.36
+43,Hélène Martínez,Málaga,Restaurant français avec cuisine traditionnelle,5968.84
+44,André Martínez,Bruxelles,Société d'électronique et de télécommunications,6833.31
+45,Béatrice Martínez,Paris,Café très agréable avec une belle terrasse,2385.21
+46,Céline Müller,Montréal,Pâtisserie artisanale proposant des spécialités régionales,4622.9
+47,Émilie Rodríguez,São Paulo,Pâtisserie artisanale proposant des spécialités régionales,1984.22
+48,Céline López,Paris,Université renommée pour la recherche scientifique,618.15
+49,André Rodríguez,Genève,Librairie spécialisée en littérature étrangère,3846.92
+50,José López,Málaga,Musée d'art contemporain et d'histoire naturelle,3693.15
+51,André Dupré,München,Théâtre classique avec programmation variée,9955.26
+52,Jérôme González,Strasbourg,Université renommée pour la recherche scientifique,4518.89
+53,Jérôme Martínez,Montréal,Pâtisserie artisanale proposant des spécialités régionales,3402.34
+54,Émilie González,Strasbourg,Restaurant français avec cuisine traditionnelle,5846.7
+55,Hélène Rodríguez,Paris,Théâtre classique avec programmation variée,978.8
+56,Émilie García,Málaga,Université renommée pour la recherche scientifique,9620.49
+57,André González,Málaga,Théâtre classique avec programmation variée,6386.1
+58,Béatrice Rodríguez,Genève,Hôtel de qualité supérieure au centre-ville,7572.89
+59,Stéphanie López,Québec,Librairie spécialisée en littérature étrangère,1787.73
+60,Émilie Rodríguez,Genève,Hôtel de qualité supérieure au centre-ville,4153.83
+61,Sébastien López,Québec,Théâtre classique avec programmation variée,4284.62
+62,André López,Québec,Hôtel de qualité supérieure au centre-ville,8235.88
+63,Stéphanie López,Montréal,Café très agréable avec une belle terrasse,112.24
+64,André Dupré,Genève,Pâtisserie artisanale proposant des spécialités régionales,3078.45
+65,Jérôme González,München,Café très agréable avec une belle terrasse,9814.24
+66,Béatrice Martínez,Zürich,Société d'électronique et de télécommunications,4801.38
+67,Jérôme Sánchez,Zürich,Hôtel de qualité supérieure au centre-ville,3887.01
+68,Émilie López,Genève,Société d'électronique et de télécommunications,1286.31
+69,Béatrice Müller,Genève,Restaurant français avec cuisine traditionnelle,9744.23
+70,María Pérez,Strasbourg,Musée d'art contemporain et d'histoire naturelle,298.26
+71,Stéphanie González,Montréal,Restaurant français avec cuisine traditionnelle,7398.08
+72,Béatrice Pérez,Genève,Théâtre classique avec programmation variée,7709.14
+73,Béatrice López,Strasbourg,Pâtisserie artisanale proposant des spécialités régionales,2512.2
+74,Sébastien García,Québec,Hôtel de qualité supérieure au centre-ville,6748.43
+75,Jérôme Martínez,Málaga,Université renommée pour la recherche scientifique,1020.0
+76,Stéphanie Lefèvre,Málaga,Musée d'art contemporain et d'histoire naturelle,2644.77
+77,Émilie Pérez,Québec,Librairie spécialisée en littérature étrangère,7900.23
+78,Amélie Sánchez,São Paulo,Librairie spécialisée en littérature étrangère,8660.39
+79,Béatrice Martínez,Strasbourg,Librairie spécialisée en littérature étrangère,6124.02
+80,Béatrice Müller,Strasbourg,Hôtel de qualité supérieure au centre-ville,5117.7
+81,André Martínez,Québec,Librairie spécialisée en littérature étrangère,1677.11
+82,Amélie Martínez,München,Café très agréable avec une belle terrasse,724.78
+83,María Martínez,Bruxelles,Musée d'art contemporain et d'histoire naturelle,1264.73
+84,José González,Paris,Café très agréable avec une belle terrasse,2350.84
+85,Sébastien Rodríguez,Québec,Musée d'art contemporain et d'histoire naturelle,3482.58
+86,Amélie Martínez,Genève,Café très agréable avec une belle terrasse,3871.0
+87,Stéphanie Müller,Genève,Musée d'art contemporain et d'histoire naturelle,3528.59
+88,José Sánchez,Montréal,Société d'électronique et de télécommunications,2466.65
+89,Émilie Rodríguez,Québec,Hôtel de qualité supérieure au centre-ville,5146.27
+90,Amélie Lefèvre,Montréal,Hôtel de qualité supérieure au centre-ville,8270.33
+91,Céline Martínez,Québec,Librairie spécialisée en littérature étrangère,2869.07
+92,María Müller,Strasbourg,Restaurant français avec cuisine traditionnelle,9429.63
+93,André Sánchez,Paris,Librairie spécialisée en littérature étrangère,8746.03
+94,María González,Strasbourg,Théâtre classique avec programmation variée,1701.47
+95,François López,Bruxelles,Café très agréable avec une belle terrasse,7884.13
+96,André Dupré,Málaga,Musée d'art contemporain et d'histoire naturelle,5788.42
+97,André Rodríguez,Zürich,Restaurant français avec cuisine traditionnelle,5709.1
+98,André Müller,Québec,Théâtre classique avec programmation variée,3971.32
+99,François García,Bruxelles,Hôtel de qualité supérieure au centre-ville,5061.41
+100,Émilie Lefèvre,Málaga,Hôtel de qualité supérieure au centre-ville,4032.07
+101,Béatrice Dupré,São Paulo,Librairie spécialisée en littérature étrangère,5443.35
+102,André Müller,Paris,Café très agréable avec une belle terrasse,6316.71
+103,José García,Montréal,Restaurant français avec cuisine traditionnelle,6775.61
+104,Stéphanie Sánchez,Montréal,Pâtisserie artisanale proposant des spécialités régionales,5371.56
+105,Sébastien González,Strasbourg,Théâtre classique avec programmation variée,7242.08
+106,María González,Genève,Théâtre classique avec programmation variée,1498.65
+107,Amélie Rodríguez,Málaga,Librairie spécialisée en littérature étrangère,2198.63
+108,Amélie Müller,São Paulo,Hôtel de qualité supérieure au centre-ville,8205.48
+109,Sébastien Rodríguez,Bruxelles,Librairie spécialisée en littérature étrangère,3293.03
+110,Stéphanie Pérez,Paris,Musée d'art contemporain et d'histoire naturelle,326.65
+111,François Lefèvre,Málaga,Restaurant français avec cuisine traditionnelle,1622.53
+112,Sébastien Müller,São Paulo,Café très agréable avec une belle terrasse,2313.78
+113,Hélène Lefèvre,Zürich,Société d'électronique et de télécommunications,9577.5
+114,José Pérez,Québec,Université renommée pour la recherche scientifique,5773.11
+115,Émilie Pérez,Montréal,Université renommée pour la recherche scientifique,9334.03
+116,José Sánchez,Bruxelles,Librairie spécialisée en littérature étrangère,5794.12
+117,José López,Montréal,Musée d'art contemporain et d'histoire naturelle,4845.61
+118,María González,Bruxelles,Restaurant français avec cuisine traditionnelle,3205.9
+119,María Martínez,Strasbourg,Pâtisserie artisanale proposant des spécialités régionales,6103.07
+120,André Rodríguez,Genève,Université renommée pour la recherche scientifique,1478.06
+121,Béatrice García,Bruxelles,Restaurant français avec cuisine traditionnelle,8992.79
+122,Céline Müller,Montréal,Café très agréable avec une belle terrasse,8310.39
+123,Amélie Martínez,Strasbourg,Musée d'art contemporain et d'histoire naturelle,3243.56
+124,Hélène García,Bruxelles,Hôtel de qualité supérieure au centre-ville,9532.7
+125,Béatrice Sánchez,Zürich,Restaurant français avec cuisine traditionnelle,8269.49
+126,José González,Genève,Café très agréable avec une belle terrasse,6696.44
+127,Émilie Sánchez,Bruxelles,Pâtisserie artisanale proposant des spécialités régionales,1305.44
+128,Hélène Pérez,Strasbourg,Société d'électronique et de télécommunications,4834.52
+129,Émilie Müller,Málaga,Hôtel de qualité supérieure au centre-ville,5110.46
+130,François Müller,München,Société d'électronique et de télécommunications,2402.26
+131,Émilie Dupré,São Paulo,Pâtisserie artisanale proposant des spécialités régionales,891.66
+132,Stéphanie González,München,Café très agréable avec une belle terrasse,7789.56
+133,Hélène Martínez,München,Université renommée pour la recherche scientifique,1308.15
+134,José López,Paris,Société d'électronique et de télécommunications,5983.48
+135,José Pérez,Zürich,Hôtel de qualité supérieure au centre-ville,9370.85
+136,Céline Lefèvre,Málaga,Librairie spécialisée en littérature étrangère,8773.44
+137,Céline Müller,Québec,Théâtre classique avec programmation variée,2849.75
+138,Céline Pérez,Bruxelles,Restaurant français avec cuisine traditionnelle,8529.34
+139,Amélie Müller,São Paulo,Université renommée pour la recherche scientifique,103.29
+140,Céline Pérez,Genève,Société d'électronique et de télécommunications,275.11
+141,Sébastien Rodríguez,Málaga,Restaurant français avec cuisine traditionnelle,6065.28
+142,María López,Montréal,Librairie spécialisée en littérature étrangère,3711.5
+143,Hélène López,Québec,Pâtisserie artisanale proposant des spécialités régionales,3925.96
+144,Hélène García,Paris,Théâtre classique avec programmation variée,5687.97
+145,François García,Paris,Café très agréable avec une belle terrasse,1998.65
+146,Sébastien López,Málaga,Librairie spécialisée en littérature étrangère,2196.38
+147,Hélène Pérez,Strasbourg,Librairie spécialisée en littérature étrangère,4897.56
+148,André Pérez,München,Pâtisserie artisanale proposant des spécialités régionales,7567.11
+149,André Dupré,Montréal,Musée d'art contemporain et d'histoire naturelle,6233.03
+150,María Rodríguez,Paris,Pâtisserie artisanale proposant des spécialités régionales,3043.81
+151,Céline González,São Paulo,Musée d'art contemporain et d'histoire naturelle,4360.34
+152,José Müller,Paris,Musée d'art contemporain et d'histoire naturelle,1789.58
+153,André López,Genève,Université renommée pour la recherche scientifique,838.84
+154,Sébastien González,Bruxelles,Université renommée pour la recherche scientifique,7848.69
+155,Sébastien Lefèvre,Paris,Hôtel de qualité supérieure au centre-ville,2727.34
+156,Sébastien López,Genève,Société d'électronique et de télécommunications,1859.89
+157,Sébastien Rodríguez,Málaga,Société d'électronique et de télécommunications,6947.02
+158,Amélie García,Málaga,Café très agréable avec une belle terrasse,6218.71
+159,Stéphanie Müller,Québec,Société d'électronique et de télécommunications,6368.58
+160,Émilie Müller,Paris,Université renommée pour la recherche scientifique,2366.06
+161,Stéphanie López,São Paulo,Hôtel de qualité supérieure au centre-ville,2403.19
+162,María López,Paris,Hôtel de qualité supérieure au centre-ville,2285.95
+163,André Müller,São Paulo,Musée d'art contemporain et d'histoire naturelle,1820.15
+164,Émilie Dupré,Zürich,Pâtisserie artisanale proposant des spécialités régionales,6591.66
+165,Sébastien López,Québec,Café très agréable avec une belle terrasse,8495.36
+166,Émilie Martínez,Zürich,Musée d'art contemporain et d'histoire naturelle,7270.74
+167,Stéphanie Rodríguez,Paris,Pâtisserie artisanale proposant des spécialités régionales,7941.73
+168,André Dupré,Québec,Société d'électronique et de télécommunications,4107.5
+169,José Müller,Zürich,Musée d'art contemporain et d'histoire naturelle,6575.35
+170,María Dupré,München,Restaurant français avec cuisine traditionnelle,3606.94
+171,Béatrice Müller,Paris,Société d'électronique et de télécommunications,5302.5
+172,José García,Zürich,Pâtisserie artisanale proposant des spécialités régionales,4868.18
+173,Hélène Sánchez,München,Café très agréable avec une belle terrasse,1851.18
+174,Sébastien Sánchez,München,Pâtisserie artisanale proposant des spécialités régionales,3932.08
+175,José Rodríguez,Málaga,Musée d'art contemporain et d'histoire naturelle,9641.84
+176,Céline García,Paris,Musée d'art contemporain et d'histoire naturelle,2560.94
+177,Sébastien González,München,Librairie spécialisée en littérature étrangère,1424.66
+178,François Sánchez,Málaga,Café très agréable avec une belle terrasse,4243.95
+179,François Sánchez,Zürich,Société d'électronique et de télécommunications,7924.34
+180,André Rodríguez,Genève,Hôtel de qualité supérieure au centre-ville,5863.27
+181,André Martínez,Paris,Café très agréable avec une belle terrasse,6841.65
+182,Amélie Lefèvre,Québec,Hôtel de qualité supérieure au centre-ville,1977.98
+183,Béatrice Sánchez,São Paulo,Café très agréable avec une belle terrasse,6227.59
+184,Béatrice Sánchez,São Paulo,Café très agréable avec une belle terrasse,3302.65
+185,José García,Zürich,Pâtisserie artisanale proposant des spécialités régionales,8359.6
+186,Hélène Rodríguez,Strasbourg,Café très agréable avec une belle terrasse,6330.06
+187,Émilie Sánchez,Strasbourg,Librairie spécialisée en littérature étrangère,2068.68
+188,Béatrice Martínez,Zürich,Musée d'art contemporain et d'histoire naturelle,739.71
+189,María Pérez,München,Théâtre classique avec programmation variée,522.07
+190,André Rodríguez,Paris,Hôtel de qualité supérieure au centre-ville,3776.94
+191,Émilie López,São Paulo,Musée d'art contemporain et d'histoire naturelle,2731.93
+192,Béatrice García,São Paulo,Théâtre classique avec programmation variée,6496.29
+193,François González,München,Hôtel de qualité supérieure au centre-ville,5043.4
+194,Sébastien López,São Paulo,Hôtel de qualité supérieure au centre-ville,2733.59
+195,Hélène Sánchez,Québec,Théâtre classique avec programmation variée,1577.45
+196,Sébastien Sánchez,Paris,Café très agréable avec une belle terrasse,1359.28
+197,Jérôme Lefèvre,Bruxelles,Société d'électronique et de télécommunications,8660.14
+198,André Pérez,São Paulo,Restaurant français avec cuisine traditionnelle,2510.43
+199,Jérôme Lefèvre,Zürich,Musée d'art contemporain et d'histoire naturelle,6551.94
+200,Sébastien Dupré,Québec,Pâtisserie artisanale proposant des spécialités régionales,8125.79
+201,André Rodríguez,São Paulo,Musée d'art contemporain et d'histoire naturelle,6179.4
+202,Stéphanie Dupré,Québec,Pâtisserie artisanale proposant des spécialités régionales,8609.7
+203,Béatrice Pérez,Málaga,Théâtre classique avec programmation variée,3984.7
+204,Sébastien Pérez,Bruxelles,Pâtisserie artisanale proposant des spécialités régionales,9566.6
+205,José González,Montréal,Hôtel de qualité supérieure au centre-ville,1418.14
+206,Céline Pérez,Zürich,Société d'électronique et de télécommunications,1111.28
+207,François Sánchez,Zürich,Société d'électronique et de télécommunications,6621.05
+208,José Müller,Paris,Hôtel de qualité supérieure au centre-ville,9434.03
+209,Céline López,Québec,Librairie spécialisée en littérature étrangère,8107.95
+210,Émilie Sánchez,München,Théâtre classique avec programmation variée,856.53
+211,Béatrice Sánchez,Zürich,Librairie spécialisée en littérature étrangère,2865.74
+212,Stéphanie Sánchez,Québec,Librairie spécialisée en littérature étrangère,9310.16
+213,Stéphanie González,Québec,Musée d'art contemporain et d'histoire naturelle,2605.28
+214,Hélène Dupré,Genève,Musée d'art contemporain et d'histoire naturelle,7833.59
+215,André Sánchez,Genève,Restaurant français avec cuisine traditionnelle,8268.81
+216,Jérôme Müller,Montréal,Pâtisserie artisanale proposant des spécialités régionales,5004.98
+217,François Lefèvre,Málaga,Hôtel de qualité supérieure au centre-ville,3924.85
+218,Hélène Rodríguez,Montréal,Musée d'art contemporain et d'histoire naturelle,4556.23
+219,Stéphanie Müller,São Paulo,Théâtre classique avec programmation variée,2346.95
+220,Béatrice Dupré,München,Pâtisserie artisanale proposant des spécialités régionales,8904.97
+221,Sébastien González,São Paulo,Restaurant français avec cuisine traditionnelle,4561.13
+222,José Sánchez,Strasbourg,Restaurant français avec cuisine traditionnelle,8836.35
+223,José Dupré,São Paulo,Théâtre classique avec programmation variée,1146.37
+224,Sébastien Martínez,Paris,Librairie spécialisée en littérature étrangère,9883.93
+225,Émilie Dupré,São Paulo,Société d'électronique et de télécommunications,4488.4
+226,André Pérez,Montréal,Théâtre classique avec programmation variée,573.53
+227,Stéphanie Sánchez,Zürich,Université renommée pour la recherche scientifique,476.42
+228,Jérôme Dupré,Zürich,Théâtre classique avec programmation variée,7487.45
+229,Béatrice Pérez,Genève,Restaurant français avec cuisine traditionnelle,6624.45
+230,André Dupré,München,Hôtel de qualité supérieure au centre-ville,8041.09
+231,Béatrice Sánchez,München,Musée d'art contemporain et d'histoire naturelle,1143.14
+232,Jérôme Lefèvre,Paris,Hôtel de qualité supérieure au centre-ville,452.15
+233,Stéphanie Pérez,Montréal,Restaurant français avec cuisine traditionnelle,5134.93
+234,François Pérez,Genève,Musée d'art contemporain et d'histoire naturelle,3937.19
+235,Jérôme Sánchez,Strasbourg,Université renommée pour la recherche scientifique,4673.27
+236,José Sánchez,München,Société d'électronique et de télécommunications,9916.73
+237,André Rodríguez,Zürich,Pâtisserie artisanale proposant des spécialités régionales,9710.42
+238,Stéphanie Pérez,São Paulo,Restaurant français avec cuisine traditionnelle,9428.92
+239,Céline González,São Paulo,Restaurant français avec cuisine traditionnelle,7860.04
+240,François Müller,Genève,Restaurant français avec cuisine traditionnelle,3612.93
+241,Émilie Pérez,Montréal,Musée d'art contemporain et d'histoire naturelle,4180.1
+242,Céline García,Montréal,Café très agréable avec une belle terrasse,5541.2
+243,José Müller,Málaga,Théâtre classique avec programmation variée,8322.29
+244,André López,Bruxelles,Café très agréable avec une belle terrasse,780.26
+245,Amélie Dupré,München,Université renommée pour la recherche scientifique,4300.54
+246,Émilie López,Montréal,Société d'électronique et de télécommunications,917.91
+247,André Müller,Zürich,Librairie spécialisée en littérature étrangère,5195.11
+248,Céline Sánchez,Genève,Université renommée pour la recherche scientifique,8999.12
+249,Amélie García,Strasbourg,Librairie spécialisée en littérature étrangère,7846.6
+250,José García,Málaga,Librairie spécialisée en littérature étrangère,2355.64
+251,José González,Québec,Société d'électronique et de télécommunications,9762.31
+252,André Sánchez,Paris,Hôtel de qualité supérieure au centre-ville,6706.77
+253,Céline Sánchez,Strasbourg,Café très agréable avec une belle terrasse,203.23
+254,Jérôme Sánchez,Québec,Restaurant français avec cuisine traditionnelle,2628.59
+255,François López,São Paulo,Pâtisserie artisanale proposant des spécialités régionales,2681.06
+256,Hélène González,Paris,Librairie spécialisée en littérature étrangère,785.62
+257,María Sánchez,München,Université renommée pour la recherche scientifique,9602.28
+258,Stéphanie García,Zürich,Hôtel de qualité supérieure au centre-ville,4834.73
+259,Amélie Rodríguez,Paris,Librairie spécialisée en littérature étrangère,8968.56
+260,María Martínez,Bruxelles,Hôtel de qualité supérieure au centre-ville,3289.93
+261,Stéphanie Martínez,Québec,Hôtel de qualité supérieure au centre-ville,1339.81
+262,María Sánchez,München,Librairie spécialisée en littérature étrangère,4795.93
+263,Stéphanie Martínez,Bruxelles,Musée d'art contemporain et d'histoire naturelle,1228.17
+264,Céline López,São Paulo,Théâtre classique avec programmation variée,4911.55
+265,André López,Bruxelles,Restaurant français avec cuisine traditionnelle,9210.94
+266,María García,Málaga,Restaurant français avec cuisine traditionnelle,5255.6
+267,André González,Málaga,Musée d'art contemporain et d'histoire naturelle,6203.35
+268,Céline González,Genève,Restaurant français avec cuisine traditionnelle,1650.72
+269,Stéphanie Müller,Strasbourg,Hôtel de qualité supérieure au centre-ville,532.98
+270,Béatrice González,Strasbourg,Société d'électronique et de télécommunications,1197.0
+271,Hélène López,München,Université renommée pour la recherche scientifique,6025.46
+272,Hélène Müller,São Paulo,Café très agréable avec une belle terrasse,1040.62
+273,André Pérez,Montréal,Restaurant français avec cuisine traditionnelle,3822.33
+274,Hélène Lefèvre,Málaga,Société d'électronique et de télécommunications,5545.91
+275,Amélie López,München,Librairie spécialisée en littérature étrangère,3947.66
+276,André Pérez,Montréal,Théâtre classique avec programmation variée,1720.47
+277,Émilie Martínez,Strasbourg,Hôtel de qualité supérieure au centre-ville,2810.53
+278,José Martínez,Genève,Théâtre classique avec programmation variée,9290.34
+279,Béatrice Pérez,Bruxelles,Université renommée pour la recherche scientifique,6792.22
+280,José Sánchez,Málaga,Université renommée pour la recherche scientifique,5010.87
+281,Stéphanie Dupré,München,Musée d'art contemporain et d'histoire naturelle,225.88
+282,José Martínez,Paris,Pâtisserie artisanale proposant des spécialités régionales,9924.91
+283,María Dupré,Montréal,Musée d'art contemporain et d'histoire naturelle,6747.4
+284,María Dupré,Bruxelles,Société d'électronique et de télécommunications,3237.53
+285,Béatrice Martínez,Málaga,Théâtre classique avec programmation variée,8804.76
+286,Béatrice Dupré,Strasbourg,Pâtisserie artisanale proposant des spécialités régionales,2658.47
+287,Jérôme Sánchez,São Paulo,Librairie spécialisée en littérature étrangère,5485.76
+288,Béatrice Sánchez,Montréal,Hôtel de qualité supérieure au centre-ville,6397.1
+289,Stéphanie López,Strasbourg,Théâtre classique avec programmation variée,2288.53
+290,Béatrice García,Málaga,Musée d'art contemporain et d'histoire naturelle,9786.13
+291,Émilie Martínez,Montréal,Café très agréable avec une belle terrasse,7507.1
+292,Jérôme Sánchez,Bruxelles,Pâtisserie artisanale proposant des spécialités régionales,5622.35
+293,Émilie Müller,Málaga,Pâtisserie artisanale proposant des spécialités régionales,1887.89
+294,Sébastien González,Québec,Hôtel de qualité supérieure au centre-ville,633.2
+295,Céline Sánchez,München,Restaurant français avec cuisine traditionnelle,3268.59
+296,Hélène García,Bruxelles,Université renommée pour la recherche scientifique,7556.55
+297,Amélie Sánchez,Montréal,Université renommée pour la recherche scientifique,2766.38
+298,François Dupré,São Paulo,Café très agréable avec une belle terrasse,5441.61
+299,Stéphanie Lefèvre,Strasbourg,Société d'électronique et de télécommunications,7306.68
+300,José Rodríguez,Paris,Société d'électronique et de télécommunications,1168.64
+301,André Lefèvre,Strasbourg,Librairie spécialisée en littérature étrangère,6884.45
+302,María Müller,Montréal,Théâtre classique avec programmation variée,1009.52
+303,Béatrice Martínez,Strasbourg,Restaurant français avec cuisine traditionnelle,9654.78
+304,María Pérez,München,Musée d'art contemporain et d'histoire naturelle,4935.1
+305,Sébastien López,Málaga,Pâtisserie artisanale proposant des spécialités régionales,1591.69
+306,Émilie Lefèvre,Paris,Café très agréable avec une belle terrasse,3489.6
+307,Béatrice Sánchez,Zürich,Université renommée pour la recherche scientifique,4192.82
+308,Jérôme López,Montréal,Librairie spécialisée en littérature étrangère,7606.03
+309,Béatrice López,Genève,Société d'électronique et de télécommunications,7459.9
+310,François Sánchez,Zürich,Café très agréable avec une belle terrasse,6158.21
+311,María Rodríguez,Strasbourg,Pâtisserie artisanale proposant des spécialités régionales,1148.71
+312,Hélène González,Montréal,Musée d'art contemporain et d'histoire naturelle,1600.54
+313,André López,Québec,Librairie spécialisée en littérature étrangère,1028.19
+314,Émilie Martínez,Genève,Pâtisserie artisanale proposant des spécialités régionales,5814.01
+315,Émilie Müller,Paris,Université renommée pour la recherche scientifique,8783.67
+316,Hélène Rodríguez,São Paulo,Université renommée pour la recherche scientifique,4394.63
+317,André Lefèvre,Québec,Université renommée pour la recherche scientifique,1692.4
+318,Stéphanie Lefèvre,Zürich,Café très agréable avec une belle terrasse,5624.62
+319,Jérôme Dupré,Málaga,Café très agréable avec une belle terrasse,8136.35
+320,Sébastien Dupré,München,Société d'électronique et de télécommunications,7442.95
+321,Amélie Dupré,São Paulo,Société d'électronique et de télécommunications,8826.36
+322,María López,Québec,Musée d'art contemporain et d'histoire naturelle,2851.23
+323,José Pérez,Málaga,Librairie spécialisée en littérature étrangère,2020.14
+324,Hélène García,Málaga,Hôtel de qualité supérieure au centre-ville,8810.18
+325,Hélène Müller,Montréal,Hôtel de qualité supérieure au centre-ville,6609.85
+326,André Dupré,Québec,Pâtisserie artisanale proposant des spécialités régionales,3178.2
+327,Sébastien Lefèvre,Paris,Université renommée pour la recherche scientifique,7449.25
+328,José González,Strasbourg,Librairie spécialisée en littérature étrangère,8169.67
+329,Hélène Sánchez,Genève,Café très agréable avec une belle terrasse,6188.28
+330,Céline Lefèvre,Genève,Théâtre classique avec programmation variée,6910.05
+331,Émilie Rodríguez,Zürich,Restaurant français avec cuisine traditionnelle,3815.07
+332,Émilie Dupré,Zürich,Musée d'art contemporain et d'histoire naturelle,5433.09
+333,Céline Sánchez,Genève,Université renommée pour la recherche scientifique,5289.18
+334,Émilie Pérez,Paris,Université renommée pour la recherche scientifique,8495.67
+335,Jérôme Rodríguez,München,Université renommée pour la recherche scientifique,8415.64
+336,Jérôme García,Bruxelles,Café très agréable avec une belle terrasse,8343.54
+337,Émilie Dupré,Strasbourg,Café très agréable avec une belle terrasse,209.21
+338,Hélène Pérez,München,Restaurant français avec cuisine traditionnelle,7520.5
+339,Amélie Lefèvre,Montréal,Librairie spécialisée en littérature étrangère,7610.9
+340,André Martínez,Bruxelles,Université renommée pour la recherche scientifique,6815.95
+341,André Dupré,Bruxelles,Hôtel de qualité supérieure au centre-ville,7587.02
+342,María López,Québec,Société d'électronique et de télécommunications,8435.51
+343,Sébastien García,Paris,Hôtel de qualité supérieure au centre-ville,4756.16
+344,José Dupré,Paris,Pâtisserie artisanale proposant des spécialités régionales,5070.3
+345,Hélène García,Bruxelles,Hôtel de qualité supérieure au centre-ville,1334.67
+346,Jérôme Rodríguez,Québec,Pâtisserie artisanale proposant des spécialités régionales,3915.22
+347,François Dupré,Strasbourg,Théâtre classique avec programmation variée,6469.32
+348,Béatrice Rodríguez,Bruxelles,Société d'électronique et de télécommunications,7825.96
+349,André Lefèvre,São Paulo,Hôtel de qualité supérieure au centre-ville,2250.37
+350,André García,Zürich,Théâtre classique avec programmation variée,1464.45
+351,André Dupré,Zürich,Musée d'art contemporain et d'histoire naturelle,6664.12
+352,Jérôme Martínez,München,Librairie spécialisée en littérature étrangère,118.61
+353,Sébastien Müller,Montréal,Théâtre classique avec programmation variée,1865.89
+354,André García,Zürich,Librairie spécialisée en littérature étrangère,387.81
+355,Hélène López,Málaga,Hôtel de qualité supérieure au centre-ville,1752.16
+356,André Dupré,München,Théâtre classique avec programmation variée,1895.06
+357,Béatrice Lefèvre,Zürich,Société d'électronique et de télécommunications,3937.97
+358,Émilie Müller,Montréal,Hôtel de qualité supérieure au centre-ville,4083.04
+359,Stéphanie Dupré,Paris,Université renommée pour la recherche scientifique,8755.2
+360,Sébastien López,Paris,Café très agréable avec une belle terrasse,5150.09
+361,Stéphanie González,Strasbourg,Théâtre classique avec programmation variée,7261.71
+362,Stéphanie Dupré,Bruxelles,Société d'électronique et de télécommunications,1130.96
+363,Stéphanie Sánchez,São Paulo,Musée d'art contemporain et d'histoire naturelle,2331.84
+364,Jérôme López,Paris,Université renommée pour la recherche scientifique,7059.14
+365,André Dupré,Québec,Musée d'art contemporain et d'histoire naturelle,622.76
+366,Hélène Müller,Zürich,Hôtel de qualité supérieure au centre-ville,4917.32
+367,José Pérez,Québec,Café très agréable avec une belle terrasse,6033.75
+368,André Müller,Montréal,Théâtre classique avec programmation variée,6061.24
+369,Céline García,Paris,Théâtre classique avec programmation variée,327.03
+370,Émilie Rodríguez,São Paulo,Hôtel de qualité supérieure au centre-ville,3288.87
+371,Béatrice Sánchez,Montréal,Hôtel de qualité supérieure au centre-ville,6401.26
+372,Jérôme García,Málaga,Café très agréable avec une belle terrasse,1575.1
+373,Sébastien Lefèvre,Málaga,Société d'électronique et de télécommunications,6984.61
+374,José García,Québec,Société d'électronique et de télécommunications,7484.66
+375,Émilie Müller,Bruxelles,Café très agréable avec une belle terrasse,9821.49
+376,Sébastien Dupré,München,Société d'électronique et de télécommunications,2177.44
+377,Amélie Martínez,Bruxelles,Pâtisserie artisanale proposant des spécialités régionales,8268.79
+378,André González,Strasbourg,Librairie spécialisée en littérature étrangère,5250.94
+379,Stéphanie Dupré,Bruxelles,Café très agréable avec une belle terrasse,3797.28
+380,François López,Strasbourg,Café très agréable avec une belle terrasse,1311.53
+381,Béatrice Lefèvre,Strasbourg,Restaurant français avec cuisine traditionnelle,7381.51
+382,Émilie García,São Paulo,Université renommée pour la recherche scientifique,2434.99
+383,Sébastien García,Paris,Université renommée pour la recherche scientifique,3777.08
+384,François García,São Paulo,Pâtisserie artisanale proposant des spécialités régionales,719.17
+385,Amélie López,Strasbourg,Hôtel de qualité supérieure au centre-ville,8033.53
+386,François Pérez,Montréal,Hôtel de qualité supérieure au centre-ville,7689.23
+387,Hélène Lefèvre,Málaga,Musée d'art contemporain et d'histoire naturelle,7362.8
+388,André Rodríguez,Strasbourg,Pâtisserie artisanale proposant des spécialités régionales,3064.49
+389,Émilie González,São Paulo,Café très agréable avec une belle terrasse,1817.45
+390,Jérôme López,Montréal,Pâtisserie artisanale proposant des spécialités régionales,6411.78
+391,André Dupré,São Paulo,Pâtisserie artisanale proposant des spécialités régionales,5012.05
+392,María Sánchez,Bruxelles,Pâtisserie artisanale proposant des spécialités régionales,1864.7
+393,Céline Müller,Zürich,Université renommée pour la recherche scientifique,6890.52
+394,Jérôme Müller,Québec,Pâtisserie artisanale proposant des spécialités régionales,9912.15
+395,Émilie Pérez,München,Librairie spécialisée en littérature étrangère,7497.47
+396,Céline Dupré,São Paulo,Hôtel de qualité supérieure au centre-ville,7425.87
+397,François Lefèvre,München,Musée d'art contemporain et d'histoire naturelle,9508.1
+398,Stéphanie García,Genève,Librairie spécialisée en littérature étrangère,2109.07
+399,Amélie López,São Paulo,Musée d'art contemporain et d'histoire naturelle,5698.94
+400,Hélène González,Zürich,Restaurant français avec cuisine traditionnelle,9798.5
+401,Béatrice Lefèvre,München,Musée d'art contemporain et d'histoire naturelle,1736.41
+402,Céline Pérez,Strasbourg,Hôtel de qualité supérieure au centre-ville,7032.49
+403,Céline Pérez,São Paulo,Hôtel de qualité supérieure au centre-ville,5899.52
+404,Céline Martínez,Paris,Pâtisserie artisanale proposant des spécialités régionales,5906.14
+405,José López,Québec,Théâtre classique avec programmation variée,7006.94
+406,Amélie García,Zürich,Restaurant français avec cuisine traditionnelle,9303.21
+407,Jérôme López,München,Café très agréable avec une belle terrasse,7847.56
+408,José Dupré,Zürich,Société d'électronique et de télécommunications,655.75
+409,Stéphanie García,Montréal,Musée d'art contemporain et d'histoire naturelle,8542.01
+410,Émilie Sánchez,Québec,Théâtre classique avec programmation variée,2332.86
+411,Sébastien Dupré,Strasbourg,Pâtisserie artisanale proposant des spécialités régionales,3831.45
+412,Sébastien Müller,São Paulo,Université renommée pour la recherche scientifique,4671.15
+413,Stéphanie Martínez,São Paulo,Café très agréable avec une belle terrasse,4860.97
+414,Émilie Sánchez,São Paulo,Théâtre classique avec programmation variée,4408.29
+415,François Müller,Québec,Université renommée pour la recherche scientifique,9379.8
+416,Jérôme Martínez,Paris,Restaurant français avec cuisine traditionnelle,7089.59
+417,Jérôme Martínez,Genève,Pâtisserie artisanale proposant des spécialités régionales,6348.59
+418,Hélène Lefèvre,Málaga,Café très agréable avec une belle terrasse,593.44
+419,Céline Müller,Bruxelles,Café très agréable avec une belle terrasse,9048.74
+420,Jérôme Pérez,München,Café très agréable avec une belle terrasse,9102.96
+421,André Rodríguez,Paris,Restaurant français avec cuisine traditionnelle,7824.11
+422,André López,Strasbourg,Musée d'art contemporain et d'histoire naturelle,169.59
+423,María Rodríguez,München,Restaurant français avec cuisine traditionnelle,667.07
+424,Sébastien Sánchez,São Paulo,Société d'électronique et de télécommunications,2329.71
+425,Émilie González,Zürich,Hôtel de qualité supérieure au centre-ville,1400.36
+426,Céline García,Strasbourg,Pâtisserie artisanale proposant des spécialités régionales,4048.48
+427,Jérôme Rodríguez,München,Restaurant français avec cuisine traditionnelle,9233.97
+428,José González,São Paulo,Université renommée pour la recherche scientifique,4773.4
+429,José González,München,Société d'électronique et de télécommunications,232.69
+430,Amélie García,Zürich,Hôtel de qualité supérieure au centre-ville,2899.18
+431,Jérôme Lefèvre,São Paulo,Musée d'art contemporain et d'histoire naturelle,541.49
+432,José López,Genève,Université renommée pour la recherche scientifique,459.25
+433,Hélène González,Paris,Pâtisserie artisanale proposant des spécialités régionales,2829.63
+434,Stéphanie Sánchez,Montréal,Université renommée pour la recherche scientifique,2828.56
+435,Béatrice Martínez,Bruxelles,Hôtel de qualité supérieure au centre-ville,7892.55
+436,André González,Québec,Université renommée pour la recherche scientifique,9750.86
+437,Sébastien Sánchez,Bruxelles,Librairie spécialisée en littérature étrangère,3774.95
+438,Émilie Martínez,Strasbourg,Théâtre classique avec programmation variée,4345.98
+439,André Pérez,Bruxelles,Musée d'art contemporain et d'histoire naturelle,8463.42
+440,Hélène Pérez,São Paulo,Hôtel de qualité supérieure au centre-ville,2754.58
+441,Jérôme López,Genève,Université renommée pour la recherche scientifique,1648.18
+442,Hélène García,Montréal,Théâtre classique avec programmation variée,8545.59
+443,María Lefèvre,Paris,Théâtre classique avec programmation variée,560.36
+444,François Rodríguez,Paris,Université renommée pour la recherche scientifique,6235.02
+445,Céline Müller,Zürich,Pâtisserie artisanale proposant des spécialités régionales,5663.73
+446,Émilie López,Québec,Librairie spécialisée en littérature étrangère,3524.61
+447,Jérôme Martínez,München,Restaurant français avec cuisine traditionnelle,3220.38
+448,Stéphanie Lefèvre,Genève,Librairie spécialisée en littérature étrangère,7741.39
+449,María Sánchez,München,Université renommée pour la recherche scientifique,955.6
+450,François Rodríguez,Montréal,Musée d'art contemporain et d'histoire naturelle,2444.16
+451,Amélie Lefèvre,Bruxelles,Restaurant français avec cuisine traditionnelle,7351.24
+452,Stéphanie Martínez,Paris,Hôtel de qualité supérieure au centre-ville,5528.37
+453,André Dupré,Montréal,Librairie spécialisée en littérature étrangère,1367.08
+454,Sébastien Dupré,Bruxelles,Université renommée pour la recherche scientifique,8833.14
+455,Sébastien Lefèvre,Paris,Librairie spécialisée en littérature étrangère,3995.13
+456,Béatrice Pérez,Bruxelles,Restaurant français avec cuisine traditionnelle,8295.9
+457,Amélie Rodríguez,Québec,Société d'électronique et de télécommunications,7898.36
+458,Béatrice Martínez,Genève,Librairie spécialisée en littérature étrangère,6281.81
+459,Béatrice López,Strasbourg,Hôtel de qualité supérieure au centre-ville,4995.36
+460,José Rodríguez,Montréal,Hôtel de qualité supérieure au centre-ville,9797.55
+461,Stéphanie Pérez,Montréal,Café très agréable avec une belle terrasse,1535.15
+462,Céline Lefèvre,Málaga,Librairie spécialisée en littérature étrangère,7279.04
+463,François Pérez,São Paulo,Pâtisserie artisanale proposant des spécialités régionales,1992.79
+464,Émilie Pérez,Québec,Théâtre classique avec programmation variée,3448.8
+465,Sébastien Lefèvre,Québec,Théâtre classique avec programmation variée,3156.12
+466,André Rodríguez,München,Théâtre classique avec programmation variée,9475.66
+467,Sébastien López,Bruxelles,Société d'électronique et de télécommunications,9676.83
+468,Hélène García,São Paulo,Café très agréable avec une belle terrasse,1911.85
+469,Amélie Rodríguez,Genève,Société d'électronique et de télécommunications,318.15
+470,Jérôme López,Genève,Librairie spécialisée en littérature étrangère,7228.08
+471,Émilie Dupré,Québec,Librairie spécialisée en littérature étrangère,4238.1
+472,Sébastien Sánchez,Genève,Librairie spécialisée en littérature étrangère,979.52
+473,Sébastien Pérez,Málaga,Musée d'art contemporain et d'histoire naturelle,6869.17
+474,José Pérez,Montréal,Théâtre classique avec programmation variée,5496.54
+475,André Pérez,Zürich,Musée d'art contemporain et d'histoire naturelle,9807.12
+476,André Müller,Strasbourg,Café très agréable avec une belle terrasse,2351.35
+477,Jérôme Lefèvre,München,Société d'électronique et de télécommunications,4099.38
+478,Stéphanie Pérez,Bruxelles,Théâtre classique avec programmation variée,5471.2
+479,Amélie López,Strasbourg,Musée d'art contemporain et d'histoire naturelle,7937.83
+480,André Lefèvre,Bruxelles,Musée d'art contemporain et d'histoire naturelle,5533.5
+481,François Rodríguez,Paris,Université renommée pour la recherche scientifique,6167.71
+482,Jérôme Dupré,Strasbourg,Musée d'art contemporain et d'histoire naturelle,2338.86
+483,Béatrice Sánchez,Zürich,Pâtisserie artisanale proposant des spécialités régionales,8484.5
+484,Émilie García,Québec,Pâtisserie artisanale proposant des spécialités régionales,4343.44
+485,Céline García,Málaga,Société d'électronique et de télécommunications,1495.5
+486,María Müller,Montréal,Pâtisserie artisanale proposant des spécialités régionales,6675.46
+487,Stéphanie Martínez,Montréal,Société d'électronique et de télécommunications,2239.3
+488,André Martínez,Málaga,Société d'électronique et de télécommunications,1065.87
+489,Amélie Rodríguez,São Paulo,Café très agréable avec une belle terrasse,8633.67
+490,Sébastien González,Paris,Université renommée pour la recherche scientifique,4655.61
+491,José Müller,Bruxelles,Librairie spécialisée en littérature étrangère,7517.91
+492,Stéphanie García,Zürich,Hôtel de qualité supérieure au centre-ville,2976.82
+493,Stéphanie Rodríguez,Genève,Société d'électronique et de télécommunications,7891.0
+494,Amélie Martínez,Strasbourg,Restaurant français avec cuisine traditionnelle,1208.17
+495,François López,Paris,Librairie spécialisée en littérature étrangère,3624.14
+496,José Müller,Strasbourg,Théâtre classique avec programmation variée,9782.81
+497,Céline Lefèvre,Zürich,Pâtisserie artisanale proposant des spécialités régionales,7960.5
+498,Émilie Rodríguez,München,Hôtel de qualité supérieure au centre-ville,5022.83
+499,Amélie Martínez,München,Restaurant français avec cuisine traditionnelle,3463.8
+500,Stéphanie López,Paris,Librairie spécialisée en littérature étrangère,8734.14

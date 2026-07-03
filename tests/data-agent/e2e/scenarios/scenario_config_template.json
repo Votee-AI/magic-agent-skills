@@ -1,0 +1,75 @@
+{
+  "_comment": "Copy this file and fill in your own values. Fields marked REQUIRED must be set.",
+  "scenario_name": "CHANGE_ME",
+  "mode": "real_data",
+
+  "input": {
+    "file_path": "/path/to/your/data.csv",
+    "description": "Brief description of your dataset and analysis goals",
+    "encoding": "utf-8",
+    "delimiter": ","
+  },
+
+  "pipeline": [
+    "magic-data-loading",
+    "magic-data-profiling",
+    "magic-data-cleaning",
+    "magic-statistical-analysis",
+    "magic-data-visualization",
+    "magic-report-generation"
+  ],
+
+  "expectations": {
+    "magic-data-loading": {
+      "min_rows": 10,
+      "expected_columns": ["col1", "col2"],
+      "_comment": "List columns your data MUST have. Loading fails if these are missing."
+    },
+
+    "magic-data-profiling": {
+      "quality_score_min": 0.0,
+      "_comment": "Minimum acceptable quality score (0-100). Set to 0 to skip this check."
+    },
+
+    "magic-data-cleaning": {
+      "expected_issues": [],
+      "strategy": "auto",
+      "_comment": "Expected issue types: missing_values, duplicates, outliers, type_errors. Strategy: auto, median, mean, mode, drop_rows."
+    },
+
+    "magic-statistical-analysis": {
+      "target_columns": [],
+      "tests": ["descriptive"],
+      "_comment": "Columns to analyze. Tests: descriptive, correlation, hypothesis."
+    },
+
+    "magic-data-visualization": {
+      "charts": [],
+      "_comment": "List of charts: [{\"type\": \"histogram\", \"column\": \"col1\"}, {\"type\": \"bar\", \"column\": \"col2\"}]"
+    },
+
+    "magic-report-generation": {
+      "template": "standard",
+      "focus": "",
+      "_comment": "Templates: standard, executive, technical. Focus: describe what the report should emphasize."
+    }
+  },
+
+  "verification": {
+    "output_files": [
+      {"pattern": "ckpt_*.csv", "description": "Cleaned data checkpoint"},
+      {"pattern": "*.png", "description": "Chart generated"},
+      {"pattern": "*report*.md", "description": "Report generated"}
+    ],
+    "quality_gates": {
+      "min_rows_after_cleaning": 0,
+      "max_missing_pct_after_cleaning": 100,
+      "_comment": "min_rows_after_cleaning: fail if fewer rows remain. max_missing_pct: fail if missing data exceeds this %."
+    }
+  },
+
+  "agent_prompt": {
+    "template": "Load the file at {file_path}. {pipeline_description} Focus on: {focus}",
+    "_comment": "Template for generating the agent prompt. {file_path} and {focus} are auto-filled from config."
+  }
+}
