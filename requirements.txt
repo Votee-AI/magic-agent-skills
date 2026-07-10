@@ -15,7 +15,7 @@ scipy>=1.10
 matplotlib>=3.7
 seaborn>=0.12
 chardet>=5.0         # magic-data-loading (encoding detection)
-openpyxl>=3.1        # magic-data-loading (Excel file support)
+openpyxl>=3.1.5        # magic-data-loading (Excel file support)
 pyarrow>=14.0        # magic-data-loading (Parquet file support)
 pyyaml>=6.0          # config parsing
 
