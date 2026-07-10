@@ -20,7 +20,7 @@ pyarrow>=14.0        # magic-data-loading (Parquet file support)
 pyyaml>=6.0          # config parsing
 
 # ── Recommended (specific skills) ─────────────────────────────────
-plotly>=5.0          # magic-data-visualization (interactive charts)
+plotly>=6.9.0          # magic-data-visualization (interactive charts)
 pandera>=0.18        # magic-data-validation (schema validation)
 jinja2>=3.1          # magic-report-generation (report templating)
 tabulate>=0.9        # magic-report-generation (table formatting)
