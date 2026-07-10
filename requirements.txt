@@ -10,7 +10,7 @@
 
 # ── Required (all skills) ─────────────────────────────────────────
 pandas>=2.0
-numpy>=1.24
+numpy>=2.5.1
 scipy>=1.10
 matplotlib>=3.7
 seaborn>=0.12
